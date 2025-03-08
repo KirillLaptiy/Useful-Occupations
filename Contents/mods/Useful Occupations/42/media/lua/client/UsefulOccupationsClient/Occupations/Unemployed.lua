@@ -1,5 +1,15 @@
+--[[
+*
+*              ^_^         Y U M M Y         ^_^
+*
+*                 ~ Deliciously Made by YUMMY ~
+*
+*                          :3  :3  :3
+*
+]]
+
 --- @param player IsoPlayer
-UsefulOccupations.occupations.unemployed = function(player)
+UsefulOccupations.onstart.unemployed = function(player)
     local xp = player:getXp()
 
     for i = 0, Perks.getMaxIndex() - 1 do
