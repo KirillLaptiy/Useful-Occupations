@@ -2,7 +2,7 @@
 *
 *              ^_^         Y U M M Y         ^_^
 *
-*                 ~ Deliciously Edited by YUMMY ~
+*                 ~ Deliciously Made by YUMMY ~
 *
 *                          :3  :3  :3
 *
