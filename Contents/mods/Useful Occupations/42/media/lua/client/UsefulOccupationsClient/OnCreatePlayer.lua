@@ -9,34 +9,35 @@
 ]]
 
 Events.OnCreatePlayer.Add(function(_, player)
-    -- Only run one time
-    if not player:getModData().UsefulOccupations then
-        -- Init mod data
+	-- Call only 1 time
+	if not UsefulOccupations.Functions.getModData() then
+		-- Init mod data
+		local modData = UsefulOccupations.Functions.initModData()
 
-        -- Main mod data
-        player:getModData().UsefulOccupations = {}
+		-- Init perks mod data
+		for i = 0, Perks.getMaxIndex() - 1 do
+			local perk = Perks.fromIndex(i)
+			local perkName = perk:getName()
 
-        -- Traits mod data
-        for i = 0, Perks.getMaxIndex() - 1 do
-            local perk = Perks.fromIndex(i)
-            local perkName = perk:getName()
+			modData[perkName] = {}
+			modData[perkName].startXpBoost = player:getXp():getPerkBoost(perk)
+		end
 
-            player:getModData().UsefulOccupations[perkName] = {}
-            player:getModData().UsefulOccupations[perkName].startXpBoost = player:getXp():getPerkBoost(perk)
-        end
+		-- Add vanilla traits from they decorations
+		for _, trait in pairs(UsefulOccupations.DecorationTraits) do
+			if player:HasTrait(trait.decorationTrait.type) then
+				player:getTraits():add(trait.originalTrait.type)
+				player:getTraits():remove(trait.decorationTrait.type)
+			end
+		end
+	end
 
-        -- Add vanilla traits from they decoration's
-        local professionType = player:getDescriptor():getProfession()
+	-- Run personal traits when player created
+	for func in pairs(UsefulOccupations.DoTraitsOnStart) do
+		local traitName = tostring(func)
 
-        for _, trait in pairs(UsefulOccupations.Professions[professionType].decorationTraits) do
-            player:getTraits():add(trait)
-        end
-    end
-
-    -- Run personal traits when player created
-    for func in pairs(UsefulOccupations.PersonalTraitsOnStart) do
-        if UsefulOccupations.isContaneTrait(tostring(func)) then
-            UsefulOccupations.PersonalTraitsOnStart[func]()
-        end
-    end
+		if player:HasTrait(traitName) then
+			UsefulOccupations.DoTraitsOnStart[func]()
+		end
+	end
 end)
