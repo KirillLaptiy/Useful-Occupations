@@ -94,10 +94,6 @@ end
 
 local reduceActionsTimeByTraits = require("UsefulOccupationsShared/ReduceActionsTimeByTraits")
 
-local DoTraitsOnStart = {}
-DoTraitsOnStart.Axeman = require("UsefulOccupationsShared/DoTraitsOnStart/PersonalTraits/Axeman")
-DoTraitsOnStart.Wunderkind = require("UsefulOccupationsShared/DoTraitsOnStart/PersonalTraits/Wunderkind")
-
 Events.OnGameBoot.Add(function()
 	-- Adds traits and professions
 	addUsefulTraits()
@@ -107,8 +103,7 @@ Events.OnGameBoot.Add(function()
 	reduceActionsTimeByTraits()
 
 	-- Do traits on game boot
-	---@param func function
-	for _, func in pairs(DoTraitsOnStart) do
-		func()
+	for func in pairs(UsefulOccupations.DoTraitsOnGameBoot) do
+		UsefulOccupations.DoTraitsOnGameBoot[func]()
 	end
 end)

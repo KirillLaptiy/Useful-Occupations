@@ -7,6 +7,8 @@
 ---@field initModData fun(): UsefulOccupations.ModData
 -- Adds function that will be called every frequencyMs milliseconds
 ---@field processEveryMs fun(frequencyMs: integer, callback: function)
+-- Adds function that will be called after % milliseconds
+---@field processAfterDelay fun(delayMs: integer, callback: function)
 -- Adds an event that will be removed upon death
 ---@field addEvent fun(event: EventType, callback: function) : function
 -- Need to clear events if a new player was created in the same world
@@ -35,6 +37,20 @@ local Functions = {
 				callback()
 			end
 		end)
+	end,
+
+	processAfterDelay = function(delayMs, callback)
+		local startCall = getTimestampMs()
+
+		local onTick
+		onTick = function()
+			if getTimestampMs() - startCall >= delayMs then
+				Events.OnTick.Remove(onTick)
+				callback()
+			end
+		end
+
+		Events.OnTick.Add(onTick)
 	end,
 
 	addEvent = function(eventTable, callback)

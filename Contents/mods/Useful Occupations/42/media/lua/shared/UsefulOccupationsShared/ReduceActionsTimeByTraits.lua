@@ -11,7 +11,7 @@
 local reduceActionsTimeByTraits = function()
 	---@param actionClass table
 	---@param speedMultiplier number
-	---@param trait UsefulOccupations.AnyTrait
+	---@param trait any
 	local function reduceActionTimeByTrait(actionClass, speedMultiplier, trait)
 		local originalNew = actionClass.new
 
@@ -30,6 +30,7 @@ local reduceActionsTimeByTraits = function()
 		end
 	end
 
+	-- Outdoorsman
 	local Outdoorsman = UsefulOccupations.PersonalTraits.Outdoorsman
 
 	reduceActionTimeByTrait(ISWashYourself, Outdoorsman.values.washYourselfSpeedMultiplier, Outdoorsman)

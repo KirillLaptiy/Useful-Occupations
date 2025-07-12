@@ -16,4 +16,7 @@
         "io": "disable",
         "package": "disable"
     },
+    "Lua.diagnostics.globals": [
+        "forageSkills"
+    ],
 }

@@ -15,57 +15,49 @@
 ---@field perk Perk
 ---@field level integer
 
----@class UsefulOccupations.MovementSpeedValue
----@field BlendTime integer,
----@field SpeedScale integer,
+-- Traits on game start
+---@class UsefulOccupations.DoTraitsOnCreatePlayer
+---@field ScoutSkills DoTraitsOnCreatePlayer.ScoutSkills
+---@field Wunderkind DoTraitsOnCreatePlayer.Wunderkind
+---@field Inconspicuous DoTraitsOnCreatePlayer.Inconspicuous
+---@field Burglar DoTraitsOnCreatePlayer.Burglar
 
--- Data
----@class UsefulOccupations.MovementSpeedValues
----@field defaultWalk UsefulOccupations.MovementSpeedValue
+-- Traits on game boot
+---@class UsefulOccupations.DoTraitsOnGameBoot
+---@field Axeman DoTraitsOnGameBoot.Axeman
+---@field Wunderkind DoTraitsOnGameBoot.Wunderkind
 
----@class UsefulOccupations.ModData
----@field walkTime integer
-
----@class UsefulOccupations.DoTraitsOnStart
----@field ScoutSkills? function
----@field Wunderkind? function
-
+--- Main data
 ---@class UsefulOccupations
----@field DoTraitsOnStart? UsefulOccupations.DoTraitsOnStart
+---@field DoTraitsOnCreatePlayer UsefulOccupations.DoTraitsOnCreatePlayer
+---@field DoTraitsOnGameBoot UsefulOccupations.DoTraitsOnGameBoot
 ---@field MovementSpeedValues UsefulOccupations.MovementSpeedValues
 ---@field ModData UsefulOccupations.ModData
 ---@field Traits UsefulOccupations.Traits
 ---@field PersonalTraits UsefulOccupations.PersonalTraits
----@field DecorationTraits? UsefulOccupations.DecorationTrait[]
----@field MutualExclusives? UsefulOccupations.MutualExclusive[]
----@field Professions? UsefulOccupations.Professions
+---@field DecorationTraits UsefulOccupations.DecorationTraits
+---@field MutualExclusives UsefulOccupations.MutualExclusives
+---@field Professions UsefulOccupations.Professions
 ---@field Functions UsefulOccupations.Functions
 
 ---@type UsefulOccupations
+---@diagnostic disable-next-line: missing-fields
 UsefulOccupations = {
-	-- Initial data
-	DoTraitsOnStart = {},
-
-	MovementSpeedValues = {
-		defaultWalk = {
-			BlendTime = 0.20,
-			SpeedScale = 1.04,
-		},
-	},
-
-	ModData = {
-		walkTime = 0,
-	},
-
+	---@diagnostic disable-next-line: missing-fields
+	DoTraitsOnCreatePlayer = {},
+	---@diagnostic disable-next-line: missing-fields
+	DoTraitsOnGameBoot = {},
+	MovementSpeedValues = require("UsefulOccupationsShared/Data/MovementSpeedValues"),
+	ModData = require("UsefulOccupationsShared/Data/ModData"),
 	Traits = require("UsefulOccupationsShared/Data/Traits"),
 	PersonalTraits = require("UsefulOccupationsShared/Data/PersonalTraits"),
 	Functions = require("UsefulOccupationsShared/Data/Functions"),
 }
 
----@type UsefulOccupations.DecorationTrait[]
+---@type UsefulOccupations.DecorationTraits
 UsefulOccupations.DecorationTraits = require("UsefulOccupationsShared/Data/DecorationTraits")()
 
----@type UsefulOccupations.MutualExclusive[]
+---@type UsefulOccupations.MutualExclusives
 UsefulOccupations.MutualExclusives = require("UsefulOccupationsShared/Data/MutualExclusives")()
 
 ---@type UsefulOccupations.Professions

@@ -6,54 +6,50 @@
 ---@field traits UsefulOccupations.AnyTrait[]
 ---@field xpBoosts UsefulOccupations.XpBoost[]
 
----@class UsefulOccupations.Professions
----@field unemployed UsefulOccupations.Profession
----@field parkranger UsefulOccupations.Profession
----@field burglar UsefulOccupations.Profession
-
 local initProfessions = function()
-	---@type UsefulOccupations.Professions
-	return {
-		unemployed = {
+	---@class UsefulOccupations.Professions
+	local professions = {
+		---@class Profession.Unemployed
+		Unemployed = {
 			type = "unemployed",
 			name = getText("UI_prof_unemployed"),
 			iconPath = "useful_occupations_unemployed",
 			points = 30,
+
+			---@class Profession.Unemployed.traits
 			traits = {
 				UsefulOccupations.PersonalTraits.Wunderkind,
 			},
+
+			---@class Profession.Unemployed.xpBoosts
 			xpBoosts = {},
 		},
 
-		parkranger = {
+		---@class Profession.Scout
+		Scout = {
 			type = "parkranger",
 			name = getText("UI_prof_parkranger"),
-			iconPath = "profession_parkranger2",
+			iconPath = "useful_occupations_parkranger",
 			points = 0,
+
+			---@class Profession.Scout.traits
 			traits = {
 				UsefulOccupations.PersonalTraits.ScoutSkills,
 				UsefulOccupations.PersonalTraits.NightVision_Personal,
 				UsefulOccupations.PersonalTraits.Outdoorsman,
 				UsefulOccupations.PersonalTraits.Axeman,
 				UsefulOccupations.PersonalTraits.Organized,
+				UsefulOccupations.PersonalTraits.Burglar,
+				UsefulOccupations.PersonalTraits.Graceful,
+				UsefulOccupations.PersonalTraits.Inconspicuous,
 			},
+
+			---@class Profession.Scout.xpBoosts
 			xpBoosts = {
 				{ perk = Perks.PlantScavenging, level = 4 },
 				{ perk = Perks.Fishing, level = 4 },
 				{ perk = Perks.Trapping, level = 4 },
 				{ perk = Perks.Tracking, level = 4 },
-			},
-		},
-
-		burglar = {
-			type = "burglar",
-			name = getText("UI_prof_Burglar"),
-			iconPath = "useful_occupations_burglar",
-			points = 0,
-			traits = {
-				UsefulOccupations.PersonalTraits.Burglar,
-			},
-			xpBoosts = {
 				{ perk = Perks.Sprinting, level = 4 },
 				{ perk = Perks.Lightfoot, level = 4 },
 				{ perk = Perks.Nimble, level = 4 },
@@ -61,6 +57,8 @@ local initProfessions = function()
 			},
 		},
 	}
+
+	return professions
 end
 
 return initProfessions

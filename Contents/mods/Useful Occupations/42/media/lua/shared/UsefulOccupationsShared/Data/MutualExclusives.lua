@@ -1,10 +1,10 @@
----@class UsefulOccupations.MutualExclusive
----@field key UsefulOccupations.AnyTrait
----@field values UsefulOccupations.AnyTrait[]
+----@class UsefulOccupations.MutualExclusive
+----@field key UsefulOccupations.AnyTrait
+----@field values UsefulOccupations.AnyTrait[]
 
 local initMutualExclusives = function()
-	---@type UsefulOccupations.MutualExclusive[]
-	return {
+	---@class UsefulOccupations.MutualExclusives
+	local mutualExclusives = {
 		{
 			key = UsefulOccupations.PersonalTraits.NightVision_Personal,
 			values = { UsefulOccupations.Traits.NightVision },
@@ -14,6 +14,8 @@ local initMutualExclusives = function()
 			values = { UsefulOccupations.Traits.Illiterate, UsefulOccupations.Traits.Herbalist },
 		},
 	}
+
+	return mutualExclusives
 end
 
 return initMutualExclusives
