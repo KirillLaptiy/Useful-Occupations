@@ -8,7 +8,8 @@
 -- *
 -- ]]
 
-local wunderkind = function()
+---@class DoTraitsOnGameBoot.Wunderkind
+UsefulOccupations.DoTraitsOnGameBoot.Wunderkind = function()
 	local traitName = UsefulOccupations.PersonalTraits.Wunderkind.type
 
 	local booksMultiplier = UsefulOccupations.PersonalTraits.Wunderkind.values.booksMultiplier
@@ -46,4 +47,3 @@ local wunderkind = function()
 	end
 end
 
-return wunderkind

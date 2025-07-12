@@ -32,12 +32,12 @@ Events.OnCreatePlayer.Add(function(_, player)
 		end
 	end
 
-	-- Run personal traits when player created
-	for func in pairs(UsefulOccupations.DoTraitsOnStart) do
+	-- Do personal traits when player created
+	for func in pairs(UsefulOccupations.DoTraitsOnCreatePlayer) do
 		local traitName = tostring(func)
 
 		if player:HasTrait(traitName) then
-			UsefulOccupations.DoTraitsOnStart[func]()
+			UsefulOccupations.DoTraitsOnCreatePlayer[func](player)
 		end
 	end
 end)

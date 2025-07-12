@@ -8,28 +8,26 @@
 *
 ]]
 
-UsefulOccupations.DoTraitsOnStart.ScoutSkills = function()
-	local values = UsefulOccupations.PersonalTraits.ScoutSkills.values
+---@class DoTraitsOnCreatePlayer.ScoutSkills
+---@param player IsoPlayer
+UsefulOccupations.DoTraitsOnCreatePlayer.ScoutSkills = function(player)
+	local traitValues = UsefulOccupations.PersonalTraits.ScoutSkills.values
 
 	-- Ranger walk speed increased
-	local walkSpeedIncreaseMultiplier = values.walkSpeedIncreaseMultiplier
+	local walkSpeedIncreaseMultiplier = traitValues.walkSpeedIncreaseMultiplier
 	local defaultWalkBlendTime = UsefulOccupations.MovementSpeedValues.defaultWalk.BlendTime
 	local defaultWalkSpeedScale = UsefulOccupations.MovementSpeedValues.defaultWalk.SpeedScale
-	local lightFootInfluencePerLvl = values.lightFootInfluencePerLvl
+	local lightFootInfluencePerLvl = traitValues.lightFootInfluencePerLvl
 
 	-- When moving, thirst and hunger accumulate more slowly.
-	local msToCall = values.msToCall
-	local maxWalkTime = values.maxWalkTime
-	local thirstReducePerMinute = values.thirstReducePerMinute
-	local hungerReducePerMinute = values.hungerReducePerMinute
-	local minFactor = values.minFactor
-	local maxFactor = values.maxFactor
-
-	local player = getPlayer()
+	local msToCall = traitValues.msToCall
+	local maxWalkTime = traitValues.maxWalkTime
+	local thirstReducePerMinute = traitValues.thirstReducePerMinute
+	local hungerReducePerMinute = traitValues.hungerReducePerMinute
+	local minFactor = traitValues.minFactor
+	local maxFactor = traitValues.maxFactor
 
 	local modData = UsefulOccupations.Functions.getModData()
-
-	local walkTime = 0
 
 	-- Ranger walk speed increased
 	--- @param value number
@@ -65,18 +63,19 @@ UsefulOccupations.DoTraitsOnStart.ScoutSkills = function()
 
 	-- When moving, thirst and hunger accumulate more slowly.
 	UsefulOccupations.Functions.processEveryMs(msToCall, function()
-		if player:isWalking() and not player:IsRunning() and not player:isSprinting() and not player:isSneaking() then
-			walkTime = math.min(walkTime + (msToCall / 1000), maxWalkTime)
-			modData.walkTime = modData.walkTime + 1
+		if player:isWalking() and not player:IsRunning() and not player:isSprinting() then
+			modData.walkTime = math.min(modData.walkTime + (msToCall / 1000), maxWalkTime)
 		else
-			walkTime = math.max(walkTime - (msToCall / 1000), 0)
-			modData.walkTime = modData.walkTime - 1
+			modData.walkTime = math.max(modData.walkTime - (msToCall / 1000), 0)
 		end
 
-		if walkTime > 0 then
+		if modData.walkTime > 0 then
 			local stats = player:getStats()
 
-			local hungerFactor = minFactor + (maxFactor - minFactor) * (walkTime / maxWalkTime)
+			print(modData.walkTime)
+
+			-- Dynamic influence - more value - more influence
+			local hungerFactor = minFactor + (maxFactor - minFactor) * (modData.walkTime / maxWalkTime)
 
 			stats:setThirst(stats:getThirst() - (thirstReducePerMinute * hungerFactor))
 			stats:setHunger(stats:getHunger() - (hungerReducePerMinute * hungerFactor))

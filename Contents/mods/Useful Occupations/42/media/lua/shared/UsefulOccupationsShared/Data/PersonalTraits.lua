@@ -4,25 +4,32 @@
 ---@field desc string
 ---@field xpBoosts UsefulOccupations.XpBoost[]
 ---@field freeRecipes string[]
----@field values table<string, integer>
+---@field values table<string, any>
+
+----@class UsefulOccupations.PersonalTraits
+----@field Wunderkind UsefulOccupations.PersonalTrait
+----@field ScoutSkills UsefulOccupations.PersonalTrait
+----@field Axeman UsefulOccupations.PersonalTrait
+----@field Organized UsefulOccupations.PersonalTrait
+----@field NightVision_Personal UsefulOccupations.PersonalTrait
+----@field Outdoorsman UsefulOccupations.PersonalTrait
+----@field Burglar UsefulOccupations.PersonalTrait
+----@field Graceful UsefulOccupations.PersonalTrait
+----@field Inconspicuous UsefulOccupations.PersonalTrait
 
 ---@class UsefulOccupations.PersonalTraits
----@field Wunderkind UsefulOccupations.PersonalTrait
----@field ScoutSkills UsefulOccupations.PersonalTrait
----@field Axeman UsefulOccupations.PersonalTrait
----@field Organized UsefulOccupations.PersonalTrait
----@field NightVision_Personal UsefulOccupations.PersonalTrait
----@field Outdoorsman UsefulOccupations.PersonalTrait
----@field Burglar UsefulOccupations.PersonalTrait
-
----@type UsefulOccupations.PersonalTraits
 local PersonalTraits = {
+	-- Unemployed
+	---@class PersonalTraits.Wunderkind
 	Wunderkind = {
 		type = "Wunderkind",
 		name = getText("UI_trait_wunderkind"),
 		desc = getText("UI_trait_wunderkind_desc"),
+		---@class PersonalTraits.Wunderkind.xpBoosts
 		xpBoosts = {},
+		---@class PersonalTraits.Wunderkind.freeRecipes
 		freeRecipes = {},
+		---@class PersonalTraits.Wunderkind.values
 		values = {
 			-- set's last level for perk's +125% xp boost
 			lastLevelForXpBoost = 3,
@@ -32,11 +39,16 @@ local PersonalTraits = {
 			lastBooksMultiplierLevel = 10,
 		},
 	},
+
+	-- Ranger
+	---@class PersonalTraits.ScoutSkills
 	ScoutSkills = {
 		type = "ScoutSkills",
 		name = getText("UI_trait_scoutskills"),
 		desc = getText("UI_trait_scoutskills_desc"),
+		---@class PersonalTraits.ScoutSkills.xpBoosts
 		xpBoosts = {},
+		---@class PersonalTraits.ScoutSkills.freeRecipes
 		freeRecipes = {
 			"Herbalist",
 			"MakePlantainPoultice",
@@ -48,6 +60,7 @@ local PersonalTraits = {
 			"Common Mallow Growing Season",
 			"Wild Garlic Growing Season",
 		},
+		---@class PersonalTraits.ScoutSkills.values
 		values = {
 			-- Default walk speed increase value
 			-- (1.2: +20%)
@@ -72,43 +85,57 @@ local PersonalTraits = {
 			maxFactor = 1.25,
 		},
 	},
+	---@class PersonalTraits.Axeman
 	Axeman = {
 		type = "Axeman",
 		name = getText("UI_trait_axeman"),
 		desc = getText("UI_trait_axemandesc"),
+		---@class PersonalTraits.Axeman.xpBoosts
 		xpBoosts = {},
+		---@class PersonalTraits.Axeman.freeRecipes
 		freeRecipes = {},
+		---@class PersonalTraits.Axeman.values
 		values = {
-			-- Multiplier to increase tree damage
-			treeDamageMultiplier = 2,
 			-- Muscle strain modifier when chopping tree
 			muscleStrainModifier = 0.5,
 			-- Endurance use modifier when chopping tree
 			enduranceUseModifier = 0.5,
 		},
 	},
+	---@class PersonalTraits.Organized
 	Organized = {
 		type = "Organized",
 		name = getText("UI_trait_Packmule"),
 		desc = getText("UI_trait_PackmuleDesc"),
+		---@class PersonalTraits.Organized.xpBoosts
 		xpBoosts = {},
+		---@class PersonalTraits.Organized.freeRecipes
 		freeRecipes = {},
+		---@class PersonalTraits.Organized.values
 		values = {},
 	},
+	---@class PersonalTraits.NightVision_Personal
 	NightVision_Personal = {
 		type = "NightVision_Personal",
 		name = getText("UI_trait_NightVision"),
 		desc = getText("UI_trait_NightVisionDesc"),
+		---@class PersonalTraits.NightVision_Personal.xpBoosts
 		xpBoosts = {},
+		---@class PersonalTraits.NightVision_Personal.freeRecipes
 		freeRecipes = {},
+		---@class PersonalTraits.NightVision_Personal.values
 		values = {},
 	},
+	---@class PersonalTraits.Outdoorsman
 	Outdoorsman = {
 		type = "Outdoorsman",
 		name = getText("UI_trait_outdoorsman"),
 		desc = getText("UI_trait_outdoorsmandesc"),
+		---@class PersonalTraits.Outdoorsman.xpBoosts
 		xpBoosts = {},
+		---@class PersonalTraits.Outdoorsman.freeRecipes
 		freeRecipes = {},
+		---@class PersonalTraits.Outdoorsman.values
 		values = {
 			buildCampfireSpeedMultiplier = 2,
 			removeCampfireSpeedMultiplier = 2,
@@ -121,13 +148,57 @@ local PersonalTraits = {
 			washYourselfSpeedMultiplier = 2,
 		},
 	},
+
+	-- Burglar
+	---@class PersonalTraits.Burglar
 	Burglar = {
 		type = "Burglar",
 		name = getText("UI_prof_Burglar"),
 		desc = getText("UI_trait_BurglarDesc"),
+		---@class PersonalTraits.Burglar.xpBoosts
 		xpBoosts = {},
+		---@class PersonalTraits.Burglar.freeRecipes
 		freeRecipes = {},
+		---@class PersonalTraits.Burglar.values
+		values = {
+			-- Default door lockpicking time
+			defaultDoorLockpickingTime = 500,
+			-- This is how much the lockpicking time is reduced for each level of nimble
+			reduceDoorLockpickingTime = 30,
+		},
+	},
+	---@class PersonalTraits.Graceful
+	Graceful = {
+		type = "Graceful",
+		name = getText("UI_trait_graceful"),
+		desc = getText("UI_trait_gracefuldesc"),
+		---@class PersonalTraits.Graceful.xpBoosts
+		xpBoosts = {},
+		---@class PersonalTraits.Graceful.freeRecipes
+		freeRecipes = {},
+		---@class PersonalTraits.Graceful.values
 		values = {},
+	},
+	---@class PersonalTraits.Inconspicuous
+	Inconspicuous = {
+		type = "Inconspicuous",
+		name = getText("UI_trait_Inconspicuous"),
+		desc = getText("UI_trait_InconspicuousDesc"),
+		---@class PersonalTraits.Inconspicuous.xpBoosts
+		xpBoosts = {},
+		---@class PersonalTraits.Inconspicuous.freeRecipes
+		freeRecipes = {},
+		---@class PersonalTraits.Inconspicuous.values
+		values = {
+			-- Default distance (start) for zombies between player to forfeit player from view
+			distanceToForfeit = 6,
+			-- Distance reduce (distanceToForfeit) per perk lvl
+			decreaseDistanceByLvl = 0.3,
+			-- Perk that will affect (decreaseDistanceByLvl)
+			decreaseDistancePerk = Perks.Sneak,
+			-- Duration of stun after zombie forfeits sight of player (in milliseconds)
+			stunDurationAfterForfeit = 2000,
+		},
 	},
 }
 
