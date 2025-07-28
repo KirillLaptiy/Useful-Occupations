@@ -11,6 +11,7 @@
 require("TimedActions/ISBaseTimedAction")
 
 ---@class ISLockpickDoor : ISBaseTimedAction
+---@field character IsoPlayer
 ---@field door IsoDoor
 ---@field needToBeLocked boolean
 ---@field lockpick InventoryItem
@@ -35,11 +36,14 @@ function ISLockpickDoor:isValid()
 	return true
 end
 
+function ISLockpickDoor:waitToStart()
+	self.character:faceThisObject(self.door)
+	return self.character:shouldBeTurning()
+end
+
 function ISLockpickDoor:update() end
 
 function ISLockpickDoor:start()
-	self.character:faceThisObject(self.door)
-
 	if self.needToBeLocked == self.door:isLockedByKey() then
 		self.character:SayShout(self.needToBeLocked and "Door is already locked" or "Door is already unlocked")
 		self:forceStop()

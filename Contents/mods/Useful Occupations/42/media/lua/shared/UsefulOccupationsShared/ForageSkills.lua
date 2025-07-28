@@ -8,6 +8,8 @@
 *
 ]]
 
+-- Дополнительно пересмотреть для каждого трейта
+
 forageSkills = {
     parkranger = {
         name            = "parkranger",

@@ -40,7 +40,7 @@ local PersonalTraits = {
 		},
 	},
 
-	-- Ranger
+	-- Scout
 	---@class PersonalTraits.ScoutSkills
 	ScoutSkills = {
 		type = "ScoutSkills",
@@ -112,7 +112,10 @@ local PersonalTraits = {
 		---@class PersonalTraits.Organized.freeRecipes
 		freeRecipes = {},
 		---@class PersonalTraits.Organized.values
-		values = {},
+		values = {
+			-- Sets how much the strength will affect the character's carrying capacity
+			strengthBonusCarrying = 12,
+		},
 	},
 	---@class PersonalTraits.NightVision_Personal
 	NightVision_Personal = {
@@ -148,8 +151,6 @@ local PersonalTraits = {
 			washYourselfSpeedMultiplier = 2,
 		},
 	},
-
-	-- Burglar
 	---@class PersonalTraits.Burglar
 	Burglar = {
 		type = "Burglar",
@@ -177,7 +178,16 @@ local PersonalTraits = {
 		---@class PersonalTraits.Graceful.freeRecipes
 		freeRecipes = {},
 		---@class PersonalTraits.Graceful.values
-		values = {},
+		values = {
+			-- Determines how much percent the sneak speed will increase for each perk level
+			percentPerLvl = 5,
+			-- Targeted perk that will affect sneak walk speed
+			targetedWalkPerk = Perks.Lightfoot,
+			-- Targeted perk that will affect sneak run speed
+			targetedRunPerk = Perks.Sprinting,
+			-- Weight Multiplier for worn clothing (0.25 - 75% reduce)
+			clothingWeightMultiplier = 0.25,
+		},
 	},
 	---@class PersonalTraits.Inconspicuous
 	Inconspicuous = {
@@ -191,14 +201,51 @@ local PersonalTraits = {
 		---@class PersonalTraits.Inconspicuous.values
 		values = {
 			-- Default distance (start) for zombies between player to forfeit player from view
-			distanceToForfeit = 6,
+			distanceToForfeit = 15,
 			-- Distance reduce (distanceToForfeit) per perk lvl
-			decreaseDistanceByLvl = 0.3,
+			decreaseDistanceByLvl = 0.5,
 			-- Perk that will affect (decreaseDistanceByLvl)
 			decreaseDistancePerk = Perks.Sneak,
 			-- Duration of stun after zombie forfeits sight of player (in milliseconds)
-			stunDurationAfterForfeit = 2000,
+			stunDurationAfterForfeit = 50,
+			-- Delay to update distance to forfeit (in milliseconds)
+			distanceToForfeitUpdateDelay = 20,
+			-- Default multiplier (while walking) to distance to forfeit
+			defaultMultiplier = 1,
+			-- Sneaking effect for default multiplier to distance to forfeit
+			sneakingEffect = -0.2,
+			-- Running effect for default multiplier to distance to forfeit
+			runningEffect = 0.2,
+			-- Sprinting effect for default multiplier to distance to forfeit
+			sprintingEffect = 0.4,
 		},
+	},
+	---@class PersonalTraits.Dextrous
+	Dextrous = {
+		type = "Dextrous",
+		name = getText("UI_trait_Dexterous"),
+		desc = getText("UI_trait_DexterousDesc"),
+		---@class PersonalTraits.Dextrous.xpBoosts
+		xpBoosts = {},
+		---@class PersonalTraits.Dextrous.freeRecipes
+		freeRecipes = {},
+		---@class PersonalTraits.Dextrous.values
+		values = {
+			-- Additional multiplier to reduce the transfer time (0.5 (50%) basic + (0.5 * 2 (multiplier)) = 0.75 (75% in total))
+			transferAdditionalMultiplier = 2,
+		},
+	},
+	---@class PersonalTraits.Gymnast
+	Gymnast = {
+		type = "Gymnast",
+		name = getText("UI_trait_Gymnast"),
+		desc = getText("UI_trait_GymnastDesc"),
+		---@class PersonalTraits.Gymnast.xpBoosts
+		xpBoosts = {},
+		---@class PersonalTraits.Gymnast.freeRecipes
+		freeRecipes = {},
+		---@class PersonalTraits.Gymnast.values
+		values = {},
 	},
 }
 

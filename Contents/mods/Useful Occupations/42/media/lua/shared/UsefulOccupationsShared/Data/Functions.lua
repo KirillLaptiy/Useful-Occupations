@@ -14,7 +14,8 @@
 -- Need to clear events if a new player was created in the same world
 ---@field removeAllEvents fun()
 
-local activeEvents = {}
+local activeEventList = {}
+local activeEventSet = {}
 
 ---@type UsefulOccupations.Functions
 local Functions = {
@@ -32,6 +33,7 @@ local Functions = {
 
 		UsefulOccupations.Functions.addEvent(Events.OnTick, function(_)
 			local now = getTimestampMs()
+
 			if now - lastCall >= frequencyMs then
 				lastCall = now
 				callback()
@@ -42,35 +44,37 @@ local Functions = {
 	processAfterDelay = function(delayMs, callback)
 		local startCall = getTimestampMs()
 
-		local onTick
-		onTick = function()
+		local function onTick()
 			if getTimestampMs() - startCall >= delayMs then
 				Events.OnTick.Remove(onTick)
 				callback()
 			end
 		end
 
-		Events.OnTick.Add(onTick)
+		UsefulOccupations.Functions.addEvent(Events.OnTick, onTick)
 	end,
 
 	addEvent = function(eventTable, callback)
-		if not eventTable or type(eventTable.Add) ~= "function" then
-			error("Invalid event table passed to addEvent.")
+		if activeEventSet[callback] then
+			return callback
 		end
 
 		eventTable.Add(callback)
 
-		table.insert(activeEvents, { event = eventTable, callback = callback })
+		table.insert(activeEventList, { event = eventTable, callback = callback })
+
+		activeEventSet[callback] = true
 
 		return callback
 	end,
 
 	removeAllEvents = function()
-		for _, entry in ipairs(activeEvents) do
+		for _, entry in ipairs(activeEventList) do
 			entry.event.Remove(entry.callback)
 		end
 
-		activeEvents = {}
+		activeEventList = {}
+		activeEventSet = {}
 	end,
 }
 

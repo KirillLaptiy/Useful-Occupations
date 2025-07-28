@@ -42,6 +42,7 @@ local addUsefulTraits = function()
 	end
 
 	-- Add mutual exclusives
+	---@param mutualExclusive UsefulOccupations.MutualExclusive
 	for _, mutualExclusive in pairs(UsefulOccupations.MutualExclusives) do
 		for _, value in pairs(mutualExclusive.values) do
 			TraitFactory.setMutualExclusive(mutualExclusive.key.type, value.type)

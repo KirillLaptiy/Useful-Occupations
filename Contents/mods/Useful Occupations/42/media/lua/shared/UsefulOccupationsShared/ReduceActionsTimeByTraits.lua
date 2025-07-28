@@ -22,8 +22,18 @@ local reduceActionsTimeByTraits = function()
 			---@type IsoGameCharacter
 			local character = select(1, ...)
 
+			if not o or o.maxTime <= 100 or character:isTimedActionInstant() then
+				return o
+			end
+
 			if character:HasTrait(trait.type) then
-				o.maxTime = o.maxTime / speedMultiplier
+				local newTime = o.maxTime / speedMultiplier
+
+				if newTime < 100 then
+					newTime = 100
+				end
+
+				o.maxTime = newTime
 			end
 
 			return o
@@ -41,6 +51,11 @@ local reduceActionsTimeByTraits = function()
 	reduceActionTimeByTrait(ISLightFromPetrol, Outdoorsman.values.lightFromPetrolSpeedMultiplier, Outdoorsman)
 	reduceActionTimeByTrait(ISLightFromLiterature, Outdoorsman.values.lightFromLiteratureSpeedMultiplier, Outdoorsman)
 	reduceActionTimeByTrait(ISLightFromKindle, Outdoorsman.values.lightFromKindleSpeedMultiplier, Outdoorsman)
+
+	-- Dextrous
+	local Dextrous = UsefulOccupations.PersonalTraits.Dextrous
+
+	reduceActionTimeByTrait(ISInventoryTransferAction, Dextrous.values.transferAdditionalMultiplier, Dextrous)
 end
 
 return reduceActionsTimeByTraits

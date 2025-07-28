@@ -42,18 +42,20 @@ local initProfessions = function()
 				UsefulOccupations.PersonalTraits.Burglar,
 				UsefulOccupations.PersonalTraits.Graceful,
 				UsefulOccupations.PersonalTraits.Inconspicuous,
+				UsefulOccupations.PersonalTraits.Dextrous,
+				UsefulOccupations.PersonalTraits.Gymnast,
 			},
 
 			---@class Profession.Scout.xpBoosts
 			xpBoosts = {
-				{ perk = Perks.PlantScavenging, level = 4 },
-				{ perk = Perks.Fishing, level = 4 },
-				{ perk = Perks.Trapping, level = 4 },
-				{ perk = Perks.Tracking, level = 4 },
-				{ perk = Perks.Sprinting, level = 4 },
-				{ perk = Perks.Lightfoot, level = 4 },
-				{ perk = Perks.Nimble, level = 4 },
-				{ perk = Perks.Sneak, level = 4 },
+				{ perk = Perks.PlantScavenging, level = 3 },
+				{ perk = Perks.Fishing, level = 3 },
+				{ perk = Perks.Trapping, level = 3 },
+				{ perk = Perks.Tracking, level = 3 },
+				{ perk = Perks.Sprinting, level = 3 },
+				{ perk = Perks.Lightfoot, level = 3 },
+				{ perk = Perks.Nimble, level = 3 },
+				{ perk = Perks.Sneak, level = 3 },
 			},
 		},
 	}

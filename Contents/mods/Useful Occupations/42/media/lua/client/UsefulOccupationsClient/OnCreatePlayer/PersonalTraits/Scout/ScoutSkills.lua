@@ -32,24 +32,15 @@ UsefulOccupations.DoTraitsOnCreatePlayer.ScoutSkills = function(player)
 	-- Ranger walk speed increased
 	--- @param value number
 	local function updateWalkSpeed(value)
-		local newWalkSpeed = value + walkSpeedIncreaseMultiplier
+		local multiplier = value + walkSpeedIncreaseMultiplier
 
-		player:setVariable("defaultWalkBlendTime", defaultWalkBlendTime / newWalkSpeed)
-		player:setVariable("defaultWalkSpeedScale", defaultWalkSpeedScale * newWalkSpeed)
+		player:setVariable("defaultWalkBT", defaultWalkBlendTime / multiplier)
+		player:setVariable("defaultWalkSS", defaultWalkSpeedScale * multiplier)
 	end
 
 	-- Set light foot influence when create player
-	for i = 0, Perks.getMaxIndex() - 1 do
-		local perk = Perks.fromIndex(i)
-
-		if perk == Perks.Lightfoot then
-			local value = player:getPerkLevel(perk) * lightFootInfluencePerLvl
-
-			updateWalkSpeed(value)
-
-			break
-		end
-	end
+	local startValue = player:getPerkLevel(Perks.Lightfoot) * lightFootInfluencePerLvl
+	updateWalkSpeed(startValue)
 
 	-- Set light foot influence on new light foot level
 	--- @param perk Perk
@@ -71,8 +62,6 @@ UsefulOccupations.DoTraitsOnCreatePlayer.ScoutSkills = function(player)
 
 		if modData.walkTime > 0 then
 			local stats = player:getStats()
-
-			print(modData.walkTime)
 
 			-- Dynamic influence - more value - more influence
 			local hungerFactor = minFactor + (maxFactor - minFactor) * (modData.walkTime / maxWalkTime)
