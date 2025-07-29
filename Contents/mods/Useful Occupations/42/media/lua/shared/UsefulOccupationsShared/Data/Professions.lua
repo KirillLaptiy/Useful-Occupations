@@ -54,7 +54,6 @@ local initProfessions = function()
 				{ perk = Perks.Tracking, level = 3 },
 				{ perk = Perks.Sprinting, level = 3 },
 				{ perk = Perks.Lightfoot, level = 3 },
-				{ perk = Perks.Nimble, level = 3 },
 				{ perk = Perks.Sneak, level = 3 },
 			},
 		},

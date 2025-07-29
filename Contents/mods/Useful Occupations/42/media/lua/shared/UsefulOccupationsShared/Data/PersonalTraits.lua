@@ -17,6 +17,15 @@
 ----@field Graceful UsefulOccupations.PersonalTrait
 ----@field Inconspicuous UsefulOccupations.PersonalTrait
 
+local getSandboxValue = function(value)
+	return function()
+		return SandboxVars[value]
+	end
+end
+
+local some = getSandboxValue("BloodLevel")
+local some1 = getSandboxValue("MultiHitZombies")
+
 ---@class UsefulOccupations.PersonalTraits
 local PersonalTraits = {
 	-- Unemployed
@@ -33,9 +42,9 @@ local PersonalTraits = {
 		values = {
 			-- set's last level for perk's +125% xp boost
 			lastLevelForXpBoost = 3,
-			-- multiplier for xp boost from books
+			-- Additional multiplier for xp boost from books
 			booksMultiplier = 2,
-			-- set's last level for  book's multiplier
+			-- set's last level for active book's multiplier
 			lastBooksMultiplierLevel = 10,
 		},
 	},
@@ -179,20 +188,90 @@ local PersonalTraits = {
 		freeRecipes = {},
 		---@class PersonalTraits.Graceful.values
 		values = {
-			-- Defines the percentage of the start bonus
-			startBonusPercent = 30,
-			-- Determines how much percent the sneak speed will increase for each perk level
-			percentPerLvl = 2,
-			-- Targeted perk that will affect default walk speed
-			targetDefaultWalkPerk = Perks.Lightfoot,
-			-- Targeted perk that will affect sneak walk speed
-			targetSneakWalkPerk = Perks.Lightfoot,
-			-- Targeted perk that will affect sneak run speed
-			targetSneakRunPerk = Perks.Sprinting,
-			-- Targeted perk that will affect default run speed
-			targetDefaultRunPerk = Perks.Sprinting,
-			-- Targeted perk that will affect default sprint speed
-			targetDefaultSprintPerk = Perks.Sprinting,
+			---@class PersonalTraits.Graceful.values.defaultWalk
+			defaultWalk = {
+				startBonusPercent = 30,
+				percentPerLvl = 2,
+				targetPerk = Perks.Lightfoot,
+			},
+
+			---@class PersonalTraits.Graceful.values.sneakWalk
+			sneakWalk = {
+				startBonusPercent = 30,
+				percentPerLvl = 2,
+				targetPerk = Perks.Lightfoot,
+			},
+
+			---@class PersonalTraits.Graceful.values.sneakRun
+			sneakRun = {
+				startBonusPercent = 30,
+				percentPerLvl = 2,
+				targetPerk = Perks.Sprinting,
+			},
+
+			---@class PersonalTraits.Graceful.values.defaultRun
+			defaultRun = {
+				startBonusPercent = 30,
+				percentPerLvl = 2,
+				targetPerk = Perks.Sprinting,
+			},
+
+			---@class PersonalTraits.Graceful.values.defaultSprint
+			defaultSprint = {
+				startBonusPercent = 30,
+				percentPerLvl = 2,
+				targetPerk = Perks.Sprinting,
+			},
+
+			---@class PersonalTraits.Graceful.values.climbWall
+			climbWall = {
+				startBonusPercent = 30,
+				percentPerLvl = 2,
+				targetPerk = Perks.Lightfoot,
+			},
+
+			---@class PersonalTraits.Graceful.values.climbWindow
+			climbWindow = {
+				startBonusPercent = 30,
+				percentPerLvl = 2,
+				targetPerk = Perks.Lightfoot,
+			},
+
+			---@class PersonalTraits.Graceful.values.climbFence_Walk
+			climbFence_Walk = {
+				startBonusPercent = 30,
+				percentPerLvl = 2,
+				targetPerk = Perks.Lightfoot,
+			},
+
+			---@class PersonalTraits.Graceful.values.climbFence_Run
+			climbFence_Run = {
+				startBonusPercent = 10,
+				percentPerLvl = 2,
+				targetPerk = Perks.Sprinting,
+			},
+
+			---@class PersonalTraits.Graceful.values.climbFence_Sprint
+			climbFence_Sprint = {
+				startBonusPercent = 30,
+				percentPerLvl = 2,
+				targetPerk = Perks.Sprinting,
+			},
+
+			---@class PersonalTraits.Graceful.values.turn
+			turn = {
+				startBonusPercent = 30,
+				percentPerLvl = 2,
+				targetPerk = Perks.Lightfoot,
+			},
+
+			---@class PersonalTraits.Graceful.values.turn180
+			turn180 = {
+				startBonusPercent = 80,
+				percentPerLvl = 2,
+				targetPerk = Perks.Lightfoot,
+			},
+
 			-- Weight Multiplier for worn clothing (0.25 - 75% reduce)
 			clothingWeightMultiplier = 0.25,
 		},

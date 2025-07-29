@@ -1,46 +1,20 @@
 ---@class UsefulOccupations.MovementSpeedValues
 local movementSpeedValues = {
-	---@class MovementSpeedValues.defaultWalk
-	defaultWalk = {
-		BlendTime = 0.20,
-		SpeedScale = 1.04,
-	},
-
-	---@class MovementSpeedValues.sneakWalk
-	sneakWalk = {
-		BlendTime = 0.50,
-		SpeedScale = "sneakLimpSpeedScale",
-	},
-
-	---@class MovementSpeedValues.sneakWalkLow
-	sneakWalkLow = {
-		BlendTime = 0.70,
-		SpeedScale = "sneakLimpSpeedScale",
-	},
-
-	---@class MovementSpeedValues.sneakRun
-	sneakRun = {
-		BlendTime = 0.50,
-		SpeedScale = 0.92,
-	},
-
-	---@class MovementSpeedValues.sneakRunLow
-	sneakRunLow = {
-		BlendTime = 0.50,
-		SpeedScale = 1.04,
-	},
-
-	---@class MovementSpeedValues.defaultRun
-	defaultRun = {
-		BlendTime = 0.35,
-		SpeedScale = 1.04,
-	},
-
-	---@class MovementSpeedValues.defaultSprint
-	defaultSprint = {
-		BlendTime = 0.15,
-		SpeedScale = 0.96,
-	},
+	type_005 = 0.05,
+	type_010 = 0.10,
+	type_015 = 0.15,
+	type_020 = 0.20,
+	type_030 = 0.30,
+	type_035 = 0.35,
+	type_040 = 0.40,
+	type_050 = 0.50,
+	type_070 = 0.70,
+	type_080 = 0.80,
+	type_092 = 0.92,
+	type_096 = 0.96,
+	type_104 = 1.04,
+	type_120 = 1.20,
+	type_sneakLimpSpeedScale = "sneakLimpSpeedScale",
 }
 
 return movementSpeedValues
