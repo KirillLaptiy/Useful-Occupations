@@ -3,7 +3,7 @@
 	<m_Name>sneakWalkLow</m_Name>
 	<m_AnimName>Bob_WalkLowSneak</m_AnimName>
 	<m_BlendTime>sneakWalkLowBT</m_BlendTime>
-	<m_SpeedScale>sneakWalkSS</m_SpeedScale>
+	<m_SpeedScale>sneakWalkLowSS</m_SpeedScale>
 	<m_Scalar>WalkInjury</m_Scalar>
 	<m_Scalar2>WalkSpeed</m_Scalar2>
 	<m_2DBlends referenceID="1">

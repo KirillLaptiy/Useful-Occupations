@@ -19,11 +19,9 @@ require("TimedActions/ISBaseTimedAction")
 ISLockpickDoor = ISBaseTimedAction:derive("ISLockpickDoor")
 
 function ISLockpickDoor:isValid()
-	-- if self.character:getInventory():haveThisKeyId(keyId) then return true end
-
-	if self.door:getProperties():Is("forceLocked") then
-		return false
-	end
+	-- if self.door:getProperties():Is("forceLocked") then
+	-- 	return false
+	-- end
 
 	if self.door:getModData().CustomLock then
 		return false

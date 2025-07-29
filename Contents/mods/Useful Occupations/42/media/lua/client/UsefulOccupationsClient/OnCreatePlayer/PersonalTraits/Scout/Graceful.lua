@@ -11,6 +11,7 @@
 ---@class DoTraitsOnCreatePlayer.Graceful
 ---@param player IsoPlayer
 UsefulOccupations.DoTraitsOnCreatePlayer.Graceful = function(player)
+	-- Movement speed values
 	-- Sneak walk
 	local sneakWalkSS = UsefulOccupations.MovementSpeedValues.sneakWalk.SpeedScale
 	local sneakWalkBT = UsefulOccupations.MovementSpeedValues.sneakWalk.BlendTime
@@ -19,54 +20,95 @@ UsefulOccupations.DoTraitsOnCreatePlayer.Graceful = function(player)
 	-- Sneak run
 	local sneakRunBT = UsefulOccupations.MovementSpeedValues.sneakRun.BlendTime
 	local sneakRunSS = UsefulOccupations.MovementSpeedValues.sneakRun.SpeedScale
+	local sneakRunLowBT = UsefulOccupations.MovementSpeedValues.sneakRunLow.BlendTime
 	local sneakRunLowSS = UsefulOccupations.MovementSpeedValues.sneakRunLow.SpeedScale
 
+	-- Default walk
+	local defaultWalkBT = UsefulOccupations.MovementSpeedValues.defaultWalk.BlendTime
+	local defaultWalkSS = UsefulOccupations.MovementSpeedValues.defaultWalk.SpeedScale
+
+	-- Default run
+	local defaultRunBT = UsefulOccupations.MovementSpeedValues.defaultRun.BlendTime
+	local defaultRunSS = UsefulOccupations.MovementSpeedValues.defaultRun.SpeedScale
+
+	-- Default sprint
+	local defaultSprintBT = UsefulOccupations.MovementSpeedValues.defaultSprint.BlendTime
+	local defaultSprintSS = UsefulOccupations.MovementSpeedValues.defaultSprint.SpeedScale
+
 	-- Graceful values
-	local percentPerLvl = UsefulOccupations.PersonalTraits.Graceful.values.percentPerLvl
-	local targetedWalkPerk = UsefulOccupations.PersonalTraits.Graceful.values.targetedWalkPerk
-	local targetedRunPerk = UsefulOccupations.PersonalTraits.Graceful.values.targetedRunPerk
+	-- Percents
+	local startBonusPercent = UsefulOccupations.PersonalTraits.Graceful.values.startBonusPercent / 100
+	local percentPerLvl = UsefulOccupations.PersonalTraits.Graceful.values.percentPerLvl / 100
+
+	-- Target perks
+	local targetDefaultWalkPerk = UsefulOccupations.PersonalTraits.Graceful.values.targetDefaultWalkPerk
+	local targetSneakWalkPerk = UsefulOccupations.PersonalTraits.Graceful.values.targetSneakWalkPerk
+	local targetSneakRunPerk = UsefulOccupations.PersonalTraits.Graceful.values.targetSneakRunPerk
+	local targetDefaultRunPerk = UsefulOccupations.PersonalTraits.Graceful.values.targetDefaultRunPerk
+	local targetDefaultSprintPerk = UsefulOccupations.PersonalTraits.Graceful.values.targetDefaultSprintPerk
+
+	-- Clothing multiplier
 	local clothingWeightMultiplier = UsefulOccupations.PersonalTraits.Graceful.values.clothingWeightMultiplier
 
+	local defaultWalkMultiplier = 1
 	local sneakWalkMultiplier = 1
 	local sneakRunMultiplier = 1
+	local defaultRunMultiplier = 1
+	local defaultSprintMultiplier = 1
 
+	-- Update every 30 ms
 	local constantUpdating = function()
-		-- Updating sneak walk speed scale, including scale by "sneakLimpSpeedScale"
+		-- Updating sneak walk speed, including scale by "sneakLimpSpeedScale"
 		local sneakLimpSpeedScale = player:getVariableString(sneakWalkSS)
 
-		local newSneakSS = sneakLimpSpeedScale * sneakWalkMultiplier
-		local newSneakWalkBT = sneakWalkBT / sneakWalkMultiplier
-		local newSneakWalkLowBT = sneakWalkLowBT / sneakWalkMultiplier
-
-		player:setVariable("sneakWalkSS", newSneakSS)
-		player:setVariable("sneakWalkBT", newSneakWalkBT)
-		player:setVariable("sneakWalkLowBT", newSneakWalkLowBT)
+		player:setVariable("sneakWalkSS", sneakLimpSpeedScale * sneakWalkMultiplier)
+		player:setVariable("sneakWalkBT", sneakWalkBT / sneakWalkMultiplier)
+		player:setVariable("sneakWalkLowSS", sneakLimpSpeedScale * sneakWalkMultiplier)
+		player:setVariable("sneakWalkLowBT", sneakWalkLowBT / sneakWalkMultiplier)
 
 		-- The character always climbs over the fence
 		player:setVariable("ClimbFenceOutcome", "success")
 		player:setVariable("ClimbFenceStruggle", false)
 	end
 
-	-- Update sneak run speed
-	local updateSneakRunSpeed = function()
-		local newSneakRunBT = sneakRunBT / sneakRunMultiplier
-		local newSneakRunSS = sneakRunSS * sneakRunMultiplier
-		local newSneakRunLowSS = sneakRunLowSS * sneakRunMultiplier
+	-- Update every new target perk lvl
+	local LevelPerkUpdate = function()
+		-- Update walk speed
+		player:setVariable("defaultWalkBT", defaultWalkBT / defaultWalkMultiplier)
+		player:setVariable("defaultWalkSS", defaultWalkSS * defaultWalkMultiplier)
 
-		player:setVariable("sneakRunBT", newSneakRunBT)
-		player:setVariable("sneakRunSS", newSneakRunSS)
-		player:setVariable("sneakRunLowSS", newSneakRunLowSS)
+		-- Update sneak run speed
+		player:setVariable("sneakRunBT", sneakRunBT / sneakRunMultiplier)
+		player:setVariable("sneakRunSS", sneakRunSS * sneakRunMultiplier)
+		player:setVariable("sneakRunLowBT", sneakRunLowBT / sneakRunMultiplier)
+		player:setVariable("sneakRunLowSS", sneakRunLowSS * sneakRunMultiplier)
+
+		-- Update run speed
+		player:setVariable("defaultRunBT", defaultRunBT / defaultRunMultiplier)
+		player:setVariable("defaultRunSS", defaultRunSS * defaultRunMultiplier)
+
+		-- Update sprint speed
+		player:setVariable("defaultSprintBT", defaultSprintBT / defaultSprintMultiplier)
+		player:setVariable("defaultSprintSS", defaultSprintSS * defaultSprintMultiplier)
 	end
 
-	-- Updating speed scale multiplier
-	local updateSSMultiplier = function()
-		local sneakWalkTPLvl = player:getPerkLevel(targetedWalkPerk)
-		sneakWalkMultiplier = 1 + (sneakWalkTPLvl * (percentPerLvl / 100))
+	-- Updating speed scale multipliers
+	local updateSSMultipliers = function()
+		---@param targetPerk Perk
+		local calculateNewMultipler = function(targetPerk)
+			local targetPerkLvl = player:getPerkLevel(targetPerk)
+			local newMultiplier = 1 + startBonusPercent + (targetPerkLvl * percentPerLvl)
 
-		local sneakRunTPLvl = player:getPerkLevel(targetedRunPerk)
-		sneakWalkMultiplier = 1 + (sneakRunTPLvl * (percentPerLvl / 100))
+			return newMultiplier
+		end
 
-		updateSneakRunSpeed()
+		defaultWalkMultiplier = calculateNewMultipler(targetDefaultWalkPerk)
+		sneakWalkMultiplier = calculateNewMultipler(targetSneakWalkPerk)
+		sneakRunMultiplier = calculateNewMultipler(targetSneakRunPerk)
+		defaultRunMultiplier = calculateNewMultipler(targetDefaultRunPerk)
+		defaultSprintMultiplier = calculateNewMultipler(targetDefaultSprintPerk)
+
+		LevelPerkUpdate()
 	end
 
 	-- Updating clothing stats
@@ -118,9 +160,9 @@ UsefulOccupations.DoTraitsOnCreatePlayer.Graceful = function(player)
 		end)
 	end
 
-	updateSSMultiplier()
 	constantUpdating()
-	updateSneakRunSpeed()
+	LevelPerkUpdate()
+	updateSSMultipliers()
 	updateClothingStats()
 
 	-- player:setVariable("scoutWalkType", "bob")
@@ -128,10 +170,8 @@ UsefulOccupations.DoTraitsOnCreatePlayer.Graceful = function(player)
 
 	UsefulOccupations.Functions.processEveryMs(30, constantUpdating)
 
-	UsefulOccupations.Functions.addEvent(Events.LevelPerk, function(_, perk, _, _)
-		if perk == targetedWalkPerk or perk == targetedRunPerk then
-			updateSSMultiplier()
-		end
+	UsefulOccupations.Functions.addEvent(Events.LevelPerk, function(_, _, _, _)
+		updateSSMultipliers()
 	end)
 
 	UsefulOccupations.Functions.addEvent(Events.OnClothingUpdated, updateClothingStats)

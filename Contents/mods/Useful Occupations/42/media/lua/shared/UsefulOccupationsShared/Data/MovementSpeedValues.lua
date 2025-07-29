@@ -29,6 +29,18 @@ local movementSpeedValues = {
 		BlendTime = 0.50,
 		SpeedScale = 1.04,
 	},
+
+	---@class MovementSpeedValues.defaultRun
+	defaultRun = {
+		BlendTime = 0.35,
+		SpeedScale = 1.04,
+	},
+
+	---@class MovementSpeedValues.defaultSprint
+	defaultSprint = {
+		BlendTime = 0.15,
+		SpeedScale = 0.96,
+	},
 }
 
 return movementSpeedValues
