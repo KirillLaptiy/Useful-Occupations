@@ -175,6 +175,8 @@ local PersonalTraits = {
 			defaultDoorLockpickingTime = 500,
 			-- This is how much the lockpicking time is reduced for each level of nimble
 			reduceDoorLockpickingTime = 30,
+			-- Target perk that decreases lockpicking time with each lvl
+			targetLockpickPerk = Perks.Sneak,
 		},
 	},
 	---@class PersonalTraits.Graceful

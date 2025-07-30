@@ -123,10 +123,11 @@ end
 function ISLockpickDoor:getDuration()
 	local defaultTime = UsefulOccupations.PersonalTraits.Burglar.values.defaultDoorLockpickingTime
 	local timeReducePerLvl = UsefulOccupations.PersonalTraits.Burglar.values.reduceDoorLockpickingTime
+	local targetPerk = UsefulOccupations.PersonalTraits.Burglar.values.targetLockpickPerk
 
-	local nimbleLvl = self.character:getPerkLevel(Perks.Nimble)
+	local targetPerkLvl = self.character:getPerkLevel(targetPerk)
 
-	return defaultTime - (timeReducePerLvl * nimbleLvl)
+	return defaultTime - (timeReducePerLvl * targetPerkLvl)
 end
 
 ---@param character IsoPlayer
