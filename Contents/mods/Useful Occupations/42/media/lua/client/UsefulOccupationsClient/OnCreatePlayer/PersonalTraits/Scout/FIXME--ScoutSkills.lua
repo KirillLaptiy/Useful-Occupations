@@ -8,6 +8,10 @@
 *
 ]]
 
+---Fixme
+---переделать работу значений thirstReducePerMinute и hungerReducePerMinute - сделать как у ветерана EnduranceSecret
+---
+
 ---@class DoTraitsOnCreatePlayer.ScoutSkills
 ---@param player IsoPlayer
 UsefulOccupations.DoTraitsOnCreatePlayer.ScoutSkills = function(player)

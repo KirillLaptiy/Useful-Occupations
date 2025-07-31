@@ -23,6 +23,8 @@
 ---@field Burglar DoTraitsOnCreatePlayer.Burglar
 ---@field Graceful DoTraitsOnCreatePlayer.Graceful
 ---@field Organized DoTraitsOnCreatePlayer.Organized
+---@field EnduranceSecret DoTraitsOnCreatePlayer.EnduranceSecret
+---@field Invincible DoTraitsOnCreatePlayer.Invincible
 
 -- Traits on game boot
 ---@class UsefulOccupations.DoTraitsOnGameBoot

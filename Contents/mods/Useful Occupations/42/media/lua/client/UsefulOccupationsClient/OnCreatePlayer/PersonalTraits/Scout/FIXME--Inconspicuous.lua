@@ -22,19 +22,17 @@ UsefulOccupations.DoTraitsOnCreatePlayer.Inconspicuous = function(player)
 	local distanceToForfeitUpdateDelay = traitValues.distanceToForfeitUpdateDelay
 	local defaultMultiplier = traitValues.defaultMultiplier
 	local sneakingEffect = traitValues.sneakingEffect
-	local runningEffect = traitValues.runningEffect
-	local sprintingEffect = traitValues.sprintingEffect
 
 	local getDistanceToForfeit = function()
 		return defaultDistanceToForfeit - (decreaseDistanceByLvl * player:getPerkLevel(decreaseDistancePerk))
 	end
 
 	local distanceToForfeit = getDistanceToForfeit()
-	local isDriving = false
+	local badConditions = false
 
 	---@param zombie IsoZombie
 	UsefulOccupations.Functions.addEvent(Events.OnZombieUpdate, function(zombie)
-		if zombie:getTarget() ~= player or isDriving then
+		if zombie:getTarget() ~= player or badConditions then
 			return
 		end
 
@@ -53,22 +51,27 @@ UsefulOccupations.DoTraitsOnCreatePlayer.Inconspicuous = function(player)
 
 	-- Update distance to forfeit
 	UsefulOccupations.Functions.processEveryMs(distanceToForfeitUpdateDelay, function()
+		if player:isDriving() then
+			badConditions = true
+			return
+		end
+
 		local multiplier = defaultMultiplier
 
 		if player:isSneaking() then
-			if player:isRunning() then
-				multiplier = defaultMultiplier
-			else
+			-- Affect only sneak walk
+			if not player:isRunning() then
 				multiplier = multiplier + sneakingEffect
 			end
 		elseif player:isRunning() then
-			multiplier = multiplier + runningEffect
+			badConditions = true
+			return
 		elseif player:isSprinting() then
-			multiplier = multiplier + sprintingEffect
+			badConditions = true
+			return
 		end
 
 		distanceToForfeit = getDistanceToForfeit() * multiplier
-		isDriving = player:isDriving()
 	end)
 end
 

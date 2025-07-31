@@ -94,6 +94,7 @@ local PersonalTraits = {
 			maxFactor = 1.25,
 		},
 	},
+
 	---@class PersonalTraits.Axeman
 	Axeman = {
 		type = "Axeman",
@@ -111,6 +112,7 @@ local PersonalTraits = {
 			enduranceUseModifier = 0.5,
 		},
 	},
+
 	---@class PersonalTraits.Organized
 	Organized = {
 		type = "Organized",
@@ -126,6 +128,7 @@ local PersonalTraits = {
 			strengthBonusCarrying = 12,
 		},
 	},
+
 	---@class PersonalTraits.NightVision_Personal
 	NightVision_Personal = {
 		type = "NightVision_Personal",
@@ -138,6 +141,7 @@ local PersonalTraits = {
 		---@class PersonalTraits.NightVision_Personal.values
 		values = {},
 	},
+
 	---@class PersonalTraits.Outdoorsman
 	Outdoorsman = {
 		type = "Outdoorsman",
@@ -160,6 +164,7 @@ local PersonalTraits = {
 			washYourselfSpeedMultiplier = 2,
 		},
 	},
+
 	---@class PersonalTraits.Burglar
 	Burglar = {
 		type = "Burglar",
@@ -173,12 +178,13 @@ local PersonalTraits = {
 		values = {
 			-- Default door lockpicking time
 			defaultDoorLockpickingTime = 500,
-			-- This is how much the lockpicking time is reduced for each level of nimble
+			-- This is how much the lockpicking time is reduced for each level of target perk
 			reduceDoorLockpickingTime = 30,
 			-- Target perk that decreases lockpicking time with each lvl
 			targetLockpickPerk = Perks.Sneak,
 		},
 	},
+
 	---@class PersonalTraits.Graceful
 	Graceful = {
 		type = "Graceful",
@@ -278,6 +284,7 @@ local PersonalTraits = {
 			clothingWeightMultiplier = 0.25,
 		},
 	},
+
 	---@class PersonalTraits.Inconspicuous
 	Inconspicuous = {
 		type = "Inconspicuous",
@@ -303,12 +310,9 @@ local PersonalTraits = {
 			defaultMultiplier = 1,
 			-- Sneaking effect for default multiplier to distance to forfeit
 			sneakingEffect = -0.2,
-			-- Running effect for default multiplier to distance to forfeit
-			runningEffect = 0.2,
-			-- Sprinting effect for default multiplier to distance to forfeit
-			sprintingEffect = 0.4,
 		},
 	},
+
 	---@class PersonalTraits.Dextrous
 	Dextrous = {
 		type = "Dextrous",
@@ -324,6 +328,7 @@ local PersonalTraits = {
 			transferAdditionalMultiplier = 2,
 		},
 	},
+
 	---@class PersonalTraits.Gymnast
 	Gymnast = {
 		type = "Gymnast",
@@ -335,6 +340,111 @@ local PersonalTraits = {
 		freeRecipes = {},
 		---@class PersonalTraits.Gymnast.values
 		values = {},
+	},
+
+	-- Veteran
+	---@class PersonalTraits.Marksman
+	Marksman = {
+		type = "Marksman",
+		name = getText("UI_trait_marksman"),
+		desc = getText("UI_trait_marksmandesc"),
+		---@class PersonalTraits.Marksman.xpBoosts
+		xpBoosts = {},
+		---@class PersonalTraits.Marksman.freeRecipes
+		freeRecipes = {},
+		---@class PersonalTraits.Marksman.values
+		values = {},
+	},
+
+	---@class PersonalTraits.Strong
+	Strong = {
+		type = "Strong",
+		name = getText("UI_trait_strong"),
+		desc = getText("UI_trait_strongdesc"),
+		---@class PersonalTraits.Strong.xpBoosts
+		xpBoosts = {
+			{ perk = Perks.Strength, level = 4 },
+		},
+		---@class PersonalTraits.Strong.freeRecipes
+		freeRecipes = {},
+		---@class PersonalTraits.Strong.values
+		values = {},
+	},
+
+	---@class PersonalTraits.Athletic
+	Athletic = {
+		type = "Athletic",
+		name = getText("UI_trait_athletic"),
+		desc = getText("UI_trait_athleticdesc"),
+		---@class PersonalTraits.Athletic.xpBoosts
+		xpBoosts = {
+			{ perk = Perks.Fitness, level = 4 },
+		},
+		---@class PersonalTraits.Athletic.freeRecipes
+		freeRecipes = {},
+		---@class PersonalTraits.Athletic.values
+		values = {},
+	},
+
+	---@class PersonalTraits.NightOwl
+	NightOwl = {
+		type = "NightOwl",
+		name = getText("UI_trait_nightowl"),
+		desc = getText("UI_trait_nightowldesc"),
+		---@class PersonalTraits.NightOwl.xpBoosts
+		xpBoosts = {},
+		---@class PersonalTraits.NightOwl.freeRecipes
+		freeRecipes = {},
+		---@class PersonalTraits.NightOwl.values
+		values = {},
+	},
+
+	---@class PersonalTraits.Desensitized
+	Desensitized = {
+		type = "Desensitized",
+		name = getText("UI_trait_Desensitized"),
+		desc = getText("UI_trait_DesensitizedDesc"),
+		---@class PersonalTraits.Desensitized.xpBoosts
+		xpBoosts = {},
+		---@class PersonalTraits.Desensitized.freeRecipes
+		freeRecipes = {},
+		---@class PersonalTraits.Desensitized.values
+		values = {},
+	},
+
+	---@class PersonalTraits.EnduranceSecret
+	EnduranceSecret = {
+		type = "EnduranceSecret",
+		name = getText("UI_trait_EnduranceSecret"),
+		desc = getText("UI_trait_EnduranceSecretDesc"),
+		---@class PersonalTraits.EnduranceSecret.xpBoosts
+		xpBoosts = {},
+		---@class PersonalTraits.EnduranceSecret.freeRecipes
+		freeRecipes = {},
+		---@class PersonalTraits.EnduranceSecret.values
+		values = {},
+	},
+
+	---@class PersonalTraits.Invincible
+	Invincible = {
+		type = "Invincible",
+		name = getText("UI_trait_Invincible"),
+		desc = getText("UI_trait_InvincibleDesc"),
+		---@class PersonalTraits.Invincible.xpBoosts
+		xpBoosts = {},
+		---@class PersonalTraits.Invincible.freeRecipes
+		freeRecipes = {},
+		---@class PersonalTraits.Invincible.values
+		values = {
+			-- Dodge cost as a percentage of total endurance
+			dodgeEnduranceCost = 3,
+			-- Minimum endurance required to dodge (as a percentage of the total)
+			dodgeEnduranceEdge = 30,
+			-- Target perk that will affect the reduction of endurance consumption
+			targetPerk = Perks.Nimble,
+			-- Effect from target perk lvl
+			targetPerkEffect = 0.1,
+		},
 	},
 }
 
