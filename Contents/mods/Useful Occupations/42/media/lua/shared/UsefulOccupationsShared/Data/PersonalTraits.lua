@@ -17,6 +17,15 @@
 ----@field Graceful UsefulOccupations.PersonalTrait
 ----@field Inconspicuous UsefulOccupations.PersonalTrait
 
+local getSandboxValue = function(value)
+	return function()
+		return SandboxVars[value]
+	end
+end
+
+local some = getSandboxValue("BloodLevel")
+local some1 = getSandboxValue("MultiHitZombies")
+
 ---@class UsefulOccupations.PersonalTraits
 local PersonalTraits = {
 	-- Unemployed
@@ -33,14 +42,14 @@ local PersonalTraits = {
 		values = {
 			-- set's last level for perk's +125% xp boost
 			lastLevelForXpBoost = 3,
-			-- multiplier for xp boost from books
+			-- Additional multiplier for xp boost from books
 			booksMultiplier = 2,
-			-- set's last level for  book's multiplier
+			-- set's last level for active book's multiplier
 			lastBooksMultiplierLevel = 10,
 		},
 	},
 
-	-- Ranger
+	-- Scout
 	---@class PersonalTraits.ScoutSkills
 	ScoutSkills = {
 		type = "ScoutSkills",
@@ -85,6 +94,7 @@ local PersonalTraits = {
 			maxFactor = 1.25,
 		},
 	},
+
 	---@class PersonalTraits.Axeman
 	Axeman = {
 		type = "Axeman",
@@ -102,6 +112,7 @@ local PersonalTraits = {
 			enduranceUseModifier = 0.5,
 		},
 	},
+
 	---@class PersonalTraits.Organized
 	Organized = {
 		type = "Organized",
@@ -112,8 +123,12 @@ local PersonalTraits = {
 		---@class PersonalTraits.Organized.freeRecipes
 		freeRecipes = {},
 		---@class PersonalTraits.Organized.values
-		values = {},
+		values = {
+			-- Sets how much the strength will affect the character's carrying capacity
+			strengthBonusCarrying = 12,
+		},
 	},
+
 	---@class PersonalTraits.NightVision_Personal
 	NightVision_Personal = {
 		type = "NightVision_Personal",
@@ -126,6 +141,7 @@ local PersonalTraits = {
 		---@class PersonalTraits.NightVision_Personal.values
 		values = {},
 	},
+
 	---@class PersonalTraits.Outdoorsman
 	Outdoorsman = {
 		type = "Outdoorsman",
@@ -149,7 +165,6 @@ local PersonalTraits = {
 		},
 	},
 
-	-- Burglar
 	---@class PersonalTraits.Burglar
 	Burglar = {
 		type = "Burglar",
@@ -163,10 +178,13 @@ local PersonalTraits = {
 		values = {
 			-- Default door lockpicking time
 			defaultDoorLockpickingTime = 500,
-			-- This is how much the lockpicking time is reduced for each level of nimble
+			-- This is how much the lockpicking time is reduced for each level of target perk
 			reduceDoorLockpickingTime = 30,
+			-- Target perk that decreases lockpicking time with each lvl
+			targetLockpickPerk = Perks.Sneak,
 		},
 	},
+
 	---@class PersonalTraits.Graceful
 	Graceful = {
 		type = "Graceful",
@@ -177,8 +195,96 @@ local PersonalTraits = {
 		---@class PersonalTraits.Graceful.freeRecipes
 		freeRecipes = {},
 		---@class PersonalTraits.Graceful.values
-		values = {},
+		values = {
+			---@class PersonalTraits.Graceful.values.defaultWalk
+			defaultWalk = {
+				startBonusPercent = 30,
+				percentPerLvl = 2,
+				targetPerk = Perks.Lightfoot,
+			},
+
+			---@class PersonalTraits.Graceful.values.sneakWalk
+			sneakWalk = {
+				startBonusPercent = 30,
+				percentPerLvl = 2,
+				targetPerk = Perks.Lightfoot,
+			},
+
+			---@class PersonalTraits.Graceful.values.sneakRun
+			sneakRun = {
+				startBonusPercent = 30,
+				percentPerLvl = 2,
+				targetPerk = Perks.Sprinting,
+			},
+
+			---@class PersonalTraits.Graceful.values.defaultRun
+			defaultRun = {
+				startBonusPercent = 30,
+				percentPerLvl = 2,
+				targetPerk = Perks.Sprinting,
+			},
+
+			---@class PersonalTraits.Graceful.values.defaultSprint
+			defaultSprint = {
+				startBonusPercent = 30,
+				percentPerLvl = 2,
+				targetPerk = Perks.Sprinting,
+			},
+
+			---@class PersonalTraits.Graceful.values.climbWall
+			climbWall = {
+				startBonusPercent = 30,
+				percentPerLvl = 2,
+				targetPerk = Perks.Lightfoot,
+			},
+
+			---@class PersonalTraits.Graceful.values.climbWindow
+			climbWindow = {
+				startBonusPercent = 30,
+				percentPerLvl = 2,
+				targetPerk = Perks.Lightfoot,
+			},
+
+			---@class PersonalTraits.Graceful.values.climbFence_Walk
+			climbFence_Walk = {
+				startBonusPercent = 30,
+				percentPerLvl = 2,
+				targetPerk = Perks.Lightfoot,
+			},
+
+			---@class PersonalTraits.Graceful.values.climbFence_Run
+			climbFence_Run = {
+				startBonusPercent = 10,
+				percentPerLvl = 2,
+				targetPerk = Perks.Sprinting,
+			},
+
+			---@class PersonalTraits.Graceful.values.climbFence_Sprint
+			climbFence_Sprint = {
+				startBonusPercent = 30,
+				percentPerLvl = 2,
+				targetPerk = Perks.Sprinting,
+			},
+
+			---@class PersonalTraits.Graceful.values.turn
+			turn = {
+				startBonusPercent = 30,
+				percentPerLvl = 2,
+				targetPerk = Perks.Lightfoot,
+			},
+
+			---@class PersonalTraits.Graceful.values.turn180
+			turn180 = {
+				startBonusPercent = 80,
+				percentPerLvl = 2,
+				targetPerk = Perks.Lightfoot,
+			},
+
+			-- Weight Multiplier for worn clothing (0.25 - 75% reduce)
+			clothingWeightMultiplier = 0.25,
+		},
 	},
+
 	---@class PersonalTraits.Inconspicuous
 	Inconspicuous = {
 		type = "Inconspicuous",
@@ -191,13 +297,153 @@ local PersonalTraits = {
 		---@class PersonalTraits.Inconspicuous.values
 		values = {
 			-- Default distance (start) for zombies between player to forfeit player from view
-			distanceToForfeit = 6,
+			distanceToForfeit = 15,
 			-- Distance reduce (distanceToForfeit) per perk lvl
-			decreaseDistanceByLvl = 0.3,
+			decreaseDistanceByLvl = 0.5,
 			-- Perk that will affect (decreaseDistanceByLvl)
 			decreaseDistancePerk = Perks.Sneak,
 			-- Duration of stun after zombie forfeits sight of player (in milliseconds)
-			stunDurationAfterForfeit = 2000,
+			stunDurationAfterForfeit = 50,
+			-- Delay to update distance to forfeit (in milliseconds)
+			distanceToForfeitUpdateDelay = 20,
+			-- Default multiplier (while walking) to distance to forfeit
+			defaultMultiplier = 1,
+			-- Sneaking effect for default multiplier to distance to forfeit
+			sneakingEffect = -0.2,
+		},
+	},
+
+	---@class PersonalTraits.Dextrous
+	Dextrous = {
+		type = "Dextrous",
+		name = getText("UI_trait_Dexterous"),
+		desc = getText("UI_trait_DexterousDesc"),
+		---@class PersonalTraits.Dextrous.xpBoosts
+		xpBoosts = {},
+		---@class PersonalTraits.Dextrous.freeRecipes
+		freeRecipes = {},
+		---@class PersonalTraits.Dextrous.values
+		values = {
+			-- Additional multiplier to reduce the transfer time (0.5 (50%) basic + (0.5 * 2 (multiplier)) = 0.75 (75% in total))
+			transferAdditionalMultiplier = 2,
+		},
+	},
+
+	---@class PersonalTraits.Gymnast
+	Gymnast = {
+		type = "Gymnast",
+		name = getText("UI_trait_Gymnast"),
+		desc = getText("UI_trait_GymnastDesc"),
+		---@class PersonalTraits.Gymnast.xpBoosts
+		xpBoosts = {},
+		---@class PersonalTraits.Gymnast.freeRecipes
+		freeRecipes = {},
+		---@class PersonalTraits.Gymnast.values
+		values = {},
+	},
+
+	-- Veteran
+	---@class PersonalTraits.Marksman
+	Marksman = {
+		type = "Marksman",
+		name = getText("UI_trait_marksman"),
+		desc = getText("UI_trait_marksmandesc"),
+		---@class PersonalTraits.Marksman.xpBoosts
+		xpBoosts = {},
+		---@class PersonalTraits.Marksman.freeRecipes
+		freeRecipes = {},
+		---@class PersonalTraits.Marksman.values
+		values = {},
+	},
+
+	---@class PersonalTraits.Strong
+	Strong = {
+		type = "Strong",
+		name = getText("UI_trait_strong"),
+		desc = getText("UI_trait_strongdesc"),
+		---@class PersonalTraits.Strong.xpBoosts
+		xpBoosts = {
+			{ perk = Perks.Strength, level = 4 },
+		},
+		---@class PersonalTraits.Strong.freeRecipes
+		freeRecipes = {},
+		---@class PersonalTraits.Strong.values
+		values = {},
+	},
+
+	---@class PersonalTraits.Athletic
+	Athletic = {
+		type = "Athletic",
+		name = getText("UI_trait_athletic"),
+		desc = getText("UI_trait_athleticdesc"),
+		---@class PersonalTraits.Athletic.xpBoosts
+		xpBoosts = {
+			{ perk = Perks.Fitness, level = 4 },
+		},
+		---@class PersonalTraits.Athletic.freeRecipes
+		freeRecipes = {},
+		---@class PersonalTraits.Athletic.values
+		values = {},
+	},
+
+	---@class PersonalTraits.NightOwl
+	NightOwl = {
+		type = "NightOwl",
+		name = getText("UI_trait_nightowl"),
+		desc = getText("UI_trait_nightowldesc"),
+		---@class PersonalTraits.NightOwl.xpBoosts
+		xpBoosts = {},
+		---@class PersonalTraits.NightOwl.freeRecipes
+		freeRecipes = {},
+		---@class PersonalTraits.NightOwl.values
+		values = {},
+	},
+
+	---@class PersonalTraits.Desensitized
+	Desensitized = {
+		type = "Desensitized",
+		name = getText("UI_trait_Desensitized"),
+		desc = getText("UI_trait_DesensitizedDesc"),
+		---@class PersonalTraits.Desensitized.xpBoosts
+		xpBoosts = {},
+		---@class PersonalTraits.Desensitized.freeRecipes
+		freeRecipes = {},
+		---@class PersonalTraits.Desensitized.values
+		values = {},
+	},
+
+	---@class PersonalTraits.EnduranceSecret
+	EnduranceSecret = {
+		type = "EnduranceSecret",
+		name = getText("UI_trait_EnduranceSecret"),
+		desc = getText("UI_trait_EnduranceSecretDesc"),
+		---@class PersonalTraits.EnduranceSecret.xpBoosts
+		xpBoosts = {},
+		---@class PersonalTraits.EnduranceSecret.freeRecipes
+		freeRecipes = {},
+		---@class PersonalTraits.EnduranceSecret.values
+		values = {},
+	},
+
+	---@class PersonalTraits.Invincible
+	Invincible = {
+		type = "Invincible",
+		name = getText("UI_trait_Invincible"),
+		desc = getText("UI_trait_InvincibleDesc"),
+		---@class PersonalTraits.Invincible.xpBoosts
+		xpBoosts = {},
+		---@class PersonalTraits.Invincible.freeRecipes
+		freeRecipes = {},
+		---@class PersonalTraits.Invincible.values
+		values = {
+			-- Dodge cost as a percentage of total endurance
+			dodgeEnduranceCost = 3,
+			-- Minimum endurance required to dodge (as a percentage of the total)
+			dodgeEnduranceEdge = 30,
+			-- Target perk that will affect the reduction of endurance consumption
+			targetPerk = Perks.Nimble,
+			-- Effect from target perk lvl
+			targetPerkEffect = 0.1,
 		},
 	},
 }

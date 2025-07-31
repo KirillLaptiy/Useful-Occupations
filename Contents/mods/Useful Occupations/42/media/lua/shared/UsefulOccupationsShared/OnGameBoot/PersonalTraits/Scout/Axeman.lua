@@ -71,6 +71,4 @@ UsefulOccupations.DoTraitsOnGameBoot.Axeman = function()
 			self.character:getStats():setEndurance(self.character:getStats():getEndurance() - use)
 		end
 	end
-
-	print("AXEMAN COMPLEEEDD FI SUCCESS")
 end

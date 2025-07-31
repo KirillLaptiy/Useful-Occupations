@@ -8,16 +8,14 @@
 *
 ]]
 
+---Fixme
+---переделать работу значений thirstReducePerMinute и hungerReducePerMinute - сделать как у ветерана EnduranceSecret
+---
+
 ---@class DoTraitsOnCreatePlayer.ScoutSkills
 ---@param player IsoPlayer
 UsefulOccupations.DoTraitsOnCreatePlayer.ScoutSkills = function(player)
 	local traitValues = UsefulOccupations.PersonalTraits.ScoutSkills.values
-
-	-- Ranger walk speed increased
-	local walkSpeedIncreaseMultiplier = traitValues.walkSpeedIncreaseMultiplier
-	local defaultWalkBlendTime = UsefulOccupations.MovementSpeedValues.defaultWalk.BlendTime
-	local defaultWalkSpeedScale = UsefulOccupations.MovementSpeedValues.defaultWalk.SpeedScale
-	local lightFootInfluencePerLvl = traitValues.lightFootInfluencePerLvl
 
 	-- When moving, thirst and hunger accumulate more slowly.
 	local msToCall = traitValues.msToCall
@@ -29,38 +27,6 @@ UsefulOccupations.DoTraitsOnCreatePlayer.ScoutSkills = function(player)
 
 	local modData = UsefulOccupations.Functions.getModData()
 
-	-- Ranger walk speed increased
-	--- @param value number
-	local function updateWalkSpeed(value)
-		local newWalkSpeed = value + walkSpeedIncreaseMultiplier
-
-		player:setVariable("defaultWalkBlendTime", defaultWalkBlendTime / newWalkSpeed)
-		player:setVariable("defaultWalkSpeedScale", defaultWalkSpeedScale * newWalkSpeed)
-	end
-
-	-- Set light foot influence when create player
-	for i = 0, Perks.getMaxIndex() - 1 do
-		local perk = Perks.fromIndex(i)
-
-		if perk == Perks.Lightfoot then
-			local value = player:getPerkLevel(perk) * lightFootInfluencePerLvl
-
-			updateWalkSpeed(value)
-
-			break
-		end
-	end
-
-	-- Set light foot influence on new light foot level
-	--- @param perk Perk
-	--- @param perkLvl integer
-	UsefulOccupations.Functions.addEvent(Events.LevelPerk, function(_, perk, perkLvl, _)
-		if perk == Perks.Lightfoot then
-			local value = perkLvl * lightFootInfluencePerLvl
-			updateWalkSpeed(value)
-		end
-	end)
-
 	-- When moving, thirst and hunger accumulate more slowly.
 	UsefulOccupations.Functions.processEveryMs(msToCall, function()
 		if player:isWalking() and not player:IsRunning() and not player:isSprinting() then
@@ -71,8 +37,6 @@ UsefulOccupations.DoTraitsOnCreatePlayer.ScoutSkills = function(player)
 
 		if modData.walkTime > 0 then
 			local stats = player:getStats()
-
-			print(modData.walkTime)
 
 			-- Dynamic influence - more value - more influence
 			local hungerFactor = minFactor + (maxFactor - minFactor) * (modData.walkTime / maxWalkTime)

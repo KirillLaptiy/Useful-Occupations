@@ -11,6 +11,7 @@
 require("TimedActions/ISBaseTimedAction")
 
 ---@class ISLockpickDoor : ISBaseTimedAction
+---@field character IsoPlayer
 ---@field door IsoDoor
 ---@field needToBeLocked boolean
 ---@field lockpick InventoryItem
@@ -18,11 +19,9 @@ require("TimedActions/ISBaseTimedAction")
 ISLockpickDoor = ISBaseTimedAction:derive("ISLockpickDoor")
 
 function ISLockpickDoor:isValid()
-	-- if self.character:getInventory():haveThisKeyId(keyId) then return true end
-
-	if self.door:getProperties():Is("forceLocked") then
-		return false
-	end
+	-- if self.door:getProperties():Is("forceLocked") then
+	-- 	return false
+	-- end
 
 	if self.door:getModData().CustomLock then
 		return false
@@ -35,11 +34,14 @@ function ISLockpickDoor:isValid()
 	return true
 end
 
+function ISLockpickDoor:waitToStart()
+	self.character:faceThisObject(self.door)
+	return self.character:shouldBeTurning()
+end
+
 function ISLockpickDoor:update() end
 
 function ISLockpickDoor:start()
-	self.character:faceThisObject(self.door)
-
 	if self.needToBeLocked == self.door:isLockedByKey() then
 		self.character:SayShout(self.needToBeLocked and "Door is already locked" or "Door is already unlocked")
 		self:forceStop()
@@ -121,10 +123,11 @@ end
 function ISLockpickDoor:getDuration()
 	local defaultTime = UsefulOccupations.PersonalTraits.Burglar.values.defaultDoorLockpickingTime
 	local timeReducePerLvl = UsefulOccupations.PersonalTraits.Burglar.values.reduceDoorLockpickingTime
+	local targetPerk = UsefulOccupations.PersonalTraits.Burglar.values.targetLockpickPerk
 
-	local nimbleLvl = self.character:getPerkLevel(Perks.Nimble)
+	local targetPerkLvl = self.character:getPerkLevel(targetPerk)
 
-	return defaultTime - (timeReducePerLvl * nimbleLvl)
+	return defaultTime - (timeReducePerLvl * targetPerkLvl)
 end
 
 ---@param character IsoPlayer
