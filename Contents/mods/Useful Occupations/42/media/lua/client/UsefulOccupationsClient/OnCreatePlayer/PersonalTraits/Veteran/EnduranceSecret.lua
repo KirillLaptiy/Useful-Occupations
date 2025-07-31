@@ -55,7 +55,5 @@ UsefulOccupations.DoTraitsOnCreatePlayer.EnduranceSecret = function(player)
 		stats:setEndurance(currentEndurance + enduranceToRefill)
 
 		lastEndurance = stats:getEndurance()
-
-		print(stats:getEndurance())
 	end)
 end
