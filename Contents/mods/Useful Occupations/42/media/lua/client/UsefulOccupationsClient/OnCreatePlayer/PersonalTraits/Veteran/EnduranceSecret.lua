@@ -11,6 +11,9 @@
 ---@class DoTraitsOnCreatePlayer.EnduranceSecret
 ---@param player IsoPlayer
 UsefulOccupations.DoTraitsOnCreatePlayer.EnduranceSecret = function(player)
+	local enduranceSpendReduce = UsefulOccupations.PersonalTraits.EnduranceSecret.values.enduranceSpendReduce / 100
+	local enduranceRestBonus = UsefulOccupations.PersonalTraits.EnduranceSecret.values.enduranceRestBonus / 100
+
 	local enduranceStates = {
 		recovery = "recovery",
 		spend = "spend",
@@ -45,11 +48,11 @@ UsefulOccupations.DoTraitsOnCreatePlayer.EnduranceSecret = function(player)
 
 		-- Recover 80% from spent endurance
 		if enduranceState == enduranceStates.spend then
-			enduranceToRefill = spentEndurance * 0.8
+			enduranceToRefill = spentEndurance * enduranceSpendReduce
 
 		-- Recover x2 endurance while rest
 		elseif enduranceState == enduranceStates.recovery then
-			enduranceToRefill = -spentEndurance * 2
+			enduranceToRefill = -spentEndurance * (1 + enduranceRestBonus)
 		end
 
 		stats:setEndurance(currentEndurance + enduranceToRefill)

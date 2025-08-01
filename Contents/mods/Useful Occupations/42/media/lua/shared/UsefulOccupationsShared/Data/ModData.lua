@@ -4,6 +4,7 @@ local modData = {
 	walkTime = 0,
 	-- Invincible
 	bodyPartsData = {},
+	invincibleState = "ready"
 }
 
 return modData

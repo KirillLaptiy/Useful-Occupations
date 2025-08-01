@@ -422,7 +422,12 @@ local PersonalTraits = {
 		---@class PersonalTraits.EnduranceSecret.freeRecipes
 		freeRecipes = {},
 		---@class PersonalTraits.EnduranceSecret.values
-		values = {},
+		values = {
+			-- Percentage reduction in endurance cost from all sources
+			enduranceSpendReduce = 60,
+			-- Additional percentage increase in endurance recovery rate while resting
+			enduranceRestBonus = 100,
+		},
 	},
 
 	---@class PersonalTraits.Invincible

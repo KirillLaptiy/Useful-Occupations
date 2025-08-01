@@ -16,10 +16,97 @@ UsefulOccupations.DoTraitsOnCreatePlayer.Invincible = function(player)
 	local targetPerk = UsefulOccupations.PersonalTraits.Invincible.values.targetPerk
 	local targetPerkEffect = UsefulOccupations.PersonalTraits.Invincible.values.targetPerkEffect / 100
 
-	local canDodge = player:getStats():getEndurance() > dodgeEnduranceEdge
-	local dodgeCost = dodgeEnduranceCost - (targetPerkEffect * player:getPerkLevel(targetPerk))
+	local injuryFields = {
+		Burn = {
+			burnTime = { get = "getBurnTime", set = "setBurnTime" },
+			burnSpeedModifier = { get = "getBurnSpeedModifier", set = "setBurnSpeedModifier" },
+			needBurnWash = { get = "isNeedBurnWash", set = "setNeedBurnWash" },
+			lastTimeBurnWash = { get = "getLastTimeBurnWash", set = "setLastTimeBurnWash" },
+		},
 
-	local modData = UsefulOccupations.Functions.getModData()
+		Cut = {
+			isCut = { get = "isCut", set = "setCut" },
+			cutTime = { get = "getCutTime", set = "setCutTime" },
+			cutSpeedModifier = { get = "getCutSpeedModifier", set = "setCutSpeedModifier" },
+		},
+
+		DeepWound = {
+			isDeepWounded = { get = "isDeepWounded", set = "setDeepWounded" },
+			deepWoundTime = { get = "getDeepWoundTime", set = "setDeepWoundTime" },
+			deepWoundSpeedModifier = { get = "getDeepWoundSpeedModifier", set = "setDeepWoundSpeedModifier" },
+		},
+
+		Bite = {
+			bitten = { get = "bitten", set = "SetBitten" },
+			biteTime = { get = "getBiteTime", set = "setBiteTime" },
+		},
+
+		Scratch = {
+			scratched = { get = "scratched", set = "setScratched" },
+			scratchTime = { get = "getScratchTime", set = "setScratchTime" },
+			scratchSpeedModifier = { get = "getScratchSpeedModifier", set = "setScratchSpeedModifier" },
+		},
+
+		Infection = {
+			infectedWound = { get = "isInfectedWound", set = "setInfectedWound" },
+			woundInfectionLevel = { get = "getWoundInfectionLevel", set = "setWoundInfectionLevel" },
+			isInfected = { get = "IsInfected", set = "SetInfected" },
+			fakeInfected = { get = "IsFakeInfected", set = "SetFakeInfected" },
+			cauterized = { get = "IsCauterized", set = "SetCauterized" },
+		},
+
+		Fracture = {
+			fractureTime = { get = "getFractureTime", set = "setFractureTime" },
+		},
+
+		Bandage = {
+			bandaged = { get = "bandaged", set = "setBandaged" },
+			bandageLife = { get = "getBandageLife", set = "setBandageLife" },
+			bandageType = { get = "getBandageType", set = "setBandageType" },
+			stitched = { get = "stitched", set = "setStitched" },
+			stitchTime = { get = "getStitchTime", set = "setStitchTime" },
+		},
+
+		Splint = {
+			splint = { get = "isSplint", set = "setSplint" },
+			splintFactor = { get = "getSplintFactor", set = "setSplintFactor" },
+			splintItem = { get = "getSplintItem", set = "setSplintItem" },
+		},
+
+		OtherDamage = {
+			haveBullet = { get = "haveBullet", set = "setHaveBullet" },
+			haveGlass = { get = "haveGlass", set = "setHaveGlass" },
+			stiffness = { get = "getStiffness", set = "setStiffness" },
+			wetness = { get = "getWetness", set = "setWetness" },
+			additionalPain = { get = "getAdditionalPain", set = "setAdditionalPain" },
+			alcoholLevel = { get = "getAlcoholLevel", set = "setAlcoholLevel" },
+			comfreyFactor = { get = "getComfreyFactor", set = "setComfreyFactor" },
+			garlicFactor = { get = "getGarlicFactor", set = "setGarlicFactor" },
+			plantainFactor = { get = "getPlantainFactor", set = "setPlantainFactor" },
+			health = { get = "getHealth", set = "SetHealth" },
+		},
+
+		Bleeding = {
+			bleeding = { get = "bleeding", set = "setBleeding" },
+			bleedingTime = { get = "getBleedingTime", set = "setBleedingTime" },
+			bleedingStemmed = { get = "IsBleedingStemmed", set = "SetBleedingStemmed" },
+		},
+	}
+
+	local settersExtraValues = {
+		setBandaged = function()
+			return 1
+		end,
+		setSplint = function()
+			return 1
+		end,
+		setHaveBullet = function()
+			return player:getPerkLevel(Perks.Doctor)
+		end,
+		setScratched = function()
+			return true
+		end,
+	}
 
 	local perkStates = {
 		active = "active",
@@ -27,7 +114,10 @@ UsefulOccupations.DoTraitsOnCreatePlayer.Invincible = function(player)
 		onCooldown = "onCooldown",
 	}
 
-	local perkState = perkStates.ready
+	local modData = UsefulOccupations.Functions.getModData()
+
+	local canDodge = player:getStats():getEndurance() > dodgeEnduranceEdge
+	local dodgeCost = dodgeEnduranceCost - (targetPerkEffect * player:getPerkLevel(targetPerk))
 
 	local doDodge = function()
 		local stats = player:getStats()
@@ -60,16 +150,6 @@ UsefulOccupations.DoTraitsOnCreatePlayer.Invincible = function(player)
 		end)
 	end
 
-	local injuryFields = {
-		Burn = {
-			param_1 = { get = "isBurnt", set = "setBurned" },
-			param_2 = { get = "getBurnTime", set = "setBurnTime" },
-			param_3 = { get = "getBurnSpeedModifier", set = "setBurnSpeedModifier" },
-			param_4 = { get = "isNeedBurnWash", set = "setNeedBurnWash" },
-			param_5 = { get = "getLastTimeBurnWash", sFet = "setLastTimeBurnWash" },
-		},
-	}
-
 	local function updateBodyPartInjuries()
 		local bodyDamage = player:getBodyDamage()
 		local bodyParts = bodyDamage:getBodyParts()
@@ -79,20 +159,18 @@ UsefulOccupations.DoTraitsOnCreatePlayer.Invincible = function(player)
 		for i = 0, bodyParts:size() - 1 do
 			local part = bodyParts:get(i)
 
-			if part:HasInjury() then
-				local entry = { index = part:getIndex() }
+			local entry = { index = part:getIndex() }
 
-				for injuryType, fields in pairs(injuryFields) do
-					entry[injuryType] = {}
+			for injuryType, fields in pairs(injuryFields) do
+				entry[injuryType] = {}
 
-					for fieldName, methods in pairs(fields) do
-						local value = part[methods.get](part)
-						entry[injuryType][fieldName] = value
-					end
+				for fieldName, methods in pairs(fields) do
+					local value = part[methods.get](part)
+					entry[injuryType][fieldName] = value
 				end
-
-				table.insert(modData.bodyPartsData, entry)
 			end
+
+			table.insert(modData.bodyPartsData, entry)
 		end
 	end
 
@@ -101,6 +179,7 @@ UsefulOccupations.DoTraitsOnCreatePlayer.Invincible = function(player)
 		local bodyParts = bodyDamage:getBodyParts()
 
 		for _, entry in ipairs(modData.bodyPartsData) do
+			---@type BodyPart
 			local part = bodyParts:get(entry.index)
 
 			for injuryType, fields in pairs(injuryFields) do
@@ -109,7 +188,13 @@ UsefulOccupations.DoTraitsOnCreatePlayer.Invincible = function(player)
 				if saved then
 					for fieldName, value in pairs(saved) do
 						local setter = fields[fieldName].set
-						part[setter](part, value)
+						local extraValue = settersExtraValues[setter]
+
+						if extraValue ~= nil then
+							part[setter](part, value, extraValue())
+						else
+							part[setter](part, value)
+						end
 					end
 				end
 			end
@@ -117,7 +202,7 @@ UsefulOccupations.DoTraitsOnCreatePlayer.Invincible = function(player)
 	end
 
 	local activatePerk = function()
-		perkState = perkStates.active
+		modData.invincibleState = perkStates.active
 
 		updateBodyPartInjuries()
 
@@ -126,17 +211,23 @@ UsefulOccupations.DoTraitsOnCreatePlayer.Invincible = function(player)
 		---@diagnostic disable-next-line: param-type-mismatch
 		player:setHitReaction(nil)
 		player:setGodMod(true)
+
+		-- UsefulOccupations.Functions.processAfterDelay(25000, function ()
+		-- 	modData.invincibleState = perkStates.onCooldown
+
+		-- 	applyBodyPartInjuries()
+		-- end)
 	end
 
-	UsefulOccupations.Functions.addEvent(Events.LevelPerk, function(_, _, _, _)
-		-- applyBodyPartInjuries()
+	-- UsefulOccupations.Functions.addEvent(Events.LevelPerk, function(_, perk, _, _)
+	-- 	if perk == Perks.Strength then
+	-- 		applyBodyPartInjuries()
+	-- 	else
+	-- 		updateBodyPartInjuries()
+	-- 	end
 
-		updateBodyPartInjuries()
-
-		applyBodyPartInjuries()
-
-		perkState = perkStates.ready
-	end)
+	-- 	modData.invincibleState = perkStates.ready
+	-- end)
 
 	---@param zombie IsoZombie
 	local pushZombie = function(zombie)
@@ -160,7 +251,7 @@ UsefulOccupations.DoTraitsOnCreatePlayer.Invincible = function(player)
 
 			if enemy:isZombie() and player:DistTo(enemy) <= 4 then
 				if isDeathDragDown then
-					if perkState == perkStates.ready then
+					if modData.invincibleState == perkStates.ready then
 						activatePerk()
 					end
 
