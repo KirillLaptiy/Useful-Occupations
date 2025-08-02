@@ -13,6 +13,8 @@
 ---@field addEvent fun(event: EventType, callback: function) : function
 -- Need to clear events if a new player was created in the same world
 ---@field removeAllEvents fun()
+---Need to clear mod data if a new player was created in the same world
+---@field clearModData fun()
 
 local activeEventList = {}
 local activeEventSet = {}
@@ -75,6 +77,10 @@ local Functions = {
 
 		activeEventList = {}
 		activeEventSet = {}
+	end,
+
+	clearModData = function()
+		getPlayer():getModData().UsefulOccupationsModData = nil
 	end,
 }
 

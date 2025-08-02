@@ -11,8 +11,10 @@
 ---@class DoTraitsOnCreatePlayer.EnduranceSecret
 ---@param player IsoPlayer
 UsefulOccupations.DoTraitsOnCreatePlayer.EnduranceSecret = function(player)
-	local enduranceSpendReduce = UsefulOccupations.PersonalTraits.EnduranceSecret.values.enduranceSpendReduce / 100
+	local spendMainReduce = UsefulOccupations.PersonalTraits.EnduranceSecret.values.spendMainReduce / 100
 	local enduranceRestBonus = UsefulOccupations.PersonalTraits.EnduranceSecret.values.enduranceRestBonus / 100
+	local targetPerk = UsefulOccupations.PersonalTraits.EnduranceSecret.values.targetPerk
+	local spendPerkReduce = UsefulOccupations.PersonalTraits.EnduranceSecret.values.spendPerkReduce / 100
 
 	local enduranceStates = {
 		recovery = "recovery",
@@ -25,8 +27,9 @@ UsefulOccupations.DoTraitsOnCreatePlayer.EnduranceSecret = function(player)
 
 	local lastEndurance = stats:getEndurance()
 
+	local enduranceSpendReduce = spendMainReduce + (spendPerkReduce * player:getPerkLevel(targetPerk))
+
 	-- Every 0.5 second check player endurance
-	-- Recover 80% from spend endurance or x2 from rest endurance
 	UsefulOccupations.Functions.processEveryMs(500, function()
 		local currentEndurance = stats:getEndurance()
 
@@ -46,11 +49,11 @@ UsefulOccupations.DoTraitsOnCreatePlayer.EnduranceSecret = function(player)
 
 		local enduranceToRefill = 0
 
-		-- Recover 80% from spent endurance
+		-- Recover spent endurance
 		if enduranceState == enduranceStates.spend then
 			enduranceToRefill = spentEndurance * enduranceSpendReduce
 
-		-- Recover x2 endurance while rest
+		-- Recover endurance while rest
 		elseif enduranceState == enduranceStates.recovery then
 			enduranceToRefill = -spentEndurance * (1 + enduranceRestBonus)
 		end
@@ -58,5 +61,12 @@ UsefulOccupations.DoTraitsOnCreatePlayer.EnduranceSecret = function(player)
 		stats:setEndurance(currentEndurance + enduranceToRefill)
 
 		lastEndurance = stats:getEndurance()
+	end)
+
+	-- Update target perk effect
+	UsefulOccupations.Functions.addEvent(Events.LevelPerk, function(_, perk, perkLvl, _)
+		if perk == targetPerk then
+			enduranceSpendReduce = spendMainReduce + (spendPerkReduce * perkLvl)
+		end
 	end)
 end

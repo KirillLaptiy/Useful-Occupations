@@ -8,6 +8,8 @@
 *
 ]]
 
+-- Пофиксить анимку перелазания дерева с оружием
+
 ---@class DoTraitsOnCreatePlayer.Graceful
 ---@param player IsoPlayer
 UsefulOccupations.DoTraitsOnCreatePlayer.Graceful = function(player)
@@ -293,7 +295,7 @@ UsefulOccupations.DoTraitsOnCreatePlayer.Graceful = function(player)
 				if isClothing or isContainer then
 					local itemdata = item:getModData()
 
-					if not itemdata.actualWeight then
+					if itemdata.actualWeight == nil then
 						if isClothing then
 							itemdata.runSpeedModifier = item:getRunSpeedModifier()
 							itemdata.combatSpeedModifier = item:getCombatSpeedModifier()

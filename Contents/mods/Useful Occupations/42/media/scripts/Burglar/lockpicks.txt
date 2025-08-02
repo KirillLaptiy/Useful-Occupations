@@ -3,6 +3,23 @@ module UO {
         Base
     }
 
+    item Lockpick_Flimsy
+    {
+        DisplayName = Flimsy Lockpick,
+        DisplayCategory = Tool,
+        Type = Normal,
+        Weight = 0.1,
+        Icon = Apple,
+        Tooltip = Useful for picking locked doors,
+        Count = 1,
+        ConditionMax = 1,
+        PrimaryAnimMask = HoldingHammerRight,
+        SecondaryAnimMask = HoldingHammerLeft,
+        StaticModel = Apple_Ground,
+        WorldStaticModel = Apple_Ground,
+        Tags = Lockpick,
+    }
+
     item Lockpick
     {
         DisplayName = Lockpick,
@@ -12,11 +29,29 @@ module UO {
         Icon = Apple,
         Tooltip = Useful for picking locked doors,
         Count = 1,
-        ConditionMax = 3,
+        ConditionMax = 10,
         PrimaryAnimMask = HoldingHammerRight,
         SecondaryAnimMask = HoldingHammerLeft,
         StaticModel = Apple_Ground,
         WorldStaticModel = Apple_Ground,
+        Tags = Lockpick,
+    }
+
+    item Lockpick_Strong
+    {
+        DisplayName = Strong Lockpick,
+        DisplayCategory = Tool,
+        Type = Normal,
+        Weight = 0.1,
+        Icon = Apple,
+        Tooltip = Useful for picking locked doors,
+        Count = 1,
+        ConditionMax = 100,
+        PrimaryAnimMask = HoldingHammerRight,
+        SecondaryAnimMask = HoldingHammerLeft,
+        StaticModel = Apple_Ground,
+        WorldStaticModel = Apple_Ground,
+        Tags = Lockpick,
     }
 
 

@@ -25,6 +25,8 @@
 ---@field Organized DoTraitsOnCreatePlayer.Organized
 ---@field EnduranceSecret DoTraitsOnCreatePlayer.EnduranceSecret
 ---@field Invincible DoTraitsOnCreatePlayer.Invincible
+---@field Desensitized DoTraitsOnCreatePlayer.Desensitized
+---@field Marksman DoTraitsOnCreatePlayer.Marksman
 
 -- Traits on game boot
 ---@class UsefulOccupations.DoTraitsOnGameBoot
