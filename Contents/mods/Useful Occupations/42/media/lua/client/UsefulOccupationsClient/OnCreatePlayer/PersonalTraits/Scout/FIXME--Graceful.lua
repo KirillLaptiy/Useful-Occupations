@@ -13,64 +13,6 @@
 ---@class DoTraitsOnCreatePlayer.Graceful
 ---@param player IsoPlayer
 UsefulOccupations.DoTraitsOnCreatePlayer.Graceful = function(player)
-	-- Movement speed values
-	-- Sneak walk
-	local sneakWalkSS = UsefulOccupations.MovementSpeedValues.type_sneakLimpSpeedScale
-	local sneakWalkBT = UsefulOccupations.MovementSpeedValues.type_050
-	local sneakWalkLowBT = UsefulOccupations.MovementSpeedValues.type_070
-
-	-- Sneak run
-	local sneakRunBT = UsefulOccupations.MovementSpeedValues.type_050
-	local sneakRunSS = UsefulOccupations.MovementSpeedValues.type_092
-	local sneakRunLowBT = UsefulOccupations.MovementSpeedValues.type_050
-	local sneakRunLowSS = UsefulOccupations.MovementSpeedValues.type_104
-
-	-- Default walk
-	local defaultWalkBT = UsefulOccupations.MovementSpeedValues.type_020
-	local defaultWalkSS = UsefulOccupations.MovementSpeedValues.type_104
-
-	-- Default run
-	local defaultRunBT = UsefulOccupations.MovementSpeedValues.type_035
-	local defaultRunSS = UsefulOccupations.MovementSpeedValues.type_104
-
-	-- Default sprint
-	local defaultSprintBT = UsefulOccupations.MovementSpeedValues.type_015
-	local defaultSprintSS = UsefulOccupations.MovementSpeedValues.type_096
-
-	-- Climb wall
-	local climbWallBT = UsefulOccupations.MovementSpeedValues.type_020
-	local climbWallSS = UsefulOccupations.MovementSpeedValues.type_120
-
-	-- Climb window
-	local climbWindow_StartBOT = UsefulOccupations.MovementSpeedValues.type_020
-	local climbWindow_EndBT = UsefulOccupations.MovementSpeedValues.type_040
-	local climbWindow_ObstacleBT = UsefulOccupations.MovementSpeedValues.type_020
-	local climbWindow_StartSS = UsefulOccupations.MovementSpeedValues.type_096
-	local climbWindow_EndSS = UsefulOccupations.MovementSpeedValues.type_096
-	local climbWindow_ObstacleSS = UsefulOccupations.MovementSpeedValues.type_080
-
-	-- Climb fence
-	local climbFence_WalkBT = UsefulOccupations.MovementSpeedValues.type_005
-	local climbFence_WalkSS = UsefulOccupations.MovementSpeedValues.type_104
-	local climbFence_RunBT = UsefulOccupations.MovementSpeedValues.type_005
-	local climbFence_RunBOT = UsefulOccupations.MovementSpeedValues.type_035
-	local climbFence_RunSS = UsefulOccupations.MovementSpeedValues.type_080
-	local climbFence_SprintBT = UsefulOccupations.MovementSpeedValues.type_010
-	local climbFence_SprintSS = UsefulOccupations.MovementSpeedValues.type_080
-
-	-- Turn 180
-	-- Blend time
-	local turn_type_010BT = UsefulOccupations.MovementSpeedValues.type_010
-	local turn_type_030BT = UsefulOccupations.MovementSpeedValues.type_030
-
-	-- Blend out time
-	local turn_type_020BOT = UsefulOccupations.MovementSpeedValues.type_020
-	local turn_type_030BOT = UsefulOccupations.MovementSpeedValues.type_030
-
-	-- Speed scale
-	local turn_type_080SS = UsefulOccupations.MovementSpeedValues.type_080
-	local turn_type_104SS = UsefulOccupations.MovementSpeedValues.type_104
-
 	-- Graceful values
 	local traitValues = UsefulOccupations.PersonalTraits.Graceful.values
 
@@ -150,117 +92,93 @@ UsefulOccupations.DoTraitsOnCreatePlayer.Graceful = function(player)
 	-- Clothing multiplier
 	local clothingWeightMultiplier = traitValues.clothingWeightMultiplier
 
-	local sneakWalkMultiplier = 1
+	local movementHandler = UOPlayerMovementHandler:getInstance()
+	local speedTypes = movementHandler.getSpeedTypes()
+
 	local turnMultiplier = 1
 
 	-- Update every 30 ms
 	local constantUpdating = function()
-		-- Updating sneak walk speed, including scale by "sneakLimpSpeedScale"
-		local sneakLimpSpeedScale = player:getVariableString(sneakWalkSS)
-
-		player:setVariable("sneakWalkSS", sneakLimpSpeedScale * sneakWalkMultiplier)
-		player:setVariable("sneakWalkBT", sneakWalkBT / sneakWalkMultiplier)
-		player:setVariable("sneakWalkLowSS", sneakLimpSpeedScale * sneakWalkMultiplier)
-		player:setVariable("sneakWalkLowBT", sneakWalkLowBT / sneakWalkMultiplier)
-
-		-- The character always climbs over the fence
-		player:setVariable("ClimbFenceOutcome", "success")
-		player:setVariable("ClimbFenceStruggle", false)
-
 		-- Update walk turn speed
 		if player:isAiming() then
-			player:setTurnDelta(1)
+			movementHandler.setSpeedMult(speedTypes.turn, 1, false, false)
 		else
-			player:setTurnDelta(turnMultiplier)
+			movementHandler.setSpeedMult(speedTypes.turn, turnMultiplier, false, false)
 		end
+	end
+
+	---@param value MovementValue
+	local calculateNewMultipler = function(value)
+		local targetPerkLvl = player:getPerkLevel(value.targetPerk)
+		local newMultiplier = 1 + (value.startBonusPercent / 100) + (targetPerkLvl * (value.percentPerLvl / 100))
+
+		return newMultiplier
 	end
 
 	-- Updating speed scale multipliers
 	---@param perk Perk | nil
 	local updateSSMultipliers = function(perk)
-		---@param value MovementValue
-		local calculateNewMultipler = function(value)
-			local targetPerkLvl = player:getPerkLevel(value.targetPerk)
-			local newMultiplier = 1 + (value.startBonusPercent / 100) + (targetPerkLvl * (value.percentPerLvl / 100))
-
-			return newMultiplier
-		end
-
-		local needUpdateAll = not perk
+		-- Update all multiplier on game start
+		local needUpdateAll = perk == nil
 
 		-- Update sneak walk speed
 		if needUpdateAll or perk == sneakWalk.targetPerk then
-			sneakWalkMultiplier = calculateNewMultipler(sneakWalk)
+			local sneakWalkMultiplier = calculateNewMultipler(sneakWalk)
+			movementHandler.setSpeedMult(speedTypes.walkSneak, sneakWalkMultiplier, true, false)
 		end
 
 		-- Update walk speed
 		if needUpdateAll or perk == defaultWalk.targetPerk then
 			local defaultWalkMultiplier = calculateNewMultipler(defaultWalk)
-			player:setVariable("defaultWalkBT", defaultWalkBT / defaultWalkMultiplier)
-			player:setVariable("defaultWalkSS", defaultWalkSS * defaultWalkMultiplier)
+			movementHandler.setSpeedMult(speedTypes.walk, defaultWalkMultiplier, true, false)
 		end
 
 		-- Update sneak run speed
 		if needUpdateAll or perk == sneakRun.targetPerk then
 			local sneakRunMultiplier = calculateNewMultipler(sneakRun)
-			player:setVariable("sneakRunBT", sneakRunBT / sneakRunMultiplier)
-			player:setVariable("sneakRunSS", sneakRunSS * sneakRunMultiplier)
-			player:setVariable("sneakRunLowBT", sneakRunLowBT / sneakRunMultiplier)
-			player:setVariable("sneakRunLowSS", sneakRunLowSS * sneakRunMultiplier)
+			movementHandler.setSpeedMult(speedTypes.runSneak, sneakRunMultiplier, true, false)
 		end
 
 		-- Update default run speed
 		if needUpdateAll or perk == defaultRun.targetPerk then
 			local defaultRunMultiplier = calculateNewMultipler(defaultRun)
-			player:setVariable("defaultRunBT", defaultRunBT / defaultRunMultiplier)
-			player:setVariable("defaultRunSS", defaultRunSS * defaultRunMultiplier)
+			movementHandler.setSpeedMult(speedTypes.run, defaultRunMultiplier, true, false)
 		end
 
 		-- Update default sprint speed
 		if needUpdateAll or perk == defaultSprint.targetPerk then
 			local defaultSprintMultiplier = calculateNewMultipler(defaultSprint)
-			player:setVariable("defaultSprintBT", defaultSprintBT / defaultSprintMultiplier)
-			player:setVariable("defaultSprintSS", defaultSprintSS * defaultSprintMultiplier)
+			movementHandler.setSpeedMult(speedTypes.sprint, defaultSprintMultiplier, true, false)
 		end
 
 		-- Update climb wall speed
 		if needUpdateAll or perk == climbWall.targetPerk then
 			local climbWallMultiplier = calculateNewMultipler(climbWall)
-			player:setVariable("climbWallBT", climbWallBT / climbWallMultiplier)
-			player:setVariable("climbWallSS", climbWallSS * climbWallMultiplier)
+			movementHandler.setSpeedMult(speedTypes.climbWall, climbWallMultiplier, true, false)
 		end
 
 		-- Update climb window speed
 		if needUpdateAll or perk == climbWindow.targetPerk then
 			local climbWindowMultiplier = calculateNewMultipler(climbWindow)
-			player:setVariable("climbWindow_StartBOT", climbWindow_StartBOT / climbWindowMultiplier)
-			player:setVariable("climbWindow_EndBT", climbWindow_EndBT / climbWindowMultiplier)
-			player:setVariable("climbWindow_ObstacleBT", climbWindow_ObstacleBT / climbWindowMultiplier)
-			player:setVariable("climbWindow_StartSS", climbWindow_StartSS * climbWindowMultiplier)
-			player:setVariable("climbWindow_EndSS", climbWindow_EndSS * climbWindowMultiplier)
-			player:setVariable("climbWindow_ObstacleSS", climbWindow_ObstacleSS * climbWindowMultiplier)
+			movementHandler.setSpeedMult(speedTypes.climbWindow, climbWindowMultiplier, true, false)
 		end
 
 		-- Update walk climb fence speed
 		if needUpdateAll or perk == climbFence_Walk.targetPerk then
 			local climbFence_WalkMultiplier = calculateNewMultipler(climbFence_Walk)
-			player:setVariable("climbFence_WalkBT", climbFence_WalkBT / climbFence_WalkMultiplier)
-			player:setVariable("climbFence_WalkSS", climbFence_WalkSS * climbFence_WalkMultiplier)
+			movementHandler.setSpeedMult(speedTypes.climbFenceWalk, climbFence_WalkMultiplier, true, false)
 		end
 
 		-- Update run climb fence speed
 		if needUpdateAll or perk == climbFence_Run.targetPerk then
 			local climbFence_RunMultiplier = calculateNewMultipler(climbFence_Run)
-			player:setVariable("climbFence_RunBT", climbFence_RunBT / climbFence_RunMultiplier)
-			player:setVariable("climbFence_RunBOT", climbFence_RunBOT / climbFence_RunMultiplier)
-			player:setVariable("climbFence_RunSS", climbFence_RunSS * climbFence_RunMultiplier)
+			movementHandler.setSpeedMult(speedTypes.climbFenceRun, climbFence_RunMultiplier, true, false)
 		end
 
 		-- Update sprint climb fence speed
 		if needUpdateAll or perk == climbFence_Sprint.targetPerk then
 			local climbFence_SprintMultiplier = calculateNewMultipler(climbFence_Sprint)
-			player:setVariable("climbFence_SprintBT", climbFence_SprintBT / climbFence_SprintMultiplier)
-			player:setVariable("climbFence_SprintSS", climbFence_SprintSS * climbFence_SprintMultiplier)
+			movementHandler.setSpeedMult(speedTypes.climbFenceSprint, climbFence_SprintMultiplier, true, false)
 		end
 
 		-- Update turn speed
@@ -271,69 +189,53 @@ UsefulOccupations.DoTraitsOnCreatePlayer.Graceful = function(player)
 		-- Update turn180 speed
 		if needUpdateAll or perk == turn180.targetPerk then
 			local turn180Multiplier = calculateNewMultipler(turn180)
-			player:setVariable("turn_type_010BT", turn_type_010BT / turn180Multiplier)
-			player:setVariable("turn_type_030BT", turn_type_030BT / turn180Multiplier)
-			player:setVariable("turn_type_020BOT", turn_type_020BOT / turn180Multiplier)
-			player:setVariable("turn_type_030BOT", turn_type_030BOT / turn180Multiplier)
-			player:setVariable("turn_type_080SS", turn_type_080SS * turn180Multiplier)
-			player:setVariable("turn_type_104SS", turn_type_104SS * turn180Multiplier)
+			movementHandler.setSpeedMult(speedTypes.turn180, turn180Multiplier, true, false)
 		end
+
+		--FIXME
+		--FIXME
+		--FIXME
+		--FIXME
+		--FIXME
+		--FIXME
+		-- сделать уменьшение процента при усталости или перегрузке
+
+		-- The character always climbs over the fence
+		movementHandler.setClimbWallChance(100, 0, true)
 	end
 
 	-- Updating clothing stats
-	local updateClothingStats = function()
-		local inventory = player:getInventory()
+	---@param item Clothing
+	---@param itemdata table
+	local buffClothingStats = function(item, itemdata)
+		item:setRunSpeedModifier(math.max(1, item:getRunSpeedModifier()))
+		item:setCombatSpeedModifier(math.max(1, item:getCombatSpeedModifier()))
+		item:setActualWeight(itemdata.actualWeight * clothingWeightMultiplier)
+	end
 
-		UsefulOccupations.Functions.processAfterDelay(1, function()
-			for i = 0, inventory:getItems():size() - 1 do
-				---@type Clothing
-				local item = inventory:getItems():get(i)
+	-- Updating container stats
+	---@param item InventoryContainer
+	---@param itemdata table
+	local buffBackpackStats = function(item, itemdata)
+		item:setActualWeight(itemdata.actualWeight * clothingWeightMultiplier)
+	end
 
-				local isClothing = item:IsClothing()
-				local isContainer = item:IsInventoryContainer()
-
-				if isClothing or isContainer then
-					local itemdata = item:getModData()
-
-					if itemdata.actualWeight == nil then
-						if isClothing then
-							itemdata.runSpeedModifier = item:getRunSpeedModifier()
-							itemdata.combatSpeedModifier = item:getCombatSpeedModifier()
-						end
-
-						itemdata.actualWeight = item:getActualWeight()
-					end
-
-					if item:isEquipped() then
-						if isClothing then
-							if item:getRunSpeedModifier() < 1 then
-								item:setRunSpeedModifier(1)
-							end
-
-							if item:getCombatSpeedModifier() < 1 then
-								item:setCombatSpeedModifier(1)
-							end
-						end
-
-						item:setActualWeight(itemdata.actualWeight * clothingWeightMultiplier)
-					else
-						if isClothing then
-							item:setRunSpeedModifier(itemdata.runSpeedModifier)
-							item:setCombatSpeedModifier(itemdata.combatSpeedModifier)
-						end
-
-						item:setActualWeight(itemdata.actualWeight)
-					end
-				end
-			end
-		end)
+	---@class InventoryItemsStatsHandler.Graceful
+	---@param item Clothing | InventoryContainer
+	---@param itemdata table
+	UsefulOccupations.InventoryItemsStatsHandler.Graceful = function(item, itemdata)
+		if item:IsClothing() then
+			---@diagnostic disable-next-line: param-type-mismatch
+			buffClothingStats(item, itemdata)
+		else
+			---@diagnostic disable-next-line: param-type-mismatch
+			buffBackpackStats(item, itemdata)
+		end
 	end
 
 	updateSSMultipliers()
-	updateClothingStats()
 	constantUpdating()
 
-	-- player:setVariable("scoutWalkType", "bob")
 	player:setVariable("hasGraceful", true)
 
 	UsefulOccupations.Functions.processEveryMs(30, constantUpdating)
@@ -341,6 +243,4 @@ UsefulOccupations.DoTraitsOnCreatePlayer.Graceful = function(player)
 	UsefulOccupations.Functions.addEvent(Events.LevelPerk, function(_, perk, _, _)
 		updateSSMultipliers(perk)
 	end)
-
-	UsefulOccupations.Functions.addEvent(Events.OnClothingUpdated, updateClothingStats)
 end

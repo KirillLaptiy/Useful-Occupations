@@ -27,16 +27,24 @@
 ---@field Invincible DoTraitsOnCreatePlayer.Invincible
 ---@field Desensitized DoTraitsOnCreatePlayer.Desensitized
 ---@field Marksman DoTraitsOnCreatePlayer.Marksman
+---@field TrainedFighter DoTraitsOnCreatePlayer.TrainedFighter
 
 -- Traits on game boot
 ---@class UsefulOccupations.DoTraitsOnGameBoot
 ---@field Axeman DoTraitsOnGameBoot.Axeman
 ---@field Wunderkind DoTraitsOnGameBoot.Wunderkind
 
+-- Traits that affect inventory item stats
+---@class UsefulOccupations.InventoryItemsStatsHandler
+---@field Marksman InventoryItemsStatsHandler.Marksman
+---@field Graceful InventoryItemsStatsHandler.Graceful
+---@field TrainedFighter InventoryItemsStatsHandler.TrainedFighter
+
 --- Main data
 ---@class UsefulOccupations
 ---@field DoTraitsOnCreatePlayer UsefulOccupations.DoTraitsOnCreatePlayer
 ---@field DoTraitsOnGameBoot UsefulOccupations.DoTraitsOnGameBoot
+---@field InventoryItemsStatsHandler UsefulOccupations.InventoryItemsStatsHandler
 ---@field MovementSpeedValues UsefulOccupations.MovementSpeedValues
 ---@field ModData UsefulOccupations.ModData
 ---@field Traits UsefulOccupations.Traits
@@ -53,6 +61,8 @@ UsefulOccupations = {
 	DoTraitsOnCreatePlayer = {},
 	---@diagnostic disable-next-line: missing-fields
 	DoTraitsOnGameBoot = {},
+	---@diagnostic disable-next-line: missing-fields
+	InventoryItemsStatsHandler = {},
 	MovementSpeedValues = require("UsefulOccupationsShared/Data/MovementSpeedValues"),
 	ModData = require("UsefulOccupationsShared/Data/ModData"),
 	Traits = require("UsefulOccupationsShared/Data/Traits"),

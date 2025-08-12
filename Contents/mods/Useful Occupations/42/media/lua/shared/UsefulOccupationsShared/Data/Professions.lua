@@ -79,6 +79,7 @@ local initProfessions = function()
 				UsefulOccupations.PersonalTraits.Desensitized,
 				UsefulOccupations.PersonalTraits.EnduranceSecret,
 				UsefulOccupations.PersonalTraits.Invincible,
+				UsefulOccupations.PersonalTraits.TrainedFighter,
 			},
 
 			---@class Profession.Veteran.xpBoosts

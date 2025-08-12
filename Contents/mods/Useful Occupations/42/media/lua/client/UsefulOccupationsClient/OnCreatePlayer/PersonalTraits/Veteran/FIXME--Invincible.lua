@@ -171,6 +171,8 @@ UsefulOccupations.DoTraitsOnCreatePlayer.Invincible = function(player)
 	local bodyDamage = player:getBodyDamage()
 	local bodyParts = bodyDamage:getBodyParts()
 
+	local movementHandler = UOPlayerMovementHandler:getInstance()
+
 	local canDodge = stats:getEndurance() > dodgeEnduranceEdge
 	local dodgeCost = dodgeEnduranceCost - (targetPerkEffect * player:getPerkLevel(targetPerk))
 
@@ -277,78 +279,14 @@ UsefulOccupations.DoTraitsOnCreatePlayer.Invincible = function(player)
 		end
 	end
 
-	local updateWeaponUnbreakable = function()
-		local isPerkActive = modData.invincibleState == perkStates.active
-		local inventory = player:getInventory()
-
-		for i = 0, inventory:getItems():size() - 1 do
-			---@type HandWeapon
-			local item = inventory:getItems():get(i)
-
-			if item:IsWeapon() then
-				local itemdata = item:getModData()
-
-				-- Save the original values if we haven't already
-				if itemdata.conditionLowerChance == nil then
-					itemdata.conditionLowerChance = item:getConditionLowerChance()
-				end
-
-				if itemdata.sharpness == nil then
-					itemdata.sharpness = item:getSharpness()
-				end
-
-				if itemdata.headCondition == nil then
-					itemdata.headCondition = item:getHeadCondition()
-				end
-
-				-- Remember the "current" parameters after all external buffs
-				if itemdata.invincible_conditionLowerChance == nil then
-					itemdata.invincible_conditionLowerChance = item:getConditionLowerChance()
-				end
-
-				if itemdata.invincible_sharpness == nil then
-					itemdata.invincible_sharpness = item:getSharpness()
-				end
-
-				if itemdata.invincible_headCondition == nil then
-					itemdata.invincible_headCondition = item:getHeadCondition()
-				end
-
-				if item:isEquipped() and isPerkActive then
-					item:setConditionLowerChance(math.huge)
-					item:setSharpness(itemdata.invincible_sharpness > 0.2 and itemdata.invincible_sharpness or 0.2)
-					item:setHeadCondition(
-						itemdata.invincible_headCondition > 1 and itemdata.invincible_headCondition or 2
-					)
-				else
-					if isPerkActive then
-						item:setConditionLowerChance(itemdata.conditionLowerChance)
-						item:setSharpness(itemdata.sharpness)
-						item:setHeadCondition(itemdata.headCondition)
-					else
-						item:setConditionLowerChance(itemdata.invincible_conditionLowerChance)
-						item:setSharpness(itemdata.invincible_sharpness)
-						item:setHeadCondition(itemdata.invincible_headCondition)
-					end
-
-					itemdata.invincible_conditionLowerChance = nil
-					itemdata.invincible_sharpness = nil
-					itemdata.invincible_headCondition = nil
-				end
-			end
-		end
-	end
-
 	local doDodge = function()
 		local endurance = stats:getEndurance()
-
 		stats:setEndurance(endurance - dodgeCost)
-
 		player:playerVoiceSound("JumpLow")
 	end
 
 	---@param zombie IsoZombie
-	local dodgeAttackingZombies = function(zombie)
+	local dodgeAttackingZombie = function(zombie)
 		zombie:setNoTeeth(true)
 
 		UsefulOccupations.Functions.processAfterDelay(500, function()
@@ -373,10 +311,12 @@ UsefulOccupations.DoTraitsOnCreatePlayer.Invincible = function(player)
 		modData.invincibleState = perkStates.active
 		modData.invincibleActiveTime = perkActiveTime
 
-		player:setPlayingDeathSound(false)
 		player:setDeathDragDown(false)
-		---@diagnostic disable-next-line: param-type-mismatch
-		player:setHitReaction(nil)
+		player:setPlayingDeathSound(false)
+
+		--FixME
+		-- ---@diagnostic disable-next-line: param-type-mismatch
+		player:setHitReaction("")
 
 		updateBodyPartInjuries()
 		updateStats()
@@ -384,6 +324,8 @@ UsefulOccupations.DoTraitsOnCreatePlayer.Invincible = function(player)
 
 		player:setGodMod(true)
 		player:setUnlimitedCarry(true)
+
+		UOItemsStatsHandler:updateWeaponUnbreakable(true)
 	end
 
 	---@param zombie IsoZombie
@@ -397,8 +339,10 @@ UsefulOccupations.DoTraitsOnCreatePlayer.Invincible = function(player)
 	end
 
 	local checkNearZombies = function()
-		canDodge = stats:getEndurance() > dodgeEnduranceEdge
 		local isDeathDragDown = player:isDeathDragDown()
+		local isSprinting = player:isSprinting()
+
+		canDodge = stats:getEndurance() > dodgeEnduranceEdge
 
 		local enemies = player:getSpottedList()
 
@@ -415,12 +359,17 @@ UsefulOccupations.DoTraitsOnCreatePlayer.Invincible = function(player)
 					if not enemy:isKnockedDown() then
 						pushZombie(enemy)
 					end
+				elseif modData.invincibleState == perkStates.active and isSprinting then
+					-- activateTaran
 				elseif canDodge and enemy:getTarget() == player and not enemy:isNoTeeth() and enemy:isAttacking() then
 					-- dodgeAttackingZombies(enemy)
 				end
 			end
 		end
 	end
+
+	modData.invincibleState = perkStates.active
+	modData.invincibleActiveTime = 30
 
 	local processPerkActiveState = function()
 		if modData.invincibleState ~= perkStates.active then
@@ -430,9 +379,14 @@ UsefulOccupations.DoTraitsOnCreatePlayer.Invincible = function(player)
 		-- Do when perk is active
 		modData.invincibleActiveTime = math.max(0, modData.invincibleActiveTime - 1)
 
-		print(modData.invincibleActiveTime)
+		-- Do weapon unbreakable
+		UOItemsStatsHandler:updateWeaponUnbreakable(true)
 
-		updateWeaponUnbreakable()
+		-- Increse all movement speed
+		movementHandler.setInvincibleMult(2)
+
+		-- Always climb fence when perk active
+		movementHandler.setClimbWallChance(100, 0, true)
 
 		-- Switch perk state to "cooldown"
 		if modData.invincibleActiveTime == 0 then
@@ -442,7 +396,11 @@ UsefulOccupations.DoTraitsOnCreatePlayer.Invincible = function(player)
 			player:setGodMod(false)
 			player:setUnlimitedCarry(false)
 
-			updateWeaponUnbreakable()
+			UOItemsStatsHandler:updateWeaponUnbreakable(false)
+
+			movementHandler.setInvincibleMult(1)
+
+			movementHandler.resetClimbWallChance()
 
 			applyBodyPartInjuries()
 			applyStats()
@@ -450,18 +408,50 @@ UsefulOccupations.DoTraitsOnCreatePlayer.Invincible = function(player)
 		end
 	end
 
-	local processPerkCooldownState = function()
+	---@param firstCall boolean
+	local processPerkCooldownState = function(firstCall)
 		if modData.invincibleState ~= perkStates.onCooldown then
 			return
 		end
 
-		modData.invincibleCooldownTime = math.max(0, modData.invincibleCooldownTime - 10)
+		if not firstCall then
+			modData.invincibleCooldownTime = math.max(0, modData.invincibleCooldownTime - 10)
+		end
+
+		local passedCooldownPercent = perkCooldownTime > 0
+				and math.floor((1 - (modData.invincibleCooldownTime / perkCooldownTime)) * 100)
+			or 100
+
+		-- FIXMEEE
+		-- FIXMEEE
+		-- FIXMEEE
+		-- FIXMEEE
+		-- FIXMEEE
+		-- Сделать обработку процента времени
+
+		print(passedCooldownPercent)
 
 		-- Do when perk on cooldown
+		if passedCooldownPercent >= 2 then
+			movementHandler.setInvincibleMult(passedCooldownPercent / 100)
+
+			player:setAllowRun(false)
+			player:setAllowSprint(false)
+
+			movementHandler.setClimbWallChance(0, 100, true)
+
+			stats:setPain(100 - passedCooldownPercent)
+		end
 
 		-- Switch perk state to "ready"
 		if modData.invincibleCooldownTime == 0 then
 			modData.invincibleState = perkStates.ready
+			movementHandler.setInvincibleMult(1)
+
+			player:setAllowRun(true)
+			player:setAllowSprint(true)
+
+			movementHandler.resetClimbWallChance()
 		end
 	end
 
@@ -470,6 +460,8 @@ UsefulOccupations.DoTraitsOnCreatePlayer.Invincible = function(player)
 			dodgeCost = dodgeEnduranceCost - (targetPerkEffect * perkLvl)
 		end
 	end)
+
+	processPerkCooldownState(true)
 
 	UsefulOccupations.Functions.addEvent(Events.EveryTenMinutes, processPerkCooldownState)
 

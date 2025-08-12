@@ -32,6 +32,7 @@ Events.OnCreatePlayer.Add(function(_, player)
 		end
 	end
 
+	-- Call every join
 	-- Updating mod data keys if moddata was changed
 	local currentModData = UsefulOccupations.Functions.getModData()
 
@@ -47,6 +48,7 @@ Events.OnCreatePlayer.Add(function(_, player)
 		end
 	end
 
+	-- Call every join
 	-- Do personal traits when player created
 	for func in pairs(UsefulOccupations.DoTraitsOnCreatePlayer) do
 		local traitName = tostring(func)

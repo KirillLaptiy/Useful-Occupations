@@ -2,8 +2,8 @@
 <animNode>
 	<m_Name>sneakRunLow</m_Name>
 	<m_AnimName>Bob_RunLowSneak</m_AnimName>
-	<m_BlendTime>0.50</m_BlendTime>
-	<m_SpeedScale>1.04</m_SpeedScale>
+	<m_BlendTime>sneakRunLowBT</m_BlendTime>
+	<m_SpeedScale>sneakRunLowSS</m_SpeedScale>
 	<m_Scalar>WalkInjury</m_Scalar>
 	<m_Scalar2>WalkSpeed</m_Scalar2>
 	<m_2DBlends referenceID="1">
@@ -54,11 +54,6 @@
 		<m_YPos>0.00</m_YPos>
 		<m_SpeedScale>0.80</m_SpeedScale>
 	</m_2DBlends>
-	<m_Conditions>
-		<m_Name>hasGraceful</m_Name>
-		<m_Type>BOOL</m_Type>
-		<m_BoolValue>false</m_BoolValue>
-	</m_Conditions>
 	<m_Conditions x_name="8392cb8c-870e-4c96-ac64-ed8b021a0bfd">
 		<m_Name>sneaking</m_Name>
 		<m_Type>BOOL</m_Type>
@@ -78,6 +73,11 @@
 		<m_Name>isTurningAround</m_Name>
 		<m_Type>BOOL</m_Type>
 		<m_Value>false</m_Value>
+	</m_Conditions>
+	<m_Conditions>
+		<m_Name>hasGraceful</m_Name>
+		<m_Type>BOOL</m_Type>
+		<m_BoolValue>false</m_BoolValue>
 	</m_Conditions>
 	<m_Events x_name="5bdbae77-faef-451a-a035-1ec7d053f192">
 		<m_EventName>Footstep</m_EventName>

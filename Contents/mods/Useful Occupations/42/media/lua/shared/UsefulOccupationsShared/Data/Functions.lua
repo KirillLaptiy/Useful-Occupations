@@ -17,7 +17,6 @@
 ---@field clearModData fun()
 
 local activeEventList = {}
-local activeEventSet = {}
 
 ---@type UsefulOccupations.Functions
 local Functions = {
@@ -57,15 +56,9 @@ local Functions = {
 	end,
 
 	addEvent = function(eventTable, callback)
-		if activeEventSet[callback] then
-			return callback
-		end
-
 		eventTable.Add(callback)
 
 		table.insert(activeEventList, { event = eventTable, callback = callback })
-
-		activeEventSet[callback] = true
 
 		return callback
 	end,
@@ -76,7 +69,6 @@ local Functions = {
 		end
 
 		activeEventList = {}
-		activeEventSet = {}
 	end,
 
 	clearModData = function()

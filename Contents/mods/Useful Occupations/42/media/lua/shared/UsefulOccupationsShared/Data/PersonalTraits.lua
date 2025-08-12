@@ -373,13 +373,9 @@ local PersonalTraits = {
 			-- Minimum guaranteed critical hit chance (overrides lower weapon values)
 			minCritChance = 50,
 			-- Base multiplier applied to the weapon's critical chance
-			critChanceDefaultMult = 1.2,
+			critChanceDefaultMult = 1.5,
 			-- Additional multiplier per perk level added to critical chance
-			critChanceBonusPerLvl = 0.03,
-			-- Base multiplier for critical damage
-			critDmgDefaultMult = 1.2,
-			-- Additional multiplier per perk level for critical damage
-			critDmgBonusPerLvl = 0.03,
+			critChanceBonusPerLvl = 0.05,
 			-- Base multiplier for aiming time (e.g. 2 = twice as fast aiming)
 			aimingTimeDefaultMult = 2,
 			-- Additional multiplier per perk level to reduce aiming time
@@ -402,6 +398,8 @@ local PersonalTraits = {
 			reloadSpeedDefaultMult = 1.3,
 			-- Bonus multiplier per perk level to increase reloading speed
 			reloadSpeedBonusPerLvl = 0.02,
+			-- Bonus mult to reduce the chance of breaking ranged weapons
+			conditionLowerChanceMult = 2,
 		},
 	},
 
@@ -465,6 +463,53 @@ local PersonalTraits = {
 			maxPain = 20,
 			-- Maximum fatigue value (81 - third stage)
 			maxFatigue = 81,
+		},
+	},
+
+	---@class PersonalTraits.TrainedFighter
+	TrainedFighter = {
+		type = "TrainedFighter",
+		name = getText("UI_trait_TrainedFighter"),
+		desc = getText("UI_trait_TrainedFighterDesc"),
+		---@class PersonalTraits.TrainedFighter.xpBoosts
+		xpBoosts = {},
+		---@class PersonalTraits.TrainedFighter.freeRecipes
+		freeRecipes = {},
+		---@class PersonalTraits.TrainedFighter.values
+		values = {
+			-- Default strafe walk speed increase in percents
+			strafeWalkSpeedDefault = 30,
+			-- Bonus percents per target perk lvl
+			strafeWalkSpeedBonus = 2,
+			-- Default strafe aim speed increase in percents
+			strafeAimSpeedDefault = 30,
+			-- Bonus percents per target perk lvl
+			strafeAimSpeedBonus = 2,
+			-- Perk that will increase speed per lvl
+			strafeSpeedTargetPerk = Perks.Nimble,
+			-- Minimum guaranteed hit chance (overrides lower weapon values)
+
+			minHitChance = 100,
+			-- Minimum guaranteed critical hit chance (overrides lower weapon values)
+			minCritChance = 50,
+			-- Base multiplier applied to the weapon's critical chance
+			critChanceDefaultMult = 1.5,
+			-- Additional multiplier per perk level added to critical chance
+			critChanceBonusPerLvl = 0.05,
+			-- Base multiplier for maximum weapon range
+			maxRangeDefaultMult = 1.2,
+			-- Bonus multiplier per perk level to increase max range
+			maxRangeBonusPerLvl = 0.03,
+			-- Base multiplier for the weapon's minimum damage
+			minDamageDefaultMult = 1.2,
+			-- Bonus multiplier per perk level to increase minimum damage
+			minDamageBonusPerLvl = 0.03,
+			-- Base multiplier for the weapon's maximum damage
+			maxDamageDefaultMult = 1.2,
+			-- Bonus multiplier per perk level to increase maximum damage
+			maxDamageBonusPerLvl = 0.03,
+			-- Bonus mult to reduce the chance of breaking melee weapons
+			conditionLowerChanceMult = 2,
 		},
 	},
 

@@ -3,7 +3,7 @@
 	<m_Name>strafeDefault</m_Name>
 	<m_AnimName>Bob_IdleAim1Hand</m_AnimName>
 	<m_BlendTime>0.20</m_BlendTime>
-	<m_SpeedScale>StrafeSpeed</m_SpeedScale>
+	<m_SpeedScale>strafeDefaultSS</m_SpeedScale>
 	<m_Scalar>DeltaX</m_Scalar>
 	<m_Scalar2>DeltaY</m_Scalar2>
 	<m_2DBlends referenceID="1">
