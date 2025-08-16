@@ -42,11 +42,6 @@
 		<m_YPos>1.00</m_YPos>
 		<m_SpeedScale>0.80</m_SpeedScale>
 	</m_2DBlends>
-	<m_Conditions>
-		<m_Name>hasGraceful</m_Name>
-		<m_Type>BOOL</m_Type>
-		<m_BoolValue>true</m_BoolValue>
-	</m_Conditions>
 	<m_Conditions x_name="47e08e60-a8cf-4f71-a8f6-ab997724f9a4">
 		<m_Name>sneaking</m_Name>
 		<m_Type>BOOL</m_Type>

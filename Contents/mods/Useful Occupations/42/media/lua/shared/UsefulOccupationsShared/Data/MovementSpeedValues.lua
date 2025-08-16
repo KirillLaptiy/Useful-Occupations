@@ -13,7 +13,9 @@ local movementSpeedValues = {
 	type_092 = 0.92,
 	type_096 = 0.96,
 	type_104 = 1.04,
+	type_112 = 1.12,
 	type_120 = 1.20,
+	type_128 = 1.28,
 	type_sneakLimpSpeedScale = "sneakLimpSpeedScale",
 }
 

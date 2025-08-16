@@ -368,9 +368,6 @@ UsefulOccupations.DoTraitsOnCreatePlayer.Invincible = function(player)
 		end
 	end
 
-	modData.invincibleState = perkStates.active
-	modData.invincibleActiveTime = 30
-
 	local processPerkActiveState = function()
 		if modData.invincibleState ~= perkStates.active then
 			return

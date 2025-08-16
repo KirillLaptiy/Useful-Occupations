@@ -36,11 +36,6 @@
 		<m_YPos>0.50</m_YPos>
 		<m_SpeedScale>0.80</m_SpeedScale>
 	</m_2DBlends>
-	<m_Conditions>
-		<m_Name>hasGraceful</m_Name>
-		<m_Type>BOOL</m_Type>
-		<m_BoolValue>true</m_BoolValue>
-	</m_Conditions>
 	<m_2DBlendTri>
 		<node1>2</node1>
 		<node2>4</node2>

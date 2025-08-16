@@ -105,10 +105,6 @@ local updateClothing = function(item, itemdata)
 	if player:HasTrait(UsefulOccupations.PersonalTraits.Graceful.type) then
 		UsefulOccupations.InventoryItemsStatsHandler.Graceful(item, itemdata)
 	end
-
-	if player:HasTrait(UsefulOccupations.PersonalTraits.TrainedFighter.type) then
-		UsefulOccupations.InventoryItemsStatsHandler.TrainedFighter(item, itemdata)
-	end
 end
 
 ---@param item InventoryContainer

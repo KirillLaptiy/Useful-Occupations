@@ -488,7 +488,6 @@ local PersonalTraits = {
 			-- Perk that will increase speed per lvl
 			strafeSpeedTargetPerk = Perks.Nimble,
 			-- Minimum guaranteed hit chance (overrides lower weapon values)
-
 			minHitChance = 100,
 			-- Minimum guaranteed critical hit chance (overrides lower weapon values)
 			minCritChance = 50,
@@ -510,6 +509,20 @@ local PersonalTraits = {
 			maxDamageBonusPerLvl = 0.03,
 			-- Bonus mult to reduce the chance of breaking melee weapons
 			conditionLowerChanceMult = 2,
+			-- Stomp speed bonus percent
+			stompSpeedDefault = 50,
+			-- Default weapon swing speed increase in percents
+			weaponSwingSpeedDefault = 30,
+			-- Bonus percents per target perk lvl
+			weaponSwingSpeedBonus = 2,
+			-- Shove speed increase in percents
+			shoveSpeedDefault = 25,
+			-- Bump fall speed increase in percents
+			bumpFallSpeedDefault = 50,
+			-- Scramble get up speed increase in percents
+			scrambleGetUpSpeedDefault = 50,
+			-- Not scramble get up speed increase in percents
+			notScrambleGetUpSpeedDefault = 200,
 		},
 	},
 

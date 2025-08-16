@@ -25,6 +25,12 @@
 ---@field turn180 UOPlayerMovementMultipliers.SpeedType
 ---@field strafeWalk UOPlayerMovementMultipliers.SpeedType
 ---@field strafeAimIdle UOPlayerMovementMultipliers.SpeedType
+---@field stomp UOPlayerMovementMultipliers.SpeedType
+---@field combat UOPlayerMovementMultipliers.SpeedType
+---@field shove UOPlayerMovementMultipliers.SpeedType
+---@field bumpFall UOPlayerMovementMultipliers.SpeedType
+---@field scramble UOPlayerMovementMultipliers.SpeedType
+---@field notScramble UOPlayerMovementMultipliers.SpeedType
 
 ---@class UOPlayerMovementMultipliers.current
 ---@field walk number
@@ -41,6 +47,12 @@
 ---@field turn180 number
 ---@field strafeWalk number
 ---@field strafeAimIdle number
+---@field stomp number
+---@field combat number
+---@field shove number
+---@field bumpFall number
+---@field scramble number
+---@field notScramble number
 
 ---@class UOPlayerMovementMultipliers.extra
 ---@field invincible number
@@ -106,6 +118,20 @@ local turn_type_104SS = UsefulOccupations.MovementSpeedValues.type_104
 -- Strafe aim idle
 local defaultTurnAimSpeed = UsefulOccupations.MovementSpeedValues.type_080
 
+-- Stomp
+local defaultStompSpeed = UsefulOccupations.MovementSpeedValues.type_128
+
+-- Shove
+local defaultShoveSpeed = UsefulOccupations.MovementSpeedValues.type_080
+
+-- Bump fall
+local bumpFallSS = UsefulOccupations.MovementSpeedValues.type_104
+
+-- Getup
+local fromScrambleSS = UsefulOccupations.MovementSpeedValues.type_080
+local fromScrambleToWalkSS = UsefulOccupations.MovementSpeedValues.type_104
+local notScrambleSS = UsefulOccupations.MovementSpeedValues.type_112
+
 ---@type UOPlayerMovementMultipliers.SpeedTypes
 local speedTypes = {
 	---@diagnostic disable-next-line: assign-type-mismatch
@@ -136,6 +162,18 @@ local speedTypes = {
 	strafeWalk = "strafeWalk",
 	---@diagnostic disable-next-line: assign-type-mismatch
 	strafeAimIdle = "strafeAimIdle",
+	---@diagnostic disable-next-line: assign-type-mismatch
+	stomp = "stomp",
+	---@diagnostic disable-next-line: assign-type-mismatch
+	combat = "combat",
+	---@diagnostic disable-next-line: assign-type-mismatch
+	shove = "shove",
+	---@diagnostic disable-next-line: assign-type-mismatch
+	bumpFall = "bumpFall",
+	---@diagnostic disable-next-line: assign-type-mismatch
+	scramble = "scramble",
+	---@diagnostic disable-next-line: assign-type-mismatch
+	notScramble = "notScramble",
 }
 
 ---@class UOPlayerMovementMultipliers.SetTypes
@@ -154,6 +192,12 @@ local setTypes = {
 	turn180 = "setTurn180SpeedMult",
 	strafeWalk = "setStrafeSpeedMult",
 	strafeAimIdle = "setStrafeAimIdleMult",
+	stomp = "setStompSpeedMult",
+	combat = "setWeaponSwingSpeedMult",
+	shove = "setShoveSpeedMult",
+	bumpFall = "setBumpFallSpeedMult",
+	scramble = "setScrambleGetUpSpeedMult",
+	notScramble = "setNotScrambleGetUpSpeedMult",
 }
 
 ---@type UOPlayerMovementMultipliers.current
@@ -172,6 +216,12 @@ local currentMults = {
 	turn180 = 1,
 	strafeWalk = 1,
 	strafeAimIdle = 1,
+	stomp = 1,
+	combat = 1,
+	shove = 1,
+	bumpFall = 1,
+	scramble = 1,
+	notScramble = 1,
 }
 
 ---@type UOPlayerMovementMultipliers.extra
@@ -201,18 +251,23 @@ local climbWallChance = nil
 local climbWallStruggleChance = nil
 local needUpdateStruggleChance = false
 
--- Strafe
-local strafeSpeedIncreased = false
-
 -- Set methods
 ---@param totalMult number
 setMethods.setWalkSpeedMult = function(totalMult)
+	if totalMult < 0.15 then
+		totalMult = 0.15
+	end
+
 	player:setVariable("defaultWalkBT", defaultWalkBT / totalMult)
 	player:setVariable("defaultWalkSS", defaultWalkSS * totalMult)
 end
 
 ---@param totalMult number
 setMethods.setSneakWalkSpeedMult = function(totalMult)
+	if totalMult < 0.15 then
+		totalMult = 0.15
+	end
+
 	local sneakLimpSpeedScale = player:getVariableString(sneakWalkSS)
 
 	player:setVariable("sneakWalkBT", sneakWalkBT / totalMult)
@@ -223,6 +278,10 @@ end
 
 ---@param totalMult number
 setMethods.setSneakRunSpeedMult = function(totalMult)
+	if totalMult < 0.15 then
+		totalMult = 0.15
+	end
+
 	player:setVariable("sneakRunBT", sneakRunBT / totalMult)
 	player:setVariable("sneakRunSS", sneakRunSS * totalMult)
 	player:setVariable("sneakRunLowBT", sneakRunLowBT / totalMult)
@@ -231,24 +290,40 @@ end
 
 ---@param totalMult number
 setMethods.setRunSpeedMult = function(totalMult)
+	if totalMult < 0.15 then
+		totalMult = 0.15
+	end
+
 	player:setVariable("defaultRunBT", defaultRunBT / totalMult)
 	player:setVariable("defaultRunSS", defaultRunSS * totalMult)
 end
 
 ---@param totalMult number
 setMethods.setSprintSpeedMult = function(totalMult)
+	if totalMult < 0.15 then
+		totalMult = 0.15
+	end
+
 	player:setVariable("defaultSprintBT", defaultSprintBT / totalMult)
 	player:setVariable("defaultSprintSS", defaultSprintSS * totalMult)
 end
 
 ---@param totalMult number
 setMethods.setClimbWallSpeedMult = function(totalMult)
+	if totalMult < 0.15 then
+		totalMult = 0.15
+	end
+
 	player:setVariable("climbWallBT", climbWallBT / totalMult)
 	player:setVariable("climbWallSS", climbWallSS * totalMult)
 end
 
 ---@param totalMult number
 setMethods.setClimbWindowSpeedMult = function(totalMult)
+	if totalMult < 0.15 then
+		totalMult = 0.15
+	end
+
 	player:setVariable("climbWindow_StartBOT", climbWindow_StartBOT / totalMult)
 	player:setVariable("climbWindow_EndBT", climbWindow_EndBT / totalMult)
 	player:setVariable("climbWindow_ObstacleBT", climbWindow_ObstacleBT / totalMult)
@@ -259,12 +334,20 @@ end
 
 ---@param totalMult number
 setMethods.setClimbFenceWalkSpeedMult = function(totalMult)
+	if totalMult < 0.15 then
+		totalMult = 0.15
+	end
+
 	player:setVariable("climbFence_WalkBT", climbFence_WalkBT / totalMult)
 	player:setVariable("climbFence_WalkSS", climbFence_WalkSS * totalMult)
 end
 
 ---@param totalMult number
 setMethods.setClimbFenceRunSpeedMult = function(totalMult)
+	if totalMult < 0.15 then
+		totalMult = 0.15
+	end
+
 	player:setVariable("climbFence_RunBT", climbFence_RunBT / totalMult)
 	player:setVariable("climbFence_RunBOT", climbFence_RunBOT / totalMult)
 	player:setVariable("climbFence_RunSS", climbFence_RunSS * totalMult)
@@ -272,17 +355,29 @@ end
 
 ---@param totalMult number
 setMethods.setClimbFenceSprintSpeedMult = function(totalMult)
+	if totalMult < 0.15 then
+		totalMult = 0.15
+	end
+
 	player:setVariable("climbFence_SprintBT", climbFence_SprintBT / totalMult)
 	player:setVariable("climbFence_SprintSS", climbFence_SprintSS * totalMult)
 end
 
 ---@param totalMult number
 setMethods.setTurnSpeedMult = function(totalMult)
+	if totalMult < 0.15 then
+		totalMult = 0.15
+	end
+
 	player:setTurnDelta(totalMult)
 end
 
 ---@param totalMult number
 setMethods.setTurn180SpeedMult = function(totalMult)
+	if totalMult < 0.15 then
+		totalMult = 0.15
+	end
+
 	player:setVariable("turn_type_010BT", turn_type_010BT / totalMult)
 	player:setVariable("turn_type_030BT", turn_type_030BT / totalMult)
 	player:setVariable("turn_type_020BOT", turn_type_020BOT / totalMult)
@@ -293,16 +388,82 @@ end
 
 ---@param totalMult number
 setMethods.setStrafeSpeedMult = function(totalMult)
-	local defaultStrafeWalkSpeed = tonumber(player:getVariableString("StrafeSpeed"))
-
-	if defaultStrafeWalkSpeed ~= nil then
-		player:setVariable("strafeDefaultSS", defaultStrafeWalkSpeed * totalMult)
+	if totalMult < 0.15 then
+		totalMult = 0.15
 	end
+
+	-- In vanilla the speed in combat stance is capped at level 6
+	-- So we are lifting the restriction
+	local defaultStrafeWalkSpeed = 0.72 + (0.08 * player:getPerkLevel(Perks.Nimble))
+
+	player:setVariable("strafeDefaultSS", defaultStrafeWalkSpeed * totalMult)
 end
 
 ---@param totalMult number
 setMethods.setStrafeAimIdleMult = function(totalMult)
+	if totalMult < 0.15 then
+		totalMult = 0.15
+	end
+
 	player:setVariable("TurnAimSpeed", defaultTurnAimSpeed * totalMult)
+end
+
+---@param totalMult number
+setMethods.setStompSpeedMult = function(totalMult)
+	if totalMult < 0.15 then
+		totalMult = 0.15
+	elseif totalMult > 1.5 then
+		totalMult = 1.5
+	end
+
+	player:setVariable("StompDefaultSS", defaultStompSpeed * totalMult)
+end
+
+---@param totalMult number
+setMethods.setWeaponSwingSpeedMult = function(totalMult)
+	if totalMult < 0.15 then
+		totalMult = 0.15
+	end
+
+	local combatSpeed = player:calculateCombatSpeed()
+	player:setVariable("UOCombatSpeed", combatSpeed * totalMult)
+end
+
+---@param totalMult number
+setMethods.setShoveSpeedMult = function(totalMult)
+	if totalMult < 0.15 then
+		totalMult = 0.15
+	end
+
+	player:setVariable("ShoveDefaultSS", defaultShoveSpeed * totalMult)
+end
+
+---@param totalMult number
+setMethods.setBumpFallSpeedMult = function(totalMult)
+	if totalMult < 0.15 then
+		totalMult = 0.15
+	end
+
+	player:setVariable("BumpFallSS", bumpFallSS * totalMult)
+end
+
+---@param totalMult number
+setMethods.setScrambleGetUpSpeedMult = function(totalMult)
+	if totalMult < 0.15 then
+		totalMult = 0.15
+	end
+
+	player:setVariable("ScrambleGetUpSS", fromScrambleSS * totalMult)
+	player:setVariable("ScrambleToWalkGetUpSS", fromScrambleToWalkSS * totalMult)
+end
+
+---@param totalMult number
+setMethods.setNotScrambleGetUpSpeedMult = function(totalMult)
+	if totalMult < 0.15 then
+		totalMult = 0.15
+	end
+
+	player:setVariable("NotScrambleGetUpSS", notScrambleSS * totalMult)
 end
 
 -- Util methods
@@ -313,11 +474,11 @@ utilMethods.applyNewSpeed = function()
 
 	player:setBlockMovement(true)
 
-	UsefulOccupations.Functions.processAfterDelay(10, function()
+	UsefulOccupations.Functions.processAfterDelay(5, function()
 		player:setBlockMovement(false)
 
 		if isSprinting then
-			UsefulOccupations.Functions.processAfterDelay(10, function()
+			UsefulOccupations.Functions.processAfterDelay(5, function()
 				player:setForceSprint(true)
 			end)
 		end
@@ -339,6 +500,13 @@ utilMethods.updateAllMults = function(isUpdatingExtraMult)
 	instance.setSpeedMult(speedTypes.turn, currentMults.turn, false, isUpdatingExtraMult)
 	instance.setSpeedMult(speedTypes.turn180, currentMults.turn180, false, isUpdatingExtraMult)
 	instance.setSpeedMult(speedTypes.strafeWalk, currentMults.strafeWalk, false, isUpdatingExtraMult)
+	instance.setSpeedMult(speedTypes.strafeAimIdle, currentMults.strafeAimIdle, false, isUpdatingExtraMult)
+	instance.setSpeedMult(speedTypes.stomp, currentMults.stomp, false, isUpdatingExtraMult)
+	instance.setSpeedMult(speedTypes.combat, currentMults.combat, false, isUpdatingExtraMult)
+	instance.setSpeedMult(speedTypes.shove, currentMults.shove, false, isUpdatingExtraMult)
+	instance.setSpeedMult(speedTypes.bumpFall, currentMults.bumpFall, false, isUpdatingExtraMult)
+	instance.setSpeedMult(speedTypes.scramble, currentMults.scramble, false, isUpdatingExtraMult)
+	instance.setSpeedMult(speedTypes.notScramble, currentMults.notScramble, false, isUpdatingExtraMult)
 
 	utilMethods.applyNewSpeed()
 end
@@ -376,12 +544,6 @@ utilMethods.updateRequiredValues = function()
 		elseif isPlayerClimbingWall == false then
 			newChanceApplied = false
 		end
-	end
-
-	-- Update strafe walk speed
-	if strafeSpeedIncreased == false and player:isStrafing() == true then
-		strafeSpeedIncreased = true
-		instance.setSpeedMult(speedTypes.strafeWalk, currentMults.strafeWalk, true, false)
 	end
 end
 
@@ -437,12 +599,14 @@ end
 function UOPlayerMovementHandler:getInstance()
 	if not player then
 		player = getPlayer()
+		utilMethods.updateAllMults(false)
+		UsefulOccupations.Functions.processEveryMs(30, utilMethods.updateRequiredValues)
 	end
 
 	return instance
 end
 
-Events.OnCreatePlayer.Add(function(_, createdPlayer)
-	player = createdPlayer
-	UsefulOccupations.Functions.processEveryMs(30, utilMethods.updateRequiredValues)
+-- Update weapon swing speed
+Events.OnWeaponSwing.Add(function()
+	instance.setSpeedMult(speedTypes.combat, currentMults.combat, false, false)
 end)
