@@ -11,15 +11,19 @@
 local trainedFighterType = UsefulOccupations.PersonalTraits.TrainedFighter.type
 local marksmanType = UsefulOccupations.PersonalTraits.Marksman.type
 
----@type IsoPlayer
-local player
+local UOFunctions = UsefulOccupations.Functions
 
 ---@param player IsoPlayer
 ---@param weapon HandWeapon
 local canSuperCrit = function(player, weapon)
+	local modData = UOFunctions.getModData()
+
 	local isFirearmWeapon = weapon:isAimedFirearm()
 
-	local canSuperCritMelee = player:HasTrait(trainedFighterType) and isFirearmWeapon == false
+	local canSuperCritMelee = player:HasTrait(trainedFighterType)
+		and isFirearmWeapon == false
+		and modData.invincibleState ~= "onCooldown"
+
 	local canSuperCritFirearm = player:HasTrait(marksmanType) and isFirearmWeapon == true
 
 	return canSuperCritMelee or canSuperCritFirearm
@@ -27,6 +31,8 @@ end
 
 -- Проверить в МП, что когда хитует игрок с трейтом, то для остальных игроков зомби не будут падать с 1 удара
 Events.OnHitZombie.Add(function(zombie, _, _, weapon)
+	local player = getPlayer()
+
 	-- Do super crit
 	if weapon:getType() ~= "BareHands" and canSuperCrit(player, weapon) then
 		local critChance = weapon:getCriticalChance()
@@ -52,8 +58,4 @@ Events.OnWeaponHitCharacter.Add(function(attacker, target, _, damage)
 	if attacker:HasTrait(trainedFighterType) and attacker:isDoStomp() then
 		target:setHealth(target:getHealth() - (damage + 1) * 2)
 	end
-end)
-
-Events.OnCreatePlayer.Add(function(_, createdPlayer)
-	player = createdPlayer
 end)

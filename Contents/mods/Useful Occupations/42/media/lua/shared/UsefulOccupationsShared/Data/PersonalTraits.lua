@@ -571,6 +571,9 @@ local PersonalTraits = {
 			perkActiveTime = 150,
 			-- Perk cooldown time in game hours
 			perkCooldownTime = 120,
+			-- This is how much of the perk's cooldown must pass in percentage for the main debuffs to start working
+			-- (5%, 6 game hours by default)
+			perkCooldownEffectsStartPercent = 5,
 		},
 	},
 }

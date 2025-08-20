@@ -561,12 +561,12 @@ instance.setSpeedMult = function(speedType, multiplier, needApply, isUpdatingExt
 
 	setMethods[setTypes[speedType]](totalMult)
 
-	if needApply then
+	if needApply == true then
 		utilMethods.applyNewSpeed()
 	end
 
 	if isUpdatingExtraMult == false then
-		currentMults[speedType] = totalMult
+		currentMults[speedType] = multiplier
 	end
 end
 
@@ -597,7 +597,8 @@ instance.resetClimbWallChance = function()
 end
 
 function UOPlayerMovementHandler:getInstance()
-	if not player then
+	-- Similar to the OnCreatePlayer event call, need to get player
+	if player == nil or player ~= getPlayer() then
 		player = getPlayer()
 		utilMethods.updateAllMults(false)
 		UsefulOccupations.Functions.processEveryMs(30, utilMethods.updateRequiredValues)

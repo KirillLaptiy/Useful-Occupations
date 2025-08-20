@@ -17,6 +17,8 @@ UsefulOccupations.DoTraitsOnCreatePlayer.Invincible = function(player)
 	local targetPerkEffect = UsefulOccupations.PersonalTraits.Invincible.values.targetPerkEffect / 100
 	local perkActiveTime = UsefulOccupations.PersonalTraits.Invincible.values.perkActiveTime
 	local perkCooldownTime = UsefulOccupations.PersonalTraits.Invincible.values.perkCooldownTime * 60
+	local perkCooldownEffectsStartPercent =
+		UsefulOccupations.PersonalTraits.Invincible.values.perkCooldownEffectsStartPercent
 
 	local injuryFields = {
 		Burn = {
@@ -164,6 +166,8 @@ UsefulOccupations.DoTraitsOnCreatePlayer.Invincible = function(player)
 		onCooldown = "onCooldown",
 	}
 
+	local playerMovementState = PlayerMovementState.instance()
+
 	local modData = UsefulOccupations.Functions.getModData()
 
 	local stats = player:getStats()
@@ -175,6 +179,9 @@ UsefulOccupations.DoTraitsOnCreatePlayer.Invincible = function(player)
 
 	local canDodge = stats:getEndurance() > dodgeEnduranceEdge
 	local dodgeCost = dodgeEnduranceCost - (targetPerkEffect * player:getPerkLevel(targetPerk))
+
+	local collided = false
+	local isSprinting = false
 
 	local updateBodyPartInjuries = function()
 		modData.bodyPartsData = {}
@@ -314,10 +321,6 @@ UsefulOccupations.DoTraitsOnCreatePlayer.Invincible = function(player)
 		player:setDeathDragDown(false)
 		player:setPlayingDeathSound(false)
 
-		--FixME
-		-- ---@diagnostic disable-next-line: param-type-mismatch
-		player:setHitReaction("")
-
 		updateBodyPartInjuries()
 		updateStats()
 		updateBodyDamage()
@@ -340,29 +343,39 @@ UsefulOccupations.DoTraitsOnCreatePlayer.Invincible = function(player)
 
 	local checkNearZombies = function()
 		local isDeathDragDown = player:isDeathDragDown()
-		local isSprinting = player:isSprinting()
-
-		canDodge = stats:getEndurance() > dodgeEnduranceEdge
 
 		local enemies = player:getSpottedList()
+
+		canDodge = stats:getEndurance() > dodgeEnduranceEdge
 
 		for i = 0, enemies:size() - 1 do
 			---@type IsoZombie
 			local enemy = enemies:get(i)
 
-			if enemy:isZombie() and player:DistTo(enemy) <= 4 then
+			local distance = player:DistTo(enemy)
+
+			if enemy:isZombie() and distance <= 4 then
+				local isKnockedDown = enemy:isKnockedDown()
+
+				-- Dodge zombie attack
+				if
+					canDodge == true
+					and enemy:getTarget() == player
+					and enemy:isNoTeeth() == false
+					and enemy:isAttacking() == true
+				then
+					dodgeAttackingZombie(enemy)
+				end
+
+				-- Activate perk if character at death's door
 				if isDeathDragDown then
 					if modData.invincibleState == perkStates.ready then
 						activatePerk()
 					end
 
-					if not enemy:isKnockedDown() then
+					if isKnockedDown == false then
 						pushZombie(enemy)
 					end
-				elseif modData.invincibleState == perkStates.active and isSprinting then
-					-- activateTaran
-				elseif canDodge and enemy:getTarget() == player and not enemy:isNoTeeth() and enemy:isAttacking() then
-					-- dodgeAttackingZombies(enemy)
 				end
 			end
 		end
@@ -405,50 +418,67 @@ UsefulOccupations.DoTraitsOnCreatePlayer.Invincible = function(player)
 		end
 	end
 
-	---@param firstCall boolean
-	local processPerkCooldownState = function(firstCall)
+	local updatePerkCooldownTime = function()
 		if modData.invincibleState ~= perkStates.onCooldown then
 			return
 		end
 
-		if not firstCall then
-			modData.invincibleCooldownTime = math.max(0, modData.invincibleCooldownTime - 10)
+		modData.invincibleCooldownTime = math.max(0, modData.invincibleCooldownTime - 10)
+	end
+
+	local processPerkCooldownState = function()
+		if modData.invincibleState ~= perkStates.onCooldown then
+			return
 		end
 
 		local passedCooldownPercent = perkCooldownTime > 0
 				and math.floor((1 - (modData.invincibleCooldownTime / perkCooldownTime)) * 100)
 			or 100
 
-		-- FIXMEEE
-		-- FIXMEEE
-		-- FIXMEEE
-		-- FIXMEEE
-		-- FIXMEEE
-		-- Сделать обработку процента времени
-
-		print(passedCooldownPercent)
-
 		-- Do when perk on cooldown
-		if passedCooldownPercent >= 2 then
+		if passedCooldownPercent >= perkCooldownEffectsStartPercent then
+			-- Set all movement slowness
 			movementHandler.setInvincibleMult(passedCooldownPercent / 100)
 
+			-- Set can't run and can't sprint
 			player:setAllowRun(false)
 			player:setAllowSprint(false)
 
+			-- Set climb wall chance 0%
 			movementHandler.setClimbWallChance(0, 100, true)
 
-			stats:setPain(100 - passedCooldownPercent)
+			-- Reduce endurance secret strength
+			UOEnduranceSecret:setInvincibleMult(passedCooldownPercent / 100)
+
+			-- Add stiffness for each bodypart
+			for i = 0, bodyParts:size() - 1 do
+				---@type BodyPart
+				local part = bodyParts:get(i)
+				part:addStiffness(part:getStiffness() + (100 - passedCooldownPercent))
+			end
+
+			-- Add stress
+			stats:setStress(stats:getStress() + ((100 - passedCooldownPercent) / 100))
+
+			bodyDamage:setUnhappynessLevel(bodyDamage:getUnhappynessLevel() + (100 - passedCooldownPercent))
 		end
 
 		-- Switch perk state to "ready"
 		if modData.invincibleCooldownTime == 0 then
 			modData.invincibleState = perkStates.ready
-			movementHandler.setInvincibleMult(1)
 
+			-- Allow run and sprint
 			player:setAllowRun(true)
 			player:setAllowSprint(true)
 
+			-- Reset all movement speed
+			movementHandler.setInvincibleMult(1)
+
+			-- Reset climb wall chance to default
 			movementHandler.resetClimbWallChance()
+
+			-- Reset endurance secret strength
+			UOEnduranceSecret:setInvincibleMult(1)
 		end
 	end
 
@@ -458,10 +488,48 @@ UsefulOccupations.DoTraitsOnCreatePlayer.Invincible = function(player)
 		end
 	end)
 
-	processPerkCooldownState(true)
+	-- Update perk cooldown time
+	UsefulOccupations.Functions.addEvent(Events.EveryTenMinutes, updatePerkCooldownTime)
 
-	UsefulOccupations.Functions.addEvent(Events.EveryTenMinutes, processPerkCooldownState)
+	-- Makes zombies crawl after being pushed while running while this skill is active
+	---@param character IsoGameCharacter
+	---@param collidedCharacter IsoZombie
+	UsefulOccupations.Functions.addEvent(Events.OnCharacterCollide, function(character, collidedCharacter)
+		if
+			modData.invincibleState == perkStates.active
+			and isSprinting == true
+			and character == player
+			and collidedCharacter:isZombie() == true
+		then
+			collided = true
 
-	UsefulOccupations.Functions.processEveryMs(30, checkNearZombies)
+			player:setBumpFall(false)
+
+			collidedCharacter:setKnockedDown(true)
+			collidedCharacter:setStaggerBack(true)
+			collidedCharacter:setBecomeCrawler(true)
+		end
+	end)
+
+	UsefulOccupations.Functions.processEveryMs(30, function()
+		checkNearZombies()
+
+		-- Updating the sprint status
+		if collided == true then
+			if player:isCurrentState(playerMovementState) == true then
+				collided = false
+				player:setForceSprint(true)
+			end
+		else
+			isSprinting = player:isSprinting()
+		end
+	end)
+
 	UsefulOccupations.Functions.processEveryMs(1000, processPerkActiveState)
+	UsefulOccupations.Functions.processEveryMs(1000, processPerkCooldownState)
+
+	UsefulOccupations.Functions.processEveryMs(1000, function()
+		print(modData.invincibleState)
+		print(modData.invincibleState)
+	end)
 end
