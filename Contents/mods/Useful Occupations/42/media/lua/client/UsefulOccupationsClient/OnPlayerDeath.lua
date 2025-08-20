@@ -10,4 +10,5 @@
 
 Events.OnPlayerDeath.Add(function(_)
 	UsefulOccupations.Functions.removeAllEvents()
+	UsefulOccupations.Functions.clearModData()
 end)

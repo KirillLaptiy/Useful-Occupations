@@ -8,6 +8,9 @@
 -- *
 -- ]]
 
+---@class UOOnGameBoot
+UOOnGameBoot = {}
+
 local addUsefulTraits = function()
 	-- Clear vanilla traits
 	TraitFactory.Reset()
@@ -60,7 +63,7 @@ local addUsefulTraits = function()
 	end
 end
 
-local addUsefulProfessions = function()
+UOOnGameBoot.addUsefulProfessions = function()
 	-- Clear vanilla professions
 	ProfessionFactory.Reset()
 
@@ -98,7 +101,7 @@ local reduceActionsTimeByTraits = require("UsefulOccupationsShared/ReduceActions
 Events.OnGameBoot.Add(function()
 	-- Adds traits and professions
 	addUsefulTraits()
-	addUsefulProfessions()
+	UOOnGameBoot.addUsefulProfessions()
 
 	-- Reduce timed actions time
 	reduceActionsTimeByTraits()

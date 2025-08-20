@@ -2,8 +2,8 @@
 <animNode>
 	<m_Name>defaultWalk</m_Name>
 	<m_AnimName>Bob_Walk</m_AnimName>
-	<m_BlendTime>0.20</m_BlendTime>
-	<m_SpeedScale>1.04</m_SpeedScale>
+	<m_BlendTime>defaultWalkBT</m_BlendTime>
+	<m_SpeedScale>defaultWalkSS</m_SpeedScale>
 	<m_Scalar>WalkInjury</m_Scalar>
 	<m_Scalar2>WalkSpeed</m_Scalar2>
 	<m_2DBlends referenceID="1">

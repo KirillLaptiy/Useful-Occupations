@@ -12,6 +12,8 @@
 UsefulOccupations.DoTraitsOnCreatePlayer.Burglar = function(_)
 	local traitName = UsefulOccupations.PersonalTraits.Burglar.type
 
+	local modData = UsefulOccupations.Functions.getModData()
+
 	local oldCreateMenu = ISWorldObjectContextMenu.createMenu
 
 	---@param playerObj IsoPlayer
@@ -48,8 +50,12 @@ UsefulOccupations.DoTraitsOnCreatePlayer.Burglar = function(_)
 		end
 	end
 
-	---@param lockpicks ArrayList
-	local getValidLockpick = function(lockpicks)
+	---@param container ItemContainer
+	---@return InventoryItem | nil
+	local getValidLockpick = function(container)
+		local lockpicks = ArrayList.new()
+		container:getAllTag("Lockpick", lockpicks)
+
 		for i = 0, lockpicks:size() - 1 do
 			local lockpick = lockpicks:get(i)
 
@@ -62,13 +68,14 @@ UsefulOccupations.DoTraitsOnCreatePlayer.Burglar = function(_)
 	end
 
 	---@param containers ArrayList
+	---@return InventoryItem | nil
 	local getLockpickFromContainers = function(containers)
 		for i = 0, containers:size() - 1 do
 			---@type ItemContainer
 			local container = containers:get(i):getItemContainer()
 
 			if container then
-				local lockpick = getValidLockpick(container:getAllType("Lockpick"))
+				local lockpick = getValidLockpick(container)
 
 				if lockpick then
 					return lockpick
@@ -77,6 +84,23 @@ UsefulOccupations.DoTraitsOnCreatePlayer.Burglar = function(_)
 		end
 
 		return nil
+	end
+
+	---@param playerObj IsoPlayer
+	---@return InventoryItem | nil
+	local tryGetLockpick = function(playerObj)
+		local inventory = playerObj:getInventory()
+		local backpacks = inventory:getAllCategory("Container")
+
+		return getValidLockpick(inventory) or getLockpickFromContainers(backpacks)
+	end
+
+	---@param player IsoPlayer
+	---@param door IsoDoor
+	---@return boolean
+	local hasDoorKey = function(player, door)
+		local keyId = instanceof(door, "IsoDoor") and door:checkKeyId() or door:getKeyId()
+		return player:getInventory():haveThisKeyId(keyId) and true or false
 	end
 
 	---@param message string
@@ -108,12 +132,9 @@ UsefulOccupations.DoTraitsOnCreatePlayer.Burglar = function(_)
 		---@type IsoWindow
 		local window = fetch.window
 
-		local inventory = playerObj:getInventory()
-		local backpacks = inventory:getAllCategory("Container")
+		local lockpick = tryGetLockpick(playerObj)
 
-		local lockpick = getValidLockpick(inventory:getAllType("Lockpick")) or getLockpickFromContainers(backpacks)
-
-		if door then
+		if door and not hasDoorKey(playerObj, door) then
 			local pickLock = context:addGetUpOption(
 				getText("PickLock"),
 				worldobjects,
@@ -134,12 +155,6 @@ UsefulOccupations.DoTraitsOnCreatePlayer.Burglar = function(_)
 		end
 
 		if window and not window:isSmashed() and not window:isPermaLocked() then
-			--FIXME попробовать удалить worldobjects
-			--FIXME попробовать удалить worldobjects
-			--FIXME попробовать удалить worldobjects
-			--FIXME попробовать удалить worldobjects
-			--FIXME попробовать удалить worldobjects
-			--FIXME попробовать удалить worldobjects
 			local pickLock = context:addGetUpOption(
 				getText("PickLock window"),
 				worldobjects,
@@ -177,21 +192,10 @@ UsefulOccupations.DoTraitsOnCreatePlayer.Burglar = function(_)
 		return context
 	end
 
-	-- The window breaks without glass
-	UsefulOccupations.Functions.addEvent(Events.OnWeaponHitThumpable, function(_, _, object)
-		if not instanceof(object, "IsoWindow") then
-			return
-		end
-
-		UsefulOccupations.Functions.processAfterDelay(1, function()
-			---@diagnostic disable-next-line: undefined-field
-			object:removeBrokenGlass()
-		end)
-	end)
-
 	-- Add radial option to lockpick and relock vehicle door
 	local oldShowVehicleRadialMenu = ISVehicleMenu.showRadialMenuOutside
 
+	---@param playerObj IsoPlayer
 	---@diagnostic disable-next-line: duplicate-set-field
 	function ISVehicleMenu.showRadialMenuOutside(playerObj)
 		oldShowVehicleRadialMenu(playerObj)
@@ -205,10 +209,7 @@ UsefulOccupations.DoTraitsOnCreatePlayer.Burglar = function(_)
 		end
 
 		-- Try to get lockpick in player inventory
-		local inventory = playerObj:getInventory()
-		local backpacks = inventory:getAllCategory("Container")
-
-		local lockpick = getValidLockpick(inventory:getAllType("Lockpick")) or getLockpickFromContainers(backpacks)
+		local lockpick = tryGetLockpick(playerObj)
 
 		if not lockpick then
 			return
@@ -267,5 +268,23 @@ UsefulOccupations.DoTraitsOnCreatePlayer.Burglar = function(_)
 				end
 			end
 		end
+	end
+
+	-- The window breaks without glass
+	UsefulOccupations.Functions.addEvent(Events.OnWeaponHitThumpable, function(_, _, object)
+		if not instanceof(object, "IsoWindow") then
+			return
+		end
+
+		UsefulOccupations.Functions.processAfterDelay(1, function()
+			---@diagnostic disable-next-line: undefined-field
+			object:removeBrokenGlass()
+		end)
+	end)
+
+	-- Give the player a lockpick for the first time
+	if not modData.gotStartLockpick then
+		getPlayer():getInventory():AddItem("UO.Lockpick")
+		modData.gotStartLockpick = true
 	end
 end

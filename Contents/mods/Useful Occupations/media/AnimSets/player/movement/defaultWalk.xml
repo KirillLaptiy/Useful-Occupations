@@ -42,11 +42,6 @@
 		<m_YPos>0.00</m_YPos>
 		<m_SpeedScale>0.80</m_SpeedScale>
 	</m_2DBlends>
-	<m_Conditions>
-		<m_Name>hasGraceful</m_Name>
-		<m_Type>BOOL</m_Type>
-		<m_BoolValue>true</m_BoolValue>
-	</m_Conditions>
 	<m_Conditions x_name="c12d0f21-85ca-447d-b439-0c41030800f1">
 		<m_Name>isTurningAround</m_Name>
 		<m_Type>BOOL</m_Type>

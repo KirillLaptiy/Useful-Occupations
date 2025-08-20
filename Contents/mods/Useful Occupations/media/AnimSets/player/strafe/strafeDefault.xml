@@ -2,8 +2,8 @@
 <animNode>
 	<m_Name>strafeDefault</m_Name>
 	<m_AnimName>Bob_IdleAim1Hand</m_AnimName>
-	<m_BlendTime>0.20</m_BlendTime>
-	<m_SpeedScale>StrafeSpeed</m_SpeedScale>
+	<m_BlendTime>0.0</m_BlendTime>
+	<m_SpeedScale>strafeDefaultSS</m_SpeedScale>
 	<m_Scalar>DeltaX</m_Scalar>
 	<m_Scalar2>DeltaY</m_Scalar2>
 	<m_2DBlends referenceID="1">
@@ -60,11 +60,6 @@
 		<m_YPos>0.55</m_YPos>
 		<m_SpeedScale>0.80</m_SpeedScale>
 	</m_2DBlends>
-	<m_Conditions>
-		<m_Name>silentStrafe</m_Name>
-		<m_Type>BOOL</m_Type>
-		<m_BoolValue>true</m_BoolValue>
-	</m_Conditions>
 	<m_2DBlendTri>
 		<node1>6</node1>
 		<node2>1</node2>

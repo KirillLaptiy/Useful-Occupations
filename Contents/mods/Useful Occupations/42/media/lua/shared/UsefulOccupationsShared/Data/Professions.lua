@@ -22,7 +22,10 @@ local initProfessions = function()
 			},
 
 			---@class Profession.Unemployed.xpBoosts
-			xpBoosts = {},
+			xpBoosts = {
+				{ perk = Perks.Strength, level = -2 },
+				{ perk = Perks.Fitness, level = -2 },
+			},
 		},
 
 		---@class Profession.Scout
@@ -48,6 +51,8 @@ local initProfessions = function()
 
 			---@class Profession.Scout.xpBoosts
 			xpBoosts = {
+				{ perk = Perks.Strength, level = -2 },
+				{ perk = Perks.Fitness, level = -2 },
 				{ perk = Perks.PlantScavenging, level = 3 },
 				{ perk = Perks.Fishing, level = 3 },
 				{ perk = Perks.Trapping, level = 3 },
@@ -68,12 +73,13 @@ local initProfessions = function()
 			---@class Profession.Veteran.traits
 			traits = {
 				UsefulOccupations.PersonalTraits.Marksman,
-				UsefulOccupations.PersonalTraits.Strong,
-				UsefulOccupations.PersonalTraits.Athletic,
+				UsefulOccupations.PersonalTraits.Stout,
+				UsefulOccupations.PersonalTraits.Fit,
 				UsefulOccupations.PersonalTraits.NightOwl,
 				UsefulOccupations.PersonalTraits.Desensitized,
 				UsefulOccupations.PersonalTraits.EnduranceSecret,
 				UsefulOccupations.PersonalTraits.Invincible,
+				UsefulOccupations.PersonalTraits.TrainedFighter,
 			},
 
 			---@class Profession.Veteran.xpBoosts

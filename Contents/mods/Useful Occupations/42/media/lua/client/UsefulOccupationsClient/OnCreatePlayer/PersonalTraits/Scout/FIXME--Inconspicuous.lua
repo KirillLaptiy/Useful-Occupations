@@ -8,8 +8,6 @@
 *
 ]]
 
-local isZombie = false
-
 ---@class DoTraitsOnCreatePlayer.Inconspicuous
 ---@param player IsoPlayer
 UsefulOccupations.DoTraitsOnCreatePlayer.Inconspicuous = function(player)
@@ -27,18 +25,18 @@ UsefulOccupations.DoTraitsOnCreatePlayer.Inconspicuous = function(player)
 		return defaultDistanceToForfeit - (decreaseDistanceByLvl * player:getPerkLevel(decreaseDistancePerk))
 	end
 
-	local distanceToForfeit = getDistanceToForfeit()
-	local badConditions = false
+	-- local distanceToForfeit = getDistanceToForfeit()
+	-- local badConditions = false
 
 	---@param zombie IsoZombie
 	UsefulOccupations.Functions.addEvent(Events.OnZombieUpdate, function(zombie)
-		if zombie:getTarget() ~= player or badConditions then
+		if zombie:getTarget() ~= player then
 			return
 		end
 
-		local distance = player:DistTo(zombie)
+		-- local distance = player:DistTo(zombie)
 
-		if isZombie or not zombie:CanSee(player) or distance >= distanceToForfeit then
+		if not zombie:CanSee(player) then
 			---@diagnostic disable-next-line: param-type-mismatch
 			zombie:setTarget(nil)
 			zombie:setUseless(true)
@@ -50,29 +48,29 @@ UsefulOccupations.DoTraitsOnCreatePlayer.Inconspicuous = function(player)
 	end)
 
 	-- Update distance to forfeit
-	UsefulOccupations.Functions.processEveryMs(distanceToForfeitUpdateDelay, function()
-		if player:isDriving() then
-			badConditions = true
-			return
-		end
+	-- UsefulOccupations.Functions.processEveryMs(distanceToForfeitUpdateDelay, function()
+	-- 	if player:isDriving() then
+	-- 		badConditions = true
+	-- 		return
+	-- 	end
 
-		local multiplier = defaultMultiplier
+	-- 	local multiplier = defaultMultiplier
 
-		if player:isSneaking() then
-			-- Affect only sneak walk
-			if not player:isRunning() then
-				multiplier = multiplier + sneakingEffect
-			end
-		elseif player:isRunning() then
-			badConditions = true
-			return
-		elseif player:isSprinting() then
-			badConditions = true
-			return
-		end
+	-- 	if player:isSneaking() then
+	-- 		-- Affect only sneak walk
+	-- 		if not player:isRunning() then
+	-- 			multiplier = multiplier + sneakingEffect
+	-- 		end
+	-- 	elseif player:isRunning() then
+	-- 		badConditions = true
+	-- 		return
+	-- 	elseif player:isSprinting() then
+	-- 		badConditions = true
+	-- 		return
+	-- 	end
 
-		distanceToForfeit = getDistanceToForfeit() * multiplier
-	end)
+	-- 	distanceToForfeit = getDistanceToForfeit() * multiplier
+	-- end)
 end
 
 -- Events.OnKeyPressed.Add(function(key)

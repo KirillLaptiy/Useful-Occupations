@@ -28,7 +28,11 @@ local some1 = getSandboxValue("MultiHitZombies")
 
 ---@class UsefulOccupations.PersonalTraits
 local PersonalTraits = {
-	-- Unemployed
+	-------------------------------------------------------------------------------
+	-------------------------------------------------------------------------------
+	----------------------------------- UNEMPLOYED --------------------------------
+	-------------------------------------------------------------------------------
+	-------------------------------------------------------------------------------
 	---@class PersonalTraits.Wunderkind
 	Wunderkind = {
 		type = "Wunderkind",
@@ -49,7 +53,11 @@ local PersonalTraits = {
 		},
 	},
 
-	-- Scout
+	-------------------------------------------------------------------------------
+	-------------------------------------------------------------------------------
+	----------------------------------- SCOUT -------------------------------------
+	-------------------------------------------------------------------------------
+	-------------------------------------------------------------------------------
 	---@class PersonalTraits.ScoutSkills
 	ScoutSkills = {
 		type = "ScoutSkills",
@@ -342,7 +350,11 @@ local PersonalTraits = {
 		values = {},
 	},
 
-	-- Veteran
+	-------------------------------------------------------------------------------
+	-------------------------------------------------------------------------------
+	----------------------------------- VETERAN -----------------------------------
+	-------------------------------------------------------------------------------
+	-------------------------------------------------------------------------------
 	---@class PersonalTraits.Marksman
 	Marksman = {
 		type = "Marksman",
@@ -353,17 +365,52 @@ local PersonalTraits = {
 		---@class PersonalTraits.Marksman.freeRecipes
 		freeRecipes = {},
 		---@class PersonalTraits.Marksman.values
-		values = {},
+		values = {
+			-- The perk that affects all aiming bonuses
+			targetPerk = Perks.Aiming,
+			-- Minimum guaranteed hit chance (overrides lower weapon values)
+			minHitChance = 100,
+			-- Minimum guaranteed critical hit chance (overrides lower weapon values)
+			minCritChance = 50,
+			-- Base multiplier applied to the weapon's critical chance
+			critChanceDefaultMult = 1.5,
+			-- Additional multiplier per perk level added to critical chance
+			critChanceBonusPerLvl = 0.05,
+			-- Base multiplier for aiming time (e.g. 2 = twice as fast aiming)
+			aimingTimeDefaultMult = 2,
+			-- Additional multiplier per perk level to reduce aiming time
+			aimingTimeBonusPerLvl = 0.1,
+			-- Base multiplier for maximum weapon range
+			maxRangeDefaultMult = 1.2,
+			-- Bonus multiplier per perk level to increase max range
+			maxRangeBonusPerLvl = 0.03,
+			-- Base multiplier for the weapon's minimum damage
+			minDamageDefaultMult = 1.2,
+			-- Bonus multiplier per perk level to increase minimum damage
+			minDamageBonusPerLvl = 0.03,
+			-- Base multiplier for the weapon's maximum damage
+			maxDamageDefaultMult = 1.2,
+			-- Bonus multiplier per perk level to increase maximum damage
+			maxDamageBonusPerLvl = 0.03,
+			-- The perk that affects all reloading bonuses
+			reloadSpeedTargetPerk = Perks.Reloading,
+			-- Base multiplier for the reloading speed
+			reloadSpeedDefaultMult = 1.3,
+			-- Bonus multiplier per perk level to increase reloading speed
+			reloadSpeedBonusPerLvl = 0.02,
+			-- Bonus mult to reduce the chance of breaking ranged weapons
+			conditionLowerChanceMult = 2,
+		},
 	},
 
-	---@class PersonalTraits.Strong
-	Strong = {
-		type = "Strong",
-		name = getText("UI_trait_strong"),
-		desc = getText("UI_trait_strongdesc"),
+	---@class PersonalTraits.Stout
+	Stout = {
+		type = "Stout",
+		name = getText("UI_trait_stout"),
+		desc = getText("UI_trait_stoutdesc"),
 		---@class PersonalTraits.Strong.xpBoosts
 		xpBoosts = {
-			{ perk = Perks.Strength, level = 4 },
+			{ perk = Perks.Strength, level = 2 },
 		},
 		---@class PersonalTraits.Strong.freeRecipes
 		freeRecipes = {},
@@ -371,18 +418,18 @@ local PersonalTraits = {
 		values = {},
 	},
 
-	---@class PersonalTraits.Athletic
-	Athletic = {
-		type = "Athletic",
-		name = getText("UI_trait_athletic"),
-		desc = getText("UI_trait_athleticdesc"),
-		---@class PersonalTraits.Athletic.xpBoosts
+	---@class PersonalTraits.Fit
+	Fit = {
+		type = "Fit",
+		name = getText("UI_trait_fit"),
+		desc = getText("UI_trait_fitdesc"),
+		---@class PersonalTraits.Fit.xpBoosts
 		xpBoosts = {
-			{ perk = Perks.Fitness, level = 4 },
+			{ perk = Perks.Fitness, level = 2 },
 		},
-		---@class PersonalTraits.Athletic.freeRecipes
+		---@class PersonalTraits.Fit.freeRecipes
 		freeRecipes = {},
-		---@class PersonalTraits.Athletic.values
+		---@class PersonalTraits.Fit.values
 		values = {},
 	},
 
@@ -409,7 +456,74 @@ local PersonalTraits = {
 		---@class PersonalTraits.Desensitized.freeRecipes
 		freeRecipes = {},
 		---@class PersonalTraits.Desensitized.values
-		values = {},
+		values = {
+			-- Pain persistence (NOT PERCENTAGE)
+			painReduction = 50,
+			-- Maximum pain value (20 - second stage)
+			maxPain = 20,
+			-- Maximum fatigue value (81 - third stage)
+			maxFatigue = 81,
+		},
+	},
+
+	---@class PersonalTraits.TrainedFighter
+	TrainedFighter = {
+		type = "TrainedFighter",
+		name = getText("UI_trait_TrainedFighter"),
+		desc = getText("UI_trait_TrainedFighterDesc"),
+		---@class PersonalTraits.TrainedFighter.xpBoosts
+		xpBoosts = {},
+		---@class PersonalTraits.TrainedFighter.freeRecipes
+		freeRecipes = {},
+		---@class PersonalTraits.TrainedFighter.values
+		values = {
+			-- Default strafe walk speed increase in percents
+			strafeWalkSpeedDefault = 30,
+			-- Bonus percents per target perk lvl
+			strafeWalkSpeedBonus = 2,
+			-- Default strafe aim speed increase in percents
+			strafeAimSpeedDefault = 30,
+			-- Bonus percents per target perk lvl
+			strafeAimSpeedBonus = 2,
+			-- Perk that will increase speed per lvl
+			strafeSpeedTargetPerk = Perks.Nimble,
+			-- Minimum guaranteed hit chance (overrides lower weapon values)
+			minHitChance = 100,
+			-- Minimum guaranteed critical hit chance (overrides lower weapon values)
+			minCritChance = 50,
+			-- Base multiplier applied to the weapon's critical chance
+			critChanceDefaultMult = 1.5,
+			-- Additional multiplier per perk level added to critical chance
+			critChanceBonusPerLvl = 0.05,
+			-- Base multiplier for maximum weapon range
+			maxRangeDefaultMult = 1.2,
+			-- Bonus multiplier per perk level to increase max range
+			maxRangeBonusPerLvl = 0.03,
+			-- Base multiplier for the weapon's minimum damage
+			minDamageDefaultMult = 1.2,
+			-- Bonus multiplier per perk level to increase minimum damage
+			minDamageBonusPerLvl = 0.03,
+			-- Base multiplier for the weapon's maximum damage
+			maxDamageDefaultMult = 1.2,
+			-- Bonus multiplier per perk level to increase maximum damage
+			maxDamageBonusPerLvl = 0.03,
+			-- Bonus mult to reduce the chance of breaking melee weapons
+			conditionLowerChanceMult = 2,
+			-- Stomp speed bonus percent
+			stompSpeedDefault = 50,
+			-- Default weapon swing speed increase in percents
+			weaponSwingSpeedDefault = 30,
+			-- Bonus percents per target perk lvl
+			weaponSwingSpeedBonus = 2,
+			-- Shove speed increase in percents
+			shoveSpeedDefault = 25,
+			-- Bump fall speed increase in percents
+			bumpFallSpeedDefault = 50,
+			-- Scramble get up speed increase in percents
+			scrambleGetUpSpeedDefault = 50,
+			-- Not scramble get up speed increase in percents
+			notScrambleGetUpSpeedDefault = 200,
+		},
 	},
 
 	---@class PersonalTraits.EnduranceSecret
@@ -422,7 +536,16 @@ local PersonalTraits = {
 		---@class PersonalTraits.EnduranceSecret.freeRecipes
 		freeRecipes = {},
 		---@class PersonalTraits.EnduranceSecret.values
-		values = {},
+		values = {
+			-- Percentage reduction in endurance cost from all sources
+			spendMainReduce = 40,
+			-- Additional percentage increase in endurance recovery rate while resting
+			enduranceRestBonus = 100,
+			-- Target perk that will additional percentage reduction each lvl
+			targetPerk = Perks.Fitness,
+			-- Additional percentage reduction per target perk lvl
+			spendPerkReduce = 3,
+		},
 	},
 
 	---@class PersonalTraits.Invincible
@@ -444,6 +567,13 @@ local PersonalTraits = {
 			targetPerk = Perks.Nimble,
 			-- Effect from target perk lvl
 			targetPerkEffect = 0.1,
+			-- Perk active time in real seconds
+			perkActiveTime = 150,
+			-- Perk cooldown time in game hours
+			perkCooldownTime = 120,
+			-- This is how much of the perk's cooldown must pass in percentage for the main debuffs to start working
+			-- (5%, 6 game hours by default)
+			perkCooldownEffectsStartPercent = 5,
 		},
 	},
 }

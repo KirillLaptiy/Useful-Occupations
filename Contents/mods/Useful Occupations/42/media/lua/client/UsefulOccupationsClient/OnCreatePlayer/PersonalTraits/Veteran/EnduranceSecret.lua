@@ -8,22 +8,30 @@
 *
 ]]
 
+UOEnduranceSecret = {}
+
+local invincibleMultiplier = 1
+
 ---@class DoTraitsOnCreatePlayer.EnduranceSecret
 ---@param player IsoPlayer
 UsefulOccupations.DoTraitsOnCreatePlayer.EnduranceSecret = function(player)
+	local spendMainReduce = UsefulOccupations.PersonalTraits.EnduranceSecret.values.spendMainReduce / 100
+	local enduranceRestBonus = UsefulOccupations.PersonalTraits.EnduranceSecret.values.enduranceRestBonus / 100
+	local targetPerk = UsefulOccupations.PersonalTraits.EnduranceSecret.values.targetPerk
+	local spendPerkReduce = UsefulOccupations.PersonalTraits.EnduranceSecret.values.spendPerkReduce / 100
+
 	local enduranceStates = {
 		recovery = "recovery",
 		spend = "spend",
 	}
 
+	local modData = UsefulOccupations.Functions.getModData()
 	local stats = player:getStats()
-
+	local lastEndurance = stats:getEndurance()
+	local enduranceSpendReduce = spendMainReduce + (spendPerkReduce * player:getPerkLevel(targetPerk))
 	local enduranceState = nil
 
-	local lastEndurance = stats:getEndurance()
-
 	-- Every 0.5 second check player endurance
-	-- Recover 80% from spend endurance or x2 from rest endurance
 	UsefulOccupations.Functions.processEveryMs(500, function()
 		local currentEndurance = stats:getEndurance()
 
@@ -43,19 +51,34 @@ UsefulOccupations.DoTraitsOnCreatePlayer.EnduranceSecret = function(player)
 
 		local enduranceToRefill = 0
 
-		-- Recover 80% from spent endurance
+		-- Recover spent endurance
 		if enduranceState == enduranceStates.spend then
-			enduranceToRefill = spentEndurance * 0.8
+			enduranceToRefill = spentEndurance * enduranceSpendReduce
 
-		-- Recover x2 endurance while rest
+		-- Recover endurance while rest
 		elseif enduranceState == enduranceStates.recovery then
-			enduranceToRefill = -spentEndurance * 2
+			enduranceToRefill = -spentEndurance * (1 + enduranceRestBonus)
+		end
+
+		-- Endurance secret weakened during the cooldown of the "Invincible" trait
+		if modData.invincibleState == "onCooldown" then
+			enduranceToRefill = enduranceToRefill * invincibleMultiplier
 		end
 
 		stats:setEndurance(currentEndurance + enduranceToRefill)
 
 		lastEndurance = stats:getEndurance()
-
-		print(stats:getEndurance())
 	end)
+
+	-- Update target perk effect
+	UsefulOccupations.Functions.addEvent(Events.LevelPerk, function(_, perk, perkLvl, _)
+		if perk == targetPerk then
+			enduranceSpendReduce = spendMainReduce + (spendPerkReduce * perkLvl)
+		end
+	end)
+end
+
+---@param newMult number
+function UOEnduranceSecret:setInvincibleMult(newMult)
+	invincibleMultiplier = newMult
 end
