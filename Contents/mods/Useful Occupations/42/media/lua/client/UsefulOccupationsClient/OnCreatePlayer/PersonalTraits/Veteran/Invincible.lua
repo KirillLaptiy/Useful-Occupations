@@ -382,11 +382,7 @@ UsefulOccupations.DoTraitsOnCreatePlayer.Invincible = function(player)
 	end
 
 	local processPerkActiveState = function()
-		if modData.invincibleState ~= perkStates.active then
-			return
-		end
-
-		-- Do when perk is active
+		-- Decrease perk active time
 		modData.invincibleActiveTime = math.max(0, modData.invincibleActiveTime - 1)
 
 		-- Do weapon unbreakable
@@ -427,10 +423,6 @@ UsefulOccupations.DoTraitsOnCreatePlayer.Invincible = function(player)
 	end
 
 	local processPerkCooldownState = function()
-		if modData.invincibleState ~= perkStates.onCooldown then
-			return
-		end
-
 		local passedCooldownPercent = perkCooldownTime > 0
 				and math.floor((1 - (modData.invincibleCooldownTime / perkCooldownTime)) * 100)
 			or 100
@@ -482,6 +474,14 @@ UsefulOccupations.DoTraitsOnCreatePlayer.Invincible = function(player)
 		end
 	end
 
+	local processPerkState = function()
+		if modData.invincibleState == perkStates.active then
+			processPerkActiveState()
+		elseif modData.invincibleState == perkStates.onCooldown then
+			processPerkCooldownState()
+		end
+	end
+
 	UsefulOccupations.Functions.addEvent(Events.LevelPerk, function(_, perk, perkLvl, _)
 		if perk == targetPerk then
 			dodgeCost = dodgeEnduranceCost - (targetPerkEffect * perkLvl)
@@ -525,11 +525,5 @@ UsefulOccupations.DoTraitsOnCreatePlayer.Invincible = function(player)
 		end
 	end)
 
-	UsefulOccupations.Functions.processEveryMs(1000, processPerkActiveState)
-	UsefulOccupations.Functions.processEveryMs(1000, processPerkCooldownState)
-
-	UsefulOccupations.Functions.processEveryMs(1000, function()
-		print(modData.invincibleState)
-		print(modData.invincibleState)
-	end)
+	UsefulOccupations.Functions.processEveryMs(1000, processPerkState)
 end
