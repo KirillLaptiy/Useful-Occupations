@@ -17,6 +17,11 @@
 		<m_Type>BOOL</m_Type>
 		<m_Value>false</m_Value>
 	</m_Conditions>
+	<m_Conditions>
+		<m_Name>isSprinting</m_Name>
+		<m_Type>BOOL</m_Type>
+		<m_Value>false</m_Value>
+	</m_Conditions>
 	<m_Conditions x_name="af8d87e3-d237-45b2-bd45-bedfafc972b9">
 		<m_Name>ClimbFenceStarted</m_Name>
 		<m_Type>BOOL</m_Type>

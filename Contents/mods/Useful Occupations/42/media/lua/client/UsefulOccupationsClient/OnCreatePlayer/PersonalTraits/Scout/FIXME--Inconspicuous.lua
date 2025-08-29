@@ -10,7 +10,6 @@
 
 -- FIXME
 -- при входе в игру персонаж должен сам включать режим зомби, если был включен до выхода из игры
--- пофиксить анимку при действиях (перелазание окна)
 
 ---@class DoTraitsOnCreatePlayer.Inconspicuous
 ---@param player IsoPlayer
@@ -29,13 +28,14 @@ UsefulOccupations.DoTraitsOnCreatePlayer.Inconspicuous = function(player)
 	local swipeStatePlayer = SwipeStatePlayer.instance()
 	local climbThroughWindowState = ClimbThroughWindowState.instance()
 	local climbOverFenceState = ClimbOverFenceState.instance()
+	local climbOverWallState = ClimbOverWallState.instance()
 
-	-- Pretending state
+	-- Pretending conditions
 	local targetingZombies = {}
 
+	local canPretendZombie = true
 	local isPretendingZombie = false
 	local badPretendingConditions = false
-	local badPretendingConditionsTimer = 0
 
 	local isDriving = player:isDriving()
 
@@ -87,15 +87,8 @@ UsefulOccupations.DoTraitsOnCreatePlayer.Inconspicuous = function(player)
 
 	local updateBadPretendingConditions = function()
 		-- Clears bad pretending conditions
-		-- if badPretendingConditionsTimer == 1 then
-		-- 	badPretendingConditionsTimer = 0
-		-- 	badPretendingConditions = false
-		-- end
-
-		if badPretendingConditions == true then
-			if isTargetedByZombies() == false then
-				badPretendingConditions = false
-			end
+		if badPretendingConditions == true and isTargetedByZombies() == false then
+			badPretendingConditions = false
 		end
 
 		-- Bad conditions when:
@@ -103,11 +96,13 @@ UsefulOccupations.DoTraitsOnCreatePlayer.Inconspicuous = function(player)
 		-- Hitting
 		-- Strafing
 		-- Sneaking
+		-- Climbing wall
 		if
 			(player:isWalking() and (player:isRunning() or player:isSprinting()))
 			or player:isCurrentState(swipeStatePlayer)
 			or player:isStrafing()
 			or player:isSneaking()
+			or player:isCurrentState(climbOverWallState)
 		then
 			badPretendingConditions = true
 		end
@@ -121,13 +116,17 @@ UsefulOccupations.DoTraitsOnCreatePlayer.Inconspicuous = function(player)
 		-- Climbing started
 		if isClimbing == true and climbStarted == false then
 			climbStarted = true
+
 			isClimbRunning = (player:isWalking() and (player:isRunning() or player:isSprinting()))
+
+			canPretendZombie = false
 		end
 
 		-- Climbing ended
 		if isClimbing == false and climbStarted == true then
-			print("CLIMBED WINDOW!")
 			climbStarted = false
+
+			canPretendZombie = true
 
 			if isPretendingZombie == true and isClimbRunning == false then
 				player:setBlockMovement(true)
@@ -203,7 +202,7 @@ UsefulOccupations.DoTraitsOnCreatePlayer.Inconspicuous = function(player)
 	---@param key number
 	UsefulOccupations.Functions.addEvent(Events.OnKeyPressed, function(key)
 		-- When pressed "G" key and not climbing
-		if key ~= 34 or climbStarted == true then
+		if key ~= 34 or canPretendZombie == false then
 			return
 		end
 
