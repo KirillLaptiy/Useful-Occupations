@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<animNode x_extends="sneakRun.xml">
+	<m_Conditions x_name="15f8d984-af3e-497d-b648-6bd0e84ab650">
+		<m_Name>sneaking</m_Name>
+		<m_Type>BOOL</m_Type>
+		<m_Value>true</m_Value>
+	</m_Conditions>
+	<m_Conditions x_name="1aefa4da-dcfb-498c-bb14-357aeda83636">
+		<m_Name>inTrees</m_Name>
+		<m_Type>BOOL</m_Type>
+		<m_Value>false</m_Value>
+	</m_Conditions>
+	<m_Conditions x_name="4cf744c1-8d1a-4c46-b8c4-17f6b151b493">
+		<m_Name>isTurningAround</m_Name>
+		<m_Type>BOOL</m_Type>
+		<m_Value>false</m_Value>
+	</m_Conditions>
+	<m_Conditions>
+		<m_Name>hasGraceful</m_Name>
+		<m_Type>BOOL</m_Type>
+		<m_BoolValue>false</m_BoolValue>
+	</m_Conditions>
+	<m_Events x_name="fb20a8e7-1e43-4772-af0a-b191e8cf42f8">
+		<m_EventName>Footstep</m_EventName>
+		<m_TimePc>0.2</m_TimePc>
+		<m_ParameterValue>sneak_run</m_ParameterValue>
+	</m_Events>
+	<m_Events x_name="cefbfdd3-0eaa-4cd6-b240-8db268582659">
+		<m_EventName>Footstep</m_EventName>
+		<m_TimePc>0.65</m_TimePc>
+		<m_ParameterValue>sneak_run</m_ParameterValue>
+	</m_Events>
+</animNode>

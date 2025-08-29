@@ -311,7 +311,7 @@ local PersonalTraits = {
 			-- Perk that will affect (decreaseDistanceByLvl)
 			decreaseDistancePerk = Perks.Sneak,
 			-- Duration of stun after zombie forfeits sight of player (in milliseconds)
-			stunDurationAfterForfeit = 50,
+			stunDurationAfterForfeit = 1,
 			-- Delay to update distance to forfeit (in milliseconds)
 			distanceToForfeitUpdateDelay = 20,
 			-- Default multiplier (while walking) to distance to forfeit
@@ -568,7 +568,7 @@ local PersonalTraits = {
 			-- Effect from target perk lvl
 			targetPerkEffect = 0.1,
 			-- Perk active time in real seconds
-			perkActiveTime = 150,
+			perkActiveTime = 180,
 			-- Perk cooldown time in game hours
 			perkCooldownTime = 120,
 			-- This is how much of the perk's cooldown must pass in percentage for the main debuffs to start working

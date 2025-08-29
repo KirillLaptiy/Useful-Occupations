@@ -124,4 +124,14 @@
 			<m_Value>0</m_Value>
 		</m_Conditions>
 	</m_Transitions>
+	<m_Transitions>
+		<m_Target>zombieWalkUO</m_Target>
+		<m_blendInTime>0.7</m_blendInTime>
+		<m_blendOutTime>0.7</m_blendOutTime>
+	</m_Transitions>
+	<m_Transitions>
+		<m_Target>zombieIdleUO</m_Target>
+		<m_blendInTime>0.7</m_blendInTime>
+		<m_blendOutTime>0.7</m_blendOutTime>
+	</m_Transitions>
 </animNode>

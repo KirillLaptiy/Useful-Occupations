@@ -13,7 +13,7 @@ local marksmanType = UsefulOccupations.PersonalTraits.Marksman.type
 
 local UOFunctions = UsefulOccupations.Functions
 
----@param player IsoPlayer
+---@param player IsoGameCharacter
 ---@param weapon HandWeapon
 local canSuperCrit = function(player, weapon)
 	local modData = UOFunctions.getModData()
@@ -30,11 +30,9 @@ local canSuperCrit = function(player, weapon)
 end
 
 -- Проверить в МП, что когда хитует игрок с трейтом, то для остальных игроков зомби не будут падать с 1 удара
-Events.OnHitZombie.Add(function(zombie, _, _, weapon)
-	local player = getPlayer()
-
+Events.OnHitZombie.Add(function(zombie, attacker, _, weapon)
 	-- Do super crit
-	if weapon:getType() ~= "BareHands" and canSuperCrit(player, weapon) then
+	if weapon:getType() ~= "BareHands" and canSuperCrit(attacker, weapon) then
 		local critChance = weapon:getCriticalChance()
 
 		if ZombRand(100) < critChance and ZombRand(100) < critChance then
@@ -42,13 +40,7 @@ Events.OnHitZombie.Add(function(zombie, _, _, weapon)
 		end
 	end
 
-	--FIXME возможно добавить процент успеха, если персонаж устал
-	--FIXME возможно добавить процент успеха, если персонаж устал
-	--FIXME возможно добавить процент успеха, если персонаж устал
-	--FIXME возможно добавить процент успеха, если персонаж устал
-	--FIXME возможно добавить процент успеха, если персонаж устал
-	--FIXME возможно добавить процент успеха, если персонаж устал
-	if player:HasTrait(trainedFighterType) then
+	if attacker:HasTrait(trainedFighterType) then
 		zombie:setAlwaysKnockedDown(true)
 	end
 end)
