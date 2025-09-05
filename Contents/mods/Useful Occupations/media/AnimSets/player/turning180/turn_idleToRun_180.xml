@@ -77,4 +77,16 @@
 		<boneName>Bip01_Prop2</boneName>
 		<weight>0.00</weight>
 	</m_SubStateBoneWeights>
+	<m_Transitions>
+		<m_Target>zombieIdleUO</m_Target>
+		<m_blendInTime>0.1</m_blendInTime>
+	</m_Transitions>
+	<m_Transitions>
+		<m_Target>zombieWalkUO</m_Target>
+		<m_blendInTime>0.1</m_blendInTime>
+	</m_Transitions>
+	<m_Transitions>
+		<m_Target>zombieInTreesUO</m_Target>
+		<m_blendInTime>0.1</m_blendInTime>
+	</m_Transitions>
 </animNode>

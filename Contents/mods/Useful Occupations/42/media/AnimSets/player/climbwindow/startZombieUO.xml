@@ -31,9 +31,4 @@
 		<m_Time>Start</m_Time>
 		<m_ParameterValue>ClimbThroughWindow</m_ParameterValue>
 	</m_Events>
-	<m_Events x_name="1b425365-5e32-45f4-8ce4-a2342f5bb96c">
-		<m_EventName>PlayerVoiceSound</m_EventName>
-		<m_Time>Start</m_Time>
-		<m_ParameterValue>ClimbWindow</m_ParameterValue>
-	</m_Events>
 </animNode>

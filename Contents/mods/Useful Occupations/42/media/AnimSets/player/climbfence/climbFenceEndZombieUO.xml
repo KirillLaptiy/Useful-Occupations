@@ -31,16 +31,6 @@
 		<m_TimePc>0.7</m_TimePc>
 		<m_ParameterValue>ClimbFenceFinished=true</m_ParameterValue>
 	</m_Events>
-	<m_Events x_name="ac187bd9-f10e-457f-b004-f6f5efba0750">
-		<m_EventName>PlaySound</m_EventName>
-		<m_TimePc>0.28</m_TimePc>
-		<m_ParameterValue>LandLight</m_ParameterValue>
-	</m_Events>
-	<m_Events x_name="9e6d0947-9b36-4946-8082-41315a628a97">
-		<m_EventName>PlayerVoiceSound</m_EventName>
-		<m_Time>Start</m_Time>
-		<m_ParameterValue>JumpHigh</m_ParameterValue>
-	</m_Events>
 	<m_Transitions>
 		<m_Target>climbFenceStart</m_Target>
 		<m_blendInTime>0.05</m_blendInTime>

@@ -244,6 +244,8 @@ local instance = {}
 ---@type IsoPlayer
 local player
 
+local isPretendingZombie = false
+
 -- Climb wall
 local climbOverWallState = ClimbOverWallState.instance()
 local newChanceApplied = false
@@ -367,6 +369,10 @@ end
 setMethods.setTurnSpeedMult = function(totalMult)
 	if totalMult < 0.15 then
 		totalMult = 0.15
+	end
+
+	if totalMult > 1 and isPretendingZombie == true then
+		totalMult = 1
 	end
 
 	player:setTurnDelta(totalMult)
@@ -594,6 +600,12 @@ instance.resetClimbWallChance = function()
 	climbWallChance = nil
 	climbWallStruggleChance = nil
 	needUpdateStruggleChance = false
+end
+
+---@param value boolean
+instance.setIsPretendingZombie = function(value)
+	isPretendingZombie = value
+	instance.setSpeedMult(speedTypes.turn, currentMults.turn, false, true)
 end
 
 function UOPlayerMovementHandler:getInstance()

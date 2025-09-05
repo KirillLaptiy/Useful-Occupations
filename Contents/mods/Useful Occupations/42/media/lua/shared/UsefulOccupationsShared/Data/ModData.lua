@@ -3,6 +3,9 @@ local modData = {
 	-- ScoutSkills
 	walkTime = 0,
 
+	-- Inconspicuous
+	isPretendingZombie = false,
+
 	-- Burglar
 	gotStartLockpick = false,
 

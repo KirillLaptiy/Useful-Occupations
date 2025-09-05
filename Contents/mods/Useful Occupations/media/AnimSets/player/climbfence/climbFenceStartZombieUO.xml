@@ -12,6 +12,16 @@
 		<m_Type>STRING</m_Type>
 		<m_StringValue>zombie</m_StringValue>
 	</m_Conditions>
+	<m_Conditions x_name="55c3fdcf-44f5-4425-b850-bb9217e69eb2">
+		<m_Name>isRunning</m_Name>
+		<m_Type>BOOL</m_Type>
+		<m_Value>false</m_Value>
+	</m_Conditions>
+	<m_Conditions>
+		<m_Name>isSprinting</m_Name>
+		<m_Type>BOOL</m_Type>
+		<m_Value>false</m_Value>
+	</m_Conditions>
 	<m_Conditions x_name="af8d87e3-d237-45b2-bd45-bedfafc972b9">
 		<m_Name>ClimbFenceStarted</m_Name>
 		<m_Type>BOOL</m_Type>
@@ -26,11 +36,6 @@
 		<m_EventName>PlayFenceSound</m_EventName>
 		<m_Time>Start</m_Time>
 		<m_ParameterValue>ClimbOverFenceLow</m_ParameterValue>
-	</m_Events>
-	<m_Events x_name="245a3249-602e-4fbf-9711-2a9d70295003">
-		<m_EventName>PlayerVoiceSound</m_EventName>
-		<m_TimePc>0.15</m_TimePc>
-		<m_ParameterValue>JumpLow</m_ParameterValue>
 	</m_Events>
 	<m_Transitions>
 		<m_Target>Idle</m_Target>

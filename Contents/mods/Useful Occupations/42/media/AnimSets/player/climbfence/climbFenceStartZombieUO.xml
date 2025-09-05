@@ -37,11 +37,6 @@
 		<m_Time>Start</m_Time>
 		<m_ParameterValue>ClimbOverFenceLow</m_ParameterValue>
 	</m_Events>
-	<m_Events x_name="245a3249-602e-4fbf-9711-2a9d70295003">
-		<m_EventName>PlayerVoiceSound</m_EventName>
-		<m_TimePc>0.15</m_TimePc>
-		<m_ParameterValue>JumpLow</m_ParameterValue>
-	</m_Events>
 	<m_Transitions>
 		<m_Target>Idle</m_Target>
 		<m_blendInTime>0.1</m_blendInTime>

@@ -10,6 +10,11 @@
 	<m_SpeedScale>turn_type_104SS</m_SpeedScale>
 	<m_maxTorsoTwist>5.00</m_maxTorsoTwist>
 	<m_SyncTrackingEnabled>false</m_SyncTrackingEnabled>
+	<m_Conditions>
+		<m_Name>inconspicuousWalkType</m_Name>
+		<m_Type>STRING</m_Type>
+		<m_StringValue>bob</m_StringValue>
+	</m_Conditions>
 	<m_Conditions x_name="64349a95-766b-47fe-937b-cfa7eb4e0c50">
 		<m_Name>isMoving</m_Name>
 		<m_Type>BOOL</m_Type>
@@ -76,4 +81,16 @@
 		<boneName>Bip01_Prop2</boneName>
 		<weight>0.00</weight>
 	</m_SubStateBoneWeights>
+	<m_Transitions>
+		<m_Target>zombieIdleUO</m_Target>
+		<m_blendInTime>0.1</m_blendInTime>
+	</m_Transitions>
+	<m_Transitions>
+		<m_Target>zombieWalkUO</m_Target>
+		<m_blendInTime>0.1</m_blendInTime>
+	</m_Transitions>
+	<m_Transitions>
+		<m_Target>zombieInTreesUO</m_Target>
+		<m_blendInTime>0.1</m_blendInTime>
+	</m_Transitions>
 </animNode>

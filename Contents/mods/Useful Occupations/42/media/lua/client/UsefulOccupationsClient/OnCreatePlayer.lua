@@ -49,6 +49,9 @@ Events.OnCreatePlayer.Add(function(_, player)
 	end
 
 	-- Call every join
+	-- Set inconspicuous default walk type
+	player:setVariable("inconspicuousWalkType", "bob")
+
 	-- Do personal traits when player created
 	for func in pairs(UsefulOccupations.DoTraitsOnCreatePlayer) do
 		local traitName = tostring(func)

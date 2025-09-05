@@ -9,6 +9,11 @@
 	<m_SpeedScale>turn_type_080SS</m_SpeedScale>
 	<m_maxTorsoTwist>5.00</m_maxTorsoTwist>
 	<m_SyncTrackingEnabled>false</m_SyncTrackingEnabled>
+	<m_Conditions>
+		<m_Name>inconspicuousWalkType</m_Name>
+		<m_Type>STRING</m_Type>
+		<m_StringValue>bob</m_StringValue>
+	</m_Conditions>
 	<m_Conditions x_name="69892a78-684c-44b3-b7a3-2ffaba024014">
 		<m_Name>isMoving</m_Name>
 		<m_Type>BOOL</m_Type>
@@ -27,6 +32,18 @@
 	<m_Transitions>
 		<m_Target>Idle</m_Target>
 		<m_blendInTime>0.3</m_blendInTime>
+	</m_Transitions>
+	<m_Transitions>
+		<m_Target>zombieIdleUO</m_Target>
+		<m_blendInTime>0.1</m_blendInTime>
+	</m_Transitions>
+	<m_Transitions>
+		<m_Target>zombieWalkUO</m_Target>
+		<m_blendInTime>0.1</m_blendInTime>
+	</m_Transitions>
+	<m_Transitions>
+		<m_Target>zombieInTreesUO</m_Target>
+		<m_blendInTime>0.1</m_blendInTime>
 	</m_Transitions>
 	<m_SubStateBoneWeights>
 		<boneName>Bip01_Pelvis</boneName>
