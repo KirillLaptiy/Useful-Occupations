@@ -10,6 +10,7 @@
 
 -- FIXME
 -- Пофиксить анимку оружия во время зомби-ходьбы
+-- Сделать нормальную фразу когда зомби преследуют игрока
 
 ---@class DoTraitsOnCreatePlayer.Inconspicuous
 ---@param player IsoPlayer
@@ -176,7 +177,7 @@ UsefulOccupations.DoTraitsOnCreatePlayer.Inconspicuous = function(player)
 		else
 			-- Can't activate zombie walk if zombies see the player
 			if isTargetedByZombies() == true then
-				player:SayShout("Aaaa! Zombi!!!")
+				player:SayShout("Сначала нужно оторваться от зомби!")
 				return
 			end
 

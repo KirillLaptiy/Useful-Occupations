@@ -405,4 +405,8 @@
 		<m_Target>trying</m_Target>
 		<m_blendInTime>0.35</m_blendInTime>
 	</m_Transitions>
+	<m_Transitions>
+		<m_Target>default</m_Target>
+		<m_blendInTime>0.35</m_blendInTime>
+	</m_Transitions>
 </animNode>
