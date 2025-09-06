@@ -28,6 +28,7 @@
 ---@field Desensitized DoTraitsOnCreatePlayer.Desensitized
 ---@field Marksman DoTraitsOnCreatePlayer.Marksman
 ---@field TrainedFighter DoTraitsOnCreatePlayer.TrainedFighter
+---@field Engineer DoTraitsOnCreatePlayer.Engineer
 
 -- Traits on game boot
 ---@class UsefulOccupations.DoTraitsOnGameBoot

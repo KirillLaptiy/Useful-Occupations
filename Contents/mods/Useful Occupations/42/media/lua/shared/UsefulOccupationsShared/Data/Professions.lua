@@ -96,6 +96,25 @@ local initProfessions = function()
 				{ perk = Perks.Nimble, level = 3 },
 			},
 		},
+
+		---@class Profession.SPM
+		SPM = {
+			type = "spm",
+			name = getText("UI_prof_spm"),
+			iconPath = "useful_occupations_spm",
+			points = 0,
+
+			---@class Profession.SPM.traits
+			traits = {
+				UsefulOccupations.PersonalTraits.Engineer,
+			},
+
+			---@class Profession.SPM.xpBoosts
+			xpBoosts = {
+				{ perk = Perks.Strength, level = -2 },
+				{ perk = Perks.Fitness, level = -2 },
+			},
+		},
 	}
 
 	return professions

@@ -161,15 +161,16 @@ local PersonalTraits = {
 		freeRecipes = {},
 		---@class PersonalTraits.Outdoorsman.values
 		values = {
-			buildCampfireSpeedMultiplier = 2,
-			removeCampfireSpeedMultiplier = 2,
-			putOutCampfireSpeedMultiplier = 2,
-			lightFromPetrolSpeedMultiplier = 2,
-			lightFromLiteratureSpeedMultiplier = 2,
-			lightFromKindleSpeedMultiplier = 2,
-			addCampfireFuelSpeedMultiplier = 2,
-			washClothesSpeedMultiplier = 2,
-			washYourselfSpeedMultiplier = 2,
+			-- SPR: Speed percent reduction
+			buildCampfireSPR = 50,
+			removeCampfireSPR = 50,
+			putOutCampfireSPR = 50,
+			lightFromPetrolSPR = 50,
+			lightFromLiteratureSPR = 50,
+			lightFromKindleSPR = 50,
+			addCampfireFuelSPR = 50,
+			washClothesSPR = 50,
+			washYourselfSPR = 50,
 		},
 	},
 
@@ -574,6 +575,41 @@ local PersonalTraits = {
 			-- This is how much of the perk's cooldown must pass in percentage for the main debuffs to start working
 			-- (5%, 6 game hours by default)
 			perkCooldownEffectsStartPercent = 5,
+		},
+	},
+
+	-------------------------------------------------------------------------------
+	-------------------------------------------------------------------------------
+	------------------------ SPM (Special Purpose Master) -------------------------
+	-------------------------------------------------------------------------------
+	-------------------------------------------------------------------------------
+	---@class PersonalTraits.Engineer
+	Engineer = {
+		type = "Engineer",
+		name = getText("UI_trait_Engineer"),
+		desc = getText("UI_trait_EngineerDesc"),
+
+		---@class PersonalTraits.Engineer.xpBoosts
+		xpBoosts = {
+			{ perk = Perks.Blacksmith, level = 3 },
+			{ perk = Perks.Carving, level = 3 },
+			{ perk = Perks.FlintKnapping, level = 3 },
+			{ perk = Perks.Electricity, level = 3 },
+			{ perk = Perks.Pottery, level = 3 },
+			{ perk = Perks.Glassmaking, level = 3 },
+			{ perk = Perks.Woodwork, level = 3 },
+		},
+
+		---@class PersonalTraits.Engineer.freeRecipes
+		freeRecipes = {},
+
+		---@class PersonalTraits.Engineer.values
+		values = {
+			-- SPR: Speed percent reduction
+			-- Base craft recipes percent reduction (Except "Packing" recipes)
+			craftRecipesSPR = 50,
+			-- Reduction per each required skill lvl
+			craftRecipesSPRPerLvl = 3
 		},
 	},
 }
