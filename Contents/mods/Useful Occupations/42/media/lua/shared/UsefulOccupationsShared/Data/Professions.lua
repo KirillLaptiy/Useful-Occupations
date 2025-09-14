@@ -107,6 +107,9 @@ local initProfessions = function()
 			---@class Profession.SPM.traits
 			traits = {
 				UsefulOccupations.PersonalTraits.Engineer,
+				UsefulOccupations.PersonalTraits.Builder,
+				UsefulOccupations.PersonalTraits.Mechanic,
+				UsefulOccupations.PersonalTraits.Doctor,
 			},
 
 			---@class Profession.SPM.xpBoosts

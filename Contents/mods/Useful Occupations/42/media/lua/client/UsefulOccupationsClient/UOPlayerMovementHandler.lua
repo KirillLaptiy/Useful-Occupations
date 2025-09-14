@@ -619,6 +619,14 @@ function UOPlayerMovementHandler:getInstance()
 	return instance
 end
 
+Events.OnCreatePlayer.Add(function(_, createdPlayer)
+	if player == nil or player ~= createdPlayer then
+		player = createdPlayer
+		utilMethods.updateAllMults(false)
+		UsefulOccupations.Functions.processEveryMs(30, utilMethods.updateRequiredValues)
+	end
+end)
+
 -- Update weapon swing speed
 Events.OnWeaponSwing.Add(function()
 	instance.setSpeedMult(speedTypes.combat, currentMults.combat, false, false)

@@ -60,14 +60,14 @@ local reduceActionsTimeByTraits = function()
 
 	---@param character IsoPlayer
 	---@param craftRecipe CraftRecipe
-	local getHandcraftPercentReduction = function(character, craftRecipe)
+	local getHandcraftTRP = function(character, craftRecipe)
 		if craftRecipe:getCategory() == "Packing" then
 			return 0
 		end
 
 		local skillsCount = craftRecipe:getRequiredSkillCount()
 
-		local reducePercent = engineerValues.craftRecipesSPR
+		local reducePercent = engineerValues.craftRecipesTRP
 
 		for i = 0, skillsCount - 1 do
 			local requiredSkill = craftRecipe:getRequiredSkill(i)
@@ -75,29 +75,27 @@ local reduceActionsTimeByTraits = function()
 			local perk = requiredSkill:getPerk()
 			local perkLvl = character:getPerkLevel(perk)
 
-			reducePercent = reducePercent + (engineerValues.craftRecipesSPRPerLvl * perkLvl)
+			reducePercent = reducePercent + (engineerValues.craftRecipesTRPPerLvl * perkLvl)
 		end
-
-		print(reducePercent)
 
 		return reducePercent
 	end
 
 	-- Outdoorsman
-	reduceActionTimeByTrait(ISWashYourself, outdoorsmanValues.washYourselfSPR, Outdoorsman)
-	reduceActionTimeByTrait(ISWashClothing, outdoorsmanValues.washClothesSPR, Outdoorsman)
-	reduceActionTimeByTrait(ISAddFuelAction, outdoorsmanValues.addCampfireFuelSPR, Outdoorsman)
-	reduceActionTimeByTrait(ISRemoveCampfireAction, outdoorsmanValues.removeCampfireSPR, Outdoorsman)
-	reduceActionTimeByTrait(ISPutOutCampfireAction, outdoorsmanValues.putOutCampfireSPR, Outdoorsman)
-	reduceActionTimeByTrait(ISLightFromPetrol, outdoorsmanValues.lightFromPetrolSPR, Outdoorsman)
-	reduceActionTimeByTrait(ISLightFromLiterature, outdoorsmanValues.lightFromLiteratureSPR, Outdoorsman)
-	reduceActionTimeByTrait(ISLightFromKindle, outdoorsmanValues.lightFromKindleSPR, Outdoorsman)
+	reduceActionTimeByTrait(ISWashYourself, outdoorsmanValues.washYourselfTRP, Outdoorsman)
+	reduceActionTimeByTrait(ISWashClothing, outdoorsmanValues.washClothesTRP, Outdoorsman)
+	reduceActionTimeByTrait(ISAddFuelAction, outdoorsmanValues.addCampfireFuelTRP, Outdoorsman)
+	reduceActionTimeByTrait(ISRemoveCampfireAction, outdoorsmanValues.removeCampfireTRP, Outdoorsman)
+	reduceActionTimeByTrait(ISPutOutCampfireAction, outdoorsmanValues.putOutCampfireTRP, Outdoorsman)
+	reduceActionTimeByTrait(ISLightFromPetrol, outdoorsmanValues.lightFromPetrolTRP, Outdoorsman)
+	reduceActionTimeByTrait(ISLightFromLiterature, outdoorsmanValues.lightFromLiteratureTRP, Outdoorsman)
+	reduceActionTimeByTrait(ISLightFromKindle, outdoorsmanValues.lightFromKindleTRP, Outdoorsman)
 
 	-- Dextrous
-	reduceActionTimeByTrait(ISInventoryTransferAction, Dextrous.values.transferAdditionalMultiplier, Dextrous)
+	reduceActionTimeByTrait(ISInventoryTransferAction, Dextrous.values.inventoryTransferTRP, Dextrous)
 
 	-- Engineer
-	reduceActionTimeByTrait(ISHandcraftAction, getHandcraftPercentReduction, Engineer)
+	reduceActionTimeByTrait(ISHandcraftAction, getHandcraftTRP, Engineer)
 end
 
 return reduceActionsTimeByTraits
