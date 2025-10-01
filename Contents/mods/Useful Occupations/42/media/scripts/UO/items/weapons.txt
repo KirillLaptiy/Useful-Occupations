@@ -1,0 +1,29 @@
+module UO {
+    imports {
+        Base
+    }
+    
+    item GrenadeEMP
+	{
+		DisplayName = EMP grenade,
+		DisplayCategory = Explosives,
+		Type = Weapon,
+		Weight = 0.3,
+		Icon = Molotov,
+		EquipSound = MolotovCocktailEquip,
+		ExplosionSound = MolotovCocktailExplode,
+		MaxDamage = 0,
+		MaxHitCount = 0,
+		MaxRange = 8,
+		MinDamage = 0,
+		MinimumSwingTime = 1.5,
+		PhysicsObject = MolotovCocktail,
+		SwingAmountBeforeImpact = 0.1,
+		SwingAnim = Throw,
+		SwingSound = MolotovCocktailThrow,
+		SwingTime = 1.5,
+		UseSelf = TRUE,
+		WeaponSprite = Molotov,
+		ConditionMax = 1,
+	}
+}

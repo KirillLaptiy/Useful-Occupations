@@ -8,13 +8,13 @@ module UO {
 
         inputs
         {
-            item 1 [UO.MRE_Pack] flags[Prop2],
-            item 1 [UO.Vacuum_Sealer] mode:keep flags[Prop1],
+            item 1 [UO.MREPack] flags[Prop2],
+            item 1 [UO.VacuumSealer] mode:keep flags[Prop1],
         }
 
         outputs
         {
-            item 1 UO.MRE_Sealed,
+            item 1 UO.MRESealed,
         }
     }
 
@@ -27,7 +27,7 @@ module UO {
 
         inputs
         {
-            item 1 [UO.MRE_Sealed] flags[Prop2],
+            item 1 [UO.MRESealed] flags[Prop2],
             item 1 tags[Scissors;SharpKnife] mode:keep flags[MayDegradeLight;Prop1;IsNotDull],
         }
 
@@ -44,7 +44,7 @@ module UO {
 
         inputs
         {
-            item 1 [UO.MRE_Sealed] flags[Prop2],
+            item 1 [UO.MRESealed] flags[Prop2],
         }
 
         outputs
