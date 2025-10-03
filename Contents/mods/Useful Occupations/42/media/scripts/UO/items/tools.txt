@@ -133,4 +133,55 @@ module UO {
         WorldStaticModel = Apple_Ground,
 	    Tags = UO_MRE_SEALED,
     }
+
+    item ArmorPlateSheet
+    {
+        DisplayName = ArmorPlateSheet,
+        DisplayCategory = Tool,
+        Type = Normal,
+        Weight = 0.1,
+        Icon = Apple,
+        Tooltip = Useful for picking locked doors,
+        Count = 1,
+        ConditionMax = 1,
+        PrimaryAnimMask = HoldingHammerRight,
+        SecondaryAnimMask = HoldingHammerLeft,
+        StaticModel = Apple_Ground,
+        WorldStaticModel = Apple_Ground,
+        Tags = ArmorPlate,
+    }
+
+    item ArmorPlateMetal
+    {
+        DisplayName = ArmorPlateMetal,
+        DisplayCategory = Tool,
+        Type = Normal,
+        Weight = 0.1,
+        Icon = Apple,
+        Tooltip = Useful for picking locked doors,
+        Count = 1,
+        ConditionMax = 3,
+        PrimaryAnimMask = HoldingHammerRight,
+        SecondaryAnimMask = HoldingHammerLeft,
+        StaticModel = Apple_Ground,
+        WorldStaticModel = Apple_Ground,
+        Tags = ArmorPlate,
+    }
+
+    item ArmorPlateBlackMetal
+    {
+        DisplayName = ArmorPlateBlackMetal,
+        DisplayCategory = Tool,
+        Type = Normal,
+        Weight = 0.1,
+        Icon = Apple,
+        Tooltip = Useful for picking locked doors,
+        Count = 1,
+        ConditionMax = 10,
+        PrimaryAnimMask = HoldingHammerRight,
+        SecondaryAnimMask = HoldingHammerLeft,
+        StaticModel = Apple_Ground,
+        WorldStaticModel = Apple_Ground,
+        Tags = ArmorPlate,
+    }
 }
