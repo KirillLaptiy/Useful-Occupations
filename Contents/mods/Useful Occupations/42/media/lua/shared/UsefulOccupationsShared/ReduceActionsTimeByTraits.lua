@@ -20,6 +20,10 @@ local reduceActionsTimeByTraits = function()
 	local Engineer = UsefulOccupations.PersonalTraits.Engineer
 	local engineerValues = Engineer.values
 
+	-- Builder
+	local Builder = UsefulOccupations.PersonalTraits.Builder
+	local builderValues = Builder.values
+
 	---@param actionClass table
 	---@param timeReduction number | function
 	---@param trait any
@@ -41,7 +45,7 @@ local reduceActionsTimeByTraits = function()
 				local newTime
 
 				if type(timeReduction) == "function" then
-					local reduction = math.max(0, math.min(100, timeReduction(...)))
+					local reduction = timeReduction(o)
 					newTime = o.maxTime * (1 - (reduction / 100))
 				else
 					newTime = o.maxTime * (1 - (timeReduction / 100))
@@ -58,9 +62,14 @@ local reduceActionsTimeByTraits = function()
 		end
 	end
 
-	---@param character IsoPlayer
-	---@param craftRecipe CraftRecipe
-	local getHandcraftTRP = function(character, craftRecipe)
+	---@param o ISHandcraftAction
+	local getEngineerHandcraftTRP = function(o)
+		---@type IsoPlayer
+		local character = o.character
+
+		---@type CraftRecipe
+		local craftRecipe = o.craftRecipe
+
 		if craftRecipe:getCategory() == "Packing" then
 			return 0
 		end
@@ -78,7 +87,23 @@ local reduceActionsTimeByTraits = function()
 			reducePercent = reducePercent + (engineerValues.craftRecipesTRPPerLvl * perkLvl)
 		end
 
-		return reducePercent
+		return math.max(0, math.min(100, reducePercent))
+	end
+
+	---@param o ISMoveablesAction
+	local getBuilderScrapTRP = function(o)
+		---@type IsoPlayer
+		local character = o.character
+
+		-- Effect only in scrap mode
+		if o.mode ~= "scrap" then
+			return 0
+		end
+
+		local woodworkLvl = character:getPerkLevel(Perks.Woodwork)
+		local metalWeldingLvl = character:getPerkLevel(Perks.MetalWelding)
+
+		return builderValues.scrappingTPR + (builderValues.scrappingTPRPerLvl * (woodworkLvl + metalWeldingLvl))
 	end
 
 	-- Outdoorsman
@@ -95,7 +120,10 @@ local reduceActionsTimeByTraits = function()
 	reduceActionTimeByTrait(ISInventoryTransferAction, Dextrous.values.inventoryTransferTRP, Dextrous)
 
 	-- Engineer
-	reduceActionTimeByTrait(ISHandcraftAction, getHandcraftTRP, Engineer)
+	reduceActionTimeByTrait(ISHandcraftAction, getEngineerHandcraftTRP, Engineer)
+
+	-- Builder
+	reduceActionTimeByTrait(ISMoveablesAction, getBuilderScrapTRP, Builder)
 end
 
 return reduceActionsTimeByTraits

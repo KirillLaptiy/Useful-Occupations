@@ -29,6 +29,7 @@
 ---@field Marksman DoTraitsOnCreatePlayer.Marksman
 ---@field TrainedFighter DoTraitsOnCreatePlayer.TrainedFighter
 ---@field Engineer DoTraitsOnCreatePlayer.Engineer
+---@field Builder DoTraitsOnCreatePlayer.Builder
 
 -- Traits on game boot
 ---@class UsefulOccupations.DoTraitsOnGameBoot

@@ -162,7 +162,7 @@ local PersonalTraits = {
 		---@class PersonalTraits.Outdoorsman.values
 		values = {
 			-- TRP: Time reduction percent
-			buildCampfireTRP = 50,
+			buildingTPR = 50,
 			removeCampfireTRP = 50,
 			putOutCampfireTRP = 50,
 			lightFromPetrolTRP = 50,
@@ -598,7 +598,6 @@ local PersonalTraits = {
 			{ perk = Perks.Electricity, level = 3 },
 			{ perk = Perks.Pottery, level = 3 },
 			{ perk = Perks.Glassmaking, level = 3 },
-			{ perk = Perks.Woodwork, level = 3 },
 		},
 
 		---@class PersonalTraits.Engineer.freeRecipes
@@ -906,13 +905,34 @@ local PersonalTraits = {
 		desc = getText("UI_trait_BuilderDesc"),
 
 		---@class PersonalTraits.Builder.xpBoosts
-		xpBoosts = {},
+		xpBoosts = {
+			{ perk = Perks.Woodwork, level = 3 },
+			{ perk = Perks.Masonry, level = 3 },
+			{ perk = Perks.MetalWelding, level = 3 },
+		},
 
 		---@class PersonalTraits.Builder.freeRecipes
 		freeRecipes = {},
 
 		---@class PersonalTraits.Builder.values
-		values = {},
+		values = {
+			-- Building time percent reduce
+			buildingTPR = 50,
+			-- Additional building TPR per lvl
+			buildingTPRPerLvl = 3,
+			-- Scrapping time percent reduce
+			scrappingTPR = 50,
+			-- Additional scrapping TPR per lvl
+			scrappingTPRPerLvl = 1.5,
+			-- Bonus building health percent
+			buildingBHP = 300,
+			-- Bonus building health percent per lvl
+			buildingBHPPerLvl = 20,
+			-- Bonus building capacity percent
+			buildingCapBonus = 50,
+			-- Bonus building capacity percent per lvl
+			buildingCapBonusPerLvl = 5,
+		},
 	},
 
 	---@class PersonalTraits.Mechanic
@@ -922,7 +942,9 @@ local PersonalTraits = {
 		desc = getText("UI_trait_MechanicDesc"),
 
 		---@class PersonalTraits.Mechanic.xpBoosts
-		xpBoosts = {},
+		xpBoosts = {
+			{ perk = Perks.Mechanics, level = 3 },
+		},
 
 		---@class PersonalTraits.Mechanic.freeRecipes
 		freeRecipes = {

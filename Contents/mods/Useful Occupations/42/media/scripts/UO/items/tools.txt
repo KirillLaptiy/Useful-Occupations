@@ -184,4 +184,55 @@ module UO {
         WorldStaticModel = Apple_Ground,
         Tags = ArmorPlate,
     }
+
+    item AlarmController
+    {
+        DisplayName = Alarm Controller,
+        DisplayCategory = Tool,
+        Type = Drainable,
+        KeepOnDeplete = true,
+        Weight = 0.1,
+        Icon = Apple,
+        Tooltip = Useful for picking locked doors,
+        Count = 1,
+        CantBeConsolided = true,
+        UseWhileEquipped = false,
+        UseDelta = 0.1,
+        PrimaryAnimMask = HoldingHammerRight,
+        SecondaryAnimMask = HoldingHammerLeft,
+        StaticModel = Apple_Ground,
+        WorldStaticModel = Apple_Ground,
+    }
+
+    item MetalAdapter
+    {
+        DisplayName = Metal Adapter,
+        DisplayCategory = Tool,
+        Type = Food,
+        Weight = 0.1,
+        Icon = Apple,
+        Tooltip = Useful for picking locked doors,
+        Count = 1,
+        IsCookable = true,
+        MinutesToCook = 10,
+        ReplaceOnCooked = UO.AlarmController,
+        CantEat = true,
+        CantBeFrozen = true,
+        WorldStaticModel = Apple_Ground,
+    }
+
+    item MetalAdapterCantCook
+    {
+        DisplayName = Metal Adapter,
+        DisplayCategory = Tool,
+        Type = Food,
+        Weight = 0.1,
+        Icon = Apple,
+        Tooltip = Useful for picking locked doors,
+        Count = 1,
+        IsCookable = false,
+        CantEat = true,
+        CantBeFrozen = true,
+        WorldStaticModel = Apple_Ground,
+    }
 }
