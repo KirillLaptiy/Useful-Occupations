@@ -1009,7 +1009,20 @@ local PersonalTraits = {
 		},
 
 		---@class PersonalTraits.Mechanic.values
-		values = {},
+		values = {
+			-- Burnt cars scrapping time percent reduce
+			scrappingTPR = 50,
+			-- Additional scrapping TPR per lvl
+			scrappingTPRPerLvl = 1.5,
+			-- Install and uninstall vehicle parts time percent reduce
+			installTPR = 50,
+			-- Additional install and uninstall TPR per lvl
+			installTPRPerLvl = 3,
+			-- Bonus vehicle repairing percent
+			repairBonusPercent = 50,
+			-- Bonus vehicle repairing percent per lvl
+			repairBonusPercentPerLvl = 2.5,
+		},
 	},
 
 	---@class PersonalTraits.Doctor

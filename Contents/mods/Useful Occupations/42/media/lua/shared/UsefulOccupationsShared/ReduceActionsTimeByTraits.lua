@@ -24,6 +24,10 @@ local reduceActionsTimeByTraits = function()
 	local Builder = UsefulOccupations.PersonalTraits.Builder
 	local builderValues = Builder.values
 
+	-- Mechanic
+	local Mechanic = UsefulOccupations.PersonalTraits.Mechanic
+	local mechanicValues = Mechanic.values
+
 	---@param actionClass table
 	---@param timeReduction number | function
 	---@param trait any
@@ -55,6 +59,9 @@ local reduceActionsTimeByTraits = function()
 					newTime = 100
 				end
 
+				print(o.maxTime)
+				print(newTime)
+
 				o.maxTime = newTime
 			end
 
@@ -62,6 +69,7 @@ local reduceActionsTimeByTraits = function()
 		end
 	end
 
+	-- Engineer's handcrafting time reducting percent
 	---@param o ISHandcraftAction
 	local getEngineerHandcraftTRP = function(o)
 		---@type IsoPlayer
@@ -90,6 +98,7 @@ local reduceActionsTimeByTraits = function()
 		return math.max(0, math.min(100, reducePercent))
 	end
 
+	-- Builder's funiture scrapping time reduction percent
 	---@param o ISMoveablesAction
 	local getBuilderScrapTRP = function(o)
 		---@type IsoPlayer
@@ -104,6 +113,29 @@ local reduceActionsTimeByTraits = function()
 		local metalWeldingLvl = character:getPerkLevel(Perks.MetalWelding)
 
 		return builderValues.scrappingTPR + (builderValues.scrappingTPRPerLvl * (woodworkLvl + metalWeldingLvl))
+	end
+
+	-- Mechanic's burnt vehicles scrapping time reduction percent
+	---@param o ISRemoveBurntVehicle
+	local getMechanicScrapTRP = function(o)
+		---@type IsoPlayer
+		local character = o.character
+
+		local metalWeldingLvl = character:getPerkLevel(Perks.MetalWelding)
+		local mechanicsLvl = character:getPerkLevel(Perks.Mechanics)
+
+		return mechanicValues.scrappingTPR + (mechanicValues.scrappingTPRPerLvl * (metalWeldingLvl + mechanicsLvl))
+	end
+
+	-- Mechanic's install and uninstall vehicle parts time reduction percent
+	---@param o ISRemoveBurntVehicle
+	local getMechanicInstallTRP = function(o)
+		---@type IsoPlayer
+		local character = o.character
+
+		local mechanicsLvl = character:getPerkLevel(Perks.Mechanics)
+
+		return mechanicValues.installTPR + (mechanicValues.installTPRPerLvl * mechanicsLvl)
 	end
 
 	-- Outdoorsman
@@ -124,6 +156,16 @@ local reduceActionsTimeByTraits = function()
 
 	-- Builder
 	reduceActionTimeByTrait(ISMoveablesAction, getBuilderScrapTRP, Builder)
+
+	-- Mechanic
+	reduceActionTimeByTrait(ISRemoveBurntVehicle, getMechanicScrapTRP, Mechanic)
+	reduceActionTimeByTrait(ISInstallVehiclePart, getMechanicInstallTRP, Mechanic)
+	reduceActionTimeByTrait(ISUninstallVehiclePart, getMechanicInstallTRP, Mechanic)
+	reduceActionTimeByTrait(ISConfigHeadlight, getMechanicInstallTRP, Mechanic)
+	reduceActionTimeByTrait(ISTakeEngineParts, getMechanicInstallTRP, Mechanic)
+	reduceActionTimeByTrait(ISRepairLightbar, getMechanicInstallTRP, Mechanic)
+	reduceActionTimeByTrait(ISRepairEngine, getMechanicInstallTRP, Mechanic)
+	reduceActionTimeByTrait(ISFixVehiclePartAction, getMechanicInstallTRP, Mechanic)
 end
 
 return reduceActionsTimeByTraits

@@ -21,7 +21,7 @@ require("TimedActions/ISBaseTimedAction")
 ISProcessAlarm = ISBaseTimedAction:derive("ISCheckAlarm")
 
 function ISProcessAlarm:isValid()
-	return self.alarmController:getCurrentUses() > 0
+	return self.alarmController and self.alarmController:getCurrentUses() > 0
 end
 
 function ISProcessAlarm:update() end
@@ -42,9 +42,15 @@ function ISProcessAlarm:complete()
 	if self.isCheckingAlarm then
 		HaloTextHelper.addText(self.character, self.buildingDef:isAlarmed() and "Has alarm" or "No alarm")
 	else
-		self.buildingDef:setAlarmed(self.needToBeAlarmed)
-		self.alarmController:Use()
-		HaloTextHelper.addText(self.character, self.buildingDef:isAlarmed() and "Alarm added" or "Alarm removed")
+		if self.buildingDef:isAlarmed() and self.needToBeAlarmed then
+			HaloTextHelper.addText(self.character, "Already has alarm")
+		elseif self.buildingDef:isAlarmed() == false and self.needToBeAlarmed == false then
+			HaloTextHelper.addText(self.character, "Is already without alarm")
+		else
+			self.buildingDef:setAlarmed(self.needToBeAlarmed)
+			self.alarmController:Use()
+			HaloTextHelper.addText(self.character, self.buildingDef:isAlarmed() and "Alarm added" or "Alarm removed")
+		end
 	end
 
 	return true

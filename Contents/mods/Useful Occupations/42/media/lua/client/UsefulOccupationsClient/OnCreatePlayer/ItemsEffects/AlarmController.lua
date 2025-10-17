@@ -19,7 +19,7 @@ local getInventoryAlarmController = function(container)
 		---@type DrainableComboItem
 		local alarmController = alarmControllers:get(i)
 
-		if alarmController and alarmController:getUseDelta() >= 0 then
+		if alarmController and alarmController:getCurrentUses() > 0 then
 			return alarmController
 		end
 	end
@@ -37,7 +37,7 @@ local getAlarmControllerFromContainers = function(containers)
 		if container then
 			local alarmController = getInventoryAlarmController(container)
 
-			if alarmController then
+			if alarmController and alarmController:getCurrentUses() > 0 then
 				return alarmController
 			end
 		end
@@ -80,7 +80,12 @@ local createErrorTooltip = function(option, message)
 end
 
 local addProcessAlarmOptions = function(context, worldobjects, playerObj, obj, alarmController, buildingDef)
-	local check = context:addGetUpOption(
+	local buildingAlarmOpt = context:addOption("Alarm control")
+	local buildingAlarmMenu = context:getNew(context)
+
+	context:addSubMenu(buildingAlarmOpt, buildingAlarmMenu)
+
+	local check = buildingAlarmMenu:addOption(
 		getText("Check Alarm"),
 		worldobjects,
 		processBuildingAlarm,
@@ -92,7 +97,7 @@ local addProcessAlarmOptions = function(context, worldobjects, playerObj, obj, a
 		buildingDef
 	)
 
-	local disable = context:addGetUpOption(
+	local disable = buildingAlarmMenu:addOption(
 		getText("Disable alarm"),
 		worldobjects,
 		processBuildingAlarm,
@@ -104,7 +109,7 @@ local addProcessAlarmOptions = function(context, worldobjects, playerObj, obj, a
 		buildingDef
 	)
 
-	local enable = context:addGetUpOption(
+	local enable = buildingAlarmMenu:addOption(
 		getText("Enable alarm"),
 		worldobjects,
 		processBuildingAlarm,

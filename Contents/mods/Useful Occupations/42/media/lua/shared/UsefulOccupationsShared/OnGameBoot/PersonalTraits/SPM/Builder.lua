@@ -8,9 +8,8 @@
 *
 ]]
 
----@class DoTraitsOnCreatePlayer.Builder
----@param player IsoPlayer
-UsefulOccupations.DoTraitsOnCreatePlayer.Builder = function(player)
+---@class DoTraitsOnGameBoot.Builder
+UsefulOccupations.DoTraitsOnGameBoot.Builder = function()
 	local traitType = UsefulOccupations.PersonalTraits.Builder.type
 
 	-- Items whose quantity should not increase after scrap
@@ -52,7 +51,7 @@ UsefulOccupations.DoTraitsOnCreatePlayer.Builder = function(player)
 				end
 
 				if returnItems and #returnItems > 0 then
-					local isBuilder = player:HasTrait(traitType)
+					local isBuilder = _character:HasTrait(traitType)
 
 					-- Builder gets more resources by scrap furniture
 					if isBuilder then
