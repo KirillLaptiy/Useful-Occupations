@@ -1,0 +1,47 @@
+tileGeometry
+{
+	VERSION = 2,
+
+	tileset
+    {
+        name = uo_tiles,
+
+        /* uo_tiles_2 */
+        tile
+        {
+            xy = 2x2,
+
+            box
+            {
+                translate = -4684x0x262,
+                rotate = 0x0x0,
+                min = -315x0x-5262,
+                max = 315x24494x5262,
+            }
+
+            properties
+            {
+                OpaquePixelsOnly = true,
+            }
+        }
+
+        /* uo_tiles_3 */
+        tile
+        {
+            xy = 3x2,
+
+            box
+            {
+                translate = 234x0x-4682,
+                rotate = 0x0x0,
+                min = -5235x0x-317,
+                max = 5235x24494x317,
+            }
+
+            properties
+            {
+                OpaquePixelsOnly = true,
+            }
+        }
+	}
+}

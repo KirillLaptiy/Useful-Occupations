@@ -1,0 +1,105 @@
+module Base
+{
+    entity CoolWall
+    {
+        component UiConfig
+        {
+            xuiSkin = default,
+            entityStyle = ES_MetalFenceLvl1,
+            uiEnabled = false,
+        }
+        component SpriteConfig
+        {
+            LogicClass = CoolWall,
+            isThumpable = false,
+            face W
+            {
+                layer
+                {
+                    row = uo_tiles_0,
+                }
+            }
+            face N
+            {
+                layer
+                {
+                    row = uo_tiles_1,
+                }
+            }
+        }
+        component CraftRecipe
+        {
+            timedAction = BuildWallNoTool,
+            time = 200,
+            category = Carpentry,
+            xpAward = Woodwork:10,
+            Tooltip = Tooltip_craft_wallLogDesc,
+            inputs
+            {
+                item 4 [Base.Log],
+                item 4 [Base.RippedSheets;Base.RippedSheetsDirty;Base.Twine;Base.Rope;Base.SheetRope] flags[DontReplace],
+            }
+        }
+    }
+
+    entity MoonshineStill
+    {
+        component UiConfig
+        {
+            xuiSkin = default,
+            entityStyle = ES_MetalFenceLvl1,
+            uiEnabled = false,
+        }
+
+        component ContextMenuConfig
+        {
+            contextEntry
+            {
+                menu = Moonshine,
+                customFunction = ContextMenuCode.UO_EnableMoonshine,
+            }
+        }
+
+        component SpriteConfig
+        {
+            health = 100,
+            face W
+            {
+                layer
+                {
+                    row = uo_tiles_2,
+                }
+            }
+            face N
+            {
+                layer
+                {
+                    row = uo_tiles_3,
+                }
+            }
+        }
+
+        component FluidContainer
+        {
+            ContainerName = MoonshineStill,
+            Capacity = 300.0,
+            RainFactor = 0.0,
+            InitialPercentMin = 0.0,
+            InitialPercentMax = 0.0,
+        }
+
+        component CraftRecipe
+        {
+            timedAction = BuildWallNoTool,
+            time = 200,
+            category = Carpentry,
+            xpAward = Woodwork:10,
+            Tooltip = Tooltip_craft_wallLogDesc,
+            inputs
+            {
+                item 4 [Base.Log],
+                item 4 [Base.RippedSheets;Base.RippedSheetsDirty;Base.Twine;Base.Rope;Base.SheetRope] flags[DontReplace],
+            }
+        }
+    }
+}

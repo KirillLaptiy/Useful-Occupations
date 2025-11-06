@@ -135,4 +135,16 @@
 		<m_Target>defaultSprint</m_Target>
 		<m_blendInTime>0.3</m_blendInTime>
 	</m_Transitions>
+	<m_Transitions>
+		<m_Target>defaultRun</m_Target>
+		<m_blendInTime>0.3</m_blendInTime>
+	</m_Transitions>
+	<m_Transitions>
+		<m_Target>sneakRunLow</m_Target>
+		<m_blendInTime>0.3</m_blendInTime>
+	</m_Transitions>
+		<m_Transitions>
+		<m_Target>inTrees</m_Target>
+		<m_blendInTime>0.3</m_blendInTime>
+	</m_Transitions>
 </animNode>
