@@ -17,14 +17,19 @@
 ----@field Graceful UsefulOccupations.PersonalTrait
 ----@field Inconspicuous UsefulOccupations.PersonalTrait
 
+local opts = SandboxOptions:getInstance()
+
 local getSandboxValue = function(value)
 	return function()
-		return SandboxVars[value]
+		local option = opts:getOptionByName(value)
+
+		if not option then
+			error("OPTION WITH NAME" .. value .. "NOT FOUND")
+		end
+
+		return option:asConfigOption():getValueAsObject()
 	end
 end
-
-local some = getSandboxValue("BloodLevel")
-local some1 = getSandboxValue("MultiHitZombies")
 
 ---@class UsefulOccupations.PersonalTraits
 local PersonalTraits = {
@@ -45,11 +50,11 @@ local PersonalTraits = {
 		---@class PersonalTraits.Wunderkind.values
 		values = {
 			-- set's last level for perk's +125% xp boost
-			lastLevelForXpBoost = 3,
+			lastLevelForXpBoost = getSandboxValue("UO.Wunderkind.lastLevelForXpBoost"),
 			-- Additional multiplier for xp boost from books
-			booksMultiplier = 2,
+			booksMultiplier = getSandboxValue("UO.Wunderkind.booksMultiplier"),
 			-- set's last level for active book's multiplier
-			lastBooksMultiplierLevel = 10,
+			lastBooksMultiplierLevel = getSandboxValue("UO.Wunderkind.lastBooksMultiplierLevel"),
 		},
 	},
 
@@ -64,7 +69,12 @@ local PersonalTraits = {
 		name = getText("UI_trait_scoutskills"),
 		desc = getText("UI_trait_scoutskills_desc"),
 		---@class PersonalTraits.ScoutSkills.xpBoosts
-		xpBoosts = {},
+		xpBoosts = {
+			{ perk = Perks.PlantScavenging, level = 3 },
+			{ perk = Perks.Fishing, level = 3 },
+			{ perk = Perks.Trapping, level = 3 },
+			{ perk = Perks.Tracking, level = 3 },
+		},
 		---@class PersonalTraits.ScoutSkills.freeRecipes
 		freeRecipes = {
 			"Herbalist",
@@ -88,27 +98,20 @@ local PersonalTraits = {
 		},
 		---@class PersonalTraits.ScoutSkills.values
 		values = {
-			-- Default walk speed increase value
-			-- (1.2: +20%)
-			walkSpeedIncreaseMultiplier = 1.2,
-			-- How much % of 100% will increase walk speed every light foot level
-			-- (0.01: walk speed will increase by 1% per light foot level)
-			lightFootInfluencePerLvl = 0.01,
-
-			-- When moving, thirst and hunger accumulate more slowly.
-
 			-- The maximum number of seconds that can accumulate for the hunger and thirst reduction effect
-			maxWalkTime = 120,
+			maxWalkTime = getSandboxValue("UO.ScoutSkills.maxWalkTime"),
 			-- once in % Milliseconds effect will called
-			msToCall = 1000,
-			-- Hunger reduce per msToCall when walking
-			hungerReducePerMinute = 0.000045,
-			-- Thirst reduce per msToCall when walking
-			thirstReducePerMinute = 0.000045,
-			-- The less the character has walked, the weaker the effect.
-			minFactor = 0.75,
-			-- The more the character walked, the stronger the effect.
-			maxFactor = 1.25,
+			msToCall = getSandboxValue("UO.ScoutSkills.msToCall"),
+			-- Min, max hunger reduce percent per msToCall
+			hungerReduceMin = getSandboxValue("UO.ScoutSkills.hungerReduceMin"),
+			hungerReduceMax = getSandboxValue("UO.ScoutSkills.hungerReduceMax"),
+			-- Time (msToCall) to reach max hunger reduce percent
+			hungerTimeToMax = getSandboxValue("UO.ScoutSkills.hungerTimeToMax"),
+			-- Min, max thirst reduce percent per msToCall
+			thirstReduceMin = getSandboxValue("UO.ScoutSkills.thirstReduceMin"),
+			thirstReduceMax = getSandboxValue("UO.ScoutSkills.thirstReduceMax"),
+			-- Time (msToCall) to reach max thirst reduce percent
+			thirstTimeToMax = getSandboxValue("UO.ScoutSkills.thirstTimeToMax"),
 		},
 	},
 
@@ -124,9 +127,9 @@ local PersonalTraits = {
 		---@class PersonalTraits.Axeman.values
 		values = {
 			-- Muscle strain modifier when chopping tree
-			muscleStrainModifier = 0.5,
+			muscleStrainModifier = getSandboxValue("UO.Axeman.muscleStrainModifier"),
 			-- Endurance use modifier when chopping tree
-			enduranceUseModifier = 0.5,
+			enduranceUseModifier = getSandboxValue("UO.Axeman.enduranceUseModifier"),
 		},
 	},
 
@@ -142,7 +145,7 @@ local PersonalTraits = {
 		---@class PersonalTraits.Organized.values
 		values = {
 			-- Sets how much the strength will affect the character's carrying capacity
-			strengthBonusCarrying = 12,
+			strengthBonusCarrying = getSandboxValue("UO.Organized.strengthBonusCarrying"),
 		},
 	},
 
@@ -171,15 +174,15 @@ local PersonalTraits = {
 		---@class PersonalTraits.Outdoorsman.values
 		values = {
 			-- TRP: Time reduction percent
-			buildingTPR = 50,
-			removeCampfireTRP = 50,
-			putOutCampfireTRP = 50,
-			lightFromPetrolTRP = 50,
-			lightFromLiteratureTRP = 50,
-			lightFromKindleTRP = 50,
-			addCampfireFuelTRP = 50,
-			washClothesTRP = 50,
-			washYourselfTRP = 50,
+			buildingTPR = getSandboxValue("UO.Outdoorsman.buildingTPR"),
+			removeCampfireTRP = getSandboxValue("UO.Outdoorsman.removeCampfireTRP"),
+			putOutCampfireTRP = getSandboxValue("UO.Outdoorsman.putOutCampfireTRP"),
+			lightFromPetrolTRP = getSandboxValue("UO.Outdoorsman.lightFromPetrolTRP"),
+			lightFromLiteratureTRP = getSandboxValue("UO.Outdoorsman.lightFromLiteratureTRP"),
+			lightFromKindleTRP = getSandboxValue("UO.Outdoorsman.lightFromKindleTRP"),
+			addCampfireFuelTRP = getSandboxValue("UO.Outdoorsman.addCampfireFuelTRP"),
+			washClothesTRP = getSandboxValue("UO.Outdoorsman.washClothesTRP"),
+			washYourselfTRP = getSandboxValue("UO.Outdoorsman.washYourselfTRP"),
 		},
 	},
 
@@ -189,17 +192,17 @@ local PersonalTraits = {
 		name = getText("UI_prof_Burglar"),
 		desc = getText("UI_trait_BurglarDesc"),
 		---@class PersonalTraits.Burglar.xpBoosts
-		xpBoosts = {},
+		xpBoosts = {
+			{ perk = Perks.Sneak, level = 3 },
+		},
 		---@class PersonalTraits.Burglar.freeRecipes
 		freeRecipes = {},
 		---@class PersonalTraits.Burglar.values
 		values = {
 			-- Default door lockpicking time
-			defaultDoorLockpickingTime = 500,
-			-- This is how much the lockpicking time is reduced for each level of target perk
-			reduceDoorLockpickingTime = 30,
-			-- Target perk that decreases lockpicking time with each lvl
-			targetLockpickPerk = Perks.Sneak,
+			defaultLockpickingTime = getSandboxValue("UO.Burglar.defaultLockpickingTime"),
+			-- This is how much the lockpicking time is reduced for each sneak level
+			reduceDoorLockpickingTime = getSandboxValue("UO.Burglar.reduceDoorLockpickingTime"),
 		},
 	},
 
@@ -209,97 +212,88 @@ local PersonalTraits = {
 		name = getText("UI_trait_graceful"),
 		desc = getText("UI_trait_gracefuldesc"),
 		---@class PersonalTraits.Graceful.xpBoosts
-		xpBoosts = {},
+		xpBoosts = {
+			{ perk = Perks.Sprinting, level = 3 },
+			{ perk = Perks.Lightfoot, level = 3 },
+		},
 		---@class PersonalTraits.Graceful.freeRecipes
 		freeRecipes = {},
 		---@class PersonalTraits.Graceful.values
 		values = {
 			---@class PersonalTraits.Graceful.values.defaultWalk
 			defaultWalk = {
-				startBonusPercent = 30,
-				percentPerLvl = 2,
-				targetPerk = Perks.Lightfoot,
+				startBonusPercent = getSandboxValue("UO.Graceful.defaultWalk_startBonusPercent"),
+				percentPerLvl = getSandboxValue("UO.Graceful.defaultWalk_percentPerLvl"),
 			},
 
 			---@class PersonalTraits.Graceful.values.sneakWalk
 			sneakWalk = {
-				startBonusPercent = 30,
-				percentPerLvl = 2,
-				targetPerk = Perks.Lightfoot,
+				startBonusPercent = getSandboxValue("UO.Graceful.sneakWalk_startBonusPercent"),
+				percentPerLvl = getSandboxValue("UO.Graceful.sneakWalk_startBonusPercent"),
 			},
 
 			---@class PersonalTraits.Graceful.values.sneakRun
 			sneakRun = {
-				startBonusPercent = 30,
-				percentPerLvl = 2,
-				targetPerk = Perks.Sprinting,
+				startBonusPercent = getSandboxValue("UO.Graceful.sneakRun_startBonusPercent"),
+				percentPerLvl = getSandboxValue("UO.Graceful.sneakRun_startBonusPercent"),
 			},
 
 			---@class PersonalTraits.Graceful.values.defaultRun
 			defaultRun = {
-				startBonusPercent = 30,
-				percentPerLvl = 2,
-				targetPerk = Perks.Sprinting,
+				startBonusPercent = getSandboxValue("UO.Graceful.defaultRun_startBonusPercent"),
+				percentPerLvl = getSandboxValue("UO.Graceful.defaultRun_startBonusPercent"),
 			},
 
 			---@class PersonalTraits.Graceful.values.defaultSprint
 			defaultSprint = {
-				startBonusPercent = 30,
-				percentPerLvl = 2,
-				targetPerk = Perks.Sprinting,
+				startBonusPercent = getSandboxValue("UO.Graceful.defaultSprint_startBonusPercent"),
+				percentPerLvl = getSandboxValue("UO.Graceful.defaultSprint_startBonusPercent"),
 			},
 
 			---@class PersonalTraits.Graceful.values.climbWall
 			climbWall = {
-				startBonusPercent = 30,
-				percentPerLvl = 2,
-				targetPerk = Perks.Lightfoot,
+				startBonusPercent = getSandboxValue("UO.Graceful.climbWall_startBonusPercent"),
+				percentPerLvl = getSandboxValue("UO.Graceful.climbWall_startBonusPercent"),
 			},
 
 			---@class PersonalTraits.Graceful.values.climbWindow
 			climbWindow = {
-				startBonusPercent = 30,
-				percentPerLvl = 2,
-				targetPerk = Perks.Lightfoot,
+				startBonusPercent = getSandboxValue("UO.Graceful.climbWindow_startBonusPercent"),
+				percentPerLvl = getSandboxValue("UO.Graceful.climbWindow_startBonusPercent"),
 			},
 
 			---@class PersonalTraits.Graceful.values.climbFence_Walk
 			climbFence_Walk = {
-				startBonusPercent = 30,
-				percentPerLvl = 2,
-				targetPerk = Perks.Lightfoot,
+				startBonusPercent = getSandboxValue("UO.Graceful.climbFence_Walk_startBonusPercent"),
+				percentPerLvl = getSandboxValue("UO.Graceful.climbFence_Walk_startBonusPercent"),
 			},
 
 			---@class PersonalTraits.Graceful.values.climbFence_Run
 			climbFence_Run = {
-				startBonusPercent = 10,
-				percentPerLvl = 2,
-				targetPerk = Perks.Sprinting,
+				startBonusPercent = getSandboxValue("UO.Graceful.climbFence_Run_startBonusPercent"),
+				percentPerLvl = getSandboxValue("UO.Graceful.climbFence_Run_startBonusPercent"),
 			},
 
 			---@class PersonalTraits.Graceful.values.climbFence_Sprint
 			climbFence_Sprint = {
-				startBonusPercent = 30,
-				percentPerLvl = 2,
-				targetPerk = Perks.Sprinting,
+				startBonusPercent = getSandboxValue("UO.Graceful.climbFence_Sprint_startBonusPercent"),
+				percentPerLvl = getSandboxValue("UO.Graceful.climbFence_Sprint_startBonusPercent"),
 			},
 
 			---@class PersonalTraits.Graceful.values.turn
 			turn = {
-				startBonusPercent = 30,
-				percentPerLvl = 2,
-				targetPerk = Perks.Lightfoot,
+				startBonusPercent = getSandboxValue("UO.Graceful.turn_startBonusPercent"),
+				percentPerLvl = getSandboxValue("UO.Graceful.turn_startBonusPercent"),
 			},
 
 			---@class PersonalTraits.Graceful.values.turn180
 			turn180 = {
-				startBonusPercent = 80,
-				percentPerLvl = 2,
-				targetPerk = Perks.Lightfoot,
+				startBonusPercent = getSandboxValue("UO.Graceful.turn180_startBonusPercent"),
+				percentPerLvl = getSandboxValue("UO.Graceful.turn180_startBonusPercent"),
 			},
 
 			-- Weight Multiplier for worn clothing (0.25 - 75% reduce)
-			clothingWeightMultiplier = 0.25,
+			clothingWeightReducePercent = getSandboxValue("UO.Graceful.clothingWeightReducePercent"),
 		},
 	},
 
@@ -314,20 +308,11 @@ local PersonalTraits = {
 		freeRecipes = {},
 		---@class PersonalTraits.Inconspicuous.values
 		values = {
-			-- Default distance (start) for zombies between player to forfeit player from view
-			distanceToForfeit = 15,
-			-- Distance reduce (distanceToForfeit) per perk lvl
-			decreaseDistanceByLvl = 0.5,
-			-- Perk that will affect (decreaseDistanceByLvl)
-			decreaseDistancePerk = Perks.Sneak,
-			-- Duration of stun after zombie forfeits sight of player (in milliseconds)
-			stunDurationAfterForfeit = 1,
-			-- Delay to update distance to forfeit (in milliseconds)
-			distanceToForfeitUpdateDelay = 20,
-			-- Default multiplier (while walking) to distance to forfeit
-			defaultMultiplier = 1,
-			-- Sneaking effect for default multiplier to distance to forfeit
-			sneakingEffect = -0.2,
+			-- Bonus activity multipliers to reduce forfeit distance (sneaking, running, etc.)
+			sneakingBonusMult = getSandboxValue("UO.Inconspicuous.sneakingBonusMult"),
+			runningBonusMult = getSandboxValue("UO.Inconspicuous.runningBonusMult"),
+			sprintingBonusMult = getSandboxValue("UO.Inconspicuous.sprintingBonusMult"),
+			defaultBonusMult = getSandboxValue("UO.Inconspicuous.defaultBonusMult"),
 		},
 	},
 
@@ -344,7 +329,7 @@ local PersonalTraits = {
 		values = {
 			-- TRP: Time reduction percent
 			-- Additional percent to reduce the transfer time
-			inventoryTransferTRP = 25,
+			inventoryTransferTRP = getSandboxValue("UO.Dextrous.inventoryTransferTRP"),
 		},
 	},
 
@@ -372,45 +357,44 @@ local PersonalTraits = {
 		name = getText("UI_trait_marksman"),
 		desc = getText("UI_trait_marksmandesc"),
 		---@class PersonalTraits.Marksman.xpBoosts
-		xpBoosts = {},
+		xpBoosts = {
+			{ perk = Perks.Aiming, level = 3 },
+			{ perk = Perks.Reloading, level = 3 },
+		},
 		---@class PersonalTraits.Marksman.freeRecipes
 		freeRecipes = {},
 		---@class PersonalTraits.Marksman.values
 		values = {
-			-- The perk that affects all aiming bonuses
-			targetPerk = Perks.Aiming,
 			-- Minimum guaranteed hit chance (overrides lower weapon values)
-			minHitChance = 100,
+			minHitChance = getSandboxValue("UO.Marksman.minHitChance"),
 			-- Minimum guaranteed critical hit chance (overrides lower weapon values)
-			minCritChance = 50,
+			minCritChance = getSandboxValue("UO.Marksman.minCritChance"),
 			-- Base multiplier applied to the weapon's critical chance
-			critChanceDefaultMult = 1.5,
+			critChanceDefaultMult = getSandboxValue("UO.Marksman.critChanceDefaultMult"),
 			-- Additional multiplier per perk level added to critical chance
-			critChanceBonusPerLvl = 0.05,
+			critChanceBonusPerLvl = getSandboxValue("UO.Marksman.critChanceBonusPerLvl"),
 			-- Base multiplier for aiming time (e.g. 2 = twice as fast aiming)
-			aimingTimeDefaultMult = 2,
+			aimingTimeDefaultMult = getSandboxValue("UO.Marksman.aimingTimeDefaultMult"),
 			-- Additional multiplier per perk level to reduce aiming time
-			aimingTimeBonusPerLvl = 0.1,
+			aimingTimeBonusPerLvl = getSandboxValue("UO.Marksman.aimingTimeBonusPerLvl"),
 			-- Base multiplier for maximum weapon range
-			maxRangeDefaultMult = 1.2,
+			maxRangeDefaultMult = getSandboxValue("UO.Marksman.maxRangeDefaultMult"),
 			-- Bonus multiplier per perk level to increase max range
-			maxRangeBonusPerLvl = 0.03,
+			maxRangeBonusPerLvl = getSandboxValue("UO.Marksman.maxRangeBonusPerLvl"),
 			-- Base multiplier for the weapon's minimum damage
-			minDamageDefaultMult = 1.2,
+			minDamageDefaultMult = getSandboxValue("UO.Marksman.minDamageDefaultMult"),
 			-- Bonus multiplier per perk level to increase minimum damage
-			minDamageBonusPerLvl = 0.03,
+			minDamageBonusPerLvl = getSandboxValue("UO.Marksman.minDamageBonusPerLvl"),
 			-- Base multiplier for the weapon's maximum damage
-			maxDamageDefaultMult = 1.2,
+			maxDamageDefaultMult = getSandboxValue("UO.Marksman.maxDamageDefaultMult"),
 			-- Bonus multiplier per perk level to increase maximum damage
-			maxDamageBonusPerLvl = 0.03,
-			-- The perk that affects all reloading bonuses
-			reloadSpeedTargetPerk = Perks.Reloading,
+			maxDamageBonusPerLvl = getSandboxValue("UO.Marksman.maxDamageBonusPerLvl"),
 			-- Base multiplier for the reloading speed
-			reloadSpeedDefaultMult = 1.3,
+			reloadSpeedDefaultMult = getSandboxValue("UO.Marksman.reloadSpeedDefaultMult"),
 			-- Bonus multiplier per perk level to increase reloading speed
-			reloadSpeedBonusPerLvl = 0.02,
+			reloadSpeedBonusPerLvl = getSandboxValue("UO.Marksman.reloadSpeedBonusPerLvl"),
 			-- Bonus mult to reduce the chance of breaking ranged weapons
-			conditionLowerChanceMult = 2,
+			conditionLowerChanceMult = getSandboxValue("UO.Marksman.conditionLowerChanceMult"),
 		},
 	},
 
@@ -469,11 +453,11 @@ local PersonalTraits = {
 		---@class PersonalTraits.Desensitized.values
 		values = {
 			-- Pain persistence (NOT PERCENTAGE)
-			painReduction = 50,
+			painReduction = getSandboxValue("UO.Desensitized.painReduction"),
 			-- Maximum pain value (20 - second stage)
-			maxPain = 20,
+			maxPain = getSandboxValue("UO.Desensitized.maxPain"),
 			-- Maximum fatigue value (81 - third stage)
-			maxFatigue = 81,
+			maxFatigue = getSandboxValue("UO.Desensitized.maxFatigue"),
 		},
 	},
 
@@ -483,57 +467,64 @@ local PersonalTraits = {
 		name = getText("UI_trait_TrainedFighter"),
 		desc = getText("UI_trait_TrainedFighterDesc"),
 		---@class PersonalTraits.TrainedFighter.xpBoosts
-		xpBoosts = {},
+		xpBoosts = {
+			{ perk = Perks.Axe, level = 3 },
+			{ perk = Perks.Blunt, level = 3 },
+			{ perk = Perks.SmallBlunt, level = 3 },
+			{ perk = Perks.LongBlade, level = 3 },
+			{ perk = Perks.SmallBlade, level = 3 },
+			{ perk = Perks.Spear, level = 3 },
+			{ perk = Perks.Maintenance, level = 3 },
+			{ perk = Perks.Nimble, level = 3 },
+		},
 		---@class PersonalTraits.TrainedFighter.freeRecipes
 		freeRecipes = {},
 		---@class PersonalTraits.TrainedFighter.values
 		values = {
 			-- Default strafe walk speed increase in percents
-			strafeWalkSpeedDefault = 30,
+			strafeWalkSpeedDefault = getSandboxValue("UO.TrainedFighter.strafeWalkSpeedDefault"),
 			-- Bonus percents per target perk lvl
-			strafeWalkSpeedBonus = 2,
+			strafeWalkSpeedBonus = getSandboxValue("UO.TrainedFighter.strafeWalkSpeedBonus"),
 			-- Default strafe aim speed increase in percents
-			strafeAimSpeedDefault = 30,
+			strafeAimSpeedDefault = getSandboxValue("UO.TrainedFighter.strafeAimSpeedDefault"),
 			-- Bonus percents per target perk lvl
-			strafeAimSpeedBonus = 2,
-			-- Perk that will increase speed per lvl
-			strafeSpeedTargetPerk = Perks.Nimble,
+			strafeAimSpeedBonus = getSandboxValue("UO.TrainedFighter.strafeAimSpeedBonus"),
 			-- Minimum guaranteed hit chance (overrides lower weapon values)
-			minHitChance = 100,
+			minHitChance = getSandboxValue("UO.TrainedFighter.minHitChance"),
 			-- Minimum guaranteed critical hit chance (overrides lower weapon values)
-			minCritChance = 50,
+			minCritChance = getSandboxValue("UO.TrainedFighter.minCritChance"),
 			-- Base multiplier applied to the weapon's critical chance
-			critChanceDefaultMult = 1.5,
+			critChanceDefaultMult = getSandboxValue("UO.TrainedFighter.critChanceDefaultMult"),
 			-- Additional multiplier per perk level added to critical chance
-			critChanceBonusPerLvl = 0.05,
+			critChanceBonusPerLvl = getSandboxValue("UO.TrainedFighter.critChanceBonusPerLvl"),
 			-- Base multiplier for maximum weapon range
-			maxRangeDefaultMult = 1.2,
+			maxRangeDefaultMult = getSandboxValue("UO.TrainedFighter.maxRangeDefaultMult"),
 			-- Bonus multiplier per perk level to increase max range
-			maxRangeBonusPerLvl = 0.03,
+			maxRangeBonusPerLvl = getSandboxValue("UO.TrainedFighter.maxRangeBonusPerLvl"),
 			-- Base multiplier for the weapon's minimum damage
-			minDamageDefaultMult = 1.2,
+			minDamageDefaultMult = getSandboxValue("UO.TrainedFighter.minDamageDefaultMult"),
 			-- Bonus multiplier per perk level to increase minimum damage
-			minDamageBonusPerLvl = 0.03,
+			minDamageBonusPerLvl = getSandboxValue("UO.TrainedFighter.minDamageBonusPerLvl"),
 			-- Base multiplier for the weapon's maximum damage
-			maxDamageDefaultMult = 1.2,
+			maxDamageDefaultMult = getSandboxValue("UO.TrainedFighter.maxDamageDefaultMult"),
 			-- Bonus multiplier per perk level to increase maximum damage
-			maxDamageBonusPerLvl = 0.03,
+			maxDamageBonusPerLvl = getSandboxValue("UO.TrainedFighter.maxDamageBonusPerLvl"),
 			-- Bonus mult to reduce the chance of breaking melee weapons
-			conditionLowerChanceMult = 2,
+			conditionLowerChanceMult = getSandboxValue("UO.TrainedFighter.conditionLowerChanceMult"),
 			-- Stomp speed bonus percent
-			stompSpeedDefault = 50,
+			stompSpeedDefault = getSandboxValue("UO.TrainedFighter.stompSpeedDefault"),
 			-- Default weapon swing speed increase in percents
-			weaponSwingSpeedDefault = 30,
+			weaponSwingSpeedDefault = getSandboxValue("UO.TrainedFighter.weaponSwingSpeedDefault"),
 			-- Bonus percents per target perk lvl
-			weaponSwingSpeedBonus = 2,
+			weaponSwingSpeedBonus = getSandboxValue("UO.TrainedFighter.weaponSwingSpeedBonus"),
 			-- Shove speed increase in percents
-			shoveSpeedDefault = 25,
+			shoveSpeedDefault = getSandboxValue("UO.TrainedFighter.shoveSpeedDefault"),
 			-- Bump fall speed increase in percents
-			bumpFallSpeedDefault = 50,
+			bumpFallSpeedDefault = getSandboxValue("UO.TrainedFighter.bumpFallSpeedDefault"),
 			-- Scramble get up speed increase in percents
-			scrambleGetUpSpeedDefault = 50,
+			scrambleGetUpSpeedDefault = getSandboxValue("UO.TrainedFighter.scrambleGetUpSpeedDefault"),
 			-- Not scramble get up speed increase in percents
-			notScrambleGetUpSpeedDefault = 200,
+			notScrambleGetUpSpeedDefault = getSandboxValue("UO.TrainedFighter.notScrambleGetUpSpeedDefault"),
 		},
 	},
 
@@ -549,13 +540,11 @@ local PersonalTraits = {
 		---@class PersonalTraits.EnduranceSecret.values
 		values = {
 			-- Percentage reduction in endurance cost from all sources
-			spendMainReduce = 40,
+			spendMainReduce = getSandboxValue("UO.EnduranceSecret.spendMainReduce"),
 			-- Additional percentage increase in endurance recovery rate while resting
-			enduranceRestBonus = 100,
-			-- Target perk that will additional percentage reduction each lvl
-			targetPerk = Perks.Fitness,
+			enduranceRestBonus = getSandboxValue("UO.EnduranceSecret.enduranceRestBonus"),
 			-- Additional percentage reduction per target perk lvl
-			spendPerkReduce = 3,
+			spendPerkReduce = getSandboxValue("UO.EnduranceSecret.spendPerkReduce"),
 		},
 	},
 
@@ -571,20 +560,18 @@ local PersonalTraits = {
 		---@class PersonalTraits.Invincible.values
 		values = {
 			-- Dodge cost as a percentage of total endurance
-			dodgeEnduranceCost = 3,
+			dodgeEnduranceCost = getSandboxValue("UO.Invincible.dodgeEnduranceCost"),
 			-- Minimum endurance required to dodge (as a percentage of the total)
-			dodgeEnduranceEdge = 30,
-			-- Target perk that will affect the reduction of endurance consumption
-			targetPerk = Perks.Nimble,
+			dodgeEnduranceEdge = getSandboxValue("UO.Invincible.dodgeEnduranceEdge"),
 			-- Effect from target perk lvl
-			targetPerkEffect = 0.1,
+			targetPerkEffect = getSandboxValue("UO.Invincible.targetPerkEffect"),
 			-- Perk active time in real seconds
-			perkActiveTime = 180,
+			perkActiveTime = getSandboxValue("UO.Invincible.perkActiveTime"),
 			-- Perk cooldown time in game hours
-			perkCooldownTime = 120,
+			perkCooldownTime = getSandboxValue("UO.Invincible.perkCooldownTime"),
 			-- This is how much of the perk's cooldown must pass in percentage for the main debuffs to start working
 			-- (5%, 6 game hours by default)
-			perkCooldownEffectsStartPercent = 5,
+			perkCooldownEffectsStartPercent = getSandboxValue("UO.Invincible.perkCooldownEffectsStartPercent"),
 		},
 	},
 
@@ -895,15 +882,15 @@ local PersonalTraits = {
 		values = {
 			-- TRP: Time reduction percent
 			-- Base craft recipes percent reduction (Except "Packing" recipes)
-			craftRecipesTRP = 50,
+			craftRecipesTRP = getSandboxValue("UO.Engineer.craftRecipesTRP"),
 			-- Reduction per each required skill lvl
-			craftRecipesTRPPerLvl = 3,
+			craftRecipesTRPPerLvl = getSandboxValue("UO.Engineer.craftRecipesTRPPerLvl"),
 			-- EMP_Grenade stun time (in seconds)
-			empStunTime = 20,
+			empStunTime = getSandboxValue("UO.Engineer.empStunTime"),
 			-- EMP_Grenade stun horizontal radius (in tiles)
-			empStunHRadis = 6,
+			empStunHRadis = getSandboxValue("UO.Engineer.empStunHRadis"),
 			-- EMP_Grenade stun vertical radius (in tiles)
-			empStunVRadis = 1,
+			empStunVRadis = getSandboxValue("UO.Engineer.empStunVRadis"),
 		},
 	},
 
@@ -926,21 +913,21 @@ local PersonalTraits = {
 		---@class PersonalTraits.Builder.values
 		values = {
 			-- Building time percent reduce
-			buildingTPR = 50,
+			buildingTPR = getSandboxValue("UO.Builder.buildingTPR"),
 			-- Additional building TPR per lvl
-			buildingTPRPerLvl = 3,
+			buildingTPRPerLvl = getSandboxValue("UO.Builder.buildingTPRPerLvl"),
 			-- Scrapping time percent reduce
-			scrappingTPR = 50,
+			scrappingTPR = getSandboxValue("UO.Builder.scrappingTPR"),
 			-- Additional scrapping TPR per lvl
-			scrappingTPRPerLvl = 1.5,
+			scrappingTPRPerLvl = getSandboxValue("UO.Builder.scrappingTPRPerLvl"),
 			-- Bonus building health percent
-			buildingBHP = 300,
+			buildingBHP = getSandboxValue("UO.Builder.buildingBHP"),
 			-- Bonus building health percent per lvl
-			buildingBHPPerLvl = 20,
+			buildingBHPPerLvl = getSandboxValue("UO.Builder.buildingBHPPerLvl"),
 			-- Bonus building capacity percent
-			buildingCapBonus = 50,
+			buildingCapBonus = getSandboxValue("UO.Builder.buildingCapBonus"),
 			-- Bonus building capacity percent per lvl
-			buildingCapBonusPerLvl = 5,
+			buildingCapBonusPerLvl = getSandboxValue("UO.Builder.buildingCapBonusPerLvl"),
 		},
 	},
 
@@ -1020,17 +1007,17 @@ local PersonalTraits = {
 		---@class PersonalTraits.Mechanic.values
 		values = {
 			-- Burnt cars scrapping time percent reduce
-			scrappingTPR = 50,
+			scrappingTPR = getSandboxValue("UO.Mechanic.scrappingTPR"),
 			-- Additional scrapping TPR per lvl
-			scrappingTPRPerLvl = 1.5,
+			scrappingTPRPerLvl = getSandboxValue("UO.Mechanic.scrappingTPRPerLvl"),
 			-- Install and uninstall vehicle parts time percent reduce
-			installTPR = 50,
+			installTPR = getSandboxValue("UO.Mechanic.installTPR"),
 			-- Additional install and uninstall TPR per lvl
-			installTPRPerLvl = 3,
+			installTPRPerLvl = getSandboxValue("UO.Mechanic.installTPRPerLvl"),
 			-- Bonus vehicle repairing percent
-			repairBonusPercent = 50,
+			repairBonusPercent = getSandboxValue("UO.Mechanic.repairBonusPercent"),
 			-- Bonus vehicle repairing percent per lvl
-			repairBonusPercentPerLvl = 2.5,
+			repairBonusPercentPerLvl = getSandboxValue("UO.Mechanic.repairBonusPercentPerLvl"),
 		},
 	},
 
@@ -1041,7 +1028,11 @@ local PersonalTraits = {
 		desc = getText("UI_trait_DoctorDesc"),
 
 		---@class PersonalTraits.Doctor.xpBoosts
-		xpBoosts = {},
+		xpBoosts = {
+			{ perk = Perks.Doctor, level = 3 },
+			{ perk = Perks.Cooking, level = 3 },
+			{ perk = Perks.Tailoring, level = 3 },
+		},
 
 		---@class PersonalTraits.Doctor.freeRecipes
 		freeRecipes = {
@@ -1239,7 +1230,20 @@ local PersonalTraits = {
 		},
 
 		---@class PersonalTraits.Doctor.values
-		values = {},
+		values = {
+			-- Bonus medicine actions time reduce percent
+			medicineActionsTRP = getSandboxValue("UO.Doctor.medicineActionsTRP"),
+			-- Bonus medicine actions time reduce percent per lvl
+			medicineActionsTRPPerLvl = getSandboxValue("UO.Doctor.medicineActionsTRPPerLvl"),
+			-- Affects additional cataplasm power
+			cataplasmPowerPercent = getSandboxValue("UO.Doctor.cataplasmPowerPercent"),
+			-- Affects additional cataplasm power per doctor lvl
+			cataplasmPowerPercentPerLvl = getSandboxValue("UO.Doctor.cataplasmPowerPercentPerLvl"),
+			-- Affects additional bandage life time
+			bandageLifePercent = getSandboxValue("UO.Doctor.bandageLifePercent"),
+			-- Affects additional bandage life time per doctor lvl
+			bandageLifePercentPerLvl = getSandboxValue("UO.Doctor.bandageLifePercentPerLvl"),
+		},
 	},
 }
 

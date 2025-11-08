@@ -11,8 +11,8 @@
 ---@class DoTraitsOnGameBoot.Axeman
 UsefulOccupations.DoTraitsOnGameBoot.Axeman = function()
 	local traitName = UsefulOccupations.PersonalTraits.Axeman.type
-	local muscleStrainModifier = UsefulOccupations.PersonalTraits.Axeman.values.muscleStrainModifier
-	local enduranceUseModifier = UsefulOccupations.PersonalTraits.Axeman.values.enduranceUseModifier
+	local muscleStrainModifier = UsefulOccupations.PersonalTraits.Axeman.values.muscleStrainModifier()
+	local enduranceUseModifier = UsefulOccupations.PersonalTraits.Axeman.values.enduranceUseModifier()
 
 	-- When chopping trees, the Axeman's accumulation of pain is reduced by 2 times
 	---@diagnostic disable-next-line: duplicate-set-field

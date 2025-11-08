@@ -146,10 +146,10 @@ UsefulOccupations.DoTraitsOnGameBoot.Mechanic = function()
 	-- Mechanic repairs vehicle more productive (except engine)
 	---@param player IsoPlayer
 	local getBonusRepairPercent = function(player)
-		local metalWeldingLvl = player:getPerkLevel(Perks.MetalWelding) * traitValues.repairBonusPercentPerLvl
-		local mechanicsLvl = player:getPerkLevel(Perks.Mechanics) * traitValues.repairBonusPercentPerLvl
+		local metalWeldingLvl = player:getPerkLevel(Perks.MetalWelding) * traitValues.repairBonusPercentPerLvl()
+		local mechanicsLvl = player:getPerkLevel(Perks.Mechanics) * traitValues.repairBonusPercentPerLvl()
 
-		return traitValues.repairBonusPercent + metalWeldingLvl + mechanicsLvl
+		return traitValues.repairBonusPercent() + metalWeldingLvl + mechanicsLvl
 	end
 
 	---@diagnostic disable-next-line: duplicate-set-field

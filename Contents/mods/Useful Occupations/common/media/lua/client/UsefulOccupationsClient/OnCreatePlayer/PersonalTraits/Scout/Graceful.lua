@@ -16,79 +16,79 @@ UsefulOccupations.DoTraitsOnCreatePlayer.Graceful = function(player)
 
 	---@class MovementValue
 	local defaultWalk = {
-		startBonusPercent = traitValues.defaultWalk.startBonusPercent,
-		percentPerLvl = traitValues.defaultWalk.percentPerLvl,
-		targetPerk = traitValues.defaultWalk.targetPerk,
+		startBonusPercent = traitValues.defaultWalk.startBonusPercent(),
+		percentPerLvl = traitValues.defaultWalk.percentPerLvl(),
+		targetPerk = Perks.Lightfoot,
 	}
 
 	local sneakWalk = {
-		startBonusPercent = traitValues.sneakWalk.startBonusPercent,
-		percentPerLvl = traitValues.sneakWalk.percentPerLvl,
-		targetPerk = traitValues.sneakWalk.targetPerk,
+		startBonusPercent = traitValues.sneakWalk.startBonusPercent(),
+		percentPerLvl = traitValues.sneakWalk.percentPerLvl(),
+		targetPerk = Perks.Lightfoot,
 	}
 
 	local sneakRun = {
-		startBonusPercent = traitValues.sneakRun.startBonusPercent,
-		percentPerLvl = traitValues.sneakRun.percentPerLvl,
-		targetPerk = traitValues.sneakRun.targetPerk,
+		startBonusPercent = traitValues.sneakRun.startBonusPercent(),
+		percentPerLvl = traitValues.sneakRun.percentPerLvl(),
+		targetPerk = Perks.Sprinting,
 	}
 
 	local defaultRun = {
-		startBonusPercent = traitValues.defaultRun.startBonusPercent,
-		percentPerLvl = traitValues.defaultRun.percentPerLvl,
-		targetPerk = traitValues.defaultRun.targetPerk,
+		startBonusPercent = traitValues.defaultRun.startBonusPercent(),
+		percentPerLvl = traitValues.defaultRun.percentPerLvl(),
+		targetPerk = Perks.Sprinting,
 	}
 
 	local defaultSprint = {
-		startBonusPercent = traitValues.defaultSprint.startBonusPercent,
-		percentPerLvl = traitValues.defaultSprint.percentPerLvl,
-		targetPerk = traitValues.defaultSprint.targetPerk,
+		startBonusPercent = traitValues.defaultSprint.startBonusPercent(),
+		percentPerLvl = traitValues.defaultSprint.percentPerLvl(),
+		targetPerk = Perks.Sprinting,
 	}
 
 	local climbWall = {
-		startBonusPercent = traitValues.climbWall.startBonusPercent,
-		percentPerLvl = traitValues.climbWall.percentPerLvl,
-		targetPerk = traitValues.climbWall.targetPerk,
+		startBonusPercent = traitValues.climbWall.startBonusPercent(),
+		percentPerLvl = traitValues.climbWall.percentPerLvl(),
+		targetPerk = Perks.Lightfoot,
 	}
 
 	local climbWindow = {
-		startBonusPercent = traitValues.climbWindow.startBonusPercent,
-		percentPerLvl = traitValues.climbWindow.percentPerLvl,
-		targetPerk = traitValues.climbWindow.targetPerk,
+		startBonusPercent = traitValues.climbWindow.startBonusPercent(),
+		percentPerLvl = traitValues.climbWindow.percentPerLvl(),
+		targetPerk = Perks.Lightfoot,
 	}
 
 	local climbFence_Walk = {
-		startBonusPercent = traitValues.climbFence_Walk.startBonusPercent,
-		percentPerLvl = traitValues.climbFence_Walk.percentPerLvl,
-		targetPerk = traitValues.climbFence_Walk.targetPerk,
+		startBonusPercent = traitValues.climbFence_Walk.startBonusPercent(),
+		percentPerLvl = traitValues.climbFence_Walk.percentPerLvl(),
+		targetPerk = Perks.Lightfoot,
 	}
 
 	local climbFence_Run = {
-		startBonusPercent = traitValues.climbFence_Run.startBonusPercent,
-		percentPerLvl = traitValues.climbFence_Run.percentPerLvl,
-		targetPerk = traitValues.climbFence_Run.targetPerk,
+		startBonusPercent = traitValues.climbFence_Run.startBonusPercent(),
+		percentPerLvl = traitValues.climbFence_Run.percentPerLvl(),
+		targetPerk = Perks.Sprinting,
 	}
 
 	local climbFence_Sprint = {
-		startBonusPercent = traitValues.climbFence_Sprint.startBonusPercent,
-		percentPerLvl = traitValues.climbFence_Sprint.percentPerLvl,
-		targetPerk = traitValues.climbFence_Sprint.targetPerk,
+		startBonusPercent = traitValues.climbFence_Sprint.startBonusPercent(),
+		percentPerLvl = traitValues.climbFence_Sprint.percentPerLvl(),
+		targetPerk = Perks.Sprinting,
 	}
 
 	local turn = {
-		startBonusPercent = traitValues.turn.startBonusPercent,
-		percentPerLvl = traitValues.turn.percentPerLvl,
-		targetPerk = traitValues.turn.targetPerk,
+		startBonusPercent = traitValues.turn.startBonusPercent(),
+		percentPerLvl = traitValues.turn.percentPerLvl(),
+		targetPerk = Perks.Lightfoot,
 	}
 
 	local turn180 = {
-		startBonusPercent = traitValues.turn180.startBonusPercent,
-		percentPerLvl = traitValues.turn180.percentPerLvl,
-		targetPerk = traitValues.turn180.targetPerk,
+		startBonusPercent = traitValues.turn180.startBonusPercent(),
+		percentPerLvl = traitValues.turn180.percentPerLvl(),
+		targetPerk = Perks.Lightfoot,
 	}
 
-	-- Clothing multiplier
-	local clothingWeightMultiplier = traitValues.clothingWeightMultiplier
+	-- Clothing weight reduce percent
+	local clothingWeightReducePercent = traitValues.clothingWeightReducePercent() / 100
 
 	local movementHandler = UOPlayerMovementHandler:getInstance()
 	local speedTypes = movementHandler.getSpeedTypes()
@@ -200,14 +200,14 @@ UsefulOccupations.DoTraitsOnCreatePlayer.Graceful = function(player)
 	local buffClothingStats = function(item, itemdata)
 		item:setRunSpeedModifier(math.max(1, item:getRunSpeedModifier()))
 		item:setCombatSpeedModifier(math.max(1, item:getCombatSpeedModifier()))
-		item:setActualWeight(itemdata.actualWeight * clothingWeightMultiplier)
+		item:setActualWeight(itemdata.actualWeight - (itemdata.actualWeight * clothingWeightReducePercent))
 	end
 
 	-- Updating container stats
 	---@param item InventoryContainer
 	---@param itemdata table
 	local buffBackpackStats = function(item, itemdata)
-		item:setActualWeight(itemdata.actualWeight * clothingWeightMultiplier)
+		item:setActualWeight(itemdata.actualWeight - (itemdata.actualWeight * clothingWeightReducePercent))
 	end
 
 	---@class InventoryItemsStatsHandler.Graceful

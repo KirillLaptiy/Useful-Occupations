@@ -13,24 +13,24 @@
 UsefulOccupations.DoTraitsOnCreatePlayer.Marksman = function(player)
 	local traitValues = UsefulOccupations.PersonalTraits.Marksman.values
 
-	local targetPerk = traitValues.targetPerk
-	local reloadSpeedTargetPerk = traitValues.reloadSpeedTargetPerk
+	local targetPerk = Perks.Aiming
+	local reloadSpeedTargetPerk = Perks.Reloading
 
-	local minHitChance = traitValues.minHitChance
-	local minCritChance = traitValues.minCritChance
-	local critChanceDefaultMult = traitValues.critChanceDefaultMult
-	local critChanceBonusPerLvl = traitValues.critChanceBonusPerLvl
-	local aimingTimeDefaultMult = traitValues.aimingTimeDefaultMult
-	local aimingTimeBonusPerLvl = traitValues.aimingTimeBonusPerLvl
-	local maxRangeDefaultMult = traitValues.maxRangeDefaultMult
-	local maxRangeBonusPerLvl = traitValues.maxRangeBonusPerLvl
-	local minDamageDefaultMult = traitValues.minDamageDefaultMult
-	local minDamageBonusPerLvl = traitValues.minDamageBonusPerLvl
-	local maxDamageDefaultMult = traitValues.maxDamageDefaultMult
-	local maxDamageBonusPerLvl = traitValues.maxDamageBonusPerLvl
-	local reloadSpeedDefaultMult = traitValues.reloadSpeedDefaultMult
-	local reloadSpeedBonusPerLvl = traitValues.reloadSpeedBonusPerLvl
-	local conditionLowerChanceMult = traitValues.conditionLowerChanceMult
+	local minHitChance = traitValues.minHitChance()
+	local minCritChance = traitValues.minCritChance()
+	local critChanceDefaultMult = traitValues.critChanceDefaultMult()
+	local critChanceBonusPerLvl = traitValues.critChanceBonusPerLvl()
+	local aimingTimeDefaultMult = traitValues.aimingTimeDefaultMult()
+	local aimingTimeBonusPerLvl = traitValues.aimingTimeBonusPerLvl()
+	local maxRangeDefaultMult = traitValues.maxRangeDefaultMult()
+	local maxRangeBonusPerLvl = traitValues.maxRangeBonusPerLvl()
+	local minDamageDefaultMult = traitValues.minDamageDefaultMult()
+	local minDamageBonusPerLvl = traitValues.minDamageBonusPerLvl()
+	local maxDamageDefaultMult = traitValues.maxDamageDefaultMult()
+	local maxDamageBonusPerLvl = traitValues.maxDamageBonusPerLvl()
+	local reloadSpeedDefaultMult = traitValues.reloadSpeedDefaultMult()
+	local reloadSpeedBonusPerLvl = traitValues.reloadSpeedBonusPerLvl()
+	local conditionLowerChanceMult = traitValues.conditionLowerChanceMult()
 
 	-- Aiming bonuses
 	local targetAimingPerkLevel = player:getPerkLevel(targetPerk)

@@ -15,10 +15,10 @@ local invincibleMultiplier = 1
 ---@class DoTraitsOnCreatePlayer.EnduranceSecret
 ---@param player IsoPlayer
 UsefulOccupations.DoTraitsOnCreatePlayer.EnduranceSecret = function(player)
-	local spendMainReduce = UsefulOccupations.PersonalTraits.EnduranceSecret.values.spendMainReduce / 100
-	local enduranceRestBonus = UsefulOccupations.PersonalTraits.EnduranceSecret.values.enduranceRestBonus / 100
-	local targetPerk = UsefulOccupations.PersonalTraits.EnduranceSecret.values.targetPerk
-	local spendPerkReduce = UsefulOccupations.PersonalTraits.EnduranceSecret.values.spendPerkReduce / 100
+	local spendMainReduce = UsefulOccupations.PersonalTraits.EnduranceSecret.values.spendMainReduce() / 100
+	local enduranceRestBonus = UsefulOccupations.PersonalTraits.EnduranceSecret.values.enduranceRestBonus() / 100
+	local targetPerk = Perks.Fitness
+	local spendPerkReduce = UsefulOccupations.PersonalTraits.EnduranceSecret.values.spendPerkReduce() / 100
 
 	local enduranceStates = {
 		recovery = "recovery",

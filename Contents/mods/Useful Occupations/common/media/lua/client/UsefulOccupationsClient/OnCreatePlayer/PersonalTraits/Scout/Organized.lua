@@ -11,6 +11,6 @@
 ---@class DoTraitsOnCreatePlayer.Organized
 ---@param player IsoPlayer
 UsefulOccupations.DoTraitsOnCreatePlayer.Organized = function(player)
-	local strengthBonusCarrying = UsefulOccupations.PersonalTraits.Organized.values.strengthBonusCarrying
+	local strengthBonusCarrying = UsefulOccupations.PersonalTraits.Organized.values.strengthBonusCarrying()
 	player:setMaxWeightBase(strengthBonusCarrying)
 end

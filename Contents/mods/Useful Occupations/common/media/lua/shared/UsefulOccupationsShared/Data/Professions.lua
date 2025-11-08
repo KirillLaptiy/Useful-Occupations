@@ -53,13 +53,6 @@ local initProfessions = function()
 			xpBoosts = {
 				{ perk = Perks.Strength, level = -2 },
 				{ perk = Perks.Fitness, level = -2 },
-				{ perk = Perks.PlantScavenging, level = 3 },
-				{ perk = Perks.Fishing, level = 3 },
-				{ perk = Perks.Trapping, level = 3 },
-				{ perk = Perks.Tracking, level = 3 },
-				{ perk = Perks.Sprinting, level = 3 },
-				{ perk = Perks.Lightfoot, level = 3 },
-				{ perk = Perks.Sneak, level = 3 },
 			},
 		},
 
@@ -83,18 +76,7 @@ local initProfessions = function()
 			},
 
 			---@class Profession.Veteran.xpBoosts
-			xpBoosts = {
-				{ perk = Perks.Axe, level = 3 },
-				{ perk = Perks.Blunt, level = 3 },
-				{ perk = Perks.SmallBlunt, level = 3 },
-				{ perk = Perks.LongBlade, level = 3 },
-				{ perk = Perks.SmallBlade, level = 3 },
-				{ perk = Perks.Spear, level = 3 },
-				{ perk = Perks.Aiming, level = 3 },
-				{ perk = Perks.Reloading, level = 3 },
-				{ perk = Perks.Maintenance, level = 3 },
-				{ perk = Perks.Nimble, level = 3 },
-			},
+			xpBoosts = {},
 		},
 
 		---@class Profession.SPM

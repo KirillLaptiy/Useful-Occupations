@@ -69,11 +69,10 @@ function ISLockpickVehicleDoor:complete()
 end
 
 function ISLockpickVehicleDoor:getDuration()
-	local defaultTime = UsefulOccupations.PersonalTraits.Burglar.values.defaultDoorLockpickingTime
-	local timeReducePerLvl = UsefulOccupations.PersonalTraits.Burglar.values.reduceDoorLockpickingTime
-	local targetPerk = UsefulOccupations.PersonalTraits.Burglar.values.targetLockpickPerk
+	local defaultTime = UsefulOccupations.PersonalTraits.Burglar.values.defaultLockpickingTime()
+	local timeReducePerLvl = UsefulOccupations.PersonalTraits.Burglar.values.reduceDoorLockpickingTime()
 
-	local targetPerkLvl = self.character:getPerkLevel(targetPerk)
+	local targetPerkLvl = self.character:getPerkLevel(Perks.Sneak)
 
 	return defaultTime - (timeReducePerLvl * targetPerkLvl)
 end

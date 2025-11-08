@@ -14,41 +14,41 @@ UsefulOccupations.DoTraitsOnCreatePlayer.TrainedFighter = function(player)
 	local traitValues = UsefulOccupations.PersonalTraits.TrainedFighter.values
 
 	-- Strafe speed increased
-	local strafeWalkSpeedDefault = traitValues.strafeWalkSpeedDefault / 100
-	local strafeWalkSpeedBonus = traitValues.strafeWalkSpeedBonus / 100
-	local strafeAimSpeedDefault = traitValues.strafeAimSpeedDefault / 100
-	local strafeAimSpeedBonus = traitValues.strafeAimSpeedBonus / 100
-	local strafeSpeedTargetPerk = traitValues.strafeSpeedTargetPerk
+	local strafeWalkSpeedDefault = traitValues.strafeWalkSpeedDefault() / 100
+	local strafeWalkSpeedBonus = traitValues.strafeWalkSpeedBonus() / 100
+	local strafeAimSpeedDefault = traitValues.strafeAimSpeedDefault() / 100
+	local strafeAimSpeedBonus = traitValues.strafeAimSpeedBonus() / 100
+	local strafeSpeedTargetPerk = Perks.Nimble
 
 	-- Melee weapons buffs
-	local minHitChance = traitValues.minHitChance
-	local minCritChance = traitValues.minCritChance
-	local critChanceDefaultMult = traitValues.critChanceDefaultMult
-	local critChanceBonusPerLvl = traitValues.critChanceBonusPerLvl
-	local maxRangeDefaultMult = traitValues.maxRangeDefaultMult
-	local maxRangeBonusPerLvl = traitValues.maxRangeBonusPerLvl
-	local minDamageDefaultMult = traitValues.minDamageDefaultMult
-	local minDamageBonusPerLvl = traitValues.minDamageBonusPerLvl
-	local maxDamageDefaultMult = traitValues.maxDamageDefaultMult
-	local maxDamageBonusPerLvl = traitValues.maxDamageBonusPerLvl
-	local conditionLowerChanceMult = traitValues.conditionLowerChanceMult
+	local minHitChance = traitValues.minHitChance()
+	local minCritChance = traitValues.minCritChance()
+	local critChanceDefaultMult = traitValues.critChanceDefaultMult()
+	local critChanceBonusPerLvl = traitValues.critChanceBonusPerLvl()
+	local maxRangeDefaultMult = traitValues.maxRangeDefaultMult()
+	local maxRangeBonusPerLvl = traitValues.maxRangeBonusPerLvl()
+	local minDamageDefaultMult = traitValues.minDamageDefaultMult()
+	local minDamageBonusPerLvl = traitValues.minDamageBonusPerLvl()
+	local maxDamageDefaultMult = traitValues.maxDamageDefaultMult()
+	local maxDamageBonusPerLvl = traitValues.maxDamageBonusPerLvl()
+	local conditionLowerChanceMult = traitValues.conditionLowerChanceMult()
 
 	-- Stomp speed mult
-	local stompSpeedMult = 1 + traitValues.stompSpeedDefault / 100
+	local stompSpeedMult = 1 + traitValues.stompSpeedDefault() / 100
 
 	-- Shove speed mult
-	local shoveSpeedMult = 1 + traitValues.shoveSpeedDefault / 100
+	local shoveSpeedMult = 1 + traitValues.shoveSpeedDefault() / 100
 
 	-- Weapon swing speed mult
-	local weaponSwingSpeedDefault = traitValues.weaponSwingSpeedDefault / 100
-	local weaponSwingSpeedBonus = traitValues.weaponSwingSpeedBonus / 100
+	local weaponSwingSpeedDefault = traitValues.weaponSwingSpeedDefault() / 100
+	local weaponSwingSpeedBonus = traitValues.weaponSwingSpeedBonus() / 100
 
 	-- Bump fall speed mult
-	local bumpFallSpeedMult = 1 + traitValues.bumpFallSpeedDefault / 100
+	local bumpFallSpeedMult = 1 + traitValues.bumpFallSpeedDefault() / 100
 
 	-- Get up speed mult
-	local scrambleGetUpSpeedMult = 1 + traitValues.scrambleGetUpSpeedDefault / 100
-	local notScrambleGetUpSpeedMult = 1 + traitValues.notScrambleGetUpSpeedDefault / 100
+	local scrambleGetUpSpeedMult = 1 + traitValues.scrambleGetUpSpeedDefault() / 100
+	local notScrambleGetUpSpeedMult = 1 + traitValues.notScrambleGetUpSpeedDefault() / 100
 
 	local forwardDirections = {
 		N = {

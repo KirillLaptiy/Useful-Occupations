@@ -40,16 +40,16 @@ end
 
 function ISProcessAlarm:complete()
 	if self.isCheckingAlarm then
-		HaloTextHelper.addText(self.character, self.buildingDef:isAlarmed() and "Has alarm" or "No alarm")
+		HaloTextHelper.addText(self.character, getText(self.buildingDef:isAlarmed() and "IGUI_HasAlarm" or "IGUI_NoAlarm"))
 	else
 		if self.buildingDef:isAlarmed() and self.needToBeAlarmed then
-			HaloTextHelper.addText(self.character, "Already has alarm")
+			HaloTextHelper.addText(self.character, getText("IGUI_BuildingAlreadyHasAlarm"))
 		elseif self.buildingDef:isAlarmed() == false and self.needToBeAlarmed == false then
-			HaloTextHelper.addText(self.character, "Is already without alarm")
+			HaloTextHelper.addText(self.character, getText("IGUI_BuildingAlreadyWithoutAlarm"))
 		else
 			self.buildingDef:setAlarmed(self.needToBeAlarmed)
 			self.alarmController:Use()
-			HaloTextHelper.addText(self.character, self.buildingDef:isAlarmed() and "Alarm added" or "Alarm removed")
+			HaloTextHelper.addText(self.character, getText(self.buildingDef:isAlarmed() and "IGUI_BuildingAlarmAdded" or "IGUI_BuildingAlarmRemoved"))
 		end
 	end
 

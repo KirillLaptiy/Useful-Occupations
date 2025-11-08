@@ -28,6 +28,10 @@ local reduceActionsTimeByTraits = function()
 	local Mechanic = UsefulOccupations.PersonalTraits.Mechanic
 	local mechanicValues = Mechanic.values
 
+	-- Doctor
+	local Doctor = UsefulOccupations.PersonalTraits.Doctor
+	local doctorValues = Doctor.values
+
 	---@param actionClass table
 	---@param timeReduction number | function
 	---@param trait any
@@ -84,7 +88,7 @@ local reduceActionsTimeByTraits = function()
 
 		local skillsCount = craftRecipe:getRequiredSkillCount()
 
-		local reducePercent = engineerValues.craftRecipesTRP
+		local reducePercent = engineerValues.craftRecipesTRP()
 
 		for i = 0, skillsCount - 1 do
 			local requiredSkill = craftRecipe:getRequiredSkill(i)
@@ -92,7 +96,7 @@ local reduceActionsTimeByTraits = function()
 			local perk = requiredSkill:getPerk()
 			local perkLvl = character:getPerkLevel(perk)
 
-			reducePercent = reducePercent + (engineerValues.craftRecipesTRPPerLvl * perkLvl)
+			reducePercent = reducePercent + (engineerValues.craftRecipesTRPPerLvl() * perkLvl)
 		end
 
 		return math.max(0, math.min(100, reducePercent))
@@ -112,7 +116,7 @@ local reduceActionsTimeByTraits = function()
 		local woodworkLvl = character:getPerkLevel(Perks.Woodwork)
 		local metalWeldingLvl = character:getPerkLevel(Perks.MetalWelding)
 
-		return builderValues.scrappingTPR + (builderValues.scrappingTPRPerLvl * (woodworkLvl + metalWeldingLvl))
+		return builderValues.scrappingTPR() + (builderValues.scrappingTPRPerLvl() * (woodworkLvl + metalWeldingLvl))
 	end
 
 	-- Mechanic's burnt vehicles scrapping time reduction percent
@@ -124,7 +128,7 @@ local reduceActionsTimeByTraits = function()
 		local metalWeldingLvl = character:getPerkLevel(Perks.MetalWelding)
 		local mechanicsLvl = character:getPerkLevel(Perks.Mechanics)
 
-		return mechanicValues.scrappingTPR + (mechanicValues.scrappingTPRPerLvl * (metalWeldingLvl + mechanicsLvl))
+		return mechanicValues.scrappingTPR() + (mechanicValues.scrappingTPRPerLvl() * (metalWeldingLvl + mechanicsLvl))
 	end
 
 	-- Mechanic's install and uninstall vehicle parts time reduction percent
@@ -135,21 +139,31 @@ local reduceActionsTimeByTraits = function()
 
 		local mechanicsLvl = character:getPerkLevel(Perks.Mechanics)
 
-		return mechanicValues.installTPR + (mechanicValues.installTPRPerLvl * mechanicsLvl)
+		return mechanicValues.installTPR() + (mechanicValues.installTPRPerLvl() * mechanicsLvl)
+	end
+
+	-- Doctor makes medicine actions faster
+	local getDoctorMedicineTRP = function(o)
+		---@type IsoPlayer
+		local character = o.character
+
+		local doctorLvl = character:getPerkLevel(Perks.Doctor)
+
+		return doctorValues.medicineActionsTRP() + (doctorValues.medicineActionsTRPPerLvl() * doctorLvl)
 	end
 
 	-- Outdoorsman
-	reduceActionTimeByTrait(ISWashYourself, outdoorsmanValues.washYourselfTRP, Outdoorsman)
-	reduceActionTimeByTrait(ISWashClothing, outdoorsmanValues.washClothesTRP, Outdoorsman)
-	reduceActionTimeByTrait(ISAddFuelAction, outdoorsmanValues.addCampfireFuelTRP, Outdoorsman)
-	reduceActionTimeByTrait(ISRemoveCampfireAction, outdoorsmanValues.removeCampfireTRP, Outdoorsman)
-	reduceActionTimeByTrait(ISPutOutCampfireAction, outdoorsmanValues.putOutCampfireTRP, Outdoorsman)
-	reduceActionTimeByTrait(ISLightFromPetrol, outdoorsmanValues.lightFromPetrolTRP, Outdoorsman)
-	reduceActionTimeByTrait(ISLightFromLiterature, outdoorsmanValues.lightFromLiteratureTRP, Outdoorsman)
-	reduceActionTimeByTrait(ISLightFromKindle, outdoorsmanValues.lightFromKindleTRP, Outdoorsman)
+	reduceActionTimeByTrait(ISWashYourself, outdoorsmanValues.washYourselfTRP(), Outdoorsman)
+	reduceActionTimeByTrait(ISWashClothing, outdoorsmanValues.washClothesTRP(), Outdoorsman)
+	reduceActionTimeByTrait(ISAddFuelAction, outdoorsmanValues.addCampfireFuelTRP(), Outdoorsman)
+	reduceActionTimeByTrait(ISRemoveCampfireAction, outdoorsmanValues.removeCampfireTRP(), Outdoorsman)
+	reduceActionTimeByTrait(ISPutOutCampfireAction, outdoorsmanValues.putOutCampfireTRP(), Outdoorsman)
+	reduceActionTimeByTrait(ISLightFromPetrol, outdoorsmanValues.lightFromPetrolTRP(), Outdoorsman)
+	reduceActionTimeByTrait(ISLightFromLiterature, outdoorsmanValues.lightFromLiteratureTRP(), Outdoorsman)
+	reduceActionTimeByTrait(ISLightFromKindle, outdoorsmanValues.lightFromKindleTRP(), Outdoorsman)
 
 	-- Dextrous
-	reduceActionTimeByTrait(ISInventoryTransferAction, Dextrous.values.inventoryTransferTRP, Dextrous)
+	reduceActionTimeByTrait(ISInventoryTransferAction, Dextrous.values.inventoryTransferTRP(), Dextrous)
 
 	-- Engineer
 	reduceActionTimeByTrait(ISHandcraftAction, getEngineerHandcraftTRP, Engineer)
@@ -166,6 +180,17 @@ local reduceActionsTimeByTraits = function()
 	reduceActionTimeByTrait(ISRepairLightbar, getMechanicInstallTRP, Mechanic)
 	reduceActionTimeByTrait(ISRepairEngine, getMechanicInstallTRP, Mechanic)
 	reduceActionTimeByTrait(ISFixVehiclePartAction, getMechanicInstallTRP, Mechanic)
+
+	-- Doctor
+	reduceActionTimeByTrait(ISStitch, getDoctorMedicineTRP, Doctor)
+	reduceActionTimeByTrait(ISSplint, getDoctorMedicineTRP, Doctor)
+	reduceActionTimeByTrait(ISRemoveGlass, getDoctorMedicineTRP, Doctor)
+	reduceActionTimeByTrait(ISRemoveBullet, getDoctorMedicineTRP, Doctor)
+	reduceActionTimeByTrait(ISPlantainCataplasm, getDoctorMedicineTRP, Doctor)
+	reduceActionTimeByTrait(ISGarlicCataplasm, getDoctorMedicineTRP, Doctor)
+	reduceActionTimeByTrait(ISDisinfect, getDoctorMedicineTRP, Doctor)
+	reduceActionTimeByTrait(ISComfreyCataplasm, getDoctorMedicineTRP, Doctor)
+	reduceActionTimeByTrait(ISCleanBurn, getDoctorMedicineTRP, Doctor)
 end
 
 return reduceActionsTimeByTraits

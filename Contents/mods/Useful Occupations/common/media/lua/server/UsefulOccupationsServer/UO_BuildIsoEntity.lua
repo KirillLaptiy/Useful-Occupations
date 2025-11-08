@@ -12,7 +12,7 @@ local personalTraits = UsefulOccupations.PersonalTraits
 
 -- Outdoorsman
 local outdoorsmanType = personalTraits.Outdoorsman.type
-local outdoorsmanBuildingTPR = personalTraits.Outdoorsman.values.buildingTPR
+local outdoorsmanBuildingTPR = personalTraits.Outdoorsman.values.buildingTPR()
 
 -- Builder
 local builderType = personalTraits.Builder.type
@@ -62,7 +62,7 @@ local getBuilderTPR = function(character, craftRecipe)
 
 	local skillsCount = craftRecipe:getRequiredSkillCount()
 
-	local reducePercent = builderValues.buildingTPR
+	local reducePercent = builderValues.buildingTPR()
 
 	for i = 0, skillsCount - 1 do
 		local requiredSkill = craftRecipe:getRequiredSkill(i)
@@ -70,7 +70,7 @@ local getBuilderTPR = function(character, craftRecipe)
 		local perk = requiredSkill:getPerk()
 		local perkLvl = character:getPerkLevel(perk)
 
-		reducePercent = reducePercent + (builderValues.buildingTPRPerLvl * perkLvl)
+		reducePercent = reducePercent + (builderValues.buildingTPRPerLvl() * perkLvl)
 	end
 
 	return math.max(0, math.min(100, reducePercent))
@@ -79,7 +79,7 @@ end
 ---@param character IsoPlayer
 ---@param craftRecipe CraftRecipe
 local getBuilderHealthMult = function(character, craftRecipe)
-	local healthBonusPercent = builderValues.buildingBHP
+	local healthBonusPercent = builderValues.buildingBHP()
 
 	local skillsCount = craftRecipe:getRequiredSkillCount()
 
@@ -89,7 +89,7 @@ local getBuilderHealthMult = function(character, craftRecipe)
 		local perk = requiredSkill:getPerk()
 		local perkLvl = character:getPerkLevel(perk)
 
-		healthBonusPercent = healthBonusPercent + (builderValues.buildingBHPPerLvl * perkLvl)
+		healthBonusPercent = healthBonusPercent + (builderValues.buildingBHPPerLvl() * perkLvl)
 	end
 
 	local healthMult = 1 + (healthBonusPercent / 100)
@@ -100,7 +100,7 @@ end
 ---@param character IsoPlayer
 ---@param craftRecipe CraftRecipe
 local getBuilderCapacityMult = function(character, craftRecipe)
-	local capacityBonusPercent = builderValues.buildingCapBonus
+	local capacityBonusPercent = builderValues.buildingCapBonus()
 
 	local skillsCount = craftRecipe:getRequiredSkillCount()
 
@@ -110,7 +110,7 @@ local getBuilderCapacityMult = function(character, craftRecipe)
 		local perk = requiredSkill:getPerk()
 		local perkLvl = character:getPerkLevel(perk)
 
-		capacityBonusPercent = capacityBonusPercent + (builderValues.buildingCapBonusPerLvl * perkLvl)
+		capacityBonusPercent = capacityBonusPercent + (builderValues.buildingCapBonusPerLvl() * perkLvl)
 	end
 
 	local capacityMult = 1 + (capacityBonusPercent / 100)

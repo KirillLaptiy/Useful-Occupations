@@ -11,14 +11,14 @@
 ---@class DoTraitsOnCreatePlayer.Invincible
 ---@param player IsoPlayer
 UsefulOccupations.DoTraitsOnCreatePlayer.Invincible = function(player)
-	local dodgeEnduranceCost = UsefulOccupations.PersonalTraits.Invincible.values.dodgeEnduranceCost / 100
-	local dodgeEnduranceEdge = UsefulOccupations.PersonalTraits.Invincible.values.dodgeEnduranceEdge / 100
-	local targetPerk = UsefulOccupations.PersonalTraits.Invincible.values.targetPerk
-	local targetPerkEffect = UsefulOccupations.PersonalTraits.Invincible.values.targetPerkEffect / 100
-	local perkActiveTime = UsefulOccupations.PersonalTraits.Invincible.values.perkActiveTime
-	local perkCooldownTime = UsefulOccupations.PersonalTraits.Invincible.values.perkCooldownTime * 60
+	local dodgeEnduranceCost = UsefulOccupations.PersonalTraits.Invincible.values.dodgeEnduranceCost() / 100
+	local dodgeEnduranceEdge = UsefulOccupations.PersonalTraits.Invincible.values.dodgeEnduranceEdge() / 100
+	local targetPerk = Perks.Nimble
+	local targetPerkEffect = UsefulOccupations.PersonalTraits.Invincible.values.targetPerkEffect() / 100
+	local perkActiveTime = UsefulOccupations.PersonalTraits.Invincible.values.perkActiveTime()
+	local perkCooldownTime = UsefulOccupations.PersonalTraits.Invincible.values.perkCooldownTime() * 60
 	local perkCooldownEffectsStartPercent =
-		UsefulOccupations.PersonalTraits.Invincible.values.perkCooldownEffectsStartPercent
+		UsefulOccupations.PersonalTraits.Invincible.values.perkCooldownEffectsStartPercent()
 
 	local injuryFields = {
 		Burn = {

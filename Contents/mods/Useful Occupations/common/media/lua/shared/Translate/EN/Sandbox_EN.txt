@@ -1,0 +1,21 @@
+Sandbox_EN = {
+    Sandbox_UO = "Useful occupations",
+
+    Sandbox_UO.Wunderkind = "Wunderkind trait category"
+    Sandbox_UO.Wunderkind.lastLevelForXpBoost = "Last level for xp boost",
+    Sandbox_UO.Wunderkind.booksMultiplier = "Books multiplier",
+    Sandbox_UO.Wunderkind.lastBooksMultiplierLevel = "Last books multiplier level",
+
+
+
+
+
+
+
+
+
+
+
+
+    Sandbox_UO.Wunderkind_lastLevelForXpBoost_tooltip = "Set's last level for perk's +125% xp boost",
+}

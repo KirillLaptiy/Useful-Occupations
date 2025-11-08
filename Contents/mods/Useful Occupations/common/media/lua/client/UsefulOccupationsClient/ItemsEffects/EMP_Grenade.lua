@@ -90,7 +90,7 @@ end)
 
 -- Need to set values from sandbox settings
 Events.OnCreatePlayer.Add(function(_, _)
-	empStunTime = engineerValues.empStunTime
-	empStunHRadis = engineerValues.empStunHRadis
-	empStunVRadis = engineerValues.empStunVRadis
+	empStunTime = engineerValues.empStunTime()
+	empStunHRadis = engineerValues.empStunHRadis()
+	empStunVRadis = engineerValues.empStunVRadis()
 end)

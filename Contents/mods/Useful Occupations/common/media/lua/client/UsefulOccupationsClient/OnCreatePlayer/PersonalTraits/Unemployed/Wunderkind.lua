@@ -11,7 +11,7 @@
 ---@class DoTraitsOnCreatePlayer.Wunderkind
 ---@param player IsoPlayer
 UsefulOccupations.DoTraitsOnCreatePlayer.Wunderkind = function(player)
-	local lastLevelForXpBoost = UsefulOccupations.PersonalTraits.Wunderkind.values.lastLevelForXpBoost
+	local lastLevelForXpBoost = UsefulOccupations.PersonalTraits.Wunderkind.values.lastLevelForXpBoost()
 
 	local xp = player:getXp()
 	local modData = UsefulOccupations.Functions.getModData()

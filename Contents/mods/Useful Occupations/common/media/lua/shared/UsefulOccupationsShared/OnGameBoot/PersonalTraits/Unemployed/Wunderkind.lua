@@ -12,8 +12,8 @@
 UsefulOccupations.DoTraitsOnGameBoot.Wunderkind = function()
 	local traitName = UsefulOccupations.PersonalTraits.Wunderkind.type
 
-	local booksMultiplier = UsefulOccupations.PersonalTraits.Wunderkind.values.booksMultiplier
-	local lastBooksMultiplierLevel = UsefulOccupations.PersonalTraits.Wunderkind.values.lastBooksMultiplierLevel
+	local booksMultiplier = UsefulOccupations.PersonalTraits.Wunderkind.values.booksMultiplier()
+	local lastBooksMultiplierLevel = UsefulOccupations.PersonalTraits.Wunderkind.values.lastBooksMultiplierLevel()
 
 	---@diagnostic disable-next-line: duplicate-set-field
 	ISReadABook.checkMultiplier = function(self)
@@ -35,7 +35,11 @@ UsefulOccupations.DoTraitsOnGameBoot.Wunderkind = function()
 			local maxLevel = self.item:getMaxLevelTrained()
 
 			if self.character:HasTrait(traitName) then
-				maxLevel = lastBooksMultiplierLevel
+				maxLevel = maxLevel + lastBooksMultiplierLevel
+			end
+
+			if maxLevel > 10 then
+				maxLevel = 10
 			end
 
 			if multiplier > self.character:getXp():getMultiplier(trainedStuff.perk) then
@@ -46,4 +50,3 @@ UsefulOccupations.DoTraitsOnGameBoot.Wunderkind = function()
 		end
 	end
 end
-

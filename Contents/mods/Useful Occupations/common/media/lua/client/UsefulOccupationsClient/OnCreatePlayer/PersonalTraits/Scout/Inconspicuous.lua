@@ -8,22 +8,19 @@
 *
 ]]
 
--- FIXME
--- Пофиксить анимку оружия во время зомби-ходьбы
--- Сделать нормальную фразу когда зомби преследуют игрока
+Inconspicuous = {}
 
 ---@class DoTraitsOnCreatePlayer.Inconspicuous
 ---@param player IsoPlayer
 UsefulOccupations.DoTraitsOnCreatePlayer.Inconspicuous = function(player)
 	local traitValues = UsefulOccupations.PersonalTraits.Inconspicuous.values
 
-	local defaultDistanceToForfeit = traitValues.distanceToForfeit
-	local decreaseDistanceByLvl = traitValues.decreaseDistanceByLvl
-	local decreaseDistancePerk = traitValues.decreaseDistancePerk
-	local stunDurationAfterForfeit = traitValues.stunDurationAfterForfeit
-	local distanceToForfeitUpdateDelay = traitValues.distanceToForfeitUpdateDelay
-	local defaultMultiplier = traitValues.defaultMultiplier
-	local sneakingEffect = traitValues.sneakingEffect
+	local stunDurationAfterForfeit = 1
+
+	local defaultBonusMult = traitValues.defaultBonusMult()
+	local sneakingBonusMult = traitValues.sneakingBonusMult()
+	local runningBonusMult = traitValues.runningBonusMult()
+	local sprintingBonusMult = traitValues.sprintingBonusMult()
 
 	-- State instances
 	local swipeStatePlayer = SwipeStatePlayer.instance()
@@ -171,25 +168,67 @@ UsefulOccupations.DoTraitsOnCreatePlayer.Inconspicuous = function(player)
 		end
 	end
 
+	---@param pretending boolean
+	local setPretendingZombie = function(pretending)
+		if pretending then
+			player:setVariable("inconspicuousWalkType", "zombie")
+		else
+			player:setVariable("inconspicuousWalkType", "bob")
+		end
+
+		isPretendingZombie = pretending
+		modData.isPretendingZombie = isPretendingZombie
+		movementHandler.setIsPretendingZombie(isPretendingZombie)
+	end
+
 	local togglePretendingZombie = function()
 		if isPretendingZombie == true then
-			player:setVariable("inconspicuousWalkType", "bob")
+			setPretendingZombie(false)
 		else
 			-- Can't activate zombie walk if zombies see the player
 			if isTargetedByZombies() == true then
-				player:SayShout("Сначала нужно оторваться от зомби!")
+				HaloTextHelper.addText(player, getText("IGUI_InconspicuousNeedNoZombies"))
 				return
 			end
 
-			player:setVariable("inconspicuousWalkType", "zombie")
+			local primaryHandItem = player:getPrimaryHandItem()
+			local secondaryHandItem = player:getSecondaryHandItem()
+
+			if primaryHandItem or secondaryHandItem then
+				if primaryHandItem and primaryHandItem:IsWeapon() and primaryHandItem:getType() ~= "BareHands" then
+					ISTimedActionQueue.add(ISInconspicuousUnequipAction:new(player, primaryHandItem, 20))
+				end
+
+				if
+					secondaryHandItem
+					and secondaryHandItem:IsWeapon()
+					and secondaryHandItem:getType() ~= "BareHands"
+				then
+					ISTimedActionQueue.add(ISInconspicuousUnequipAction:new(player, secondaryHandItem, 20))
+				end
+
+				return
+			end
+
+			setPretendingZombie(true)
+		end
+	end
+
+	---@param character IsoPlayer
+	---@param item InventoryItem | nil
+	local processWeaponEquip = function(character, item)
+		if not item then
+			return
 		end
 
-		isPretendingZombie = not isPretendingZombie
-
-		modData.isPretendingZombie = isPretendingZombie
-
-		movementHandler.setIsPretendingZombie(isPretendingZombie)
+		if isPretendingZombie and item:IsWeapon() and item:getType() ~= "BareHands" then
+			setPretendingZombie(false)
+			HaloTextHelper.addText(character, getText("IGUI_InconspicuousNoWeapon"))
+		end
 	end
+
+	Events.OnEquipPrimary.Add(processWeaponEquip)
+	Events.OnEquipSecondary.Add(processWeaponEquip)
 
 	---@param zombie IsoZombie
 	local checkForfeitDistance = function(zombie)
@@ -246,13 +285,13 @@ UsefulOccupations.DoTraitsOnCreatePlayer.Inconspicuous = function(player)
 		isDriving = player:isDriving()
 
 		if player:isRunning() and player:isSneaking() == false then
-			playerActivityBonus = 0.04
+			playerActivityBonus = 0.04 * runningBonusMult
 		elseif player:isSprinting() then
-			playerActivityBonus = 0.02
+			playerActivityBonus = 0.02 * sprintingBonusMult
 		elseif player:isSneaking() and player:isRunning() == false then
-			playerActivityBonus = 0.1
+			playerActivityBonus = 0.1 * sneakingBonusMult
 		else
-			playerActivityBonus = 0.07
+			playerActivityBonus = 0.07 * defaultBonusMult
 		end
 
 		-- Clears non-existent targeted zombies
@@ -270,4 +309,17 @@ UsefulOccupations.DoTraitsOnCreatePlayer.Inconspicuous = function(player)
 			togglePretendingZombie()
 		end
 	end)
+
+	---@param pretending boolean
+	function Inconspicuous:setPretendingZombie(pretending)
+		setPretendingZombie(pretending)
+	end
+
+	function Inconspicuous:getTraitName()
+		return UsefulOccupations.PersonalTraits.Inconspicuous.type
+	end
+
+	function Inconspicuous:togglePretendingZombie()
+		togglePretendingZombie()
+	end
 end

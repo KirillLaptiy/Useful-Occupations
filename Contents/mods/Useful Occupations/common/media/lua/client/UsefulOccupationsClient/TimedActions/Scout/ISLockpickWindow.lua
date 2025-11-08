@@ -43,12 +43,18 @@ function ISLockpickWindow:update() end
 
 function ISLockpickWindow:start()
 	if self.window:IsOpen() then
-		self.character:SayShout("Window must be closed!")
+		HaloTextHelper.addText(self.character, getText("IGUI_LockpickingWindowMustBeClosed"))
 		self:forceStop()
 	end
 
 	if self.needToBeLocked == self.window:isLocked() then
-		self.character:SayShout(self.needToBeLocked and "Window is already locked" or "Window is already unlocked")
+		HaloTextHelper.addText(
+			self.character,
+			getText(
+				self.needToBeLocked and "IGUI_LockpickingWindowAlreadyLocked" or "IGUI_LockpickingWindowAlreadyUnlocked"
+			)
+		)
+
 		self:forceStop()
 	end
 
@@ -89,11 +95,10 @@ function ISLockpickWindow:complete()
 end
 
 function ISLockpickWindow:getDuration()
-	local defaultTime = UsefulOccupations.PersonalTraits.Burglar.values.defaultDoorLockpickingTime
-	local timeReducePerLvl = UsefulOccupations.PersonalTraits.Burglar.values.reduceDoorLockpickingTime
-	local targetPerk = UsefulOccupations.PersonalTraits.Burglar.values.targetLockpickPerk
+	local defaultTime = UsefulOccupations.PersonalTraits.Burglar.values.defaultLockpickingTime()
+	local timeReducePerLvl = UsefulOccupations.PersonalTraits.Burglar.values.reduceDoorLockpickingTime()
 
-	local targetPerkLvl = self.character:getPerkLevel(targetPerk)
+	local targetPerkLvl = self.character:getPerkLevel(Perks.Sneak)
 
 	return defaultTime - (timeReducePerLvl * targetPerkLvl)
 end
