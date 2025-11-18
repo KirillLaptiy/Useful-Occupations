@@ -769,3 +769,13 @@ option UO.Doctor.bandageLifePercentPerLvl
 	type = integer, min = 0, max = 40, default = 10,
 	page = UO, translation = UO.Doctor.bandageLifePercentPerLvl,
 }
+option UO.Doctor.hungModifier
+{
+	type = double, min = 1, max = 100, default = 2.5,
+	page = UO, translation = UO.Doctor.hungModifier,
+}
+option UO.Doctor.hungModifierPerLvl
+{
+	type = double, min = 0, max = 10, default = 0.1,
+	page = UO, translation = UO.Doctor.hungModifierPerLvl,
+}

@@ -1,3 +1,13 @@
+--[[
+*
+*              ^_^         Y U M M Y         ^_^
+*
+*                 ~ Deliciously Made by YUMMY ~
+*
+*                          :3  :3  :3
+*
+]]
+
 ---@class UsefulOccupations.PersonalTrait
 ---@field type string
 ---@field name string
@@ -1243,6 +1253,10 @@ local PersonalTraits = {
 			bandageLifePercent = getSandboxValue("UO.Doctor.bandageLifePercent"),
 			-- Affects additional bandage life time per doctor lvl
 			bandageLifePercentPerLvl = getSandboxValue("UO.Doctor.bandageLifePercentPerLvl"),
+			-- Additional multiplier for food quality
+			hungModifier = getSandboxValue("UO.Doctor.hungModifier"),
+			-- Additional multiplier for food quality per cooking lvl
+			hungModifierPerLvl = getSandboxValue("UO.Doctor.hungModifierPerLvl"),
 		},
 	},
 }

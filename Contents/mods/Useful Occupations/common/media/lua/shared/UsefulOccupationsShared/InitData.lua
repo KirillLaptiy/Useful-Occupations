@@ -29,13 +29,16 @@
 ---@field Marksman DoTraitsOnCreatePlayer.Marksman
 ---@field TrainedFighter DoTraitsOnCreatePlayer.TrainedFighter
 ---@field Engineer DoTraitsOnCreatePlayer.Engineer
+---@field Mechanic DoTraitsOnCreatePlayer.Mechanic
 
 -- Traits on game boot
 ---@class UsefulOccupations.DoTraitsOnGameBoot
 ---@field Axeman DoTraitsOnGameBoot.Axeman
+---@field ScoutSkills DoTraitsOnGameBoot.ScoutSkills
 ---@field Wunderkind DoTraitsOnGameBoot.Wunderkind
 ---@field Builder DoTraitsOnGameBoot.Builder
 ---@field Mechanic DoTraitsOnGameBoot.Mechanic
+---@field Doctor DoTraitsOnGameBoot.Doctor
 
 -- Traits that affect inventory item stats
 ---@class UsefulOccupations.InventoryItemsStatsHandler

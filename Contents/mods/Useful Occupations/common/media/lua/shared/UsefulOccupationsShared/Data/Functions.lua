@@ -1,3 +1,13 @@
+--[[
+*
+*              ^_^         Y U M M Y         ^_^
+*
+*                 ~ Deliciously Made by YUMMY ~
+*
+*                          :3  :3  :3
+*
+]]
+
 ---@class EventType
 ---@field Add fun(callback: function)
 ---@field Remove fun(callback: function)

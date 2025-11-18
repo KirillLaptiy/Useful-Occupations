@@ -165,6 +165,8 @@ Sandbox_EN = {
     Sandbox_UO.Doctor.cataplasmPowerPercentPerLvl = "Cataplasm Power Percent Per Lvl",
     Sandbox_UO.Doctor.bandageLifePercent = "Bandage Life Percent",
     Sandbox_UO.Doctor.bandageLifePercentPerLvl = "Bandage Life Percent Per Lvl",
+    Sandbox_UO.Doctor.hungModifier = "Food quality multiplier",
+    Sandbox_UO.Doctor.hungModifierPerLvl = "Food quality multiplier per lvl",
 
 
 
@@ -313,4 +315,6 @@ Sandbox_EN = {
     Sandbox_UO.Doctor.cataplasmPowerPercentPerLvl_tooltip = "Additional cataplasm power per Doctor level.",
     Sandbox_UO.Doctor.bandageLifePercent_tooltip = "Base increase in bandage duration.",
     Sandbox_UO.Doctor.bandageLifePercentPerLvl_tooltip = "Additional bandage duration bonus per Doctor level.",
+    Sandbox_UO.Doctor.hungModifier_tooltip = "Additional multiplier for cooking food quality.",
+    Sandbox_UO.Doctor.hungModifierPerLvl_tooltip = "Additional multiplier for cooking food quality per cooking lvl.",
 }

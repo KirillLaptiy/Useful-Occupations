@@ -1,0 +1,30 @@
+module UO {
+    imports {
+        Base
+    }
+
+    item CoolDoor
+    {
+        DisplayName = Cool Door,
+        DisplayCategory = Tool,
+        Type = Normal,
+        Weight = 1,
+        Icon = Apple,
+        Tooltip = Useful for picking locked doors,
+        Count = 1,
+        ConditionMax = 100,
+        WorldStaticModel = Apple_Ground,
+    }
+
+    item CarbonEngineParts
+    {
+        DisplayName = Carbon Engine Parts,
+        DisplayCategory = Tool,
+        Type = Normal,
+        Weight = 1,
+        Icon = Apple,
+        Tooltip = Useful for picking locked doors,
+        Count = 1,
+        WorldStaticModel = Apple_Ground,
+    }
+}

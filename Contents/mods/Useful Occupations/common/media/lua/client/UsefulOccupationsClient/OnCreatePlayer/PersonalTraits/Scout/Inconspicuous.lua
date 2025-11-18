@@ -227,8 +227,8 @@ UsefulOccupations.DoTraitsOnCreatePlayer.Inconspicuous = function(player)
 		end
 	end
 
-	Events.OnEquipPrimary.Add(processWeaponEquip)
-	Events.OnEquipSecondary.Add(processWeaponEquip)
+	UsefulOccupations.Functions.addEvent(Events.OnEquipPrimary, processWeaponEquip)
+	UsefulOccupations.Functions.addEvent(Events.OnEquipSecondary, processWeaponEquip)
 
 	---@param zombie IsoZombie
 	local checkForfeitDistance = function(zombie)

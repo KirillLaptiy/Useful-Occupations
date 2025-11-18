@@ -1,3 +1,13 @@
+--[[
+*
+*              ^_^         Y U M M Y         ^_^
+*
+*                 ~ Deliciously Made by YUMMY ~
+*
+*                          :3  :3  :3
+*
+]]
+
 ---@class UsefulOccupations.Trait
 ---@field type string
 ---@field name string
