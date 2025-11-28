@@ -95,7 +95,7 @@ function ISTakePillAction:complete()
 	return true
 end
 
-Events.OnCreatePlayer.Add(function(_, _)
+table.insert(UsefulOccupations.DoFuncsOnCreatePlayer, function(_, _)
 	local modData = UsefulOccupations.Functions.getModData()
 
 	if modData.SPActiveTime > 0 then

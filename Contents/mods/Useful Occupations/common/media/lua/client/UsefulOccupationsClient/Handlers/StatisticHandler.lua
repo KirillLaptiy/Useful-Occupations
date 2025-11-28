@@ -104,4 +104,4 @@ local function SavePlayerStats()
 	modData.UO_StatsSaved = true
 end
 
-Events.OnCreatePlayer.Add(SavePlayerStats)
+table.insert(UsefulOccupations.DoFuncsOnCreatePlayer, SavePlayerStats)

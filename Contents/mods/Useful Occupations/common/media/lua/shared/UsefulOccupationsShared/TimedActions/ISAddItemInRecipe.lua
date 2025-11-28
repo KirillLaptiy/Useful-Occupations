@@ -20,7 +20,7 @@ function ISAddItemInRecipe:complete()
 	self.baseItem = self.recipe:addItem(self.baseItem, self.usedItem, self.character)
 
 	if hasDoctorTrait then
-		UsefulOccupations.DoTraitsOnGameBoot.Doctor.setFoodData(self.baseItem, self.usedItem)
+		UsefulOccupations.TraitsOnGameBoot.Doctor.setFoodData(self.baseItem, self.usedItem)
 	end
 
 	ISAddItemInRecipe.checkName(self.baseItem, self.recipe)

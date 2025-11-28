@@ -30,14 +30,13 @@
 ---@field TrainedFighter DoTraitsOnCreatePlayer.TrainedFighter
 ---@field Mechanic DoTraitsOnCreatePlayer.Mechanic
 
+-- Functions on game start
+---@class UsefulOccupations.DoFuncsOnCreatePlayer
+
 -- Traits on game boot
----@class UsefulOccupations.DoTraitsOnGameBoot
----@field Axeman DoTraitsOnGameBoot.Axeman
----@field ScoutSkills DoTraitsOnGameBoot.ScoutSkills
----@field Wunderkind DoTraitsOnGameBoot.Wunderkind
----@field Builder DoTraitsOnGameBoot.Builder
----@field Mechanic DoTraitsOnGameBoot.Mechanic
----@field Doctor DoTraitsOnGameBoot.Doctor
+---@class UsefulOccupations.TraitsOnGameBoot
+---@field Mechanic TraitsOnGameBoot.Mechanic
+---@field Doctor TraitsOnGameBoot.Doctor
 
 -- Traits that affect inventory item stats
 ---@class UsefulOccupations.InventoryItemsStatsHandler
@@ -48,7 +47,8 @@
 --- Main data
 ---@class UsefulOccupations
 ---@field DoTraitsOnCreatePlayer UsefulOccupations.DoTraitsOnCreatePlayer
----@field DoTraitsOnGameBoot UsefulOccupations.DoTraitsOnGameBoot
+---@field DoFuncsOnCreatePlayer UsefulOccupations.DoFuncsOnCreatePlayer
+---@field TraitsOnGameBoot UsefulOccupations.TraitsOnGameBoot
 ---@field InventoryItemsStatsHandler UsefulOccupations.InventoryItemsStatsHandler
 ---@field MovementSpeedValues UsefulOccupations.MovementSpeedValues
 ---@field ModData UsefulOccupations.ModData
@@ -64,8 +64,9 @@
 UsefulOccupations = {
 	---@diagnostic disable-next-line: missing-fields
 	DoTraitsOnCreatePlayer = {},
+	DoFuncsOnCreatePlayer = {},
 	---@diagnostic disable-next-line: missing-fields
-	DoTraitsOnGameBoot = {},
+	TraitsOnGameBoot = {},
 	---@diagnostic disable-next-line: missing-fields
 	InventoryItemsStatsHandler = {},
 	MovementSpeedValues = require("UsefulOccupationsShared/Data/MovementSpeedValues"),

@@ -620,7 +620,7 @@ function UOPlayerMovementHandler:getInstance()
 	return instance
 end
 
-Events.OnCreatePlayer.Add(function(_, createdPlayer)
+table.insert(UsefulOccupations.DoFuncsOnCreatePlayer, function(_, createdPlayer)
 	if player == nil or player ~= createdPlayer then
 		player = createdPlayer
 		utilMethods.updateAllMults(false)

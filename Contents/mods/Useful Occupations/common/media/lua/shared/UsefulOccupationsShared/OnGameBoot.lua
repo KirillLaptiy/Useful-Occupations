@@ -101,13 +101,9 @@ local reduceActionsTimeByTraits = require("UsefulOccupationsShared/ReduceActions
 Events.OnGameBoot.Add(function()
 	-- Adds traits and professions
 	addUsefulTraits()
+
 	UOOnGameBoot.addUsefulProfessions()
 
 	-- Reduce timed actions time
 	reduceActionsTimeByTraits()
-
-	-- Do traits on game boot
-	for func in pairs(UsefulOccupations.DoTraitsOnGameBoot) do
-		UsefulOccupations.DoTraitsOnGameBoot[func]()
-	end
 end)

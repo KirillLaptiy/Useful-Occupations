@@ -63,9 +63,6 @@ local reduceActionsTimeByTraits = function()
 					newTime = 100
 				end
 
-				print(o.maxTime)
-				print(newTime)
-
 				o.maxTime = newTime
 			end
 

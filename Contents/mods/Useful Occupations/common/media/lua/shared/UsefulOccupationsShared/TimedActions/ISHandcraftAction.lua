@@ -33,7 +33,7 @@ function ISHandcraftAction:performRecipe()
 
 						if usedItem:isFood() then
                             ---@diagnostic disable-next-line: param-type-mismatch
-                            UsefulOccupations.DoTraitsOnGameBoot.Doctor.setFoodData(item, usedItem)
+                            UsefulOccupations.TraitsOnGameBoot.Doctor.setFoodData(item, usedItem)
 						end
 					end
 				end

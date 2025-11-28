@@ -72,7 +72,7 @@ UO_ON_EAT.StimulantGel = function(_, _, _)
 	stimulantGelEffect()
 end
 
-Events.OnCreatePlayer.Add(function(_, _)
+table.insert(UsefulOccupations.DoFuncsOnCreatePlayer, function(_, _)
 	local modData = UsefulOccupations.Functions.getModData()
 
 	if modData.gelEffectTime > 0 then

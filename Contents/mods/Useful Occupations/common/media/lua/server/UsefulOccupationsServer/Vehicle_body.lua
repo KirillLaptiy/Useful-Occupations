@@ -33,7 +33,6 @@ function UOBuildRecipeCode.VehicleBody.OnCreate(params)
 		local part = vehicle:getPartByIndex(i)
 
 		if part then
-            print(part:getItemType())
 			---@diagnostic disable-next-line: param-type-mismatch
 			part:setInventoryItem(nil)
 

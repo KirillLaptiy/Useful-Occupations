@@ -194,7 +194,7 @@ Func.onClothingUpdated = function()
 end
 
 Events.OnClothingUpdated.Add(Func.onClothingUpdated)
-Events.OnCreatePlayer.Add(Func.onClothingUpdated)
+table.insert(UsefulOccupations.DoFuncsOnCreatePlayer, Func.onClothingUpdated)
 
 -- Adding context menu to inspect clothing action
 -- Need to add armor plate to clothing

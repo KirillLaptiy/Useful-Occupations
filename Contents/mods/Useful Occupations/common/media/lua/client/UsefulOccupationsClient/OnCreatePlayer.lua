@@ -8,7 +8,7 @@
 *
 ]]
 
-Events.OnCreatePlayer.Add(function(_, player)
+Events.OnCreatePlayer.Add(function(playerNum, player)
 	local professions = UsefulOccupations.Professions
 
 	-- Call only 1 time
@@ -58,6 +58,13 @@ Events.OnCreatePlayer.Add(function(_, player)
 		if player:HasTrait(traitName) then
 			UsefulOccupations.DoTraitsOnCreatePlayer[func](player)
 		end
+	end
+
+	-- Call every join
+	-- Do OnCreatePlayer functions when player created
+	-- Need to correct init mod data, when other OnCreatePlayer functions calls before this one
+	for func in pairs(UsefulOccupations.DoFuncsOnCreatePlayer) do
+		UsefulOccupations.DoFuncsOnCreatePlayer[func](playerNum, player)
 	end
 
 	-- Give start profession items

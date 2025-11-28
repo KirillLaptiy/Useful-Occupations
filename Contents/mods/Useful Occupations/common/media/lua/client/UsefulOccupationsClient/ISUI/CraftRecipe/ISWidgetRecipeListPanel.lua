@@ -8,12 +8,10 @@
 *
 ]]
 
+-- Hidden recipes handler (HRH):
 -- Handler used to hide craft recipes under certain conditions
 
----@class UO.HiddenRecipesHandler
-UOHiddenRecipesHandler = {}
-
-Events.OnGameStart.Add(function()
+table.insert(UsefulOccupations.DoFuncsOnCreatePlayer, function()
 	local personalTraits = UsefulOccupations.PersonalTraits
 	local engineerType = personalTraits.Engineer.type
 

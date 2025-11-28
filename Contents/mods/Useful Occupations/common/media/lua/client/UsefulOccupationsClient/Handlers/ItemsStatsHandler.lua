@@ -184,7 +184,7 @@ function UOItemsStatsHandler:updateInventoryItemsStats()
 	updateInventoryItemsStats()
 end
 
-Events.OnCreatePlayer.Add(function(_, createdPlayer)
+table.insert(UsefulOccupations.DoFuncsOnCreatePlayer, function(_, createdPlayer)
 	player = createdPlayer
 	inventory = player:getInventory()
 

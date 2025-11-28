@@ -88,8 +88,8 @@ Events.OnThrowableExplode.Add(function(throwable, square)
 	end
 end)
 
--- Need to set values from sandbox settings
-Events.OnCreatePlayer.Add(function(_, _)
+-- Init sandbox values
+table.insert(UsefulOccupations.DoFuncsOnCreatePlayer, function(_, _)
 	empStunTime = engineerValues.empStunTime()
 	empStunHRadis = engineerValues.empStunHRadis()
 	empStunVRadis = engineerValues.empStunVRadis()
