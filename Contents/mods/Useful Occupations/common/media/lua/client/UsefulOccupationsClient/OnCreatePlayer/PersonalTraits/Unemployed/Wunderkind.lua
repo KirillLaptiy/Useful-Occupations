@@ -19,6 +19,7 @@ UsefulOccupations.DoTraitsOnCreatePlayer.Wunderkind = function(player)
 	-- Add xp boost for all perks when create player
 	for i = 0, Perks.getMaxIndex() - 1 do
 		local perk = Perks.fromIndex(i)
+
 		if player:getPerkLevel(perk) < lastLevelForXpBoost then
 			xp:setPerkBoost(perk, 3)
 		end

@@ -12,11 +12,11 @@
 UsefulOccupations.DoTraitsOnGameBoot.Wunderkind = function()
 	local traitName = UsefulOccupations.PersonalTraits.Wunderkind.type
 
-	local booksMultiplier = UsefulOccupations.PersonalTraits.Wunderkind.values.booksMultiplier()
-	local lastBooksMultiplierLevel = UsefulOccupations.PersonalTraits.Wunderkind.values.lastBooksMultiplierLevel()
-
 	---@diagnostic disable-next-line: duplicate-set-field
 	ISReadABook.checkMultiplier = function(self)
+		local booksMultiplier = UsefulOccupations.PersonalTraits.Wunderkind.values.booksMultiplier()
+		local lastBooksMultiplierLevel = UsefulOccupations.PersonalTraits.Wunderkind.values.lastBooksMultiplierLevel()
+
 		-- get all our info in the map
 		local trainedStuff = SkillBook[self.item:getSkillTrained()]
 		if trainedStuff then

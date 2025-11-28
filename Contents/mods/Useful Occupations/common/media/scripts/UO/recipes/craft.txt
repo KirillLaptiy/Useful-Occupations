@@ -8,13 +8,13 @@ module UO {
 
         inputs
         {
-            item 1 [UO.MREPack] flags[Prop2],
+            item 1 [UO.MREBag10] flags[Prop2],
             item 1 [UO.VacuumSealer] mode:keep flags[Prop1],
         }
 
         outputs
         {
-            item 1 UO.MRESealed,
+            item 1 UO.MREKit,
         }
     }
 
@@ -27,7 +27,7 @@ module UO {
 
         inputs
         {
-            item 1 [UO.MRESealed] flags[Prop2],
+            item 1 [UO.MREKit] flags[Prop2],
             item 1 tags[Scissors;SharpKnife] mode:keep flags[MayDegradeLight;Prop1;IsNotDull],
         }
 
@@ -44,12 +44,30 @@ module UO {
 
         inputs
         {
-            item 1 [UO.MRESealed] flags[Prop2],
+            item 1 [UO.MREKit] flags[Prop2],
         }
 
         outputs
         {
-            item 1 UO.RawResinMold,
+            item 1 UO.ResinMoldRaw,
+        }
+    }
+
+    craftRecipe CraftHammerCrafted
+    {
+        timedAction = Making,
+        category = Assembly,
+        time            = 14,
+		Tags = AnySurfaceCraft,
+
+        inputs
+        {
+            item 1 [UO.MREKit] flags[Prop2],
+        }
+
+        outputs
+        {
+            item 1 UO.HammerCrafted,
         }
     }
 }

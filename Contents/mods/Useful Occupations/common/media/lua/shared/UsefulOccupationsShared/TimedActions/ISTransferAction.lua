@@ -17,7 +17,18 @@
 local oldTransfer = ISTransferAction.transferItem
 
 local hardCookingItems = {
-	{ module = "UO", cookable = "MetalAdapter", notCookable = "MetalAdapterCantCook" },
+	{ module = "UO", cookable = "ResinMoldDry", notCookable = "ResinMoldDryCantCook" },
+	{ module = "UO", cookable = "ClayMoldDry", notCookable = "ClayMoldDryCantCook" },
+	{ module = "UO", cookable = "CementMoldDry", notCookable = "CementMoldDryCantCook" },
+	{ module = "UO", cookable = "FiberMaterialPot", notCookable = "FiberMaterialPotCantCook" },
+	{ module = "UO", cookable = "BarkPot", notCookable = "BarkPotCantCook" },
+	{ module = "UO", cookable = "LogPot", notCookable = "LogPotCantCook" },
+	{ module = "UO", cookable = "ScrewdriverTipRaw", notCookable = "ScrewdriverTipRawCantCook" },
+	{ module = "UO", cookable = "MetalPinRaw", notCookable = "MetalPinRawCantCook" },
+	{ module = "UO", cookable = "SawBladeRaw", notCookable = "SawBladeRawCantCook" },
+	{ module = "UO", cookable = "MetalSheetResinRaw", notCookable = "MetalSheetResinRawCantCook" },
+	{ module = "UO", cookable = "MetalSheetClayRaw", notCookable = "MetalSheetClayRawCantCook" },
+	{ module = "UO", cookable = "MetalSheetCementRaw", notCookable = "MetalSheetCementRawCantCook" },
 }
 
 ---@param itemType string
@@ -34,8 +45,7 @@ end
 
 ---@param container ItemContainer
 local isDestContainerValid = function(container)
-	local isValidStove = container:isStove() and not container:isMicrowave()
-	return container:getType() == "campfire" or isValidStove
+	return container:getType() == "campfire"
 end
 
 ---@param character IsoPlayer

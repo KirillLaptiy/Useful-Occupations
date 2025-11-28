@@ -9,6 +9,8 @@
 ]]
 
 Events.OnCreatePlayer.Add(function(_, player)
+	local professions = UsefulOccupations.Professions
+
 	-- Call only 1 time
 	if not UsefulOccupations.Functions.getModData() then
 		-- Init mod data
@@ -34,17 +36,17 @@ Events.OnCreatePlayer.Add(function(_, player)
 
 	-- Call every join
 	-- Updating mod data keys if moddata was changed
-	local currentModData = UsefulOccupations.Functions.getModData()
+	local modData = UsefulOccupations.Functions.getModData()
 
+	-- Add new mod data if main data updated
 	for key, value in pairs(UsefulOccupations.ModData) do
-		if currentModData[key] == nil then
-			currentModData[key] = value
-		end
+		modData[key] = modData[key] or value
 	end
 
-	for key, _ in pairs(currentModData) do
+	-- Remove old mod data if main data updated
+	for key in pairs(modData) do
 		if UsefulOccupations.ModData[key] == nil then
-			currentModData[key] = nil
+			modData[key] = nil
 		end
 	end
 
@@ -56,5 +58,22 @@ Events.OnCreatePlayer.Add(function(_, player)
 		if player:HasTrait(traitName) then
 			UsefulOccupations.DoTraitsOnCreatePlayer[func](player)
 		end
+	end
+
+	-- Give start profession items
+	local profession = player:getDescriptor():getProfession()
+	local inventory = player:getInventory()
+
+	-- Scout
+	-- Give the player a lockpick for the first time
+	if profession == professions.Scout.type and modData.gotScoutKit == false then
+		inventory:AddItem("UO.Lockpick")
+		modData.gotScoutKit = true
+	end
+
+	-- SPM
+	if profession == professions.SPM.type and modData.gotSPMKit == false then
+		inventory:AddItem("Base.SmallSaw")
+		modData.gotSPMKit = true
 	end
 end)

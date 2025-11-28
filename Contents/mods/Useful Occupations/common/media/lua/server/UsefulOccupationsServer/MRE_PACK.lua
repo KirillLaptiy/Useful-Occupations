@@ -15,7 +15,7 @@
 
 UORECIPES = {}
 
-local SEALED_TAG = "UO_MRE_SEALED"
+local SEALED_TAG = "UO_MREKit"
 
 local invalidSetNames = {
 	setRegistry_id = true,

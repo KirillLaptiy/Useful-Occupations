@@ -12,8 +12,6 @@
 UsefulOccupations.DoTraitsOnCreatePlayer.Burglar = function(_)
 	local traitName = UsefulOccupations.PersonalTraits.Burglar.type
 
-	local modData = UsefulOccupations.Functions.getModData()
-
 	local oldCreateMenu = ISWorldObjectContextMenu.createMenu
 
 	---@param playerObj IsoPlayer
@@ -298,10 +296,4 @@ UsefulOccupations.DoTraitsOnCreatePlayer.Burglar = function(_)
 			object:removeBrokenGlass()
 		end)
 	end)
-
-	-- Give the player a lockpick for the first time
-	if not modData.gotStartLockpick then
-		getPlayer():getInventory():AddItem("UO.Lockpick")
-		modData.gotStartLockpick = true
-	end
 end

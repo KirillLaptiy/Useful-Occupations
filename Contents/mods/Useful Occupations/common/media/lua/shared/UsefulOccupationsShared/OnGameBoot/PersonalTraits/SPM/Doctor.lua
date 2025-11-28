@@ -11,16 +11,16 @@
 ---@class DoTraitsOnGameBoot.Doctor
 UsefulOccupations.DoTraitsOnGameBoot.Doctor = function()
 	local trait = UsefulOccupations.PersonalTraits.Doctor
-	local traitType = trait.type
-	local hungModifier = trait.values.hungModifier()
-	local hungModifierPerLvl = trait.values.hungModifierPerLvl()
 
 	---@param food Food
 	---@param usedFood Food
-	local setFoodData = function(food, usedFood)
+	UsefulOccupations.DoTraitsOnGameBoot.Doctor.setFoodData = function(food, usedFood)
+		local hungModifier = trait.values.hungModifier()
+		local hungModifierPerLvl = trait.values.hungModifierPerLvl()
+
 		local levelEffect = 1 + getPlayer():getPerkLevel(Perks.Cooking) * hungModifierPerLvl
 
-        local modifier = hungModifier * levelEffect
+		local modifier = hungModifier * levelEffect
 
 		local hungChange = usedFood:getHungChange() * modifier
 		local calories = usedFood:getCalories() * modifier
@@ -80,84 +80,5 @@ UsefulOccupations.DoTraitsOnGameBoot.Doctor = function()
 
 		food:updateAge()
 		food:update()
-	end
-
-	---@diagnostic disable-next-line: duplicate-set-field
-	function ISHandcraftAction:performRecipe()
-		local hasDoctorTrait = self.character:HasTrait(traitType)
-
-		if self.logic then
-			if self.logic:performCurrentRecipe() then
-				-- perform succeeded
-				local items = ArrayList.new()
-				self.logic:getCreatedOutputItems(items)
-
-				for i = 0, items:size() - 1 do
-					---@type Food
-					local item = items:get(i)
-
-					if hasDoctorTrait then
-						local usedItems = self.logic:getRecipeData():getAllConsumedItems()
-
-						for g = 0, usedItems:size() - 1 do
-							---@type InventoryItem
-							local usedItem = usedItems:get(g)
-
-							if usedItem:isFood() then
-								---@diagnostic disable-next-line: param-type-mismatch
-								setFoodData(item, usedItem)
-							end
-						end
-					end
-
-					Actions.addOrDropItem(self.character, item)
-				end
-
-				if items:size() == 1 then
-					local resItem = items:get(0)
-					local modData = resItem:getModData()
-					local usedItems = self.logic:getRecipeData():getAllConsumedItems()
-
-					for i = 0, usedItems:size() - 1 do
-						local item = usedItems:get(i)
-
-						if modData[item:getFullType()] == nil then
-							modData[item:getFullType()] = 0
-						end
-
-						modData[item:getFullType()] = modData[item:getFullType()] + 1
-					end
-				end
-			end
-		end
-	end
-
-	---@diagnostic disable-next-line: duplicate-set-field
-	function ISAddItemInRecipe:complete()
-		local hasDoctorTrait = self.character:HasTrait(traitType)
-
-		self.character:removeFromHands(self.baseItem)
-
-		---@type Food
-		self.baseItem = self.recipe:addItem(self.baseItem, self.usedItem, self.character)
-
-		if hasDoctorTrait then
-			setFoodData(self.baseItem, self.usedItem)
-		end
-
-		ISAddItemInRecipe.checkName(self.baseItem, self.recipe)
-
-		if not self.baseItem:isCustomName() and self.baseItem:getFoodType() == "Beer" then
-			---@diagnostic disable-next-line: undefined-global
-			baseItem:setName(getText("ContextMenu_FoodType_Beer"))
-		end
-
-		ISAddItemInRecipe.checkTemperature(self.baseItem, self.usedItem, self.recipe)
-
-		if isServer() then
-			sendItemStats(self.baseItem)
-		end
-
-		return true
 	end
 end

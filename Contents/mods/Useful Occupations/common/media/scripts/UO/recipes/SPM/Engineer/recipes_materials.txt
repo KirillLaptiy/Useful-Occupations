@@ -1,0 +1,92 @@
+module UO {
+    craftRecipe MakeMetalPiece1
+    {
+        timedAction = Making,
+        time = 150,
+
+        inputs
+        {
+            item 1 [Base.GoldScrap;Base.SilverScrap;Base.AluminumScrap;Base.IronScrap;Base.CopperScrap;Base.BrassScrap;Base.SteelScrap],
+            item 1 tags[Hammer;HammerStone] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 UO.MetalPiece,
+        }
+    }
+
+    craftRecipe MakeMetalPiece4
+    {
+        timedAction = Making,
+        time = 300,
+
+        inputs
+        {
+            item 1 [Base.Saucepan;Base.SmallSheetMetal;Base.ScrapMetal;Base.MetalPipe],
+            item 1 tags[MetalSaw] mode:keep,
+        }
+
+        outputs
+        {
+            item 4 UO.MetalPiece,
+        }
+    }
+
+    craftRecipe MakeMetalPiece8
+    {
+        timedAction = Making,
+        time = 500,
+
+        inputs
+        {
+            item 1 [Base.Pot;Base.SheetMetal;Base.MetalBar],
+            item 1 tags[MetalSaw] mode:keep,
+        }
+
+        outputs
+        {
+            item 8 UO.MetalPiece,
+        }
+    }
+
+
+
+
+
+
+
+    craftRecipe MakeBarkPOt
+    {
+        timedAction = Making,
+        time = 150,
+
+        inputs
+        {
+            item 4 [UO.Bark],
+            item 1 [Base.Pot] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 UO.BarkPot,
+        }
+    }
+
+    craftRecipe PutBarkPOt
+    {
+        timedAction = Making,
+        time = 150,
+
+        inputs
+        {
+            item 1 [UO.BarkPot;UO.BarkPotCantCook],
+        }
+
+        outputs
+        {
+            item 4 UO.Bark,
+            item 1 Base.Pot,
+        }
+    }
+}

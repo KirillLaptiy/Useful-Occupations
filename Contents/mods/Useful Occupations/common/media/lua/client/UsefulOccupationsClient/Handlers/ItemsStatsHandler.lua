@@ -68,7 +68,7 @@ local updateWeaponUnbreakable = function(item, itemdata)
 		itemdata.invincibleConditionLowerChance = item:getConditionLowerChance()
 	end
 
-	if isWeaponUnbreakable == true and item:isEquipped() then
+	if isWeaponUnbreakable and item:isEquipped() then
 		item:setConditionLowerChance(math.huge)
 		item:setSharpness(itemdata.invincibleSharpness >= 0.2 and itemdata.invincibleSharpness or 0.2)
 		item:setHeadCondition(itemdata.invincibleHeadCondition >= 2 and itemdata.invincibleHeadCondition or 2)

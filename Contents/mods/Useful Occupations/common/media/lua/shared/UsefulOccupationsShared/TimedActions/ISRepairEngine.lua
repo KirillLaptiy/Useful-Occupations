@@ -8,9 +8,7 @@
 *
 ]]
 
---TODO: ADD CARBON VEHICLE VARIANTS
-
-local carbonPartsType = "CarbonEngineParts"
+local carbonPartsType = "EngineSpecialParts"
 local partsType = "EngineParts"
 
 -- Copy of original ISRepairEngine.complete but with carbon engine parts

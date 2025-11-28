@@ -8,6 +8,7 @@
 *
 ]]
 
+-- TODO: добавить все partItemTypes
 -- TODO: добавить починку багажника
 -- Добавить починку с помощью файла D:\SteamLibrary\steamapps\common\ProjectZomboid\media\scripts\generated\vehicles\vehiclesfixing.txt
 -- Там нужно для инвентори айтема добавить фиксинг рецепт
@@ -17,14 +18,14 @@
 ---@param _ IsoPlayer
 UsefulOccupations.DoTraitsOnCreatePlayer.Mechanic = function(_)
 	local partItemTypes = {
-		DoorFrontLeft = { "UO.CoolDoor" },
-		DoorFrontRight = { "UO.CoolDoor" },
-		DoorRearLeft = { "UO.CoolDoor" },
-		DoorRearRight = { "UO.CoolDoor" },
+		DoorFrontLeft = { "UO.SpecialFrontDoor" },
+		DoorFrontRight = { "UO.SpecialFrontDoor" },
+		DoorRearLeft = { "UO.SpecialRearDoor" },
+		DoorRearRight = { "UO.SpecialRearDoor" },
 		Engine = {},
 	}
 
-	local carbonEnginePartsType = "CarbonEngineParts"
+	local carbonEnginePartsType = "EngineSpecialParts"
 
 	local oldDoPartContextMenu = ISVehicleMechanics.doPartContextMenu
 

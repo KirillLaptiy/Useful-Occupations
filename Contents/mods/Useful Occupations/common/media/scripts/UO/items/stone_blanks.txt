@@ -1,0 +1,155 @@
+module UO {
+    item StoneBlank_Saw
+    {
+        DisplayCategory = StoneBlank,
+        Type = Normal,
+        Weight = 0.80,
+        Icon = UO/StoneBlank_Saw,
+        Count = 1,
+        WorldStaticModel = StoneBlank_Saw,
+    }
+
+    item StoneBlank_Screwdriver
+    {
+        DisplayCategory = StoneBlank,
+        Type = Normal,
+        Weight = 0.50,
+        Icon = UO/StoneBlank_Screwdriver,
+        Count = 1,
+        WorldStaticModel = StoneBlank_Screwdriver,
+    }
+
+    item StoneBlank_Pin
+    {
+        DisplayCategory = StoneBlank,
+        Type = Normal,
+        Weight = 0.30,
+        Icon = UO/StoneBlank_Pin,
+        Count = 1,
+        WorldStaticModel = StoneBlank_Pin,
+    }
+
+    item Flint
+    {
+        DisplayCategory = StoneBlank,
+        Type = Normal,
+        Weight = 0.05,
+        Icon = UO/Flint,
+        Count = 1,
+        WorldStaticModel = Flint,
+    }
+
+    item ScrewdriverTipRaw
+    {
+        DisplayCategory = StoneBlank,
+        Type = Food,
+        Weight = 0.9,
+        Icon = UO/ScrewdriverTipRaw,
+        Count = 1,
+        MinutesToCook = 12,
+        ReplaceOnCooked = UO.ScrewdriverTip,
+        IsCookable = true,
+        CantEat = true,
+        CantBeFrozen = true,
+        WorldStaticModel = ScrewdriverTipRaw,
+    }
+
+    item ScrewdriverTipRawCantCook
+    {
+        DisplayCategory = StoneBlank,
+        Type = Food,
+        Weight = 0.9,
+        Icon = UO/ScrewdriverTipRaw,
+        Count = 1,
+        IsCookable = false,
+        CantEat = true,
+        CantBeFrozen = true,
+        WorldStaticModel = ScrewdriverTipRaw,
+    }
+
+    item ScrewdriverTip
+    {
+        DisplayCategory = StoneBlank,
+        Type = Normal,
+        Weight = 0.9,
+        Icon = UO/ScrewdriverTip,
+        Count = 1,
+        WorldStaticModel = ScrewdriverTip,
+    }
+
+    item MetalPinRaw
+    {
+        DisplayCategory = StoneBlank,
+        Type = Food,
+        Weight = 0.9,
+        Icon = UO/MetalPinRaw,
+        Count = 1,
+        MinutesToCook = 10,
+        ReplaceOnCooked = UO.MetalPin,
+        IsCookable = true,
+        CantEat = true,
+        CantBeFrozen = true,
+        WorldStaticModel = MetalPinRaw,
+    }
+
+    item MetalPinRawCantCook
+    {
+        DisplayCategory = StoneBlank,
+        Type = Food,
+        Weight = 0.9,
+        Icon = UO/MetalPinRaw,
+        Count = 1,
+        IsCookable = false,
+        CantEat = true,
+        CantBeFrozen = true,
+        WorldStaticModel = MetalPinRaw,
+    }
+
+    item MetalPin
+    {
+        DisplayCategory = StoneBlank,
+        Type = Normal,
+        Weight = 0.9,
+        Icon = UO/MetalPin,
+        Count = 1,
+        WorldStaticModel = MetalPin,
+    }
+
+    item SawBladeRaw
+    {
+        DisplayCategory = StoneBlank,
+        Type = Food,
+        Weight = 1.0,
+        Icon = UO/SawBladeRaw,
+        Count = 1,
+        MinutesToCook = 18,
+        ReplaceOnCooked = UO.SawBlade,
+        IsCookable = true,
+        CantEat = true,
+        CantBeFrozen = true,
+        WorldStaticModel = SawBladeRaw,
+    }
+
+    item SawBladeRawCantCook
+    {
+        DisplayCategory = StoneBlank,
+        Type = Food,
+        Weight = 1.0,
+        Icon = UO/SawBladeRaw,
+        Count = 1,
+        IsCookable = false,
+        CantEat = true,
+        CantBeFrozen = true,
+        WorldStaticModel = SawBladeRaw,
+    }
+
+    item SawBlade
+    {
+        DisplayCategory = StoneBlank,
+        Type = Normal,
+        Weight = 1.0,
+        Icon = UO/SawBlade,
+        Count = 1,
+        WorldStaticModel = SawBlade,
+    }
+}

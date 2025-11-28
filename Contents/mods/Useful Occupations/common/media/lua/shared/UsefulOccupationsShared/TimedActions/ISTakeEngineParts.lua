@@ -8,9 +8,7 @@
 *
 ]]
 
---TODO: ADD CARBON VEHICLE VARIANTS
-
-local carbonPartsType = "UO.CarbonEngineParts"
+local carbonPartsType = "UO.EngineSpecialParts"
 local partsType = "Base.EngineParts"
 
 -- Copy of original ISRepairEngine.complete but with carbon engine parts

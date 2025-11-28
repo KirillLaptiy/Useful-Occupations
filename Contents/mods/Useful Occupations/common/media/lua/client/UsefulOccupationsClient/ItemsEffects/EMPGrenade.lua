@@ -8,7 +8,7 @@
 *
 ]]
 
-local EMP_GRENADE_TAG = "EMP_Grenade"
+local empGrenadeType = "EMPGrenade"
 
 local engineerValues = UsefulOccupations.PersonalTraits.Engineer.values
 
@@ -67,7 +67,7 @@ end)
 -- Call when EMP-grenade explodes
 -- Calculates the stun radius
 Events.OnThrowableExplode.Add(function(throwable, square)
-	if throwable:getItem():getType() ~= EMP_GRENADE_TAG then
+	if throwable:getItem():getType() ~= empGrenadeType then
 		return
 	end
 

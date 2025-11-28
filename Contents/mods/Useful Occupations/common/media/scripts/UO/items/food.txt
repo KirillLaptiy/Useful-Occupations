@@ -1,0 +1,62 @@
+module UO {
+    imports {
+        Base
+    }
+
+	item EnergyDrink
+	{
+		DisplayCategory = Food,
+		Type = Food,
+		Weight = 0.45,
+		Icon = UO/EnergyDrink,
+		Count = 1,
+		ThirstChange = -60,
+		StressChange = -15,
+		StaticModel = EnergyDrink,
+		WorldStaticModel = EnergyDrink,
+        CantBeFrozen = true,
+        EatType = GlugFood,
+        Calories = 0.0,
+        Carbohydrates = 0.0,
+        Lipids = 0.0,
+        Proteins = 0.0,
+		OnEat = UO_ON_EAT.EnergyDrink,
+        CustomContextMenu = Drink,
+        CustomEatSound = DrinkingFromCan,
+	}
+
+	item StimulantGel
+	{
+		DisplayCategory = Food,
+		Type = Food,
+		Weight = 0.05,
+		Icon = UO/StimulantGel,
+		Count = 1,
+		EatType = EatSmall,
+		Calories = 60.0,
+        Carbohydrates = 0.0,
+        Lipids = 0.0,
+        Proteins = 50.0,
+		OnEat = UO_ON_EAT.StimulantGel,
+		ThirstChange = 15,
+		StaticModel = StimulantGel,
+		WorldStaticModel = StimulantGel,
+		CustomContextMenu = Drink,
+	}
+
+	item HerbalTea
+	{
+		DisplayCategory = Food,
+		Type = Food,
+		Weight = 0.03,
+		Icon = UO/HerbalTea,
+		Count = 1,
+		ThirstChange = -60,
+		StressChange = -50,
+		EatType = Popcan,
+		StaticModel = HerbalTea,
+		WorldStaticModel = HerbalTea,
+		CustomContextMenu = Drink,
+        CustomEatSound = DrinkingFromMug,
+	}
+}

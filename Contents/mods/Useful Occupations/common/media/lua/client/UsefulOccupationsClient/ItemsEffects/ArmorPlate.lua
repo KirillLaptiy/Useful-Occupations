@@ -8,8 +8,12 @@
 *
 ]]
 
----@class some
+---@class UO.ArmorPlate.Func
 local Func = {}
+
+local clothArmorPlateType = "ClothArmorPlate"
+local metalArmorPlateType = "MetalArmorPlate"
+local carbonArmorPlateType = "CarbonArmorPlate"
 
 local armorClothingLocations = {
 	Back = "ArmorPlate_Back",
@@ -37,22 +41,22 @@ local armorClothingLocations = {
 ---@field maxCond number
 
 ---@class UO.armorPlateTypes
----@field ArmorPlateSheet UO.armorPlateType
----@field ArmorPlateMetal UO.armorPlateType
----@field ArmorPlateBlackMetal UO.armorPlateType
+---@field ClothArmorPlate UO.armorPlateType
+---@field MetalArmorPlate UO.armorPlateType
+---@field CarbonArmorPlate UO.armorPlateType
 local armorPlateTypes = {
-	ArmorPlateSheet = {
-		type = "ArmorPlateSheet",
+	ClothArmorPlate = {
+		type = clothArmorPlateType,
 		maxCond = 1,
 	},
 
-	ArmorPlateMetal = {
-		type = "ArmorPlateMetal",
+	MetalArmorPlate = {
+		type = metalArmorPlateType,
 		maxCond = 3,
 	},
 
-	ArmorPlateBlackMetal = {
-		type = "ArmorPlateBlackMetal",
+	CarbonArmorPlate = {
+		type = carbonArmorPlateType,
 		maxCond = 10,
 	},
 }
@@ -330,12 +334,12 @@ function ISGarmentUI:doContextMenu(part, x, y)
 	local inventory = getPlayer():getInventory()
 	local backpacks = inventory:getAllCategory("Container")
 
-	local sheetPlate = inventory:getFirstType("ArmorPlateSheet")
-		or getArmorPlateFromContainers(backpacks, "ArmorPlateSheet")
-	local metalPlate = inventory:getFirstType("ArmorPlateMetal")
-		or getArmorPlateFromContainers(backpacks, "ArmorPlateMetal")
-	local blackMetalPlate = inventory:getFirstType("ArmorPlateBlackMetal")
-		or getArmorPlateFromContainers(backpacks, "ArmorPlateBlackMetal")
+	local sheetPlate = inventory:getFirstType(clothArmorPlateType)
+		or getArmorPlateFromContainers(backpacks, clothArmorPlateType)
+	local metalPlate = inventory:getFirstType(metalArmorPlateType)
+		or getArmorPlateFromContainers(backpacks, metalArmorPlateType)
+	local blackMetalPlate = inventory:getFirstType(carbonArmorPlateType)
+		or getArmorPlateFromContainers(backpacks, carbonArmorPlateType)
 
 	local sheet = armorMenu:addOption(
 		"Add sheet plate",

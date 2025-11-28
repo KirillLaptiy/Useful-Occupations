@@ -1,0 +1,41 @@
+module UO {
+    item KnifeBlade
+    {
+        DisplayCategory = BladesAndTips,
+        Type = Normal,
+        Weight = 0.15,
+        Icon = UO/KnifeBlade,
+        Count = 1,
+        WorldStaticModel = KnifeBlade,
+    }
+
+    item AxeBlade
+    {
+        DisplayCategory = BladesAndTips,
+        Type = Normal,
+        Weight = 0.80,
+        Icon = UO/AxeBlade,
+        Count = 1,
+        WorldStaticModel = AxeBlade,
+    }
+
+    item LargeTip
+    {
+        DisplayCategory = BladesAndTips,
+        Type = Normal,
+        Weight = 0.12,
+        Icon = UO/LargeTip,
+        Count = 1,
+        WorldStaticModel = LargeTip,
+    }
+
+    item SmallTip
+    {
+        DisplayCategory = BladesAndTips,
+        Type = Normal,
+        Weight = 0.03,
+        Icon = UO/SmallTip,
+        Count = 1,
+        WorldStaticModel = SmallTip,
+    }
+}

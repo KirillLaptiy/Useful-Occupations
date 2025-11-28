@@ -57,12 +57,14 @@ function ISLockpickVehicleDoor:complete()
 
 	self.vehicle:transmitPartDoor(self.part)
 
-	local lockpickCondition = self.lockpick:getCondition()
+	if self.lockpick:getType() ~= "StrongLockpick" then
+		local lockpickCondition = self.lockpick:getCondition()
 
-	if lockpickCondition == 1 then
-		self.character:getInventory():Remove(self.lockpick)
-	else
-		self.lockpick:setCondition(lockpickCondition - 1)
+		if lockpickCondition == 1 then
+			self.character:getInventory():Remove(self.lockpick)
+		else
+			self.lockpick:setCondition(lockpickCondition - 1)
+		end
 	end
 
 	return true

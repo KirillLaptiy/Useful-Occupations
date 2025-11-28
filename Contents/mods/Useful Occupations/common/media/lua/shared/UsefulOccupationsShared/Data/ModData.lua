@@ -16,8 +16,8 @@ local modData = {
 	-- Inconspicuous
 	isPretendingZombie = false,
 
-	-- Burglar
-	gotStartLockpick = false,
+	-- Scout
+	gotScoutKit = false,
 
 	-- Invincible
 	bodyPartsData = {},
@@ -26,6 +26,25 @@ local modData = {
 	bodyDamageData = {},
 	invincibleCooldownTime = 0,
 	invincibleActiveTime = 0,
+
+	-- SPM
+	gotSPMKit = false,
+
+	-- Items effects
+	-- StimulantGel
+	gelEffectTime = 0,
+
+	-- StimulantDrops
+	SPTraitsSaved = false,
+	SPActiveTime = 0,
+	SPStrength = 0,
+	hasHardOfHearing = false,
+	hasShortSighted = false,
+
+	-- StimulantDropsPlus
+	hasKeenHearing = false,
+	hasEagleEyed = false,
+	hasNightVision = false,
 }
 
 return modData
