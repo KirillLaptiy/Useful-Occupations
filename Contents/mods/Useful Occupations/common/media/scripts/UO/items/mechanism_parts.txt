@@ -77,5 +77,6 @@ module UO {
         Icon = UO/HandMetalMechanism,
         Count = 1,
         WorldStaticModel = HandMetalMechanism,
+        Tags = HandMetalMechanism,
     }
 }

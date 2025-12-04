@@ -1,0 +1,17 @@
+module UO {
+    item Magazine_StrongLockpicks
+    {
+        DisplayCategory = SkillBook,
+        Type = Literature,
+        Weight = 0.5,
+        Icon = UO/Magazine_StrongLockpicks,
+        BoredomChange = -20,
+        StressChange = -15,
+        Teachedrecipes = UO_MakeWeakLockpick;UO_MakeLockpickEngineer;UO_MakeStrongLockpick,
+        Tooltip = Tooltip_item_only_for_engineer,
+        Count = 1,
+        WorldStaticModel = Magazine_StrongLockpicks,
+        Tags = Magazine,
+        OnCreate = SpecialLootSpawns.OnCreateRecipeMagazine,
+    }
+}

@@ -8,6 +8,7 @@ module UO {
         Count = 1,
         ConditionMax = 1,
         WorldStaticModel = ClothArmorPlate,
+        Tooltip = Tooltip_item_cloth_armor_plate,
     }
 
     item MetalArmorPlate
@@ -19,6 +20,7 @@ module UO {
         Count = 1,
         ConditionMax = 3,
         WorldStaticModel = MetalArmorPlate,
+        Tooltip = Tooltip_item_metal_armor_plate,
     }
 
     item CarbonArmorPlate
@@ -30,5 +32,6 @@ module UO {
         Count = 1,
         ConditionMax = 10,
         WorldStaticModel = CarbonArmorPlate,
+        Tooltip = Tooltip_item_carbon_armor_plate,
     }
 }

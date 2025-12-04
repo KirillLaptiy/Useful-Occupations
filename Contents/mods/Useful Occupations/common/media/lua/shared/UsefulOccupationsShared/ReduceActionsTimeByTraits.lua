@@ -83,16 +83,22 @@ local reduceActionsTimeByTraits = function()
 			return 0
 		end
 
-		local skillsCount = craftRecipe:getRequiredSkillCount()
-
 		local reducePercent = engineerValues.craftRecipesTRP()
 
-		for i = 0, skillsCount - 1 do
-			local requiredSkill = craftRecipe:getRequiredSkill(i)
+		local skillsCount = craftRecipe:getRequiredSkillCount()
 
-			local perk = requiredSkill:getPerk()
-			local perkLvl = character:getPerkLevel(perk)
+		-- If recipe have required skills than use it, if no, than use blacksmith as default
+		if skillsCount > 0 then
+			for i = 0, skillsCount - 1 do
+				local requiredSkill = craftRecipe:getRequiredSkill(i)
 
+				local perk = requiredSkill:getPerk()
+				local perkLvl = character:getPerkLevel(perk)
+
+				reducePercent = reducePercent + (engineerValues.craftRecipesTRPPerLvl() * perkLvl)
+			end
+		else
+			local perkLvl = character:getPerkLevel(Perks.Blacksmith)
 			reducePercent = reducePercent + (engineerValues.craftRecipesTRPPerLvl() * perkLvl)
 		end
 

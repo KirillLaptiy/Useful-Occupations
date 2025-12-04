@@ -57,6 +57,7 @@ module UO {
         Icon = UO/Charcoal,
         Count = 1,
         WorldStaticModel = Charcoal,
+        Tags = Charcoal;IsFireFuel,
     }
 
     item OxidizerRawPot
@@ -67,6 +68,7 @@ module UO {
         Icon = UO/OxidizerRawPot,
         Count = 1,
         WorldStaticModel = OxidizerRawPot,
+        Tooltip = Tooltip_item_dry_in_24,
     }
 
     item OxidizerPot
@@ -262,6 +264,7 @@ module UO {
         CantEat = true,
         CantBeFrozen = true,
         WorldStaticModel = FiberMaterialPot,
+        Tooltip = Tooltip_item_requires_roasting,
     }
 
     item FiberMaterialPotCantCook
@@ -300,6 +303,7 @@ module UO {
         CantEat = true,
         CantBeFrozen = true,
         WorldStaticModel = BarkPot,
+        Tooltip = Tooltip_item_requires_roasting,
     }
 
     item BarkPotCantCook
@@ -338,6 +342,7 @@ module UO {
         CantEat = true,
         CantBeFrozen = true,
         WorldStaticModel = LogPot,
+        Tooltip = Tooltip_item_requires_roasting,
     }
 
     item LogPotCantCook

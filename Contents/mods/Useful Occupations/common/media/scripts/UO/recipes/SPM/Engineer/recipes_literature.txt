@@ -1,0 +1,20 @@
+module UO {
+    craftRecipe UO_WriteMagazine_StrongLockpicks
+    {
+        timedAction = DrawCard,
+        time = 150,
+        Tags = InHandCraft,
+        category = Literature,
+
+        inputs
+        {
+            item 1 [Base.Notebook;2:Base.SheetPaper2],
+            item 1 [Base.Pencil;Base.Pen;Base.RedPen;Base.BluePen] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 UO.Magazine_StrongLockpicks,
+        }
+    }
+}

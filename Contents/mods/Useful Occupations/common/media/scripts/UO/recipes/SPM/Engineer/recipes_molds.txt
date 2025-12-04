@@ -1,0 +1,111 @@
+module UO {
+    craftRecipe UO_MakeStoneDust
+    {
+        timedAction = CrushLimestone,
+        time = 150,
+        Tags = InHandCraft,
+        category = Molds,
+
+        inputs
+        {
+            item 1 [Base.Stone2;Base.SharpedStone],
+            item 1 tags[Hammer] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 UO.StoneDust,
+        }
+    }
+
+    craftRecipe UO_MakeWoodMold
+    {
+        timedAction = BuildWoodenStructureSmall,
+        time = 150,
+        Tags = InHandCraft,
+        category = Molds,
+        xpAward = Carving:15,
+
+        inputs
+        {
+            item 4 [Base.Plank],
+            item 2 [Base.Nails],
+            item 1 tags[Hammer] mode:keep,
+            item 1 tags[Saw] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 UO.WoodMold,
+        }
+    }
+
+    craftRecipe UO_MakeResinMoldRaw
+    {
+        timedAction = MixingMortarPestle,
+        time = 300,
+        Tags = InHandCraft,
+        category = Molds,
+
+        inputs
+        {
+            item 3 [UO.StoneDust],
+            item 1 [*],
+            -fluid 1 [Water;TaintedWater],
+            item 3 [UO.Resin],
+            item 1 [UO.WoodMold] mode:keep,
+            item 1 tags[MasonsTrowel;PlasterTrowel] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 UO.ResinMoldRaw,
+        }
+    }
+
+    craftRecipe UO_MakeClayMoldRaw
+    {
+        timedAction = MixingMortarPestle,
+        time = 300,
+        Tags = InHandCraft,
+        category = Molds,
+
+        inputs
+        {
+            item 3 [UO.StoneDust],
+            item 1 [*],
+            -fluid 1 [Water;TaintedWater],
+            item 1 [Base.Clay],
+            item 1 [UO.WoodMold] mode:keep,
+            item 1 tags[MasonsTrowel;PlasterTrowel] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 UO.ClayMoldRaw,
+        }
+    }
+
+    craftRecipe UO_MakeCementMoldRaw
+    {
+        timedAction = MixingMortarPestle,
+        time = 300,
+        Tags = InHandCraft,
+        category = Molds,
+
+        inputs
+        {
+            item 3 [UO.StoneDust],
+            item 1 [*],
+            -fluid 1 [Water;TaintedWater],
+            item 1 [Base.ConcretePowder],
+            item 1 [UO.WoodMold] mode:keep,
+            item 1 tags[MasonsTrowel;PlasterTrowel] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 UO.CementMoldRaw,
+        }
+    }
+}

@@ -7,6 +7,7 @@ module UO {
         Icon = UO/Pliers,
         Count = 1,
         WorldStaticModel = Pliers,
+        Tags = Pliers;RemoveBullet;RemoveGlass;MetalworkingPliers,
     }
 
     item Chisel
@@ -17,16 +18,23 @@ module UO {
         Icon = UO/Chisel,
         Count = 1,
         WorldStaticModel = Chisel,
+        Tags = MasonsChisel;MetalworkingChisel;CarpentryChisel,
     }
 
     item FlintLighter
     {
         DisplayCategory = Tool,
-        Type = Normal,
+        Type = Drainable,
         Weight = 0.10,
         Icon = UO/FlintLighter,
         Count = 1,
         WorldStaticModel = FlintLighter,
+        ConsolidateOption = ContextMenu_Merge,
+        UseDelta = 0.1,
+        UseWhileEquipped = false,
+        Tags = StartFire;LessFull;FitsWallet,
+        SurvivalGear = true,
+        Tooltip = Tooltip_item_flint_lighter,
     }
 
     item Caliper
@@ -37,6 +45,7 @@ module UO {
         Icon = UO/Caliper,
         Count = 1,
         WorldStaticModel = Caliper,
+        Tags = Caliper;HasMetal,
     }
 
     item BoreGauge
@@ -47,6 +56,7 @@ module UO {
         Icon = UO/BoreGauge,
         Count = 1,
         WorldStaticModel = BoreGauge,
+        Tags = BoreGauge;HasMetal,
     }
 
     item MetalShears
@@ -57,6 +67,7 @@ module UO {
         Icon = UO/MetalShears,
         Count = 1,
         WorldStaticModel = MetalShears,
+        Tags = SheetMetalSnips;HasMetal;CanOpener;LightMetalSnips;Scissors,
     }
 
     item HandDrill
@@ -67,6 +78,7 @@ module UO {
         Icon = UO/HandDrill,
         Count = 1,
         WorldStaticModel = HandDrill,
+        Tags = DrillWood;DrillMetal;DrillWoodPoor,
     }
 
     item SolderingIron
@@ -77,51 +89,56 @@ module UO {
         Icon = UO/SolderingIron,
         Count = 1,
         WorldStaticModel = SolderingIron,
+        Tags = SolderingIron,
     }
 
     item WeakLockpick
     {
         DisplayCategory = Tool,
         Type = Normal,
-        Weight = 0.01,
+        Weight = 0.10,
         Icon = UO/WeakLockpick,
         Count = 1,
         ConditionMax = 1,
         WorldStaticModel = WeakLockpick,
         Tags = Lockpick,
+        Tooltip = Tooltip_item_weak_lockpick,
     }
 
     item Lockpick
     {
         DisplayCategory = Tool,
         Type = Normal,
-        Weight = 0.02,
+        Weight = 0.20,
         Icon = UO/Lockpick,
         Count = 1,
         ConditionMax = 10,
         WorldStaticModel = Lockpick,
         Tags = Lockpick,
+        Tooltip = Tooltip_item_lockpick,
     }
 
     item StrongLockpick
     {
         DisplayCategory = Tool,
         Type = Normal,
-        Weight = 0.04,
+        Weight = 0.40,
         Icon = UO/StrongLockpick,
         Count = 1,
         WorldStaticModel = StrongLockpick,
         Tags = Lockpick,
+        Tooltip = Tooltip_item_strong_lockpick,
     }
 
     item Syringe
     {
         DisplayCategory = Tool,
         Type = Normal,
-        Weight = 0.02,
+        Weight = 0.20,
         Icon = UO/Syringe,
         Count = 1,
         WorldStaticModel = Syringe,
+        Tags = Syringe,
     }
 
     item AlarmController
@@ -136,6 +153,7 @@ module UO {
         Icon = UO/AlarmController,
         Count = 1,
         WorldStaticModel = AlarmController,
+        Tooltip = Tooltip_item_alarm_controller,
     }
 
     item VacuumSealer
@@ -146,6 +164,7 @@ module UO {
         Icon = UO/VacuumSealer,
         Count = 1,
         WorldStaticModel = VacuumSealer,
+        Tags = VacuumSealer,
     }
 
     item MREBag10
@@ -157,6 +176,7 @@ module UO {
         Icon = UO/MREBag10,
         Count = 1,
         WorldStaticModel = MREBag10,
+        Tooltip = Tooltip_item_mre,
     }
 
     item MREKit
@@ -178,5 +198,6 @@ module UO {
         Icon = UO/MixingKit,
         Count = 1,
         WorldStaticModel = MixingKit,
+        Tags = MixingKit,
     }
 }

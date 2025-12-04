@@ -42,6 +42,7 @@ module UO {
 		StaticModel = StimulantGel,
 		WorldStaticModel = StimulantGel,
 		CustomContextMenu = Drink,
+		Tooltip = Tooltip_item_stimulant_gel,
 	}
 
 	item HerbalTea

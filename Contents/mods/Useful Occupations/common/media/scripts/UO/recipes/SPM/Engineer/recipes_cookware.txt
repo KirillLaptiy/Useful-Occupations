@@ -1,0 +1,255 @@
+module UO {
+    craftRecipe UO_MakePot
+    {
+        timedAction = SmithingHammer,
+        time = 150,
+        Tags = InHandCraft,
+        category = Cookware,
+        xpAward = MetalWelding:10,
+
+        inputs
+        {
+            item 2 [Base.SheetMetal],
+            item 2 [Base.Screws],
+            item 1 tags[Hammer] mode:keep,
+            item 1 tags[DrillMetal] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 Base.Pot,
+        }
+    }
+
+    craftRecipe UO_MakeSaucepan
+    {
+        timedAction = SmithingHammer,
+        time = 150,
+        Tags = InHandCraft,
+        category = Cookware,
+        xpAward = MetalWelding:10,
+
+        inputs
+        {
+            item 1 [Base.SheetMetal],
+            item 1 [Base.Screws],
+            item 1 tags[Hammer] mode:keep,
+            item 1 tags[DrillMetal] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 Base.Saucepan,
+        }
+    }
+
+    craftRecipe UO_MakeRoastingPan
+    {
+        timedAction = SmithingHammer,
+        time = 150,
+        Tags = InHandCraft,
+        category = Cookware,
+        xpAward = MetalWelding:10,
+
+        inputs
+        {
+            item 1 [Base.SheetMetal],
+            item 1 tags[Hammer] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 Base.RoastingPan,
+        }
+    }
+
+    craftRecipe UO_MakeMuffinTray
+    {
+        timedAction = SmithingHammer,
+        time = 150,
+        Tags = InHandCraft,
+        category = Cookware,
+        xpAward = MetalWelding:10,
+
+        inputs
+        {
+            item 1 [Base.SheetMetal],
+            item 1 tags[Hammer] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 Base.MuffinTray,
+        }
+    }
+
+    craftRecipe UO_MakePan
+    {
+        timedAction = SmithingHammer,
+        time = 150,
+        Tags = InHandCraft,
+        category = Cookware,
+        xpAward = MetalWelding:10,
+
+        inputs
+        {
+            item 1 [Base.SheetMetal],
+            item 1 [Base.Screws;UO.MetalPin],
+            item 1 [Base.Handle],
+            item 1 tags[Hammer] mode:keep,
+            item 1 tags[DrillMetal] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 Base.Pan,
+        }
+    }
+
+    craftRecipe UO_MakeGridlePan
+    {
+        timedAction = SmithingHammer,
+        time = 150,
+        Tags = InHandCraft,
+        category = Cookware,
+        xpAward = MetalWelding:10,
+
+        inputs
+        {
+            item 1 [Base.SheetMetal],
+            item 1 [Base.Screws;UO.MetalPin],
+            item 1 [Base.Handle],
+            item 1 tags[Hammer] mode:keep,
+            item 1 tags[DrillMetal] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 Base.GridlePan,
+        }
+    }
+
+    craftRecipe UO_MakeBakingPan
+    {
+        timedAction = SmithingHammer,
+        time = 150,
+        Tags = InHandCraft,
+        category = Cookware,
+        xpAward = MetalWelding:10,
+
+        inputs
+        {
+            item 1 [Base.SheetMetal],
+            item 1 tags[Hammer] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 Base.BakingPan,
+        }
+    }
+
+    craftRecipe UO_MakeSpatula
+    {
+        timedAction = SmithingHammer,
+        time = 150,
+        Tags = InHandCraft,
+        category = Cookware,
+        xpAward = MetalWelding:10,
+
+        inputs
+        {
+            item 1 [Base.SmallSheetMetal],
+            item 1 tags[Hammer] mode:keep,
+            item 1 tags[SolderingIron] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 Base.Spatula,
+        }
+    }
+
+    craftRecipe UO_MakeBowl2
+    {
+        timedAction = ChoppingBlock_Hammer,
+        time = 150,
+        Tags = InHandCraft,
+        category = Cookware,
+        xpAward = Carving:10,
+
+        inputs
+        {
+            item 1 [Base.Plank],
+            item 1 tags[CarpentryChisel] mode:keep,
+        }
+
+        outputs
+        {
+            item 2 Base.Bowl,
+        }
+    }
+
+    craftRecipe UO_MakeBakingTray
+    {
+        timedAction = SmithingHammer,
+        time = 150,
+        Tags = InHandCraft,
+        category = Cookware,
+        xpAward = MetalWelding:10,
+
+        inputs
+        {
+            item 1 [Base.SheetMetal],
+            item 1 tags[Hammer] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 Base.BakingTray,
+        }
+    }
+
+    craftRecipe UO_MakeMugl4
+    {
+        timedAction = ChoppingBlock_Hammer,
+        time = 150,
+        Tags = InHandCraft,
+        category = Cookware,
+        xpAward = Carving:10,
+
+        inputs
+        {
+            item 1 [Base.Plank],
+            item 1 tags[Hammer] mode:keep,
+            item 1 tags[CarpentryChisel] mode:keep,
+        }
+
+        outputs
+        {
+            item 4 Base.Mugl,
+        }
+    }
+
+    craftRecipe UO_MakeKitchenKnife
+    {
+        timedAction = SmithingHammer,
+        time = 150,
+        Tags = InHandCraft,
+        category = Cookware,
+        xpAward = MetalWelding:10,
+
+        inputs
+        {
+            item 1 [Base.SmallSheetMetal],
+            item 1 [Base.SmallHandle],
+            item 1 tags[Hammer] mode:keep,
+            item 1 tags[SolderingIron] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 Base.KitchenKnife,
+        }
+    }
+}

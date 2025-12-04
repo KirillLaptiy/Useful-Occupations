@@ -20,6 +20,7 @@ module UO {
 		Wet = TRUE,
 		WetCooldown = 260000,
         WorldStaticModel = ResinMoldRaw,
+        Tooltip = Tooltip_item_dry_in_24,
     }
 
     item ResinMoldDry
@@ -35,6 +36,7 @@ module UO {
         Icon = UO/ResinMoldDry,
         Count = 1,
         WorldStaticModel = ResinMoldDry,
+        Tooltip = Tooltip_item_requires_roasting,
     }
 
     item ResinMoldDryCantCook
@@ -48,6 +50,7 @@ module UO {
         Icon = UO/ResinMoldDry,
         Count = 1,
         WorldStaticModel = ResinMoldDry,
+        Tooltip = Tooltip_item_requires_roasting,
     }
 
     item ResinMold
@@ -57,7 +60,9 @@ module UO {
         Weight = 1.00,
         Icon = UO/ResinMold,
         Count = 1,
+        ConditionMax = 1,
         WorldStaticModel = ResinMold,
+        Tooltip = Tooltip_item_resin_mold,
     }
 
     item ClayMoldRaw
@@ -71,6 +76,7 @@ module UO {
 		Wet = TRUE,
 		WetCooldown = 780000,
         WorldStaticModel = ClayMoldRaw,
+        Tooltip = Tooltip_item_dry_in_72,
     }
 
     item ClayMoldDry
@@ -86,6 +92,7 @@ module UO {
         Icon = UO/ClayMoldDry,
         Count = 1,
         WorldStaticModel = ClayMoldDry,
+        Tooltip = Tooltip_item_requires_roasting,
     }
 
     item ClayMoldDryCantCook
@@ -99,6 +106,7 @@ module UO {
         Icon = UO/ClayMoldDry,
         Count = 1,
         WorldStaticModel = ClayMoldDry,
+        Tooltip = Tooltip_item_requires_roasting,
     }
 
     item ClayMold
@@ -108,7 +116,9 @@ module UO {
         Weight = 2.50,
         Icon = UO/ClayMold,
         Count = 1,
+        ConditionMax = 3,
         WorldStaticModel = ClayMold,
+        Tooltip = Tooltip_item_resin_mold,
     }
 
     item CementMoldRaw
@@ -122,6 +132,7 @@ module UO {
 		Wet = TRUE,
 		WetCooldown = 1300000,
         WorldStaticModel = CementMoldRaw,
+        Tooltip = Tooltip_item_dry_in_120,
     }
 
     item CementMoldDry
@@ -137,6 +148,7 @@ module UO {
         Icon = UO/CementMoldDry,
         Count = 1,
         WorldStaticModel = CementMoldDry,
+        Tooltip = Tooltip_item_requires_roasting,
     }
 
     item CementMoldDryCantCook
@@ -150,6 +162,7 @@ module UO {
         Icon = UO/CementMoldDry,
         Count = 1,
         WorldStaticModel = CementMoldDry,
+        Tooltip = Tooltip_item_requires_roasting,
     }
 
     item CementMold
@@ -160,6 +173,7 @@ module UO {
         Icon = UO/CementMold,
         Count = 1,
         WorldStaticModel = CementMold,
+        Tooltip = Tooltip_item_cement_mold,
     }
 
     item MetalSheetResinRaw
@@ -168,10 +182,14 @@ module UO {
         Type = Food,
         Weight = 2.0,
         MinutesToCook = 60,
+        IsCookable = true,
+        CantEat = true,
+        CantBeFrozen = true,
         ReplaceOnCooked = UO.MetalSheetResin,
         Icon = UO/MetalSheetResinRaw,
         Count = 1,
         WorldStaticModel = MetalSheetResinRaw,
+        Tooltip = Tooltip_item_requires_roasting,
     }
 
     item MetalSheetResinRawCantCook
@@ -185,6 +203,7 @@ module UO {
         CantEat = true,
         CantBeFrozen = true,
         WorldStaticModel = MetalSheetResinRaw,
+        Tooltip = Tooltip_item_requires_roasting,
     }
 
     item MetalSheetResin
@@ -203,10 +222,14 @@ module UO {
         Type = Food,
         Weight = 2.5,
         MinutesToCook = 60,
+        IsCookable = true,
+        CantEat = true,
+        CantBeFrozen = true,
         ReplaceOnCooked = UO.MetalSheetClay,
         Icon = UO/MetalSheetClayRaw,
         Count = 1,
         WorldStaticModel = MetalSheetClayRaw,
+        Tooltip = Tooltip_item_requires_roasting,
     }
 
     item MetalSheetClayRawCantCook
@@ -220,6 +243,7 @@ module UO {
         CantEat = true,
         CantBeFrozen = true,
         WorldStaticModel = MetalSheetClayRaw,
+        Tooltip = Tooltip_item_requires_roasting,
     }
 
     item MetalSheetClay
@@ -238,10 +262,14 @@ module UO {
         Type = Food,
         Weight = 3.0,
         MinutesToCook = 60,
+        IsCookable = true,
+        CantEat = true,
+        CantBeFrozen = true,
         ReplaceOnCooked = UO.MetalSheetCement,
         Icon = UO/MetalSheetCementRaw,
         Count = 1,
         WorldStaticModel = MetalSheetCementRaw,
+        Tooltip = Tooltip_item_requires_roasting,
     }
 
     item MetalSheetCementRawCantCook
@@ -255,6 +283,7 @@ module UO {
         CantEat = true,
         CantBeFrozen = true,
         WorldStaticModel = MetalSheetCementRaw,
+        Tooltip = Tooltip_item_requires_roasting,
     }
 
     item MetalSheetCement

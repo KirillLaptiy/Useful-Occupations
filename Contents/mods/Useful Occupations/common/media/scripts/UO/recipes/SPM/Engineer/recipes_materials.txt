@@ -1,13 +1,15 @@
 module UO {
-    craftRecipe MakeMetalPiece1
+    craftRecipe UO_MakeMetalPiece1
     {
-        timedAction = Making,
+        timedAction = MakingJewellery,
         time = 150,
+        Tags = InHandCraft,
+        category = Materials,
 
         inputs
         {
-            item 1 [Base.GoldScrap;Base.SilverScrap;Base.AluminumScrap;Base.IronScrap;Base.CopperScrap;Base.BrassScrap;Base.SteelScrap],
-            item 1 tags[Hammer;HammerStone] mode:keep,
+            item 1 [Base.GoldScrap;Base.SilverScrap;Base.AluminumScrap;Base.IronScrap;Base.CopperScrap;Base.BrassScrap;Base.SteelScrap;Base.Nails;Base.Paperclip;Base.Screws;Base.AluminumFragments;Base.Wire;Base.BarbedWire],
+            item 1 tags[Hammer;HammerStone;MetalSaw] mode:keep,
         }
 
         outputs
@@ -16,14 +18,16 @@ module UO {
         }
     }
 
-    craftRecipe MakeMetalPiece4
+    craftRecipe UO_MakeMetalPiece4
     {
-        timedAction = Making,
+        timedAction = MakingJewellery,
         time = 300,
+        Tags = InHandCraft,
+        category = Materials,
 
         inputs
         {
-            item 1 [Base.Saucepan;Base.SmallSheetMetal;Base.ScrapMetal;Base.MetalPipe],
+            item 1 [Base.Saucepan;Base.SmallSheetMetal;Base.ScrapMetal;Base.MetalPipe;2:Base.Aluminum;2:UO.AmmoMaterial],
             item 1 tags[MetalSaw] mode:keep,
         }
 
@@ -33,10 +37,12 @@ module UO {
         }
     }
 
-    craftRecipe MakeMetalPiece8
+    craftRecipe UO_MakeMetalPiece8
     {
-        timedAction = Making,
-        time = 500,
+        timedAction = MakingJewellery,
+        time = 450,
+        Tags = InHandCraft,
+        category = Materials,
 
         inputs
         {
@@ -50,21 +56,741 @@ module UO {
         }
     }
 
-
-
-
-
-
-
-    craftRecipe MakeBarkPOt
+    craftRecipe UO_MakeScrapMetal
     {
-        timedAction = Making,
+        timedAction = MakingJewellery,
         time = 150,
+        Tags = InHandCraft,
+        category = Materials,
 
         inputs
         {
-            item 4 [UO.Bark],
-            item 1 [Base.Pot] mode:keep,
+            item 1 [Base.SmallSheetMetal],
+            item 1 tags[Hammer] mode:keep,
+            item 1 tags[HandMetalMechanism] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 Base.ScrapMetal,
+        }
+    }
+
+    craftRecipe UO_MakeIronScrap
+    {
+        timedAction = MakingJewellery,
+        time = 150,
+        Tags = InHandCraft,
+        category = Materials,
+
+        inputs
+        {
+            item 1 [UO.MetalPiece],
+            item 1 tags[Hammer;HammerStone;MetalSaw] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 Base.IronScrap,
+        }
+    }
+
+    craftRecipe UO_MakeBrassScrap
+    {
+        timedAction = MakingJewellery,
+        time = 150,
+        Tags = InHandCraft,
+        category = Materials,
+
+        inputs
+        {
+            item 1 [UO.MetalPiece],
+            item 1 tags[Hammer;HammerStone;MetalSaw] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 Base.BrassScrap,
+        }
+    }
+
+    craftRecipe UO_MakeSteelScrap
+    {
+        timedAction = MakingJewellery,
+        time = 150,
+        Tags = InHandCraft,
+        category = Materials,
+
+        inputs
+        {
+            item 1 [UO.MetalPiece],
+            item 1 tags[Hammer;HammerStone;MetalSaw] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 Base.SteelScrap,
+        }
+    }
+
+    craftRecipe UO_MakeSilverScrap
+    {
+        timedAction = MakingJewellery,
+        time = 150,
+        Tags = InHandCraft,
+        category = Materials,
+
+        inputs
+        {
+            item 1 [UO.MetalPiece],
+            item 1 tags[Hammer;HammerStone;MetalSaw] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 Base.SilverScrap,
+        }
+    }
+
+    craftRecipe UO_MakeGoldScrap
+    {
+        timedAction = MakingJewellery,
+        time = 150,
+        Tags = InHandCraft,
+        category = Materials,
+
+        inputs
+        {
+            item 1 [UO.MetalPiece],
+            item 1 tags[Hammer;HammerStone;MetalSaw] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 Base.GoldScrap,
+        }
+    }
+
+    craftRecipe UO_MakeAluminumFragments
+    {
+        timedAction = MakingJewellery,
+        time = 150,
+        Tags = InHandCraft,
+        category = Materials,
+
+        inputs
+        {
+            item 1 [UO.MetalPiece],
+            item 1 tags[Hammer;HammerStone;MetalSaw] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 Base.AluminumFragments,
+        }
+    }
+
+    craftRecipe UO_MakeAluminumScrap
+    {
+        timedAction = MakingJewellery,
+        time = 150,
+        Tags = InHandCraft,
+        category = Materials,
+
+        inputs
+        {
+            item 1 [UO.MetalPiece],
+            item 1 tags[Hammer;HammerStone;MetalSaw] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 Base.AluminumScrap,
+        }
+    }
+
+    craftRecipe UO_MakeCopperScrap
+    {
+        timedAction = MakingJewellery,
+        time = 150,
+        Tags = InHandCraft,
+        category = Materials,
+
+        inputs
+        {
+            item 1 [UO.MetalPiece],
+            item 1 tags[Hammer;HammerStone;MetalSaw] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 Base.CopperScrap,
+        }
+    }
+
+    craftRecipe UO_MakeWire
+    {
+        timedAction = MakingJewellery,
+        time = 150,
+        Tags = InHandCraft,
+        category = Materials,
+
+        inputs
+        {
+            item 10 [UO.MetalPiece],
+            item 1 tags[Hammer;HammerStone] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 Base.Wire,
+        }
+    }
+
+    craftRecipe UO_MakeBarbedWire
+    {
+        timedAction = MakingJewellery,
+        time = 150,
+        Tags = InHandCraft,
+        category = Materials,
+
+        inputs
+        {
+            item 10 [UO.MetalPiece],
+            item 1 tags[Hammer;HammerStone] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 Base.BarbedWire,
+        }
+    }
+
+    craftRecipe UO_MakeNails
+    {
+        timedAction = MakingJewellery,
+        time = 150,
+        Tags = InHandCraft,
+        category = Materials,
+
+        inputs
+        {
+            item 1 [UO.MetalPiece],
+            item 1 tags[Hammer;HammerStone] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 Base.Nails,
+        }
+    }
+
+    craftRecipe UO_MakePaperclip
+    {
+        timedAction = MakingJewellery,
+        time = 150,
+        Tags = InHandCraft,
+        category = Materials,
+
+        inputs
+        {
+            item 1 [UO.MetalPiece],
+            item 1 tags[Hammer;HammerStone] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 Base.Paperclip,
+        }
+    }
+
+    craftRecipe UO_MakeAluminum
+    {
+        timedAction = Making_Surface,
+        time = 150,
+        Tags = InHandCraft,
+        category = Materials,
+
+        inputs
+        {
+            item 2 [UO.MetalPiece],
+            item 1 tags[Hammer] mode:keep,
+            item 1 tags[HandMetalMechanism] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 Base.Aluminum,
+        }
+    }
+
+    craftRecipe UO_MakeScrews
+    {
+        timedAction = Making_Surface,
+        time = 150,
+        Tags = InHandCraft,
+        category = Materials,
+
+        inputs
+        {
+            item 1 [UO.MetalPiece],
+            item 1 tags[Hammer;Screwdriver] mode:keep,
+            item 1 tags[HandMetalMechanism] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 Base.Screws,
+        }
+    }
+
+    craftRecipe UO_MakeNutsBolts
+    {
+        timedAction = Making_Surface,
+        time = 150,
+        Tags = InHandCraft,
+        category = Materials,
+
+        inputs
+        {
+            item 1 [UO.MetalPiece],
+            item 1 [Base.Screws],
+            item 1 tags[Hammer;Screwdriver] mode:keep,
+            item 1 tags[HandMetalMechanism] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 Base.NutsBolts,
+        }
+    }
+
+    craftRecipe UO_MakeJarLid
+    {
+        timedAction = Making_Surface,
+        time = 150,
+        Tags = InHandCraft,
+        category = Materials,
+
+        inputs
+        {
+            item 1 [Base.SmallSheetMetal],
+            item 1 tags[Hammer] mode:keep,
+            item 1 tags[HandMetalMechanism] mode:keep,
+        }
+
+        outputs
+        {
+            item 4 Base.JarLid,
+        }
+    }
+
+    craftRecipe UO_MakeAmmoMaterial
+    {
+        timedAction = Making_Surface,
+        time = 150,
+        Tags = InHandCraft,
+        category = Materials,
+
+        inputs
+        {
+            item 2 [UO.MetalPiece],
+            item 1 tags[Hammer;Screwdriver] mode:keep,
+            item 1 tags[HandMetalMechanism] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 UO.AmmoMaterial,
+        }
+    }
+
+    craftRecipe UO_MakeElectronicsScrap
+    {
+        timedAction = Making_Surface,
+        time = 150,
+        Tags = InHandCraft,
+        category = Materials,
+
+        inputs
+        {
+            item 2 [UO.MetalPiece],
+            item 1 [UO.Plastic],
+            item 1 tags[SolderingIron] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 UO.ElectronicsScrap,
+        }
+    }
+
+    craftRecipe UO_MakePlastic
+    {
+        timedAction = Making_Surface,
+        time = 150,
+        Tags = InHandCraft,
+        category = Materials,
+
+        inputs
+        {
+            item 1 [UO.Resin],
+            item 1 [Base.Pot;Base.Saucepan;Base.PotForged] mode:keep,
+            item 1 [*],
+            -fluid 0.25 [Petrol],
+        }
+
+        outputs
+        {
+            item 1 UO.Plastic,
+        }
+    }
+
+    craftRecipe UO_MakeElectricWire
+    {
+        timedAction = Making_Surface,
+        time = 150,
+        Tags = InHandCraft,
+        category = Materials,
+
+        inputs
+        {
+            item 1 [UO.MetalPiece],
+            item 1 [Base.TirePiece;Base.DuctTape],
+            item 1 tags[HandMetalMechanism;Screwdriver] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 Base.ElectricWire,
+        }
+    }
+
+    craftRecipe UO_MakeGunPartsCarbon
+    {
+        timedAction = Making_Surface,
+        time = 150,
+        Tags = AdvancedForge,
+        category = Materials,
+        xpAward = Blacksmith:20,
+
+        inputs
+        {
+            item 2 [UO.CarbonMetal],
+            item 1 tags[Hammer] mode:keep,
+            item 1 tags[MetalworkingPliers] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 UO.GunPartsCarbon,
+        }
+    }
+
+    craftRecipe UO_MakeGunParts
+    {
+        timedAction = Making_Surface,
+        time = 150,
+        Tags = InHandCraft,
+        category = Materials,
+
+        inputs
+        {
+            item 1 [UO.Plank],
+            item 1 [UO.Resin],
+            item 1 [UO.SmallSheetMetal],
+            item 1 tags[Hammer] mode:keep,
+            item 1 tags[Pliers] mode:keep,
+            item 1 tags[SharpKnife] mode:keep,
+            item 1 tags[HandMetalMechanism] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 UO.GunParts,
+        }
+    }
+
+    craftRecipe UO_MakeLeatherStrips
+    {
+        timedAction = Making_Surface,
+        time = 150,
+        Tags = InHandCraft,
+        category = Materials,
+
+        inputs
+        {
+            item 3 [Base.RippedSheets],
+            item 1 [UO.Resin],
+            item 1 tags[Charcoal],
+            item 1 tags[SharpKnife] mode:keep,
+        }
+
+        outputs
+        {
+            item 3 Base.LeatherStrips,
+        }
+    }
+
+    craftRecipe UO_MakeScotchtape
+    {
+        timedAction = Making_Surface,
+        time = 150,
+        Tags = InHandCraft,
+        category = Materials,
+
+        inputs
+        {
+            item 1 [Base.RippedSheets;Base.SheetPaper2],
+            item 1 [UO.Resin],
+            item 1 tags[SharpKnife] mode:keep,
+            item 1 tags[MasonsTrowel;PlasterTrowel] mode:keep,
+        }
+
+        outputs
+        {
+            item 3 Base.Scotchtape,
+        }
+    }
+
+    craftRecipe UO_MakeBattery
+    {
+        timedAction = Making_Surface,
+        time = 150,
+        Tags = InHandCraft,
+        category = Materials,
+
+        inputs
+        {
+            item 1 [Base.Lemon;Base.Salt;Base.Vinegar_Jug;Base.Vinegar2;Base.BalsamicVinegar;Base.RiceVinegar],
+            item 3 [UO.MetalPiece],
+            item 1 [Base.DuctTape;Base.TirePiece],
+            item 1 tags[Screwdriver] mode:keep,
+            item 1 tags[SolderingIron] mode:keep,
+        }
+
+        outputs
+        {
+            item 3 Base.Battery,
+        }
+    }
+
+    craftRecipe UO_MakeDuctTape
+    {
+        timedAction = Making_Surface,
+        time = 150,
+        Tags = InHandCraft,
+        category = Materials,
+
+        inputs
+        {
+            item 1 [Base.RippedSheets;Base.SheetPaper2],
+            item 1 [UO.Resin],
+            item 1 tags[SharpKnife] mode:keep,
+            item 1 tags[MasonsTrowel;PlasterTrowel] mode:keep,
+        }
+
+        outputs
+        {
+            item 3 Base.DuctTape,
+        }
+    }
+
+    craftRecipe UO_MakeLogPot
+    {
+        timedAction = Making_Surface,
+        time = 150,
+        Tags = InHandCraft,
+        category = Materials,
+
+        inputs
+        {
+            item 1 [Base.Log],
+            item 1 [Base.Pot],
+        }
+
+        outputs
+        {
+            item 1 UO.LogPot,
+        }
+    }
+
+    craftRecipe UO_TakeLogFromPot
+    {
+        timedAction = Making_Surface,
+        time = 150,
+        Tags = InHandCraft,
+        category = Materials,
+
+        inputs
+        {
+            item 1 [UO.LogPot],
+        }
+
+        outputs
+        {
+            item 1 Base.Log,
+            item 1 Base.Pot,
+        }
+    }
+
+    craftRecipe UO_TakeCharcoalFromPot
+    {
+        timedAction = Making_Surface,
+        time = 150,
+        Tags = InHandCraft,
+        category = Materials,
+
+        inputs
+        {
+            item 1 [UO.CharcoalPot],
+        }
+
+        outputs
+        {
+            item 2 UO.Charcoal,
+            item 1 Base.Pot,
+        }
+    }
+
+    craftRecipe UO_MakeOxidizerRawPot
+    {
+        timedAction = Making_Surface,
+        time = 150,
+        Tags = InHandCraft,
+        category = Materials,
+
+        inputs
+        {
+            item 1 [Base.CorpseFemale;Base.CorpseMale],
+            item 1 [*],
+            -fluid 1 [Water;TaintedWater],
+            item 4 [Base.RippedSheets],
+            item 1 [Base.Pot],
+            item 1 tags[SharpKnife] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 UO.OxidizerRawPot,
+        }
+    }
+
+    craftRecipe UO_TakeOxidizerFromPot
+    {
+        timedAction = Making_Surface,
+        time = 150,
+        Tags = InHandCraft,
+        category = Materials,
+
+        inputs
+        {
+            item 1 [UO.OxidizerPot],
+            item 1 tags[SharpKnife] mode:keep,
+        }
+
+        outputs
+        {
+            item 2 UO.Oxidizer,
+            item 1 Base.Pot,
+        }
+    }
+
+    craftRecipe UO_MakePrimerCap
+    {
+        timedAction = Making_Surface,
+        time = 150,
+        Tags = InHandCraft,
+        category = Materials,
+
+        inputs
+        {
+            item 5 [UO.MetalPiece],
+            item 1 [Base.GunPowder;4:UO.HomemadePowder],
+            item 1 tags[Hammer] mode:keep,
+        }
+
+        outputs
+        {
+            item 10 UO.PrimerCap,
+        }
+    }
+
+    craftRecipe UO_MakeHomemadePowder
+    {
+        timedAction = Making_Surface,
+        time = 150,
+        Tags = InHandCraft,
+        category = Materials,
+
+        inputs
+        {
+            item 1 tags[Charcoal],
+            item 1 [UO.Resin],
+            item 1 [*],
+            -fluid 0.25 [Petrol],
+            item 3 [UO.Oxidizer],
+            item 1 [Base.Pot;Base.Saucepan;Base.PotForged] mode:keep,
+        }
+
+        outputs
+        {
+            item 3 UO.HomemadePowder,
+        }
+    }
+
+    craftRecipe UO_MakeAmplifier
+    {
+        timedAction = Making_Surface,
+        time = 150,
+        Tags = InHandCraft,
+        category = Materials,
+
+        inputs
+        {
+            item 2 [Base.ElectronicsScrap],
+            item 1 [UO.MetalPiece],
+            item 1 [UO.Plastic],
+            item 1 [Base.Wire],
+            item 1 tags[SolderingIron] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 Base.Amplifier,
+        }
+    }
+
+    craftRecipe UO_MakeBark
+    {
+        timedAction = Making_Surface,
+        time = 150,
+        Tags = InHandCraft,
+        category = Materials,
+
+        inputs
+        {
+            item 1 tags[Log],
+            item 1 tags[SharpKnife] mode:keep,
+        }
+
+        outputs
+        {
+            item 4 UO.Bark,
+        }
+    }
+
+    craftRecipe UO_MakeBarkPot
+    {
+        timedAction = Making_Surface,
+        time = 150,
+        Tags = InHandCraft,
+        category = Materials,
+
+        inputs
+        {
+            item 2 [UO.Bark],
+            item 1 [Base.Pot],
         }
 
         outputs
@@ -73,20 +799,605 @@ module UO {
         }
     }
 
-    craftRecipe PutBarkPOt
+    craftRecipe UO_TakeBarkFromPot
     {
-        timedAction = Making,
+        timedAction = Making_Surface,
         time = 150,
+        Tags = InHandCraft,
+        category = Materials,
 
         inputs
         {
-            item 1 [UO.BarkPot;UO.BarkPotCantCook],
+            item 1 [UO.BarkPot],
         }
 
         outputs
         {
-            item 4 UO.Bark,
+            item 2 UO.Bark,
             item 1 Base.Pot,
+        }
+    }
+
+    craftRecipe UO_TakeResinFromPot
+    {
+        timedAction = Making_Surface,
+        time = 150,
+        Tags = InHandCraft,
+        category = Materials,
+
+        inputs
+        {
+            item 1 [UO.ResinPot],
+        }
+
+        outputs
+        {
+            item 2 UO.Resin,
+            item 1 Base.Pot,
+        }
+    }
+
+    craftRecipe UO_MakeGarbagebag
+    {
+        timedAction = Making_Surface,
+        time = 150,
+        Tags = InHandCraft,
+        category = Materials,
+
+        inputs
+        {
+            item 1 [UO.Plastic],
+            item 1 tags[SolderingIron] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 Base.Garbagebag,
+        }
+    }
+
+    craftRecipe UO_MakeSawBladeInStoneRaw
+    {
+        timedAction = Making_Surface,
+        time = 150,
+        Tags = InHandCraft,
+        category = Materials,
+
+        inputs
+        {
+            item 1 [UO.StoneBlankSaw],
+            item 4 [UO.MetalPiece],
+        }
+
+        outputs
+        {
+            item 1 UO.SawBladeInStoneRaw,
+        }
+    }
+
+    craftRecipe UO_TakeSawBlade
+    {
+        timedAction = Making_Surface,
+        time = 150,
+        Tags = InHandCraft,
+        category = Materials,
+
+        inputs
+        {
+            item 1 [UO.SawBladeInStone],
+        }
+
+        outputs
+        {
+            item 1 UO.SawBlade,
+            item 1 UO.StoneBlankSaw,
+        }
+    }
+
+    craftRecipe UO_MakeMetalPinInStoneRaw
+    {
+        timedAction = Making_Surface,
+        time = 150,
+        Tags = InHandCraft,
+        category = Materials,
+
+        inputs
+        {
+            item 1 [UO.StoneBlankPin],
+            item 1 [UO.MetalPiece],
+        }
+
+        outputs
+        {
+            item 1 UO.MetalPinInStoneRaw,
+        }
+    }
+
+    craftRecipe UO_TakeMetalPin
+    {
+        timedAction = Making_Surface,
+        time = 150,
+        Tags = InHandCraft,
+        category = Materials,
+
+        inputs
+        {
+            item 1 [UO.MetalPinInStone],
+        }
+
+        outputs
+        {
+            item 1 UO.MetalPin,
+            item 1 UO.StoneBlankPin,
+        }
+    }
+
+    craftRecipe UO_MakeScrewdriverTipInStoneRaw
+    {
+        timedAction = Making_Surface,
+        time = 150,
+        Tags = InHandCraft,
+        category = Materials,
+
+        inputs
+        {
+            item 1 [UO.StoneBlankScrewdriver],
+            item 2 [UO.MetalPiece],
+        }
+
+        outputs
+        {
+            item 1 UO.ScrewdriverTipInStoneRaw,
+        }
+    }
+
+    craftRecipe UO_TakeScrewdriverTip
+    {
+        timedAction = Making_Surface,
+        time = 150,
+        Tags = InHandCraft,
+        category = Materials,
+
+        inputs
+        {
+            item 1 [UO.ScrewdriverTipInStone],
+        }
+
+        outputs
+        {
+            item 1 UO.ScrewdriverTip,
+            item 1 UO.StoneBlankScrewdriver,
+        }
+    }
+
+    craftRecipe UO_MakeSmallSheetMetal2
+    {
+        timedAction = Making_Surface,
+        time = 150,
+        Tags = InHandCraft,
+        category = Materials,
+
+        inputs
+        {
+            item 1 [Base.SheetMetal],
+            item 1 tags[Hammer] mode:keep,
+            item 1 tags[SheetMetalSnips] mode:keep,
+            item 1 tags[HandMetalMechanism] mode:keep,
+        }
+
+        outputs
+        {
+            item 2 Base.SmallSheetMetal,
+        }
+    }
+
+    craftRecipe UO_MakeMetalSheetMold
+    {
+        timedAction = Making_Surface,
+        time = 150,
+        Tags = InHandCraft,
+        category = Materials,
+
+        inputs
+        {
+            item 8 [UO.MetalPiece],
+            item 1 [UO.ResinMold;UO.ClayMold;UO.CementMold] mappers[uosheetmoldraw],
+            item 1 tags[MasonsTrowel;PlasterTrowel] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 mapper:uosheetmoldraw,
+        }
+
+        itemMapper uosheetmoldraw
+        {
+            UO.MetalSheetResinRaw = UO.ResinMold,
+            UO.MetalSheetClayRaw = UO.ClayMold,
+            UO.MetalSheetCementRaw = UO.CementMold,
+        }
+    }
+
+    craftRecipe UO_TakeMetalSheetFromMold
+    {
+        timedAction = Making_Surface,
+        time = 150,
+        Tags = InHandCraft,
+        category = Materials,
+        OnCreate = UORECIPES.TakeMetalSheetFromMold,
+
+        inputs
+        {
+            item 1 [UO.MetalSheetResin;UO.MetalSheetClay;UO.MetalSheetCement] mappers[uosheetmold],
+            item 1 tags[MasonsTrowel;PlasterTrowel] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 Base.SheetMetal,
+            item 1 mapper:uosheetmold,
+        }
+
+        itemMapper uosheetmold
+        {
+            UO.ResinMold = UO.MetalSheetResin,
+            UO.ClayMold = UO.MetalSheetClay,
+            UO.CementMold = UO.MetalSheetCement,
+        }
+    }
+
+    craftRecipe UO_MakeMetalBar
+    {
+        timedAction = Making_Surface,
+        time = 150,
+        Tags = InHandCraft,
+        category = Materials,
+
+        inputs
+        {
+            item 1 [Base.SheetMetal],
+            item 1 tags[Hammer] mode:keep,
+            item 1 tags[HandMetalMechanism] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 Base.MetalBar,
+        }
+    }
+
+    craftRecipe UO_MakeMetalPipe
+    {
+        timedAction = Making_Surface,
+        time = 150,
+        Tags = InHandCraft,
+        category = Materials,
+
+        inputs
+        {
+            item 1 [Base.SmallSheetMetal],
+            item 1 tags[Hammer] mode:keep,
+            item 1 tags[HandMetalMechanism] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 Base.MetalPipe,
+        }
+    }
+
+    craftRecipe UO_MakeFiberMaterialPot
+    {
+        timedAction = MixingBowl,
+        time = 150,
+        Tags = InHandCraft,
+        category = Materials,
+
+        inputs
+        {
+            item 2 tags[Charcoal],
+            item 2 [UO.Resin],
+            item 2 [Base.RippedSheets],
+            item 1 [Base.Pot],
+        }
+
+        outputs
+        {
+            item 1 UO.FiberMaterialPot,
+        }
+    }
+
+    craftRecipe UO_TakeFiberMaterialFromPot
+    {
+        timedAction = Making_Surface,
+        time = 150,
+        Tags = InHandCraft,
+        category = Materials,
+
+        inputs
+        {
+            item 1 [UO.FiberMaterialPot],
+        }
+
+        outputs
+        {
+            item 2 UO.Charcoal,
+            item 2 UO.Resin,
+            item 2 Base.RippedSheets,
+            item 1 Base.Pot,
+        }
+    }
+
+    craftRecipe UO_TakeCarbonFiberFromPot
+    {
+        timedAction = MixingBowl,
+        time = 150,
+        Tags = InHandCraft,
+        category = Materials,
+
+        inputs
+        {
+            item 1 [UO.CarbonFiberPot],
+            item 1 tags[Hammer] mode:keep,
+            item 1 tags[SharpKnife] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 UO.CarbonFiber,
+            item 1 Base.Pot,
+        }
+    }
+
+    craftRecipe UO_MakeCarbonMesh
+    {
+        timedAction = MixingBowl,
+        time = 300,
+        Tags = InHandCraft,
+        category = Materials,
+
+        inputs
+        {
+            item 4 [UO.CarbonFiber],
+            item 2 [UO.Resin],
+            item 1 [Base.Pot] mode:keep,
+            item 1 tags[Pliers] mode:keep,
+            item 1 tags[SharpKnife] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 UO.CarbonMesh,
+        }
+    }
+
+    craftRecipe UO_MakeCarbonMetal
+    {
+        timedAction = MixingBowl,
+        time = 300,
+        Tags = AdvancedForge,
+        category = Materials,
+        xpAward = Blacksmith:20,
+
+        inputs
+        {
+            item 4 [Base.SheetMetal],
+            item 12 [UO.CarbonFiber],
+            item 4 [UO.Resin],
+            item 1 tags[Hammer] mode:keep,
+            item 1 tags[MetalworkingPliers] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 UO.CarbonMetal,
+        }
+    }
+
+    craftRecipe UO_MakeGunPowder
+    {
+        timedAction = MixingMortarPestle,
+        time = 300,
+        Tags = InHandCraft,
+        category = Materials,
+        xpAward = Doctor:10,
+
+        inputs
+        {
+            item 3 tags[Charcoal],
+            item 3 [UO.Resin],
+            item 1 [*],
+            -fluid 0.75 [Petrol],
+            item 4 [UO.Oxidizer],
+            item 1 tags[MixingKit] mode:keep,
+        }
+
+        outputs
+        {
+            item 3 Base.GunPowder,
+        }
+    }
+
+    craftRecipe UO_RefillPropaneTank
+    {
+        timedAction = Welding_Surface,
+        time = 450,
+        Tags = InHandCraft,
+        category = Materials,
+        OnCreate = UORECIPES.MakeInputFullByFlagNotFull,
+
+        inputs
+        {
+            item 1 [Base.PropaneTank] flags[NotFull;ItemCount;DontReplace],
+            item 1 tags[Charcoal],
+            item 1 [*],
+            -fluid 1.0 [Petrol],
+            item 1 tags[Pliers] mode:keep,
+            item 1 [Base.MetalPipe;Base.Pipe;Base.LeadPipe] mode:keep,
+        }
+
+        outputs
+        {
+        }
+    }
+
+    craftRecipe UO_MakeTirePiece
+    {
+        timedAction = MixingMortarPestle,
+        time = 300,
+        Tags = InHandCraft,
+        category = Materials,
+
+        inputs
+        {
+            item 4 [Base.RippedSheets],
+            item 2 tags[Charcoal],
+            item 2 [UO.Resin],
+            item 1 tags[MixingKit] mode:keep,
+        }
+
+        outputs
+        {
+            item 2 Base.TirePiece,
+        }
+    }
+
+    craftRecipe UO_MakeRope
+    {
+        timedAction = CutClothing,
+        time = 300,
+        Tags = AnySurfaceCraft,
+        category = Materials,
+
+        inputs
+        {
+            item 3 [Base.Nettles],
+            item 1 tags[SharpKnife] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 Base.Rope,
+        }
+    }
+
+    craftRecipe UO_MakeTarp
+    {
+        timedAction = CutClothing,
+        time = 500,
+        Tags = AnySurfaceCraft,
+        category = Materials,
+
+        inputs
+        {
+            item 6 [Base.RippedSheets],
+            item 1 [Base.Glue;2:UO.Resin],
+            item 1 [Base.Rope;2:Base.Twine],
+            item 1 tags[SharpKnife] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 Base.Tarp,
+        }
+    }
+
+    craftRecipe UO_MakeTwine
+    {
+        timedAction = CutClothing,
+        time = 300,
+        Tags = AnySurfaceCraft,
+        category = Materials,
+
+        inputs
+        {
+            item 3 [Base.SheetRope],
+            item 1 tags[SharpKnife] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 Base.Twine,
+        }
+    }
+
+    craftRecipe UO_MakeStoneBlankSaw
+    {
+        timedAction = CrushLimestone,
+        time = 150,
+        Tags = InHandCraft,
+        category = Materials,
+
+        inputs
+        {
+            item 1 [Base.Stone2],
+            item 1 [Base.SharpedStone] mode:keep,
+            item 1 tags[HammerStone;Hammer] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 UO.StoneBlankSaw,
+        }
+    }
+
+    craftRecipe UO_MakeStoneBlankScrewdriver
+    {
+        timedAction = CrushLimestone,
+        time = 150,
+        Tags = InHandCraft,
+        category = Materials,
+
+        inputs
+        {
+            item 1 [Base.Stone2],
+            item 1 [Base.SharpedStone] mode:keep,
+            item 1 tags[HammerStone;Hammer] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 UO.StoneBlankScrewdriver,
+        }
+    }
+
+    craftRecipe UO_MakeStoneBlankPin
+    {
+        timedAction = CrushLimestone,
+        time = 150,
+        Tags = InHandCraft,
+        category = Materials,
+
+        inputs
+        {
+            item 1 [Base.Stone2],
+            item 1 [Base.SharpedStone] mode:keep,
+            item 1 tags[HammerStone;Hammer] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 UO.StoneBlankPin,
+        }
+    }
+
+    craftRecipe UO_MakeFlint
+    {
+        timedAction = CrushLimestone,
+        time = 150,
+        Tags = InHandCraft,
+        category = Materials,
+
+        inputs
+        {
+            item 1 [Base.Stone2],
+            item 1 [Base.SharpedStone] mode:keep,
+            item 1 tags[HammerStone;Hammer] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 UO.Flint,
         }
     }
 }

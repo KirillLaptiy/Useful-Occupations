@@ -16,6 +16,7 @@ module UO {
         StaticModel = StimulantDrops,
         WorldStaticModel = StimulantDrops,
         Tags = Pills;UOPills,
+        Tooltip = Tooltip_item_stimulant_drops,
     }
 
 	item StimulantDropsPlus
@@ -31,5 +32,6 @@ module UO {
         StaticModel = StimulantDropsPlus,
         WorldStaticModel = StimulantDropsPlus,
         Tags = Pills;UOPills,
+        Tooltip = Tooltip_item_stimulant_drops_plus,
     }
 }
