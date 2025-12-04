@@ -203,7 +203,7 @@ local PersonalTraits = {
 		desc = getText("UI_trait_BurglarDesc"),
 		---@class PersonalTraits.Burglar.xpBoosts
 		xpBoosts = {
-			{ perk = Perks.Sneak, level = 3 },
+			{ perk = Perks.Sneak, level = 1 },
 		},
 		---@class PersonalTraits.Burglar.freeRecipes
 		freeRecipes = {},
@@ -313,7 +313,9 @@ local PersonalTraits = {
 		name = getText("UI_trait_Inconspicuous"),
 		desc = getText("UI_trait_InconspicuousDesc"),
 		---@class PersonalTraits.Inconspicuous.xpBoosts
-		xpBoosts = {},
+		xpBoosts = {
+			{ perk = Perks.Sneak, level = 2 },
+		},
 		---@class PersonalTraits.Inconspicuous.freeRecipes
 		freeRecipes = {},
 		---@class PersonalTraits.Inconspicuous.values
@@ -914,7 +916,7 @@ local PersonalTraits = {
 		xpBoosts = {
 			{ perk = Perks.Woodwork, level = 3 },
 			{ perk = Perks.Masonry, level = 3 },
-			{ perk = Perks.MetalWelding, level = 3 },
+			{ perk = Perks.MetalWelding, level = 1 },
 		},
 
 		---@class PersonalTraits.Builder.freeRecipes
@@ -950,6 +952,7 @@ local PersonalTraits = {
 		---@class PersonalTraits.Mechanic.xpBoosts
 		xpBoosts = {
 			{ perk = Perks.Mechanics, level = 3 },
+			{ perk = Perks.MetalWelding, level = 2 },
 		},
 
 		---@class PersonalTraits.Mechanic.freeRecipes
