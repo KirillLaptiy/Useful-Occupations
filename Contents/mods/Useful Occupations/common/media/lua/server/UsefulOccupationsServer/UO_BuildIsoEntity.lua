@@ -244,10 +244,6 @@ function ISBuildIsoEntity:setInfo(square, north, sprite, openSprite)
 		end
 	end
 
-	if self.name == "CoolWall" then
-		-- totalHealth = math.huge
-	end
-
 	thumpable:setMaxHealth(totalHealth)
 	thumpable:setHealth(thumpable:getMaxHealth())
 

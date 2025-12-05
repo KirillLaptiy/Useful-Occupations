@@ -13,7 +13,7 @@ UOOnGameBoot = {}
 
 local addUsefulTraits = function()
 	-- Clear vanilla traits
-	TraitFactory.Reset()
+	-- TraitFactory.Reset()
 
 	-- Set trait params
 	---@param trait Trait

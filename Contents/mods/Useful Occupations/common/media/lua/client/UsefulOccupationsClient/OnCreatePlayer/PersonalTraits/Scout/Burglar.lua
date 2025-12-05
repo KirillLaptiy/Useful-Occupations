@@ -133,13 +133,13 @@ UsefulOccupations.DoTraitsOnCreatePlayer.Burglar = function(_)
 		local lockpick = tryGetLockpick(playerObj)
 
 		if door and not hasDoorKey(playerObj, door) then
-			local lockpickingOpt = context:addOption("Lockpicking")
+			local lockpickingOpt = context:addOption(getText("ContextMenu_Lockpicking"))
 			local lockpickingMenu = context:getNew(context)
 
 			context:addSubMenu(lockpickingOpt, lockpickingMenu)
 
 			local pickLock = lockpickingMenu:addOption(
-				getText("PickLock"),
+				getText("ContextMenu_PickLock"),
 				worldobjects,
 				lockpickDoor,
 				playerObj,
@@ -149,7 +149,7 @@ UsefulOccupations.DoTraitsOnCreatePlayer.Burglar = function(_)
 			)
 
 			local relock = lockpickingMenu:addOption(
-				getText("Relock"),
+				getText("ContextMenu_Relock"),
 				worldobjects,
 				lockpickDoor,
 				playerObj,
@@ -260,7 +260,7 @@ UsefulOccupations.DoTraitsOnCreatePlayer.Burglar = function(_)
 			if not hasVehicleKey then
 				if vehicleDoor:isLocked() then
 					menu:addSlice(
-						getText("ContextMenu_Lockpick_door"),
+						getText("ContextMenu_PickLock"),
 						getTexture("media/ui/vehicles/vehicle_lockdoors.png"),
 						lockpickVehicleDoor,
 						playerObj,
@@ -271,7 +271,7 @@ UsefulOccupations.DoTraitsOnCreatePlayer.Burglar = function(_)
 					)
 				else
 					menu:addSlice(
-						getText("ContextMenu_Relock_door"),
+						getText("ContextMenu_Relock"),
 						getTexture("media/ui/vehicles/vehicle_lockdoors.png"),
 						lockpickVehicleDoor,
 						playerObj,

@@ -80,7 +80,7 @@ local createErrorTooltip = function(option, message)
 end
 
 local addProcessAlarmOptions = function(context, worldobjects, playerObj, obj, alarmController, buildingDef)
-	local buildingAlarmOpt = context:addOption("Alarm control")
+	local buildingAlarmOpt = context:addOption(getText("ContextMenu_AlarmControl"))
 	local buildingAlarmMenu = context:getNew(context)
 
 	context:addSubMenu(buildingAlarmOpt, buildingAlarmMenu)
@@ -98,7 +98,7 @@ local addProcessAlarmOptions = function(context, worldobjects, playerObj, obj, a
 	)
 
 	local disable = buildingAlarmMenu:addOption(
-		getText("Disable alarm"),
+		getText("ContextMenu_DisableAlarm"),
 		worldobjects,
 		processBuildingAlarm,
 		playerObj,
@@ -110,7 +110,7 @@ local addProcessAlarmOptions = function(context, worldobjects, playerObj, obj, a
 	)
 
 	local enable = buildingAlarmMenu:addOption(
-		getText("Enable alarm"),
+		getText("ContextMenu_EnableAlarm"),
 		worldobjects,
 		processBuildingAlarm,
 		playerObj,

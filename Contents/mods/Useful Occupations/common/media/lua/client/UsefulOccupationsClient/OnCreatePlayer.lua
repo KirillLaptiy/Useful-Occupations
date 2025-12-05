@@ -80,7 +80,14 @@ Events.OnCreatePlayer.Add(function(playerNum, player)
 
 	-- SPM
 	if profession == professions.SPM.type and modData.gotSPMKit == false then
-		inventory:AddItem("Base.SmallSaw")
+		local toolbox = inventory:AddItem("Base.Toolbox")
+		---@diagnostic disable-next-line: undefined-field
+		local container = toolbox:getItemContainer()
+
+		container:AddItems("UO.MetalPiece", 10)
+		container:AddItems("Base.SmallSaw", 1)
+		container:AddItems("Base.Hammer", 1)
+
 		modData.gotSPMKit = true
 	end
 end)

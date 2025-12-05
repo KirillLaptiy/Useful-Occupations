@@ -32,10 +32,7 @@ local initProfessions = function()
 			},
 
 			---@class Profession.Unemployed.xpBoosts
-			xpBoosts = {
-				{ perk = Perks.Strength, level = -2 },
-				{ perk = Perks.Fitness, level = -2 },
-			},
+			xpBoosts = {},
 		},
 
 		---@class Profession.Scout
