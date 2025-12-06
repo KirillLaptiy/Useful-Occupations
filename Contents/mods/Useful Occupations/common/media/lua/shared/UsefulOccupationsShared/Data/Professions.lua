@@ -73,8 +73,8 @@ local initProfessions = function()
 			---@class Profession.Veteran.traits
 			traits = {
 				UsefulOccupations.PersonalTraits.Marksman,
-				UsefulOccupations.PersonalTraits.Stout,
-				UsefulOccupations.PersonalTraits.Fit,
+				UsefulOccupations.PersonalTraits.Stout_Personal,
+				UsefulOccupations.PersonalTraits.Fit_Personal,
 				UsefulOccupations.PersonalTraits.NightOwl,
 				UsefulOccupations.PersonalTraits.Desensitized,
 				UsefulOccupations.PersonalTraits.EnduranceSecret,

@@ -21,7 +21,16 @@ option UO.Wunderkind.lastBooksMultiplierLevel
 	page = UO, translation = UO.Wunderkind.lastBooksMultiplierLevel,
 }
 
-
+option UO.Profession_Scout
+{
+	type = boolean, default = false,
+	page = UO, translation = UO.Profession_Scout,
+}
+option UO.ScoutStartKit
+{
+	type = boolean, default = true,
+	page = UO, translation = UO.ScoutStartKit,
+}
 option UO.ScoutSkills
 {
 	type = boolean, default = false,
@@ -618,6 +627,16 @@ option UO.Invincible.perkCooldownEffectsStartPercent
 }
 
 
+option UO.Profession_SPM
+{
+	type = boolean, default = false,
+	page = UO, translation = UO.Profession_SPM,
+}
+option UO.SPMStartKit
+{
+	type = boolean, default = true,
+	page = UO, translation = UO.SPMStartKit,
+}
 option UO.Engineer
 {
 	type = boolean, default = false,

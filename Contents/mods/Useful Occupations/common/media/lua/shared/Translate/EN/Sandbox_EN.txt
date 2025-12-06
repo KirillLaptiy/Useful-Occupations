@@ -6,6 +6,8 @@ Sandbox_EN = {
     Sandbox_UO.Wunderkind.booksMultiplier = "Books Multiplier",
     Sandbox_UO.Wunderkind.lastBooksMultiplierLevel = "Last Books Multiplier Level",
 
+    Sandbox_UO.Profession_Scout = "Scout",
+    Sandbox_UO.ScoutStartKit = "Scout starter kit",
     Sandbox_UO.ScoutSkills = "Scout Skills",
     Sandbox_UO.ScoutSkills.maxWalkTime = "Max Walk Time",
     Sandbox_UO.ScoutSkills.msToCall = "Ms To Call",
@@ -133,6 +135,8 @@ Sandbox_EN = {
     Sandbox_UO.Invincible.perkCooldownTime = "Perk Cooldown Time",
     Sandbox_UO.Invincible.perkCooldownEffectsStartPercent = "Perk Cooldown Effects Start Percent",
 
+    Sandbox_UO.Profession_SPM = "Special Purpose Master",
+    Sandbox_UO.SPMStartKit = "SPM starter kit",
     Sandbox_UO.Engineer = "Engineer",
     Sandbox_UO.Engineer.craftRecipesTRP = "Craft Recipes TRP",
     Sandbox_UO.Engineer.craftRecipesTRPPerLvl = "Craft Recipes TRP Per Lvl",

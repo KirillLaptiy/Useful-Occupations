@@ -11,6 +11,33 @@
 ---@class UOOnGameBoot
 UOOnGameBoot = {}
 
+local scoutSkillsType = UsefulOccupations.PersonalTraits.ScoutSkills.type
+local enduranceSecretType = UsefulOccupations.PersonalTraits.EnduranceSecret.type
+local engineerType = UsefulOccupations.PersonalTraits.Engineer.type
+
+---@param xpHashMap HashMap
+local isTraitForbidden = function(xpHashMap)
+	-- Allowed all traits without xp boosts
+	if xpHashMap:isEmpty() then
+		return false
+	end
+
+	local s = tostring(xpHashMap):trim()
+
+	s = s:sub(2, #s - 1)
+
+	-- Forbidden all traits with positive xp boosts
+	for _, value in s:gmatch("(%w+)%s*=%s*([%-]?%d+)") do
+		value = tonumber(value)
+
+		if value > 0 then
+			return true
+		end
+	end
+
+	return false
+end
+
 local addUsefulTraits = function()
 	-- Clear vanilla traits
 	-- TraitFactory.Reset()
@@ -30,37 +57,78 @@ local addUsefulTraits = function()
 		end
 	end
 
-	-- Add non-personal traits
-	---@param traitData UsefulOccupations.Trait
-	for _, traitData in pairs(UsefulOccupations.Traits) do
-		local trait = TraitFactory.addTrait(traitData.type, traitData.name, traitData.cost, traitData.desc, false)
-		setTraitParams(trait, traitData)
-	end
-
 	-- Add personal traits
 	---@param traitData UsefulOccupations.PersonalTrait
 	for _, traitData in pairs(UsefulOccupations.PersonalTraits) do
+		-- Table to save vanilla mutual exclusives before new trait will added
+		local vanillaMutualExclusives = {}
+
+		-- Get vanilla mutual exclusives
+		local traits = TraitFactory.getTraits()
+
+		local vanillaMEType = traitData.type
+
+		-- Also effect decoration traits as their vanilla variants
+		for _, trait in pairs(UsefulOccupations.DecorationTraits) do
+			if vanillaMEType == trait.originalTraitType then
+				vanillaMEType = trait.decorationTraitType
+			end
+		end
+
+		for i = 0, traits:size() - 1 do
+			---@type Trait
+			local vanillaTrait = traits:get(i)
+
+			if vanillaTrait:getType() == vanillaMEType then
+				local mutualExclusives = vanillaTrait:getMutuallyExclusiveTraits()
+
+				for h = 0, mutualExclusives:size() - 1 do
+					table.insert(vanillaMutualExclusives, mutualExclusives:get(h))
+				end
+			end
+		end
+
+		-- Add trait
 		local trait = TraitFactory.addTrait(traitData.type, traitData.name, 0, traitData.desc, true)
+
+		-- Set params
 		setTraitParams(trait, traitData)
+
+		-- Set mutual exclusives
+		-- Set vanilla mutual exclusives
+		for _, vanillaMExclusive in pairs(vanillaMutualExclusives) do
+			TraitFactory.setMutualExclusive(traitData.type, vanillaMExclusive)
+		end
+
+		-- Set trait data mutual exclusives
+		for _, mExclusive in pairs(traitData.mutualExclusives) do
+			TraitFactory.setMutualExclusive(traitData.type, mExclusive)
+		end
+
+		-- Set description
+		BaseGameCharacterDetails.SetTraitDescription(trait)
 	end
 
-	-- Add mutual exclusives
-	---@param mutualExclusive UsefulOccupations.MutualExclusive
-	for _, mutualExclusive in pairs(UsefulOccupations.MutualExclusives) do
-		for _, value in pairs(mutualExclusive.values) do
-			TraitFactory.setMutualExclusive(mutualExclusive.key.type, value.type)
+	-- Set mutual exclusives for profession (by one of the profession's trait)
+	local traits = TraitFactory.getTraits()
+
+	for i = 0, traits:size() - 1 do
+		---@type Trait
+		local trait = traits:get(i)
+
+		local traitForbidden = isTraitForbidden(trait:getXPBoostMap())
+
+		if traitForbidden and not trait:isFree() then
+			local traitType = trait:getType()
+
+			TraitFactory.setMutualExclusive(scoutSkillsType, traitType)
+			TraitFactory.setMutualExclusive(enduranceSecretType, traitType)
+			TraitFactory.setMutualExclusive(engineerType, traitType)
 		end
 	end
 
 	-- Sort traits
 	TraitFactory.sortList()
-
-	-- Set description for each trait
-	local traitList = TraitFactory.getTraits()
-	for i = 1, traitList:size() do
-		local trait = traitList:get(i - 1)
-		BaseGameCharacterDetails.SetTraitDescription(trait)
-	end
 end
 
 UOOnGameBoot.addUsefulProfessions = function()

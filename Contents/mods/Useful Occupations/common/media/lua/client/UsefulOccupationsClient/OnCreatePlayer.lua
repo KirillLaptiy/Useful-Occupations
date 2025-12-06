@@ -8,6 +8,21 @@
 *
 ]]
 
+local scoutStartKitStr = "UO.ScoutStartKit"
+local spmStartKitStr = "UO.SPMStartKit"
+
+local opts = SandboxOptions:getInstance()
+
+local getSandboxValue = function(value)
+	local option = opts:getOptionByName(value)
+
+	if not option then
+		error("OPTION WITH NAME" .. " " .. value .. " " .. "NOT FOUND")
+	end
+
+	return option:asConfigOption():getValueAsObject()
+end
+
 Events.OnCreatePlayer.Add(function(playerNum, player)
 	local professions = UsefulOccupations.Professions
 
@@ -27,9 +42,13 @@ Events.OnCreatePlayer.Add(function(playerNum, player)
 
 		-- Add vanilla traits from they decorations
 		for _, trait in pairs(UsefulOccupations.DecorationTraits) do
-			if player:HasTrait(trait.decorationTrait.type) then
-				player:getTraits():add(trait.originalTrait.type)
-				player:getTraits():remove(trait.decorationTrait.type)
+			if player:HasTrait(trait.originalTraitType) then
+				player:getTraits():remove(trait.originalTraitType)
+
+				-- Avoids double trait cases (like fit and stout traits)
+				if not player:HasTrait(trait.decorationTraitType) then
+					player:getTraits():add(trait.decorationTraitType)
+				end
 			end
 		end
 	end
@@ -71,22 +90,28 @@ Events.OnCreatePlayer.Add(function(playerNum, player)
 	local profession = player:getDescriptor():getProfession()
 	local inventory = player:getInventory()
 
+	local scoutKitEnabled = getSandboxValue(scoutStartKitStr)
+	local spmKitEnabled = getSandboxValue(spmStartKitStr)
+
 	-- Scout
-	-- Give the player a lockpick for the first time
-	if profession == professions.Scout.type and modData.gotScoutKit == false then
+	if scoutKitEnabled and profession == professions.Scout.type and modData.gotScoutKit == false then
 		inventory:AddItem("UO.Lockpick")
 		modData.gotScoutKit = true
 	end
 
 	-- SPM
-	if profession == professions.SPM.type and modData.gotSPMKit == false then
+	if spmKitEnabled and profession == professions.SPM.type and modData.gotSPMKit == false then
 		local toolbox = inventory:AddItem("Base.Toolbox")
 		---@diagnostic disable-next-line: undefined-field
 		local container = toolbox:getItemContainer()
 
-		container:AddItems("UO.MetalPiece", 10)
 		container:AddItems("Base.SmallSaw", 1)
-		container:AddItems("Base.Hammer", 1)
+		container:AddItems("Base.Screwdriver", 1)
+		container:AddItems("Base.Needle", 1)
+		container:AddItems("Base.TinOpener", 1)
+		container:AddItems("Base.Scissors", 1)
+		container:AddItems("Base.PillsVitamins", 1)
+		container:AddItems("Base.PillsSleepingTablets", 1)
 
 		modData.gotSPMKit = true
 	end

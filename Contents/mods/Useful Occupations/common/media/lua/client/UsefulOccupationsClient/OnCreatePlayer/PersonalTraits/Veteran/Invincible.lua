@@ -527,3 +527,45 @@ UsefulOccupations.DoTraitsOnCreatePlayer.Invincible = function(player)
 
 	UsefulOccupations.Functions.processEveryMs(1000, processPerkState)
 end
+
+local isSprinting = false
+
+---@param character IsoGameCharacter
+---@param collidedCharacter IsoZombie
+Events.OnCharacterCollide.Add(function(character, collidedCharacter)
+	local player = getPlayer()
+
+	if character ~= player or not collidedCharacter:isZombie() or collidedCharacter:isKnockedDown() then
+		return
+	end
+
+	local running = character:isRunning() or character:isSprinting()
+
+	if running == true and collidedCharacter:isZombie() == true then
+
+		collidedCharacter:setKnockedDown(true)
+		collidedCharacter:setStaggerBack(true)
+		collidedCharacter:setBecomeCrawler(true)
+	end
+end)
+
+Events.OnTick.Add(function(_)
+	local player = getPlayer()
+
+	if player:isBumped() then
+		if player:isSprinting() then
+			isSprinting = true
+		end
+
+		player:setBumpFall(false)
+		player:setBumpStaggered(false)
+	end
+
+	if isSprinting then
+		isSprinting = false
+
+		UsefulOccupations.Functions.processAfterDelay(50, function()
+			player:setForceSprint(true)
+		end)
+	end
+end)

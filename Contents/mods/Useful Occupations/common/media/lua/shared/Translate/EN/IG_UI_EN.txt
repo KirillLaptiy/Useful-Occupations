@@ -12,4 +12,11 @@ IG_UI_EN = {
     IGUI_BuildingAlreadyWithoutAlarm = "Building already doen't have alarm",
     IGUI_BuildingAlarmAdded = "Alarm added",
     IGUI_BuildingAlarmRemoved = "Alarm removed"
+
+    -- Item's category
+    IGUI_ItemCat_StoneBlank = "StoneBlank",
+    IGUI_ItemCat_BladesAndTips = "BladesAndTips",
+    IGUI_ItemCat_Mold = "Mold",
+    IGUI_ItemCat_ArmorPlate = "ArmorPlate",
+    IGUI_ItemCat_MechanismPart = "MechanismPart",
 }

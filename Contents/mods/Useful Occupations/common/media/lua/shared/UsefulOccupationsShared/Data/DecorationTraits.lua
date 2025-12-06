@@ -16,8 +16,16 @@ local initDecorationTraits = function()
 	---@class UsefulOccupations.DecorationTraits
 	local decorationTraits = {
 		{
-			originalTrait = UsefulOccupations.PersonalTraits.NightVision_Personal,
-			decorationTrait = UsefulOccupations.Traits.NightVision,
+			originalTraitType = UsefulOccupations.PersonalTraits.NightVision_Personal.type,
+			decorationTraitType = "NightVision",
+		},
+		{
+			originalTraitType = UsefulOccupations.PersonalTraits.Fit_Personal.type,
+			decorationTraitType = "Fit",
+		},
+		{
+			originalTraitType = UsefulOccupations.PersonalTraits.Stout_Personal.type,
+			decorationTraitType = "Stout",
 		},
 	}
 

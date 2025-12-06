@@ -8,7 +8,7 @@
 *
 ]]
 
----@alias UsefulOccupations.AnyTrait UsefulOccupations.Trait | UsefulOccupations.PersonalTrait
+---@alias UsefulOccupations.AnyTrait UsefulOccupations.PersonalTrait
 
 -- Static data
 ---@class UsefulOccupations.XpBoost
@@ -52,10 +52,8 @@
 ---@field InventoryItemsStatsHandler UsefulOccupations.InventoryItemsStatsHandler
 ---@field MovementSpeedValues UsefulOccupations.MovementSpeedValues
 ---@field ModData UsefulOccupations.ModData
----@field Traits UsefulOccupations.Traits
 ---@field PersonalTraits UsefulOccupations.PersonalTraits
 ---@field DecorationTraits UsefulOccupations.DecorationTraits
----@field MutualExclusives UsefulOccupations.MutualExclusives
 ---@field Professions UsefulOccupations.Professions
 ---@field Functions UsefulOccupations.Functions
 
@@ -71,16 +69,12 @@ UsefulOccupations = {
 	InventoryItemsStatsHandler = {},
 	MovementSpeedValues = require("UsefulOccupationsShared/Data/MovementSpeedValues"),
 	ModData = require("UsefulOccupationsShared/Data/ModData"),
-	Traits = require("UsefulOccupationsShared/Data/Traits"),
 	PersonalTraits = require("UsefulOccupationsShared/Data/PersonalTraits"),
 	Functions = require("UsefulOccupationsShared/Data/Functions"),
 }
 
 ---@type UsefulOccupations.DecorationTraits
 UsefulOccupations.DecorationTraits = require("UsefulOccupationsShared/Data/DecorationTraits")()
-
----@type UsefulOccupations.MutualExclusives
-UsefulOccupations.MutualExclusives = require("UsefulOccupationsShared/Data/MutualExclusives")()
 
 ---@type UsefulOccupations.Professions
 UsefulOccupations.Professions = require("UsefulOccupationsShared/Data/Professions")()

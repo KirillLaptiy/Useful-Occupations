@@ -15,6 +15,7 @@
 ---@field xpBoosts UsefulOccupations.XpBoost[]
 ---@field freeRecipes string[]
 ---@field values table<string, any>
+---@field mutualExclusives table<string>
 
 ----@class UsefulOccupations.PersonalTraits
 ----@field Wunderkind UsefulOccupations.PersonalTrait
@@ -34,7 +35,7 @@ local getSandboxValue = function(value)
 		local option = opts:getOptionByName(value)
 
 		if not option then
-			error("OPTION WITH NAME" .. value .. "NOT FOUND")
+			error("OPTION WITH NAME" .. " " .. value .. " " .. "NOT FOUND")
 		end
 
 		return option:asConfigOption():getValueAsObject()
@@ -51,8 +52,8 @@ local PersonalTraits = {
 	---@class PersonalTraits.Wunderkind
 	Wunderkind = {
 		type = "Wunderkind",
-		name = getText("UI_trait_wunderkind"),
-		desc = getText("UI_trait_wunderkind_desc"),
+		name = getText("UI_trait_Wunderkind"),
+		desc = getText("UI_trait_WunderkindDesc"),
 		---@class PersonalTraits.Wunderkind.xpBoosts
 		xpBoosts = {},
 		---@class PersonalTraits.Wunderkind.freeRecipes
@@ -66,6 +67,8 @@ local PersonalTraits = {
 			-- set's last level for active book's multiplier
 			lastBooksMultiplierLevel = getSandboxValue("UO.Wunderkind.lastBooksMultiplierLevel"),
 		},
+		---@class PersonalTraits.Wunderkind.MutualExclusives
+		mutualExclusives = {},
 	},
 
 	-------------------------------------------------------------------------------
@@ -76,8 +79,8 @@ local PersonalTraits = {
 	---@class PersonalTraits.ScoutSkills
 	ScoutSkills = {
 		type = "ScoutSkills",
-		name = getText("UI_trait_scoutskills"),
-		desc = getText("UI_trait_scoutskills_desc"),
+		name = getText("UI_trait_ScoutSkills"),
+		desc = getText("UI_trait_ScoutSkillsDesc"),
 		---@class PersonalTraits.ScoutSkills.xpBoosts
 		xpBoosts = {
 			{ perk = Perks.PlantScavenging, level = 3 },
@@ -123,6 +126,10 @@ local PersonalTraits = {
 			-- Time (msToCall) to reach max thirst reduce percent
 			thirstTimeToMax = getSandboxValue("UO.ScoutSkills.thirstTimeToMax"),
 		},
+		---@class PersonalTraits.ScoutSkills.MutualExclusives
+		mutualExclusives = {
+			"Illiterate",
+		},
 	},
 
 	---@class PersonalTraits.Axeman
@@ -141,6 +148,8 @@ local PersonalTraits = {
 			-- Endurance use modifier when chopping tree
 			enduranceUseModifier = getSandboxValue("UO.Axeman.enduranceUseModifier"),
 		},
+		---@class PersonalTraits.Axeman.MutualExclusives
+		mutualExclusives = {},
 	},
 
 	---@class PersonalTraits.Organized
@@ -157,6 +166,8 @@ local PersonalTraits = {
 			-- Sets how much the strength will affect the character's carrying capacity
 			strengthBonusCarrying = getSandboxValue("UO.Organized.strengthBonusCarrying"),
 		},
+		---@class PersonalTraits.Organized.MutualExclusives
+		mutualExclusives = {},
 	},
 
 	---@class PersonalTraits.NightVision_Personal
@@ -170,6 +181,8 @@ local PersonalTraits = {
 		freeRecipes = {},
 		---@class PersonalTraits.NightVision_Personal.values
 		values = {},
+		---@class PersonalTraits.NightVision_Personal.MutualExclusives
+		mutualExclusives = { "NightVision" },
 	},
 
 	---@class PersonalTraits.Outdoorsman
@@ -194,6 +207,8 @@ local PersonalTraits = {
 			washClothesTRP = getSandboxValue("UO.Outdoorsman.washClothesTRP"),
 			washYourselfTRP = getSandboxValue("UO.Outdoorsman.washYourselfTRP"),
 		},
+		---@class PersonalTraits.Outdoorsman.MutualExclusives
+		mutualExclusives = {},
 	},
 
 	---@class PersonalTraits.Burglar
@@ -214,6 +229,8 @@ local PersonalTraits = {
 			-- This is how much the lockpicking time is reduced for each sneak level
 			reduceDoorLockpickingTime = getSandboxValue("UO.Burglar.reduceDoorLockpickingTime"),
 		},
+		---@class PersonalTraits.Outdoorsman.MutualExclusives
+		mutualExclusives = {},
 	},
 
 	---@class PersonalTraits.Graceful
@@ -305,6 +322,8 @@ local PersonalTraits = {
 			-- Weight Multiplier for worn clothing (0.25 - 75% reduce)
 			clothingWeightReducePercent = getSandboxValue("UO.Graceful.clothingWeightReducePercent"),
 		},
+		---@class PersonalTraits.Graceful.MutualExclusives
+		mutualExclusives = {},
 	},
 
 	---@class PersonalTraits.Inconspicuous
@@ -326,6 +345,8 @@ local PersonalTraits = {
 			sprintingBonusMult = getSandboxValue("UO.Inconspicuous.sprintingBonusMult"),
 			defaultBonusMult = getSandboxValue("UO.Inconspicuous.defaultBonusMult"),
 		},
+		---@class PersonalTraits.Inconspicuous.MutualExclusives
+		mutualExclusives = {},
 	},
 
 	---@class PersonalTraits.Dextrous
@@ -343,6 +364,8 @@ local PersonalTraits = {
 			-- Additional percent to reduce the transfer time
 			inventoryTransferTRP = getSandboxValue("UO.Dextrous.inventoryTransferTRP"),
 		},
+		---@class PersonalTraits.Dextrous.MutualExclusives
+		mutualExclusives = {},
 	},
 
 	---@class PersonalTraits.Gymnast
@@ -356,6 +379,8 @@ local PersonalTraits = {
 		freeRecipes = {},
 		---@class PersonalTraits.Gymnast.values
 		values = {},
+		---@class PersonalTraits.Gymnast.MutualExclusives
+		mutualExclusives = {},
 	},
 
 	-------------------------------------------------------------------------------
@@ -408,36 +433,42 @@ local PersonalTraits = {
 			-- Bonus mult to reduce the chance of breaking ranged weapons
 			conditionLowerChanceMult = getSandboxValue("UO.Marksman.conditionLowerChanceMult"),
 		},
+		---@class PersonalTraits.Marksman.MutualExclusives
+		mutualExclusives = {},
 	},
 
 	---@class PersonalTraits.Stout
-	Stout = {
-		type = "Stout",
+	Stout_Personal = {
+		type = "Stout_Personal",
 		name = getText("UI_trait_stout"),
 		desc = getText("UI_trait_stoutdesc"),
-		---@class PersonalTraits.Strong.xpBoosts
+		---@class PersonalTraits.Stout_Personal.xpBoosts
 		xpBoosts = {
 			{ perk = Perks.Strength, level = 2 },
 		},
-		---@class PersonalTraits.Strong.freeRecipes
+		---@class PersonalTraits.Stout_Personal.freeRecipes
 		freeRecipes = {},
-		---@class PersonalTraits.Strong.values
+		---@class PersonalTraits.Stout_Personal.values
 		values = {},
+		---@class PersonalTraits.Stout_Personal.MutualExclusives
+		mutualExclusives = { "Stout" },
 	},
 
-	---@class PersonalTraits.Fit
-	Fit = {
-		type = "Fit",
+	---@class PersonalTraits.Fit_Personal
+	Fit_Personal = {
+		type = "Fit_Personal",
 		name = getText("UI_trait_fit"),
 		desc = getText("UI_trait_fitdesc"),
-		---@class PersonalTraits.Fit.xpBoosts
+		---@class PersonalTraits.Fit_Personal.xpBoosts
 		xpBoosts = {
 			{ perk = Perks.Fitness, level = 2 },
 		},
-		---@class PersonalTraits.Fit.freeRecipes
+		---@class PersonalTraits.Fit_Personal.freeRecipes
 		freeRecipes = {},
-		---@class PersonalTraits.Fit.values
+		---@class PersonalTraits.Fit_Personal.values
 		values = {},
+		---@class PersonalTraits.Fit_Personal.MutualExclusives
+		mutualExclusives = { "Fit" },
 	},
 
 	---@class PersonalTraits.NightOwl
@@ -451,6 +482,8 @@ local PersonalTraits = {
 		freeRecipes = {},
 		---@class PersonalTraits.NightOwl.values
 		values = {},
+		---@class PersonalTraits.NightOwl.MutualExclusives
+		mutualExclusives = {},
 	},
 
 	---@class PersonalTraits.Desensitized
@@ -471,6 +504,8 @@ local PersonalTraits = {
 			-- Maximum fatigue value (81 - third stage)
 			maxFatigue = getSandboxValue("UO.Desensitized.maxFatigue"),
 		},
+		---@class PersonalTraits.Desensitized.MutualExclusives
+		mutualExclusives = {},
 	},
 
 	---@class PersonalTraits.TrainedFighter
@@ -538,6 +573,8 @@ local PersonalTraits = {
 			-- Not scramble get up speed increase in percents
 			notScrambleGetUpSpeedDefault = getSandboxValue("UO.TrainedFighter.notScrambleGetUpSpeedDefault"),
 		},
+		---@class PersonalTraits.TrainedFighter.MutualExclusives
+		mutualExclusives = {},
 	},
 
 	---@class PersonalTraits.EnduranceSecret
@@ -558,6 +595,8 @@ local PersonalTraits = {
 			-- Additional percentage reduction per target perk lvl
 			spendPerkReduce = getSandboxValue("UO.EnduranceSecret.spendPerkReduce"),
 		},
+		---@class PersonalTraits.EnduranceSecret.MutualExclusives
+		mutualExclusives = { "Asthmatic" },
 	},
 
 	---@class PersonalTraits.Invincible
@@ -585,6 +624,8 @@ local PersonalTraits = {
 			-- (5%, 6 game hours by default)
 			perkCooldownEffectsStartPercent = getSandboxValue("UO.Invincible.perkCooldownEffectsStartPercent"),
 		},
+		---@class PersonalTraits.Invincible.MutualExclusives
+		mutualExclusives = {},
 	},
 
 	-------------------------------------------------------------------------------
@@ -904,6 +945,8 @@ local PersonalTraits = {
 			-- EMP_Grenade stun vertical radius (in tiles)
 			empStunVRadis = getSandboxValue("UO.Engineer.empStunVRadis"),
 		},
+		---@class PersonalTraits.Engineer.MutualExclusives
+		mutualExclusives = { "Illiterate" },
 	},
 
 	---@class PersonalTraits.Builder
@@ -941,6 +984,8 @@ local PersonalTraits = {
 			-- Bonus building capacity percent per lvl
 			buildingCapBonusPerLvl = getSandboxValue("UO.Builder.buildingCapBonusPerLvl"),
 		},
+		---@class PersonalTraits.Builder.MutualExclusives
+		mutualExclusives = {},
 	},
 
 	---@class PersonalTraits.Mechanic
@@ -1032,6 +1077,8 @@ local PersonalTraits = {
 			-- Bonus vehicle repairing percent per lvl
 			repairBonusPercentPerLvl = getSandboxValue("UO.Mechanic.repairBonusPercentPerLvl"),
 		},
+		---@class PersonalTraits.Mechanic.MutualExclusives
+		mutualExclusives = {},
 	},
 
 	---@class PersonalTraits.Doctor
@@ -1261,6 +1308,8 @@ local PersonalTraits = {
 			-- Additional multiplier for food quality per cooking lvl
 			hungModifierPerLvl = getSandboxValue("UO.Doctor.hungModifierPerLvl"),
 		},
+		---@class PersonalTraits.Doctor.MutualExclusives
+		mutualExclusives = {},
 	},
 }
 
