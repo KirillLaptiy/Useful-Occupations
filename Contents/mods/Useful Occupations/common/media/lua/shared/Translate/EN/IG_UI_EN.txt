@@ -1,0 +1,22 @@
+IG_UI_EN = {
+    IGUI_InconspicuousNoWeapon = "some monster fi",
+    IGUI_InconspicuousNeedNoZombies = "Need to go from zombies first",
+    IGUI_LockpickingDoorAlreadyLocked = "Door is already locked",
+    IGUI_LockpickingDoorAlreadyUnlocked = "Door is already unlocked",
+    IGUI_LockpickingWindowMustBeClosed = "Window must be closed",
+    IGUI_LockpickingWindowAlreadyLocked = "Window is already locked",
+    IGUI_LockpickingWindowAlreadyUnlocked = "Window is already unlocked",
+    IGUI_HasAlarm = "Building has alarm",
+    IGUI_NoAlarm = "Building doesn't have alarm",
+    IGUI_BuildingAlreadyHasAlarm = "Building already has alarm",
+    IGUI_BuildingAlreadyWithoutAlarm = "Building already doen't have alarm",
+    IGUI_BuildingAlarmAdded = "Alarm added",
+    IGUI_BuildingAlarmRemoved = "Alarm removed"
+
+    -- Item's category
+    IGUI_ItemCat_StoneBlank = "StoneBlank",
+    IGUI_ItemCat_BladesAndTips = "BladesAndTips",
+    IGUI_ItemCat_Mold = "Mold",
+    IGUI_ItemCat_ArmorPlate = "ArmorPlate",
+    IGUI_ItemCat_MechanismPart = "MechanismPart",
+}

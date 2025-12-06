@@ -1,0 +1,112 @@
+module UO {
+    craftRecipe UO_MakeKnifeBlade
+    {
+        timedAction = Making_Surface,
+        time = 300,
+        Tags = InHandCraft,
+        category = Blades,
+        xpAward = MetalWelding:10,
+
+        inputs
+        {
+            item 1 [Base.SmallSheetMetal],
+            item 1 [Base.Screws;UO.MetalPin],
+            item 1 tags[Whetstone] mode:keep,
+            item 1 tags[Hammer] mode:keep,
+            item 1 tags[HandMetalMechanism] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 UO.KnifeBlade,
+        }
+    }
+
+    craftRecipe UO_MakeAxeBlade
+    {
+        timedAction = Making_Surface,
+        time = 300,
+        Tags = InHandCraft,
+        category = Blades,
+        xpAward = MetalWelding:10,
+
+        inputs
+        {
+            item 1 [Base.SheetMetal],
+            item 2 [Base.Screws;UO.MetalPin],
+            item 1 tags[Whetstone] mode:keep,
+            item 1 tags[Hammer] mode:keep,
+            item 1 tags[HandMetalMechanism] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 UO.AxeBlade,
+        }
+    }
+
+    craftRecipe UO_MakeLargeTip
+    {
+        timedAction = Making_Surface,
+        time = 300,
+        Tags = InHandCraft,
+        category = Blades,
+        xpAward = MetalWelding:10,
+
+        inputs
+        {
+            item 1 [Base.SheetMetal],
+            item 2 [Base.Screws;UO.MetalPin],
+            item 1 tags[Hammer] mode:keep,
+            item 1 tags[HandMetalMechanism] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 UO.LargeTip,
+        }
+    }
+
+    craftRecipe UO_MakeSmallTip
+    {
+        timedAction = Making_Surface,
+        time = 300,
+        Tags = InHandCraft,
+        category = Blades,
+        xpAward = MetalWelding:10,
+
+        inputs
+        {
+            item 1 [Base.SmallSheetMetal],
+            item 2 [Base.Screws;UO.MetalPin],
+            item 1 tags[Hammer] mode:keep,
+            item 1 tags[HandMetalMechanism] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 UO.SmallTip,
+        }
+    }
+
+    craftRecipe UO_MakeSmallTipFromBig
+    {
+        timedAction = Making_Surface,
+        time = 300,
+        Tags = InHandCraft,
+        category = Blades,
+        xpAward = MetalWelding:10,
+
+        inputs
+        {
+            item 1 [UO.LargeTip],
+            item 1 tags[Hammer] mode:keep,
+            item 1 tags[HandMetalMechanism] mode:keep,
+        }
+
+        outputs
+        {
+            item 2 UO.SmallTip,
+        }
+    }
+}

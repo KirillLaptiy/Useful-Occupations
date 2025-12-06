@@ -1,0 +1,1056 @@
+module UO {
+    craftRecipe UO_MakeSpearCrafted
+    {
+        timedAction = CraftKnifeSpear,
+        time = 150,
+        Tags = InHandCraft,
+        category = Weaponry,
+        xpAward = Carving:10,
+
+        inputs
+        {
+            item 1 [Base.LargeBranch],
+            item 1 [Base.SharpedStone],
+            item 2 [Base.RippedSheets],
+            item 1 tags[Hammer;HammerStone] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 UO.SpearCrafted,
+        }
+    }
+
+    craftRecipe UO_MakeAxeCrafted
+    {
+        timedAction = CraftWeapon1H,
+        time = 150,
+        Tags = InHandCraft,
+        category = Weaponry,
+        xpAward = Carving:10,
+
+        inputs
+        {
+            item 1 [Base.LargeBranch],
+            item 1 [Base.SharpedStone],
+            item 2 [Base.RippedSheets],
+            item 1 tags[Hammer;HammerStone] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 UO.AxeCrafted,
+        }
+    }
+
+    craftRecipe UO_MakeHammerCrafted
+    {
+        timedAction = CraftWeapon1H,
+        time = 150,
+        Tags = InHandCraft,
+        category = Weaponry,
+        xpAward = Carving:10,
+
+        inputs
+        {
+            item 1 [Base.TreeBranch2],
+            item 1 [Base.Stone2],
+            item 2 [Base.RippedSheets],
+            item 1 tags[Hammer;HammerStone] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 UO.HammerCrafted,
+        }
+    }
+
+    craftRecipe UO_MakeKnifeCrafted
+    {
+        timedAction = CraftKnifeSpear,
+        time = 150,
+        Tags = InHandCraft,
+        category = Weaponry,
+        xpAward = Carving:10,
+
+        inputs
+        {
+            item 1 [Base.TreeBranch2],
+            item 1 [Base.SharpedStone],
+            item 2 [Base.RippedSheets],
+            item 1 tags[Hammer;HammerStone] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 UO.KnifeCrafted,
+        }
+    }
+
+    craftRecipe UO_MakeBaseballBat
+    {
+        timedAction = CraftWeapon1H,
+        time = 150,
+        Tags = InHandCraft,
+        category = Weaponry,
+        xpAward = Carving:15,
+
+        inputs
+        {
+            item 1 [Base.Plank],
+            item 1 tags[Hammer] mode:keep,
+            item 1 tags[CarpentryChisel] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 Base.BaseballBat,
+        }
+    }
+
+    craftRecipe UO_MakeWoodenMallet
+    {
+        timedAction = CraftWeapon1H,
+        time = 150,
+        Tags = InHandCraft,
+        category = Weaponry,
+        xpAward = Carving:15,
+
+        inputs
+        {
+            item 1 [Base.Plank],
+            item 1 tags[Hammer] mode:keep,
+            item 1 tags[CarpentryChisel] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 Base.WoodenMallet,
+        }
+    }
+
+    craftRecipe UO_Make223Bullets
+    {
+        timedAction = CraftWeapon1H,
+        time = 150,
+        Tags = InHandCraft,
+        category = Weaponry,
+
+        inputs
+        {
+            item 6 [UO.AmmoMaterial],
+            item 1 [Base.GunPowder;3:UO.HomemadePowder],
+            item 6 [UO.PrimerCap],
+            item 1 tags[Hammer] mode:keep,
+        }
+
+        outputs
+        {
+            item 6 Base.223Bullets,
+        }
+    }
+
+    craftRecipe UO_Make308Bullets
+    {
+        timedAction = CraftWeapon1H,
+        time = 150,
+        Tags = InHandCraft,
+        category = Weaponry,
+
+        inputs
+        {
+            item 6 [UO.AmmoMaterial],
+            item 1 [Base.GunPowder;3:UO.HomemadePowder],
+            item 6 [UO.PrimerCap],
+            item 1 tags[Hammer] mode:keep,
+        }
+
+        outputs
+        {
+            item 6 Base.308Bullets,
+        }
+    }
+
+    craftRecipe UO_MakeBullets38
+    {
+        timedAction = CraftWeapon1H,
+        time = 150,
+        Tags = InHandCraft,
+        category = Weaponry,
+
+        inputs
+        {
+            item 6 [UO.AmmoMaterial],
+            item 1 [Base.GunPowder;3:UO.HomemadePowder],
+            item 6 [UO.PrimerCap],
+            item 1 tags[Hammer] mode:keep,
+        }
+
+        outputs
+        {
+            item 6 Base.Bullets38,
+        }
+    }
+
+    craftRecipe UO_MakeBullets44
+    {
+        timedAction = CraftWeapon1H,
+        time = 150,
+        Tags = InHandCraft,
+        category = Weaponry,
+
+        inputs
+        {
+            item 6 [UO.AmmoMaterial],
+            item 1 [Base.GunPowder;3:UO.HomemadePowder],
+            item 6 [UO.PrimerCap],
+            item 1 tags[Hammer] mode:keep,
+        }
+
+        outputs
+        {
+            item 6 Base.Bullets44,
+        }
+    }
+
+    craftRecipe UO_MakeBullets45
+    {
+        timedAction = CraftWeapon1H,
+        time = 150,
+        Tags = InHandCraft,
+        category = Weaponry,
+
+        inputs
+        {
+            item 6 [UO.AmmoMaterial],
+            item 1 [Base.GunPowder;3:UO.HomemadePowder],
+            item 6 [UO.PrimerCap],
+            item 1 tags[Hammer] mode:keep,
+        }
+
+        outputs
+        {
+            item 6 Base.Bullets45,
+        }
+    }
+
+    craftRecipe UO_Make556Bullets
+    {
+        timedAction = CraftWeapon1H,
+        time = 150,
+        Tags = InHandCraft,
+        category = Weaponry,
+
+        inputs
+        {
+            item 6 [UO.AmmoMaterial],
+            item 1 [Base.GunPowder;3:UO.HomemadePowder],
+            item 6 [UO.PrimerCap],
+            item 1 tags[Hammer] mode:keep,
+        }
+
+        outputs
+        {
+            item 3 Base.556Bullets,
+        }
+    }
+
+    craftRecipe UO_MakeBullets9mm
+    {
+        timedAction = CraftWeapon1H,
+        time = 150,
+        Tags = InHandCraft,
+        category = Weaponry,
+
+        inputs
+        {
+            item 6 [UO.AmmoMaterial],
+            item 1 [Base.GunPowder;3:UO.HomemadePowder],
+            item 6 [UO.PrimerCap],
+            item 1 tags[Hammer] mode:keep,
+        }
+
+        outputs
+        {
+            item 6 Base.Bullets9mm,
+        }
+    }
+
+    craftRecipe UO_MakeShotgunShells
+    {
+        timedAction = CraftWeapon1H,
+        time = 150,
+        Tags = InHandCraft,
+        category = Weaponry,
+
+        inputs
+        {
+            item 6 [UO.AmmoMaterial],
+            item 1 [Base.GunPowder;3:UO.HomemadePowder],
+            item 6 [UO.PrimerCap],
+            item 1 tags[Hammer] mode:keep,
+        }
+
+        outputs
+        {
+            item 3 Base.ShotgunShells,
+        }
+    }
+
+    craftRecipe UO_MakeEMPGrenade
+    {
+        timedAction = MakingElectrical,
+        time = 150,
+        Tags = InHandCraft,
+        category = Weaponry,
+        xpAward = Electricity:10,
+
+        inputs
+        {
+            item 1 [Base.SmallSheetMetal],
+            item 3 [Base.ElectronicsScrap],
+            item 3 [UO.Resin],
+            item 3 [Base.RippedSheets],
+            item 1 tags[Hammer] mode:keep,
+            item 1 tags[SharpKnife] mode:keep,
+            item 1 tags[Screwdriver] mode:keep,
+        }
+
+        outputs
+        {
+            item 3 UO.EMPGrenade,
+        }
+    }
+
+    craftRecipe UO_MakeSmokeBomb
+    {
+        timedAction = Making_Surface,
+        time = 300,
+        Tags = InHandCraft,
+        category = Weaponry,
+        xpAward = Doctor:10,
+
+        inputs
+        {
+            item 1 [Base.SmallSheetMetal],
+            item 1 tags[Charcoal],
+            item 1 [UO.Resin;UO.Plastic],
+            item 1 [Base.RippedSheets],
+            item 1 tags[Hammer] mode:keep,
+            item 1 tags[SharpKnife] mode:keep,
+            item 1 tags[HandMetalMechanism] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 Base.SmokeBomb,
+        }
+    }
+
+    craftRecipe UO_MakeFlameTrap
+    {
+        timedAction = Making_Surface,
+        time = 300,
+        Tags = InHandCraft,
+        category = Weaponry,
+        xpAward = Doctor:10,
+
+        inputs
+        {
+            item 1 [Base.SmallSheetMetal],
+            item 1 [UO.Resin],
+            item 1 [*],
+            -fluid 0.25 [Petrol],
+            item 4 [UO.Plastic],
+            item 1 [Base.RippedSheets],
+            item 1 tags[Hammer] mode:keep,
+            item 1 tags[HandMetalMechanism] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 Base.FlameTrap,
+        }
+    }
+
+    craftRecipe UO_MakeAerosolbomb
+    {
+        timedAction = Making_Surface,
+        time = 300,
+        Tags = InHandCraft,
+        category = Weaponry,
+        xpAward = Doctor:10,
+
+        inputs
+        {
+            item 1 [Base.SmallSheetMetal],
+            item 1 [UO.Resin],
+            item 1 [*],
+            -fluid 0.25 [Petrol],
+            item 1 tags[Charcoal],
+            item 1 [Base.RippedSheets],
+            item 1 tags[Hammer] mode:keep,
+            item 1 tags[HandMetalMechanism] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 Base.Aerosolbomb,
+        }
+    }
+
+    craftRecipe UO_MakePipeBomb
+    {
+        timedAction = Making_Surface,
+        time = 300,
+        Tags = InHandCraft,
+        category = Weaponry,
+        xpAward = Doctor:10,
+
+        inputs
+        {
+            item 1 [Base.SmallSheetMetal],
+            item 4 [Base.Nails],
+            item 1 [Base.GunPowder;3:UO.HomemadePowder],
+            item 1 [Base.RippedSheets],
+            item 1 tags[Hammer] mode:keep,
+            item 1 tags[HandMetalMechanism] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 Base.PipeBomb,
+        }
+    }
+
+    craftRecipe UO_MakeAssaultRifle2
+    {
+        timedAction = Making_Surface,
+        time = 450,
+        Tags = InHandCraft,
+        category = Weaponry,
+        xpAward = MetalWelding:15,
+
+        inputs
+        {
+            item 12 [UO.GunParts],
+            item 6 [UO.GunPartsCarbon],
+            item 1 tags[Hammer] mode:keep,
+            item 1 tags[Screwdriver] mode:keep,
+            item 1 tags[BoreGauge] mode:keep,
+            item 1 tags[Caliper] mode:keep,
+            item 1 tags[HandMetalMechanism] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 Base.AssaultRifle2,
+        }
+    }
+
+    craftRecipe UO_MakeVarmintRifle
+    {
+        timedAction = Making_Surface,
+        time = 450,
+        Tags = InHandCraft,
+        category = Weaponry,
+        xpAward = MetalWelding:15,
+
+        inputs
+        {
+            item 6 [UO.GunParts],
+            item 3 [UO.GunPartsCarbon],
+            item 1 tags[Hammer] mode:keep,
+            item 1 tags[Screwdriver] mode:keep,
+            item 1 tags[BoreGauge] mode:keep,
+            item 1 tags[Caliper] mode:keep,
+            item 1 tags[HandMetalMechanism] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 Base.VarmintRifle,
+        }
+    }
+
+    craftRecipe UO_MakeHuntingRifle
+    {
+        timedAction = Making_Surface,
+        time = 450,
+        Tags = InHandCraft,
+        category = Weaponry,
+        xpAward = MetalWelding:15,
+
+        inputs
+        {
+            item 12 [UO.GunParts],
+            item 6 [UO.GunPartsCarbon],
+            item 1 tags[Hammer] mode:keep,
+            item 1 tags[Screwdriver] mode:keep,
+            item 1 tags[BoreGauge] mode:keep,
+            item 1 tags[Caliper] mode:keep,
+            item 1 tags[HandMetalMechanism] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 Base.HuntingRifle,
+        }
+    }
+
+    craftRecipe UO_MakeDoubleBarrelShotgun
+    {
+        timedAction = Making_Surface,
+        time = 450,
+        Tags = InHandCraft,
+        category = Weaponry,
+        xpAward = MetalWelding:15,
+
+        inputs
+        {
+            item 6 [UO.GunParts],
+            item 3 [UO.GunPartsCarbon],
+            item 1 tags[Hammer] mode:keep,
+            item 1 tags[Screwdriver] mode:keep,
+            item 1 tags[BoreGauge] mode:keep,
+            item 1 tags[Caliper] mode:keep,
+            item 1 tags[HandMetalMechanism] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 Base.DoubleBarrelShotgun,
+        }
+    }
+
+    craftRecipe UO_MakeShotgun
+    {
+        timedAction = Making_Surface,
+        time = 450,
+        Tags = InHandCraft,
+        category = Weaponry,
+        xpAward = MetalWelding:15,
+
+        inputs
+        {
+            item 6 [UO.GunParts],
+            item 6 [UO.GunPartsCarbon],
+            item 1 tags[Hammer] mode:keep,
+            item 1 tags[Screwdriver] mode:keep,
+            item 1 tags[BoreGauge] mode:keep,
+            item 1 tags[Caliper] mode:keep,
+            item 1 tags[HandMetalMechanism] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 Base.Shotgun,
+        }
+    }
+
+    craftRecipe UO_MakePistol3
+    {
+        timedAction = Making_Surface,
+        time = 300,
+        Tags = InHandCraft,
+        category = Weaponry,
+        xpAward = MetalWelding:15,
+
+        inputs
+        {
+            item 6 [UO.GunParts],
+            item 1 tags[Hammer] mode:keep,
+            item 1 tags[Screwdriver] mode:keep,
+            item 1 tags[BoreGauge] mode:keep,
+            item 1 tags[Caliper] mode:keep,
+            item 1 tags[HandMetalMechanism] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 Base.Pistol3,
+        }
+    }
+
+    craftRecipe UO_MakePistol2
+    {
+        timedAction = Making_Surface,
+        time = 300,
+        Tags = InHandCraft,
+        category = Weaponry,
+        xpAward = MetalWelding:15,
+
+        inputs
+        {
+            item 6 [UO.GunParts],
+            item 1 tags[Hammer] mode:keep,
+            item 1 tags[Screwdriver] mode:keep,
+            item 1 tags[BoreGauge] mode:keep,
+            item 1 tags[Caliper] mode:keep,
+            item 1 tags[HandMetalMechanism] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 Base.Pistol2,
+        }
+    }
+
+    craftRecipe UO_MakePistol
+    {
+        timedAction = Making_Surface,
+        time = 300,
+        Tags = InHandCraft,
+        category = Weaponry,
+        xpAward = MetalWelding:15,
+
+        inputs
+        {
+            item 6 [UO.GunParts],
+            item 1 tags[Hammer] mode:keep,
+            item 1 tags[Screwdriver] mode:keep,
+            item 1 tags[BoreGauge] mode:keep,
+            item 1 tags[Caliper] mode:keep,
+            item 1 tags[HandMetalMechanism] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 Base.Pistol,
+        }
+    }
+
+    craftRecipe UO_MakeRevolver_Short
+    {
+        timedAction = Making_Surface,
+        time = 300,
+        Tags = InHandCraft,
+        category = Weaponry,
+        xpAward = MetalWelding:15,
+
+        inputs
+        {
+            item 6 [UO.GunParts],
+            item 1 tags[Hammer] mode:keep,
+            item 1 tags[Screwdriver] mode:keep,
+            item 1 tags[BoreGauge] mode:keep,
+            item 1 tags[Caliper] mode:keep,
+            item 1 tags[HandMetalMechanism] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 Base.Revolver_Short,
+        }
+    }
+
+    craftRecipe UO_MakeRevolver
+    {
+        timedAction = Making_Surface,
+        time = 300,
+        Tags = InHandCraft,
+        category = Weaponry,
+        xpAward = MetalWelding:15,
+
+        inputs
+        {
+            item 9 [UO.GunParts],
+            item 1 tags[Hammer] mode:keep,
+            item 1 tags[Screwdriver] mode:keep,
+            item 1 tags[BoreGauge] mode:keep,
+            item 1 tags[Caliper] mode:keep,
+            item 1 tags[HandMetalMechanism] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 Base.Revolver,
+        }
+    }
+
+
+    craftRecipe UO_MakeRevolver_Long
+    {
+        timedAction = Making_Surface,
+        time = 300,
+        Tags = InHandCraft,
+        category = Weaponry,
+        xpAward = MetalWelding:15,
+
+        inputs
+        {
+            item 12 [UO.GunParts],
+            item 1 tags[Hammer] mode:keep,
+            item 1 tags[Screwdriver] mode:keep,
+            item 1 tags[BoreGauge] mode:keep,
+            item 1 tags[Caliper] mode:keep,
+            item 1 tags[HandMetalMechanism] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 Base.Revolver_Long,
+        }
+    }
+
+    craftRecipe UO_MakeAssaultRifle
+    {
+        timedAction = Making_Surface,
+        time = 450,
+        Tags = InHandCraft,
+        category = Weaponry,
+        xpAward = MetalWelding:15,
+
+        inputs
+        {
+            item 6 [UO.GunParts],
+            item 12 [UO.GunPartsCarbon],
+            item 1 tags[Hammer] mode:keep,
+            item 1 tags[Screwdriver] mode:keep,
+            item 1 tags[BoreGauge] mode:keep,
+            item 1 tags[Caliper] mode:keep,
+            item 1 tags[HandMetalMechanism] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 Base.AssaultRifle,
+        }
+    }
+
+    craftRecipe UO_MakeNightstick
+    {
+        timedAction = CraftWeapon1H,
+        time = 300,
+        Tags = InHandCraft,
+        category = Weaponry,
+        xpAward = MetalWelding:15,
+
+        inputs
+        {
+            item 6 [UO.Plastic],
+            item 1 [Base.MetalBar],
+            item 1 tags[Hammer] mode:keep,
+            item 1 tags[HandMetalMechanism] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 Base.Nightstick,
+        }
+    }
+
+    craftRecipe UO_MakeHuntingKnife
+    {
+        timedAction = CraftKnifeSpear,
+        time = 300,
+        Tags = InHandCraft,
+        category = Weaponry,
+        xpAward = MetalWelding:15,
+
+        inputs
+        {
+            item 1 [UO.KnifeBlade],
+            item 1 [Base.SmallHandle],
+            item 2 [Base.Screws],
+            item 1 tags[Hammer] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 Base.HuntingKnife,
+        }
+    }
+
+    craftRecipe UO_MakeAxe
+    {
+        timedAction = CraftWeapon2H,
+        time = 300,
+        Tags = InHandCraft,
+        category = Weaponry,
+        xpAward = MetalWelding:15,
+
+        inputs
+        {
+            item 1 [UO.AxeBlade],
+            item 1 [Base.Handle],
+            item 2 [Base.Screws],
+            item 1 tags[Hammer] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 Base.Axe,
+        }
+    }
+
+    craftRecipe UO_MakeSpearFightingKnife
+    {
+        timedAction = CraftKnifeSpear,
+        time = 300,
+        Tags = InHandCraft,
+        category = Weaponry,
+        xpAward = MetalWelding:15,
+
+        inputs
+        {
+            item 1 [UO.KnifeBlade],
+            item 1 [Base.Handle],
+            item 2 [Base.Screws],
+            item 1 tags[Hammer] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 Base.SpearFightingKnife,
+        }
+    }
+
+    craftRecipe UO_MakeSledgehammer
+    {
+        timedAction = CraftWeapon2H,
+        time = 300,
+        Tags = InHandCraft,
+        category = Weaponry,
+        xpAward = MetalWelding:30,
+
+        inputs
+        {
+            item 1 [UO.LargeTip],
+            item 1 [Base.Handle],
+            item 3 [Base.Screws],
+            item 1 tags[Hammer] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 Base.Sledgehammer,
+        }
+    }
+
+    craftRecipe UO_MakeHammer
+    {
+        timedAction = CraftWeapon1H,
+        time = 300,
+        Tags = InHandCraft,
+        category = Weaponry,
+        xpAward = MetalWelding:15,
+
+        inputs
+        {
+            item 1 [UO.SmallTip],
+            item 1 [Base.Handle],
+            item 1 [Base.Screws],
+            item 1 tags[Hammer] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 Base.Hammer,
+        }
+    }
+
+    craftRecipe UO_MakeMetalBat
+    {
+        timedAction = CraftWeapon1H,
+        time = 300,
+        Tags = InHandCraft,
+        category = Weaponry,
+        xpAward = MetalWelding:20,
+
+        inputs
+        {
+            item 1 [Base.MetalPipe],
+            item 1 [Base.SmallHandle],
+            item 2 [Base.Screws],
+            item 1 tags[Hammer] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 UO.MetalBat,
+        }
+    }
+
+    craftRecipe UO_MakeCrowbar
+    {
+        timedAction = CraftWeapon1H,
+        time = 300,
+        Tags = InHandCraft,
+        category = Weaponry,
+        xpAward = MetalWelding:30,
+
+        inputs
+        {
+            item 1 [Base.MetalBar],
+            item 1 tags[Hammer] mode:keep,
+            item 1 tags[HandMetalMechanism] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 Base.Crowbar,
+        }
+    }
+
+    craftRecipe UO_MakeCarbonAxe
+    {
+        timedAction = CraftWeapon2H,
+        time = 500,
+        Tags = AdvancedForge,
+        category = Weaponry,
+        xpAward = Blacksmith:50,
+
+        inputs
+        {
+            item 2 [UO.CarbonMetal],
+            item 2 [UO.CarbonMesh],
+            item 1 tags[Whetstone] mode:keep,
+            item 1 tags[Hammer] mode:keep,
+            item 1 tags[SheetMetalSnips] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 UO.CarbonAxe,
+        }
+    }
+
+    craftRecipe UO_MakeCarbonBat
+    {
+        timedAction = CraftWeapon1H,
+        time = 500,
+        Tags = AdvancedForge,
+        category = Weaponry,
+        xpAward = Blacksmith:50,
+
+        inputs
+        {
+            item 2 [UO.CarbonMetal],
+            item 2 [UO.CarbonMesh],
+            item 1 tags[Whetstone] mode:keep,
+            item 1 tags[Hammer] mode:keep,
+            item 1 tags[SheetMetalSnips] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 UO.CarbonBat,
+        }
+    }
+
+    craftRecipe UO_MakeCarbonHammer
+    {
+        timedAction = CraftWeapon1H,
+        time = 500,
+        Tags = AdvancedForge,
+        category = Weaponry,
+        xpAward = Blacksmith:50,
+
+        inputs
+        {
+            item 2 [UO.CarbonMetal],
+            item 2 [UO.CarbonMesh],
+            item 1 tags[Whetstone] mode:keep,
+            item 1 tags[Hammer] mode:keep,
+            item 1 tags[SheetMetalSnips] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 UO.CarbonHammer,
+        }
+    }
+
+    craftRecipe UO_MakeCarbonKatana
+    {
+        timedAction = CraftWeapon2H,
+        time = 500,
+        Tags = AdvancedForge,
+        category = Weaponry,
+        xpAward = Blacksmith:50,
+
+        inputs
+        {
+            item 2 [UO.CarbonMetal],
+            item 2 [UO.CarbonMesh],
+            item 1 tags[Whetstone] mode:keep,
+            item 1 tags[Hammer] mode:keep,
+            item 1 tags[SheetMetalSnips] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 UO.CarbonKatana,
+        }
+    }
+
+    craftRecipe UO_MakeCarbonKnife
+    {
+        timedAction = CraftKnifeSpear,
+        time = 500,
+        Tags = AdvancedForge,
+        category = Weaponry,
+        xpAward = Blacksmith:50,
+
+        inputs
+        {
+            item 2 [UO.CarbonMetal],
+            item 2 [UO.CarbonMesh],
+            item 1 tags[Whetstone] mode:keep,
+            item 1 tags[Hammer] mode:keep,
+            item 1 tags[SheetMetalSnips] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 UO.CarbonKnife,
+        }
+    }
+
+    craftRecipe UO_MakeCarbonSpear
+    {
+        timedAction = CraftKnifeSpear,
+        time = 500,
+        Tags = AdvancedForge,
+        category = Weaponry,
+        xpAward = Blacksmith:50,
+
+        inputs
+        {
+            item 2 [UO.CarbonMetal],
+            item 2 [UO.CarbonMesh],
+            item 1 tags[Whetstone] mode:keep,
+            item 1 tags[Hammer] mode:keep,
+            item 1 tags[SheetMetalSnips] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 UO.CarbonSpear,
+        }
+    }
+
+    craftRecipe UO_MakeCarbonHatchet
+    {
+        timedAction = CraftWeapon1H,
+        time = 500,
+        Tags = AdvancedForge,
+        category = Weaponry,
+        xpAward = Blacksmith:50,
+
+        inputs
+        {
+            item 2 [UO.CarbonMetal],
+            item 2 [UO.CarbonMesh],
+            item 1 tags[Whetstone] mode:keep,
+            item 1 tags[Hammer] mode:keep,
+            item 1 tags[SheetMetalSnips] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 UO.CarbonHatchet,
+        }
+    }
+}

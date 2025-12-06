@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<animNode>
+	<m_Name>inTrees</m_Name>
+	<m_AnimName>Bob_WalkTrees</m_AnimName>
+	<m_BlendTime>0.20</m_BlendTime>
+	<m_SpeedScale>WalkSpeedTrees</m_SpeedScale>
+	<m_Conditions x_name="8b93b339-9574-40ae-b746-5c0074963f42">
+		<m_Name>intrees</m_Name>
+		<m_Type>BOOL</m_Type>
+		<m_Value>true</m_Value>
+	</m_Conditions>
+	<m_Conditions x_name="cfd08e3e-407f-44ee-b73e-e4039721739a">
+		<m_Name>isTurningAround</m_Name>
+		<m_Type>BOOL</m_Type>
+		<m_Value>false</m_Value>
+	</m_Conditions>
+	<m_Transitions>
+		<m_Target>zombieInTreesUO</m_Target>
+		<m_blendInTime>0.5</m_blendInTime>
+	</m_Transitions>
+	<m_Transitions>
+		<m_Target>defaultWalk</m_Target>
+		<m_blendInTime>0.5</m_blendInTime>
+	</m_Transitions>
+	<m_Transitions>
+		<m_Target>sneakWalk</m_Target>
+		<m_blendInTime>0.5</m_blendInTime>
+	</m_Transitions>
+	<m_Transitions>
+		<m_Target>sneakWalkLow</m_Target>
+		<m_blendInTime>0.5</m_blendInTime>
+	</m_Transitions>
+	<m_Transitions>
+		<m_Target>defaultRun</m_Target>
+		<m_blendInTime>0.5</m_blendInTime>
+	</m_Transitions>
+	<m_Transitions>
+		<m_Target>sneakRun</m_Target>
+		<m_blendInTime>0.5</m_blendInTime>
+	</m_Transitions>
+	<m_Transitions>
+		<m_Target>sneakRunLow</m_Target>
+		<m_blendInTime>0.5</m_blendInTime>
+	</m_Transitions>
+</animNode>

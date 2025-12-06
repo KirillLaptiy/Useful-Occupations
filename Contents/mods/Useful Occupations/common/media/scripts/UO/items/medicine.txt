@@ -1,0 +1,37 @@
+module UO {
+    imports {
+        Base
+    }
+
+    item StimulantDrops
+    {
+        DisplayCategory = FirstAid,
+        Type = Drainable,
+        Weight = 0.2,
+        Icon = StimulantDrops,
+        Medical = true,
+        Tooltip = Tooltip_StimulantDrops,
+        UseDelta = 0.2,
+        UseWhileEquipped = false,
+        StaticModel = StimulantDrops,
+        WorldStaticModel = StimulantDrops,
+        Tags = Pills;UOPills,
+        Tooltip = Tooltip_item_stimulant_drops,
+    }
+
+	item StimulantDropsPlus
+    {
+        DisplayCategory = FirstAid,
+        Type = Drainable,
+        Weight = 0.2,
+        Icon = StimulantDropsPlus,
+        Medical = true,
+        Tooltip = Tooltip_StimulantDropsPlus,
+        UseDelta = 0.2,
+        UseWhileEquipped = false,
+        StaticModel = StimulantDropsPlus,
+        WorldStaticModel = StimulantDropsPlus,
+        Tags = Pills;UOPills,
+        Tooltip = Tooltip_item_stimulant_drops_plus,
+    }
+}

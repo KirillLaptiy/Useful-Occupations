@@ -1,0 +1,311 @@
+module UO {
+    imports {
+        Base
+    }
+
+	item ArmorPlate_Back
+	{
+		DisplayCategory = Clothing,
+		Type = Clothing,
+		BloodLocation = Bag,
+		BodyLocation = ArmorPlate_Back,
+		ClothingItem = Ring_Left_RingFinger_Signet,
+		CanHaveHoles = false,
+		BiteDefense = 125,
+		ScratchDefense = 125,
+		BulletDefense = 125,
+		ConditionLowerChanceOneIn = 1,
+		RemoveOnBroken = false,
+		ChanceToFall = 0,
+		ConditionMax = 10,
+	}
+
+	item ArmorPlate_Head
+	{
+		DisplayCategory = Clothing,
+		Type = Clothing,
+		BloodLocation = Head,
+		BodyLocation = ArmorPlate_Head,
+		ClothingItem = Ring_Left_RingFinger_Signet,
+		CanHaveHoles = false,
+		BiteDefense = 125,
+		ScratchDefense = 125,
+		BulletDefense = 125,
+		ConditionLowerChanceOneIn = 1,
+		RemoveOnBroken = false,
+		ChanceToFall = 0,
+		ConditionMax = 10,
+	}
+
+	item ArmorPlate_Neck
+	{
+		DisplayCategory = Clothing,
+		Type = Clothing,
+		BloodLocation = Neck,
+		BodyLocation = ArmorPlate_Neck,
+		ClothingItem = Ring_Left_RingFinger_Signet,
+		CanHaveHoles = false,
+		BiteDefense = 125,
+		ScratchDefense = 125,
+		BulletDefense = 125,
+		ConditionLowerChanceOneIn = 1,
+		RemoveOnBroken = false,
+		ChanceToFall = 0,
+		ConditionMax = 10,
+	}
+
+	item ArmorPlate_Groin
+	{
+		DisplayCategory = Clothing,
+		Type = Clothing,
+		BloodLocation = Groin,
+		BodyLocation = ArmorPlate_Groin,
+		ClothingItem = Ring_Left_RingFinger_Signet,
+		CanHaveHoles = false,
+		BiteDefense = 125,
+		ScratchDefense = 125,
+		BulletDefense = 125,
+		ConditionLowerChanceOneIn = 1,
+		RemoveOnBroken = false,
+		ChanceToFall = 0,
+		ConditionMax = 10,
+	}
+
+	item ArmorPlate_Torso_Upper
+	{
+		DisplayCategory = Clothing,
+		Type = Clothing,
+		BloodLocation = UpperBody,
+		BodyLocation = ArmorPlate_Torso_Upper,
+		ClothingItem = Ring_Left_RingFinger_Signet,
+		CanHaveHoles = false,
+		BiteDefense = 125,
+		ScratchDefense = 125,
+		BulletDefense = 125,
+		ConditionLowerChanceOneIn = 1,
+		RemoveOnBroken = false,
+		ChanceToFall = 0,
+		ConditionMax = 10,
+	}
+
+	item ArmorPlate_Torso_Lower
+	{
+		DisplayCategory = Clothing,
+		Type = Clothing,
+		BloodLocation = LowerBody,
+		BodyLocation = ArmorPlate_Torso_Lower,
+		ClothingItem = Ring_Left_RingFinger_Signet,
+		CanHaveHoles = false,
+		BiteDefense = 125,
+		ScratchDefense = 125,
+		BulletDefense = 125,
+		ConditionLowerChanceOneIn = 1,
+		RemoveOnBroken = false,
+		ChanceToFall = 0,
+		ConditionMax = 10,
+	}
+
+	item ArmorPlate_Hand_L
+	{
+		DisplayCategory = Clothing,
+		Type = Clothing,
+		BloodLocation = Hand_L,
+		BodyLocation = ArmorPlate_Hand_L,
+		ClothingItem = Ring_Left_RingFinger_Signet,
+		CanHaveHoles = false,
+		BiteDefense = 125,
+		ScratchDefense = 125,
+		BulletDefense = 125,
+		ConditionLowerChanceOneIn = 1,
+		RemoveOnBroken = false,
+		ChanceToFall = 0,
+		ConditionMax = 10,
+	}
+
+	item ArmorPlate_Hand_R
+	{
+		DisplayCategory = Clothing,
+		Type = Clothing,
+		BloodLocation = Hand_R,
+		BodyLocation = ArmorPlate_Hand_R,
+		ClothingItem = Ring_Left_RingFinger_Signet,
+		CanHaveHoles = false,
+		BiteDefense = 125,
+		ScratchDefense = 125,
+		BulletDefense = 125,
+		ConditionLowerChanceOneIn = 1,
+		RemoveOnBroken = false,
+		ChanceToFall = 0,
+		ConditionMax = 10,
+	}
+
+	item ArmorPlate_ForeArm_L
+	{
+		DisplayCategory = Clothing,
+		Type = Clothing,
+		BloodLocation = ForeArm_L,
+		BodyLocation = ArmorPlate_ForeArm_L,
+		ClothingItem = Ring_Left_RingFinger_Signet,
+		CanHaveHoles = false,
+		BiteDefense = 125,
+		ScratchDefense = 125,
+		BulletDefense = 125,
+		ConditionLowerChanceOneIn = 1,
+		RemoveOnBroken = false,
+		ChanceToFall = 0,
+		ConditionMax = 10,
+	}
+
+	item ArmorPlate_ForeArm_R
+	{
+		DisplayCategory = Clothing,
+		Type = Clothing,
+		BloodLocation = ForeArm_R,
+		BodyLocation = ArmorPlate_ForeArm_R,
+		ClothingItem = Ring_Left_RingFinger_Signet,
+		CanHaveHoles = false,
+		BiteDefense = 125,
+		ScratchDefense = 125,
+		BulletDefense = 125,
+		ConditionLowerChanceOneIn = 1,
+		RemoveOnBroken = false,
+		ChanceToFall = 0,
+		ConditionMax = 10,
+	}
+
+	item ArmorPlate_UpperArm_L
+	{
+		DisplayCategory = Clothing,
+		Type = Clothing,
+		BloodLocation = UpperArm_L,
+		BodyLocation = ArmorPlate_UpperArm_L,
+		ClothingItem = Ring_Left_RingFinger_Signet,
+		CanHaveHoles = false,
+		BiteDefense = 125,
+		ScratchDefense = 125,
+		BulletDefense = 125,
+		ConditionLowerChanceOneIn = 1,
+		RemoveOnBroken = false,
+		ChanceToFall = 0,
+		ConditionMax = 10,
+	}
+
+	item ArmorPlate_UpperArm_R
+	{
+		DisplayCategory = Clothing,
+		Type = Clothing,
+		BloodLocation = UpperArm_R,
+		BodyLocation = ArmorPlate_UpperArm_R,
+		ClothingItem = Ring_Left_RingFinger_Signet,
+		CanHaveHoles = false,
+		BiteDefense = 125,
+		ScratchDefense = 125,
+		BulletDefense = 125,
+		ConditionLowerChanceOneIn = 1,
+		RemoveOnBroken = false,
+		ChanceToFall = 0,
+		ConditionMax = 10,
+	}
+
+	item ArmorPlate_UpperLeg_L
+	{
+		DisplayCategory = Clothing,
+		Type = Clothing,
+		BloodLocation = UpperLeg_L,
+		BodyLocation = ArmorPlate_UpperLeg_L,
+		ClothingItem = Ring_Left_RingFinger_Signet,
+		CanHaveHoles = false,
+		BiteDefense = 125,
+		ScratchDefense = 125,
+		BulletDefense = 125,
+		ConditionLowerChanceOneIn = 1,
+		RemoveOnBroken = false,
+		ChanceToFall = 0,
+		ConditionMax = 10,
+	}
+
+	item ArmorPlate_UpperLeg_R
+	{
+		DisplayCategory = Clothing,
+		Type = Clothing,
+		BloodLocation = UpperLeg_R,
+		BodyLocation = ArmorPlate_UpperLeg_R,
+		ClothingItem = Ring_Left_RingFinger_Signet,
+		CanHaveHoles = false,
+		BiteDefense = 125,
+		ScratchDefense = 125,
+		BulletDefense = 125,
+		ConditionLowerChanceOneIn = 1,
+		RemoveOnBroken = false,
+		ChanceToFall = 0,
+		ConditionMax = 10,
+	}
+
+	item ArmorPlate_LowerLeg_L
+	{
+		DisplayCategory = Clothing,
+		Type = Clothing,
+		BloodLocation = LowerLeg_L,
+		BodyLocation = ArmorPlate_LowerLeg_L,
+		ClothingItem = Ring_Left_RingFinger_Signet,
+		CanHaveHoles = false,
+		BiteDefense = 125,
+		ScratchDefense = 125,
+		BulletDefense = 125,
+		ConditionLowerChanceOneIn = 1,
+		RemoveOnBroken = false,
+		ChanceToFall = 0,
+		ConditionMax = 10,
+	}
+
+	item ArmorPlate_LowerLeg_R
+	{
+		DisplayCategory = Clothing,
+		Type = Clothing,
+		BloodLocation = LowerLeg_R,
+		BodyLocation = ArmorPlate_LowerLeg_R,
+		ClothingItem = Ring_Left_RingFinger_Signet,
+		CanHaveHoles = false,
+		BiteDefense = 125,
+		ScratchDefense = 125,
+		BulletDefense = 125,
+		ConditionLowerChanceOneIn = 1,
+		RemoveOnBroken = false,
+		ChanceToFall = 0,
+		ConditionMax = 10,
+	}
+
+	item ArmorPlate_Foot_L
+	{
+		DisplayCategory = Clothing,
+		Type = Clothing,
+		BloodLocation = Foot_L,
+		BodyLocation = ArmorPlate_Foot_L,
+		ClothingItem = Ring_Left_RingFinger_Signet,
+		CanHaveHoles = false,
+		BiteDefense = 125,
+		ScratchDefense = 125,
+		BulletDefense = 125,
+		ConditionLowerChanceOneIn = 1,
+		RemoveOnBroken = false,
+		ChanceToFall = 0,
+		ConditionMax = 10,
+	}
+
+	item ArmorPlate_Foot_R
+	{
+		DisplayCategory = Clothing,
+		Type = Clothing,
+		BloodLocation = Foot_R,
+		BodyLocation = ArmorPlate_Foot_R,
+		ClothingItem = Ring_Left_RingFinger_Signet,
+		CanHaveHoles = false,
+		BiteDefense = 125,
+		ScratchDefense = 125,
+		BulletDefense = 125,
+		ConditionLowerChanceOneIn = 1,
+		RemoveOnBroken = false,
+		ChanceToFall = 0,
+		ConditionMax = 10,
+	}
+}

@@ -1,0 +1,298 @@
+module UO {
+    item WoodMold
+    {
+        DisplayCategory = Mold,
+        Type = Normal,
+        Weight = 2.00,
+        Icon = UO/WoodMold,
+        Count = 1,
+        WorldStaticModel = WoodMold,
+    }
+
+    item ResinMoldRaw
+    {
+        DisplayCategory = Mold,
+        Type = Normal,
+        Weight = 1.00,
+        Icon = UO/ResinMoldRaw,
+        Count = 1,
+        ItemWhenDry = UO.ResinMoldDry,
+		Wet = TRUE,
+		WetCooldown = 260000,
+        WorldStaticModel = ResinMoldRaw,
+        Tooltip = Tooltip_item_dry_in_24,
+    }
+
+    item ResinMoldDry
+    {
+        DisplayCategory = Mold,
+        Type = Food,
+        MinutesToCook = 15,
+        ReplaceOnCooked = UO.ResinMold,
+        IsCookable = true,
+        CantEat = true,
+        CantBeFrozen = true,
+        Weight = 1.10,
+        Icon = UO/ResinMoldDry,
+        Count = 1,
+        WorldStaticModel = ResinMoldDry,
+        Tooltip = Tooltip_item_requires_roasting,
+    }
+
+    item ResinMoldDryCantCook
+    {
+        DisplayCategory = Mold,
+        Type = Food,
+        IsCookable = false,
+        CantEat = true,
+        CantBeFrozen = true,
+        Weight = 1.10,
+        Icon = UO/ResinMoldDry,
+        Count = 1,
+        WorldStaticModel = ResinMoldDry,
+        Tooltip = Tooltip_item_requires_roasting,
+    }
+
+    item ResinMold
+    {
+        DisplayCategory = Mold,
+        Type = Normal,
+        Weight = 1.00,
+        Icon = UO/ResinMold,
+        Count = 1,
+        ConditionMax = 1,
+        WorldStaticModel = ResinMold,
+        Tooltip = Tooltip_item_resin_mold,
+    }
+
+    item ClayMoldRaw
+    {
+        DisplayCategory = Mold,
+        Type = Normal,
+        Weight = 2.50,
+        Icon = UO/ClayMoldRaw,
+        Count = 1,
+        ItemWhenDry = UO.ClayMoldDry,
+		Wet = TRUE,
+		WetCooldown = 780000,
+        WorldStaticModel = ClayMoldRaw,
+        Tooltip = Tooltip_item_dry_in_72,
+    }
+
+    item ClayMoldDry
+    {
+        DisplayCategory = Mold,
+        Type = Food,
+        MinutesToCook = 60,
+        ReplaceOnCooked = UO.ClayMold,
+        IsCookable = true,
+        CantEat = true,
+        CantBeFrozen = true,
+        Weight = 2.80,
+        Icon = UO/ClayMoldDry,
+        Count = 1,
+        WorldStaticModel = ClayMoldDry,
+        Tooltip = Tooltip_item_requires_roasting,
+    }
+
+    item ClayMoldDryCantCook
+    {
+        DisplayCategory = Mold,
+        Type = Food,
+        IsCookable = false,
+        CantEat = true,
+        CantBeFrozen = true,
+        Weight = 2.80,
+        Icon = UO/ClayMoldDry,
+        Count = 1,
+        WorldStaticModel = ClayMoldDry,
+        Tooltip = Tooltip_item_requires_roasting,
+    }
+
+    item ClayMold
+    {
+        DisplayCategory = Mold,
+        Type = Normal,
+        Weight = 2.50,
+        Icon = UO/ClayMold,
+        Count = 1,
+        ConditionMax = 3,
+        WorldStaticModel = ClayMold,
+        Tooltip = Tooltip_item_resin_mold,
+    }
+
+    item CementMoldRaw
+    {
+        DisplayCategory = Mold,
+        Type = Normal,
+        Weight = 3.00,
+        Icon = UO/CementMoldRaw,
+        Count = 1,
+        ItemWhenDry = UO.CementMoldDry,
+		Wet = TRUE,
+		WetCooldown = 1300000,
+        WorldStaticModel = CementMoldRaw,
+        Tooltip = Tooltip_item_dry_in_120,
+    }
+
+    item CementMoldDry
+    {
+        DisplayCategory = Mold,
+        Type = Food,
+        MinutesToCook = 30,
+        ReplaceOnCooked = UO.CementMold,
+        IsCookable = true,
+        CantEat = true,
+        CantBeFrozen = true,
+        Weight = 3.50,
+        Icon = UO/CementMoldDry,
+        Count = 1,
+        WorldStaticModel = CementMoldDry,
+        Tooltip = Tooltip_item_requires_roasting,
+    }
+
+    item CementMoldDryCantCook
+    {
+        DisplayCategory = Mold,
+        Type = Food,
+        IsCookable = false,
+        CantEat = true,
+        CantBeFrozen = true,
+        Weight = 3.50,
+        Icon = UO/CementMoldDry,
+        Count = 1,
+        WorldStaticModel = CementMoldDry,
+        Tooltip = Tooltip_item_requires_roasting,
+    }
+
+    item CementMold
+    {
+        DisplayCategory = Mold,
+        Type = Normal,
+        Weight = 3.00,
+        Icon = UO/CementMold,
+        Count = 1,
+        WorldStaticModel = CementMold,
+        Tooltip = Tooltip_item_cement_mold,
+    }
+
+    item MetalSheetResinRaw
+    {
+        DisplayCategory = Mold,
+        Type = Food,
+        Weight = 2.0,
+        MinutesToCook = 60,
+        IsCookable = true,
+        CantEat = true,
+        CantBeFrozen = true,
+        ReplaceOnCooked = UO.MetalSheetResin,
+        Icon = UO/MetalSheetResinRaw,
+        Count = 1,
+        WorldStaticModel = MetalSheetResinRaw,
+        Tooltip = Tooltip_item_requires_roasting,
+    }
+
+    item MetalSheetResinRawCantCook
+    {
+        DisplayCategory = Mold,
+        Type = Food,
+        Weight = 2.0,
+        Icon = UO/MetalSheetResinRaw,
+        Count = 1,
+        IsCookable = false,
+        CantEat = true,
+        CantBeFrozen = true,
+        WorldStaticModel = MetalSheetResinRaw,
+        Tooltip = Tooltip_item_requires_roasting,
+    }
+
+    item MetalSheetResin
+    {
+        DisplayCategory = Mold,
+        Type = Normal,
+        Weight = 2.0,
+        Icon = UO/MetalSheetResin,
+        Count = 1,
+        WorldStaticModel = MetalSheetResin,
+    }
+
+    item MetalSheetClayRaw
+    {
+        DisplayCategory = Mold,
+        Type = Food,
+        Weight = 2.5,
+        MinutesToCook = 60,
+        IsCookable = true,
+        CantEat = true,
+        CantBeFrozen = true,
+        ReplaceOnCooked = UO.MetalSheetClay,
+        Icon = UO/MetalSheetClayRaw,
+        Count = 1,
+        WorldStaticModel = MetalSheetClayRaw,
+        Tooltip = Tooltip_item_requires_roasting,
+    }
+
+    item MetalSheetClayRawCantCook
+    {
+        DisplayCategory = Mold,
+        Type = Food,
+        Weight = 2.5,
+        Icon = UO/MetalSheetClayRaw,
+        Count = 1,
+        IsCookable = false,
+        CantEat = true,
+        CantBeFrozen = true,
+        WorldStaticModel = MetalSheetClayRaw,
+        Tooltip = Tooltip_item_requires_roasting,
+    }
+
+    item MetalSheetClay
+    {
+        DisplayCategory = Mold,
+        Type = Normal,
+        Weight = 2.5,
+        Icon = UO/MetalSheetClay,
+        Count = 1,
+        WorldStaticModel = MetalSheetClay,
+    }
+
+    item MetalSheetCementRaw
+    {
+        DisplayCategory = Mold,
+        Type = Food,
+        Weight = 3.0,
+        MinutesToCook = 60,
+        IsCookable = true,
+        CantEat = true,
+        CantBeFrozen = true,
+        ReplaceOnCooked = UO.MetalSheetCement,
+        Icon = UO/MetalSheetCementRaw,
+        Count = 1,
+        WorldStaticModel = MetalSheetCementRaw,
+        Tooltip = Tooltip_item_requires_roasting,
+    }
+
+    item MetalSheetCementRawCantCook
+    {
+        DisplayCategory = Mold,
+        Type = Food,
+        Weight = 3.0,
+        Icon = UO/MetalSheetCementRaw,
+        Count = 1,
+        IsCookable = false,
+        CantEat = true,
+        CantBeFrozen = true,
+        WorldStaticModel = MetalSheetCementRaw,
+        Tooltip = Tooltip_item_requires_roasting,
+    }
+
+    item MetalSheetCement
+    {
+        DisplayCategory = Mold,
+        Type = Normal,
+        Weight = 3.0,
+        Icon = UO/MetalSheetCement,
+        Count = 1,
+        WorldStaticModel = MetalSheetCement,
+    }
+}

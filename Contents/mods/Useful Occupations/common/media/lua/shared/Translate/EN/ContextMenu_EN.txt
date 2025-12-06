@@ -1,0 +1,11 @@
+ContextMenu_EN = {
+	ContextMenu_Lockpicking = "12",
+	ContextMenu_PickLock = "1",
+	ContextMenu_Relock = "2",
+	ContextMenu_Need_Lockpick = "2",
+	ContextMenu_Need_Close_Window = "2",
+	ContextMenu_AlarmControl = "2",
+	ContextMenu_DisableAlarm = "1",
+	ContextMenu_EnableAlarm = "1",
+	ContextMenu_Need_AlarmController = "1",
+}

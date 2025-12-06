@@ -1,0 +1,40 @@
+module UO {
+    craftRecipe UO_PackMREKit
+    {
+        timedAction = PackingBox,
+        time = 150,
+        Tags = InHandCraft,
+        category = Miscellaneous,
+        OnCreate = UORECIPES.SEAL_MRE,
+
+        inputs
+        {
+            item 1 [UO.MREBag10],
+            item 1 tags[VacuumSealer] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 UO.MREKit,
+        }
+    }
+
+    craftRecipe UO_UnpackMREKit
+    {
+        timedAction = PackingBox,
+        time = 150,
+        Tags = InHandCraft,
+        category = Miscellaneous,
+        OnCreate = UORECIPES.UNPACK_MRE,
+
+        inputs
+        {
+            item 1 [UO.MREKit],
+            item 1 tags[Scissors;SharpKnife] mode:keep,
+        }
+
+        outputs
+        {
+        }
+    }
+}

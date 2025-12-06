@@ -1,0 +1,800 @@
+VERSION = 1,
+
+option UO.Wunderkind
+{
+	type = boolean, default = false,
+	page = UO, translation = UO.Wunderkind,
+}
+option UO.Wunderkind.lastLevelForXpBoost
+{
+	type = integer, min = 0, max = 10, default = 3,
+	page = UO, translation = UO.Wunderkind.lastLevelForXpBoost,
+}
+option UO.Wunderkind.booksMultiplier
+{
+	type = double, min = 0, max = 10, default = 2,
+	page = UO, translation = UO.Wunderkind.booksMultiplier,
+}
+option UO.Wunderkind.lastBooksMultiplierLevel
+{
+	type = integer, min = 0, max = 10, default = 10,
+	page = UO, translation = UO.Wunderkind.lastBooksMultiplierLevel,
+}
+
+option UO.Profession_Scout
+{
+	type = boolean, default = false,
+	page = UO, translation = UO.Profession_Scout,
+}
+option UO.ScoutStartKit
+{
+	type = boolean, default = true,
+	page = UO, translation = UO.ScoutStartKit,
+}
+option UO.ScoutSkills
+{
+	type = boolean, default = false,
+	page = UO, translation = UO.ScoutSkills,
+}
+option UO.ScoutSkills.maxWalkTime
+{
+	type = integer, min = 0, max = 1000, default = 120,
+	page = UO, translation = UO.ScoutSkills.maxWalkTime,
+}
+option UO.ScoutSkills.msToCall
+{
+	type = integer, min = 1, max = 60000, default = 1000,
+	page = UO, translation = UO.ScoutSkills.msToCall,
+}
+option UO.ScoutSkills.hungerReduceMin
+{
+	type = integer, min = 0, max = 100, default = 25,
+	page = UO, translation = UO.ScoutSkills.hungerReduceMin,
+}
+option UO.ScoutSkills.hungerReduceMax
+{
+	type = integer, min = 0, max = 100, default = 75,
+	page = UO, translation = UO.ScoutSkills.hungerReduceMax,
+}
+option UO.ScoutSkills.hungerTimeToMax
+{
+	type = integer, min = 1, max = 1000, default = 120,
+	page = UO, translation = UO.ScoutSkills.hungerTimeToMax,
+}
+option UO.ScoutSkills.thirstReduceMin
+{
+	type = integer, min = 0, max = 100, default = 25,
+	page = UO, translation = UO.ScoutSkills.thirstReduceMin,
+}
+option UO.ScoutSkills.thirstReduceMax
+{
+	type = integer, min = 0, max = 100, default = 75,
+	page = UO, translation = UO.ScoutSkills.thirstReduceMax,
+}
+option UO.ScoutSkills.thirstTimeToMax
+{
+	type = integer, min = 1, max = 1000, default = 120,
+	page = UO, translation = UO.ScoutSkills.thirstTimeToMax,
+}
+
+
+option UO.Axeman
+{
+	type = boolean, default = false,
+	page = UO, translation = UO.Axeman,
+}
+option UO.Axeman.muscleStrainModifier
+{
+	type = double, min = 0, max = 1, default = 0.5,
+	page = UO, translation = UO.Axeman.muscleStrainModifier,
+}
+option UO.Axeman.enduranceUseModifier
+{
+	type = double, min = 0, max = 1, default = 0.5,
+	page = UO, translation = UO.Axeman.muscleStrainModifier,
+}
+
+
+option UO.Organized
+{
+	type = boolean, default = false,
+	page = UO, translation = UO.Organized,
+}
+option UO.Organized.strengthBonusCarrying
+{
+	type = integer, min = 0, max = 50, default = 12,
+	page = UO, translation = UO.Organized.strengthBonusCarrying,
+}
+
+
+option UO.Outdoorsman
+{
+	type = boolean, default = false,
+	page = UO, translation = UO.Outdoorsman,
+}
+option UO.Outdoorsman.buildingTPR
+{
+	type = integer, min = 0, max = 100, default = 50,
+	page = UO, translation = UO.Outdoorsman.buildingTPR,
+}
+option UO.Outdoorsman.removeCampfireTRP
+{
+	type = integer, min = 0, max = 100, default = 50,
+	page = UO, translation = UO.Outdoorsman.removeCampfireTRP,
+}
+option UO.Outdoorsman.putOutCampfireTRP
+{
+	type = integer, min = 0, max = 100, default = 50,
+	page = UO, translation = UO.Outdoorsman.putOutCampfireTRP,
+}
+option UO.Outdoorsman.lightFromPetrolTRP
+{
+	type = integer, min = 0, max = 100, default = 50,
+	page = UO, translation = UO.Outdoorsman.lightFromPetrolTRP,
+}
+option UO.Outdoorsman.lightFromLiteratureTRP
+{
+	type = integer, min = 0, max = 100, default = 50,
+	page = UO, translation = UO.Outdoorsman.lightFromLiteratureTRP,
+}
+option UO.Outdoorsman.lightFromKindleTRP
+{
+	type = integer, min = 0, max = 100, default = 50,
+	page = UO, translation = UO.Outdoorsman.lightFromKindleTRP,
+}
+option UO.Outdoorsman.addCampfireFuelTRP
+{
+	type = integer, min = 0, max = 100, default = 50,
+	page = UO, translation = UO.Outdoorsman.addCampfireFuelTRP,
+}
+option UO.Outdoorsman.washClothesTRP
+{
+	type = integer, min = 0, max = 100, default = 50,
+	page = UO, translation = UO.Outdoorsman.washClothesTRP,
+}
+option UO.Outdoorsman.washYourselfTRP
+{
+	type = integer, min = 0, max = 100, default = 50,
+	page = UO, translation = UO.Outdoorsman.washYourselfTRP,
+}
+
+
+option UO.Burglar
+{
+	type = boolean, default = false,
+	page = UO, translation = UO.Burglar,
+}
+option UO.Burglar.defaultLockpickingTime
+{
+	type = integer, min = 1, max = 10000, default = 500,
+	page = UO, translation = UO.Burglar.defaultLockpickingTime,
+}
+option UO.Burglar.reduceDoorLockpickingTime
+{
+	type = integer, min = 0, max = 1000, default = 30,
+	page = UO, translation = UO.Burglar.reduceDoorLockpickingTime,
+}
+
+
+option UO.Graceful
+{
+	type = boolean, default = false,
+	page = UO, translation = UO.Graceful,
+}
+option UO.Graceful.defaultWalk_startBonusPercent
+{
+	type = double, min = 0, max = 100, default = 15,
+	page = UO, translation = UO.Graceful.defaultWalk_startBonusPercent,
+}
+option UO.Graceful.defaultWalk_percentPerLvl
+{
+	type = double, min = 0, max = 20, default = 1.5,
+	page = UO, translation = UO.Graceful.defaultWalk_percentPerLvl,
+}
+option UO.Graceful.sneakWalk_startBonusPercent
+{
+	type = double, min = 0, max = 100, default = 30,
+	page = UO, translation = UO.Graceful.sneakWalk_startBonusPercent,
+}
+option UO.Graceful.sneakWalk_percentPerLvl
+{
+	type = double, min = 0, max = 20, default = 2,
+	page = UO, translation = UO.Graceful.sneakWalk_percentPerLvl,
+}
+option UO.Graceful.sneakRun_startBonusPercent
+{
+	type = double, min = 0, max = 100, default = 30,
+	page = UO, translation = UO.Graceful.sneakRun_startBonusPercent,
+}
+option UO.Graceful.sneakRun_percentPerLvl
+{
+	type = double, min = 0, max = 20, default = 2,
+	page = UO, translation = UO.Graceful.sneakRun_percentPerLvl,
+}
+option UO.Graceful.defaultRun_startBonusPercent
+{
+	type = double, min = 0, max = 100, default = 15,
+	page = UO, translation = UO.Graceful.defaultRun_startBonusPercent,
+}
+option UO.Graceful.defaultRun_percentPerLvl
+{
+	type = double, min = 0, max = 20, default = 1.5,
+	page = UO, translation = UO.Graceful.defaultRun_percentPerLvl,
+}
+option UO.Graceful.defaultSprint_startBonusPercent
+{
+	type = double, min = 0, max = 100, default = 15,
+	page = UO, translation = UO.Graceful.defaultSprint_startBonusPercent,
+}
+option UO.Graceful.defaultSprint_percentPerLvl
+{
+	type = double, min = 0, max = 20, default = 1.5,
+	page = UO, translation = UO.Graceful.defaultSprint_percentPerLvl,
+}
+option UO.Graceful.climbWall_startBonusPercent
+{
+	type = double, min = 0, max = 100, default = 30,
+	page = UO, translation = UO.Graceful.climbWall_startBonusPercent,
+}
+option UO.Graceful.climbWall_percentPerLvl
+{
+	type = double, min = 0, max = 20, default = 2,
+	page = UO, translation = UO.Graceful.climbWall_percentPerLvl,
+}
+option UO.Graceful.climbWindow_startBonusPercent
+{
+	type = double, min = 0, max = 100, default = 30,
+	page = UO, translation = UO.Graceful.climbWindow_startBonusPercent,
+}
+option UO.Graceful.climbWindow_percentPerLvl
+{
+	type = double, min = 0, max = 20, default = 2,
+	page = UO, translation = UO.Graceful.climbWindow_percentPerLvl,
+}
+option UO.Graceful.climbFence_Walk_startBonusPercent
+{
+	type = double, min = 0, max = 100, default = 30,
+	page = UO, translation = UO.Graceful.climbFence_Walk_startBonusPercent,
+}
+option UO.Graceful.climbFence_Walk_percentPerLvl
+{
+	type = double, min = 0, max = 20, default = 2,
+	page = UO, translation = UO.Graceful.climbFence_Walk_percentPerLvl,
+}
+option UO.Graceful.climbFence_Run_startBonusPercent
+{
+	type = double, min = 0, max = 100, default = 10,
+	page = UO, translation = UO.Graceful.climbFence_Run_startBonusPercent,
+}
+option UO.Graceful.climbFence_Run_percentPerLvl
+{
+	type = double, min = 0, max = 20, default = 2,
+	page = UO, translation = UO.Graceful.climbFence_Run_percentPerLvl,
+}
+option UO.Graceful.climbFence_Sprint_startBonusPercent
+{
+	type = double, min = 0, max = 100, default = 10,
+	page = UO, translation = UO.Graceful.climbFence_Run_startBonusPercent,
+}
+option UO.Graceful.climbFence_Sprint_percentPerLvl
+{
+	type = double, min = 0, max = 20, default = 2,
+	page = UO, translation = UO.Graceful.climbFence_Run_percentPerLvl,
+}
+option UO.Graceful.turn_startBonusPercent
+{
+	type = double, min = 0, max = 100, default = 10,
+	page = UO, translation = UO.Graceful.turn_startBonusPercent,
+}
+option UO.Graceful.turn_percentPerLvl
+{
+	type = double, min = 0, max = 20, default = 2,
+	page = UO, translation = UO.Graceful.turn_percentPerLvl,
+}
+option UO.Graceful.turn180_startBonusPercent
+{
+	type = double, min = 0, max = 100, default = 10,
+	page = UO, translation = UO.Graceful.turn180_startBonusPercent,
+}
+option UO.Graceful.turn180_percentPerLvl
+{
+	type = double, min = 0, max = 20, default = 2,
+	page = UO, translation = UO.Graceful.turn180_percentPerLvl,
+}
+option UO.Graceful.clothingWeightReducePercent
+{
+	type = integer, min = 0, max = 100, default = 75,
+	page = UO, translation = UO.Graceful.clothingWeightReducePercent,
+}
+
+
+option UO.Inconspicuous
+{
+	type = boolean, default = false,
+	page = UO, translation = UO.Inconspicuous,
+}
+option UO.Inconspicuous.sneakingBonusMult
+{
+	type = double, min = 1, max = 10, default = 1,
+	page = UO, translation = UO.Inconspicuous.sneakingBonusMult,
+}
+option UO.Inconspicuous.runningBonusMult
+{
+	type = double, min = 1, max = 10, default = 1,
+	page = UO, translation = UO.Inconspicuous.runningBonusMult,
+}
+option UO.Inconspicuous.sprintingBonusMult
+{
+	type = double, min = 1, max = 10, default = 1,
+	page = UO, translation = UO.Inconspicuous.sprintingBonusMult,
+}
+option UO.Inconspicuous.defaultBonusMult
+{
+	type = double, min = 1, max = 10, default = 1,
+	page = UO, translation = UO.Inconspicuous.defaultBonusMult,
+}
+
+
+option UO.Dextrous
+{
+	type = boolean, default = false,
+	page = UO, translation = UO.Dextrous,
+}
+option UO.Dextrous.inventoryTransferTRP
+{
+	type = integer, min = 0, max = 100, default = 25,
+	page = UO, translation = UO.Dextrous.inventoryTransferTRP,
+}
+
+
+option UO.Marksman
+{
+	type = boolean, default = false,
+	page = UO, translation = UO.Marksman,
+}
+option UO.Marksman.minHitChance
+{
+	type = integer, min = 0, max = 100, default = 100,
+	page = UO, translation = UO.Marksman.minHitChance,
+}
+option UO.Marksman.minCritChance
+{
+	type = integer, min = 0, max = 100, default = 50,
+	page = UO, translation = UO.Marksman.minCritChance,
+}
+option UO.Marksman.critChanceDefaultMult
+{
+	type = double, min = 1, max = 10, default = 1.5,
+	page = UO, translation = UO.Marksman.critChanceDefaultMult,
+}
+option UO.Marksman.critChanceBonusPerLvl
+{
+	type = double, min = 0, max = 1, default = 0.05,
+	page = UO, translation = UO.Marksman.critChanceBonusPerLvl,
+}
+option UO.Marksman.aimingTimeDefaultMult
+{
+	type = double, min = 1, max = 10, default = 2,
+	page = UO, translation = UO.Marksman.aimingTimeDefaultMult,
+}
+option UO.Marksman.aimingTimeBonusPerLvl
+{
+	type = double, min = 0, max = 1, default = 0.1,
+	page = UO, translation = UO.Marksman.aimingTimeBonusPerLvl,
+}
+option UO.Marksman.maxRangeDefaultMult
+{
+	type = double, min = 1, max = 10, default = 1.2,
+	page = UO, translation = UO.Marksman.maxRangeDefaultMult,
+}
+option UO.Marksman.maxRangeBonusPerLvl
+{
+	type = double, min = 0, max = 1, default = 0.03,
+	page = UO, translation = UO.Marksman.maxRangeBonusPerLvl,
+}
+option UO.Marksman.minDamageDefaultMult
+{
+	type = double, min = 1, max = 10, default = 1.2,
+	page = UO, translation = UO.Marksman.minDamageDefaultMult,
+}
+option UO.Marksman.minDamageBonusPerLvl
+{
+	type = double, min = 0, max = 1, default = 0.03,
+	page = UO, translation = UO.Marksman.minDamageBonusPerLvl,
+}
+option UO.Marksman.maxDamageDefaultMult
+{
+	type = double, min = 1, max = 10, default = 1.2,
+	page = UO, translation = UO.Marksman.maxDamageDefaultMult,
+}
+option UO.Marksman.maxDamageBonusPerLvl
+{
+	type = double, min = 0, max = 1, default = 0.03,
+	page = UO, translation = UO.Marksman.maxDamageBonusPerLvl,
+}
+option UO.Marksman.reloadSpeedDefaultMult
+{
+	type = double, min = 1, max = 10, default = 1.3,
+	page = UO, translation = UO.Marksman.reloadSpeedDefaultMult,
+}
+option UO.Marksman.reloadSpeedBonusPerLvl
+{
+	type = double, min = 0, max = 1, default = 0.02,
+	page = UO, translation = UO.Marksman.reloadSpeedBonusPerLvl,
+}
+option UO.Marksman.conditionLowerChanceMult
+{
+	type = double, min = 1, max = 10, default = 2,
+	page = UO, translation = UO.Marksman.conditionLowerChanceMult,
+}
+
+
+option UO.Desensitized
+{
+	type = boolean, default = false,
+	page = UO, translation = UO.Desensitized,
+}
+option UO.Desensitized.painReduction
+{
+	type = integer, min = 0, max = 300, default = 50,
+	page = UO, translation = UO.Desensitized.painReduction,
+}
+option UO.Desensitized.maxPain
+{
+	type = integer, min = 0, max = 100, default = 20,
+	page = UO, translation = UO.Desensitized.maxPain,
+}
+option UO.Desensitized.maxFatigue
+{
+	type = integer, min = 0, max = 100, default = 81,
+	page = UO, translation = UO.Desensitized.maxFatigue,
+}
+
+
+option UO.TrainedFighter
+{
+	type = boolean, default = false,
+	page = UO, translation = UO.TrainedFighter,
+}
+option UO.TrainedFighter.strafeWalkSpeedDefault
+{
+	type = integer, min = 0, max = 100, default = 30,
+	page = UO, translation = UO.TrainedFighter.strafeWalkSpeedDefault,
+}
+option UO.TrainedFighter.strafeWalkSpeedBonus
+{
+	type = integer, min = 0, max = 20, default = 2,
+	page = UO, translation = UO.TrainedFighter.strafeWalkSpeedBonus,
+}
+option UO.TrainedFighter.strafeAimSpeedDefault
+{
+	type = integer, min = 0, max = 100, default = 30,
+	page = UO, translation = UO.TrainedFighter.strafeAimSpeedDefault,
+}
+option UO.TrainedFighter.strafeAimSpeedBonus
+{
+	type = integer, min = 0, max = 20, default = 2,
+	page = UO, translation = UO.TrainedFighter.strafeAimSpeedBonus,
+}
+option UO.TrainedFighter.minHitChance
+{
+	type = integer, min = 0, max = 100, default = 100,
+	page = UO, translation = UO.TrainedFighter.minHitChance,
+}
+option UO.TrainedFighter.minCritChance
+{
+	type = integer, min = 0, max = 100, default = 50,
+	page = UO, translation = UO.TrainedFighter.minCritChance,
+}
+option UO.TrainedFighter.critChanceDefaultMult
+{
+	type = double, min = 1, max = 10, default = 1.5,
+	page = UO, translation = UO.TrainedFighter.critChanceDefaultMult,
+}
+option UO.TrainedFighter.critChanceBonusPerLvl
+{
+	type = double, min = 0, max = 1, default = 0.05,
+	page = UO, translation = UO.TrainedFighter.critChanceBonusPerLvl,
+}
+option UO.TrainedFighter.maxRangeDefaultMult
+{
+	type = double, min = 1, max = 10, default = 1.2,
+	page = UO, translation = UO.TrainedFighter.maxRangeDefaultMult,
+}
+option UO.TrainedFighter.maxRangeBonusPerLvl
+{
+	type = double, min = 0, max = 1, default = 0.03,
+	page = UO, translation = UO.TrainedFighter.maxRangeBonusPerLvl,
+}
+option UO.TrainedFighter.minDamageDefaultMult
+{
+	type = double, min = 1, max = 10, default = 1.2,
+	page = UO, translation = UO.TrainedFighter.minDamageDefaultMult,
+}
+option UO.TrainedFighter.minDamageBonusPerLvl
+{
+	type = double, min = 0, max = 1, default = 0.03,
+	page = UO, translation = UO.TrainedFighter.minDamageBonusPerLvl,
+}
+option UO.TrainedFighter.maxDamageDefaultMult
+{
+	type = double, min = 1, max = 10, default = 1.2,
+	page = UO, translation = UO.TrainedFighter.maxDamageDefaultMult,
+}
+option UO.TrainedFighter.maxDamageBonusPerLvl
+{
+	type = double, min = 0, max = 1, default = 0.03,
+	page = UO, translation = UO.TrainedFighter.maxDamageBonusPerLvl,
+}
+option UO.TrainedFighter.conditionLowerChanceMult
+{
+	type = double, min = 1, max = 10, default = 2,
+	page = UO, translation = UO.TrainedFighter.conditionLowerChanceMult,
+}
+option UO.TrainedFighter.stompSpeedDefault
+{
+	type = integer, min = 0, max = 100, default = 50,
+	page = UO, translation = UO.TrainedFighter.stompSpeedDefault,
+}
+option UO.TrainedFighter.weaponSwingSpeedDefault
+{
+	type = integer, min = 0, max = 100, default = 30,
+	page = UO, translation = UO.TrainedFighter.weaponSwingSpeedDefault,
+}
+option UO.TrainedFighter.weaponSwingSpeedBonus
+{
+	type = integer, min = 0, max = 20, default = 2,
+	page = UO, translation = UO.TrainedFighter.weaponSwingSpeedBonus,
+}
+option UO.TrainedFighter.shoveSpeedDefault
+{
+	type = integer, min = 0, max = 100, default = 25,
+	page = UO, translation = UO.TrainedFighter.shoveSpeedDefault,
+}
+option UO.TrainedFighter.bumpFallSpeedDefault
+{
+	type = integer, min = 0, max = 200, default = 50,
+	page = UO, translation = UO.TrainedFighter.bumpFallSpeedDefault,
+}
+option UO.TrainedFighter.scrambleGetUpSpeedDefault
+{
+	type = integer, min = 0, max = 200, default = 50,
+	page = UO, translation = UO.TrainedFighter.scrambleGetUpSpeedDefault,
+}
+option UO.TrainedFighter.notScrambleGetUpSpeedDefault
+{
+	type = integer, min = 0, max = 400, default = 200,
+	page = UO, translation = UO.TrainedFighter.notScrambleGetUpSpeedDefault,
+}
+
+
+option UO.EnduranceSecret
+{
+	type = boolean, default = false,
+	page = UO, translation = UO.EnduranceSecret,
+}
+option UO.EnduranceSecret.spendMainReduce
+{
+	type = integer, min = 0, max = 100, default = 40,
+	page = UO, translation = UO.EnduranceSecret.spendMainReduce,
+}
+option UO.EnduranceSecret.enduranceRestBonus
+{
+	type = integer, min = 0, max = 300, default = 100,
+	page = UO, translation = UO.EnduranceSecret.enduranceRestBonus,
+}
+option UO.EnduranceSecret.spendPerkReduce
+{
+	type = integer, min = 0, max = 10, default = 3,
+	page = UO, translation = UO.EnduranceSecret.spendPerkReduce,
+}
+
+
+option UO.Invincible
+{
+	type = boolean, default = false,
+	page = UO, translation = UO.Invincible,
+}
+option UO.Invincible.dodgeEnduranceCost
+{
+	type = integer, min = 0, max = 100, default = 3,
+	page = UO, translation = UO.Invincible.dodgeEnduranceCost,
+}
+option UO.Invincible.dodgeEnduranceEdge
+{
+	type = integer, min = 0, max = 100, default = 30,
+	page = UO, translation = UO.Invincible.dodgeEnduranceEdge,
+}
+option UO.Invincible.targetPerkEffect
+{
+	type = double, min = 0, max = 1, default = 0.1,
+	page = UO, translation = UO.Invincible.targetPerkEffect,
+}
+option UO.Invincible.perkActiveTime
+{
+	type = integer, min = 0, max = 10000, default = 180,
+	page = UO, translation = UO.Invincible.perkActiveTime,
+}
+option UO.Invincible.perkCooldownTime
+{
+	type = integer, min = 0, max = 10000, default = 120,
+	page = UO, translation = UO.Invincible.perkCooldownTime,
+}
+option UO.Invincible.perkCooldownEffectsStartPercent
+{
+	type = integer, min = 0, max = 100, default = 5,
+	page = UO, translation = UO.Invincible.perkCooldownEffectsStartPercent,
+}
+
+
+option UO.Profession_SPM
+{
+	type = boolean, default = false,
+	page = UO, translation = UO.Profession_SPM,
+}
+option UO.SPMStartKit
+{
+	type = boolean, default = true,
+	page = UO, translation = UO.SPMStartKit,
+}
+option UO.Engineer
+{
+	type = boolean, default = false,
+	page = UO, translation = UO.Engineer,
+}
+option UO.Engineer.craftRecipesTRP
+{
+	type = integer, min = 0, max = 100, default = 50,
+	page = UO, translation = UO.Engineer.craftRecipesTRP,
+}
+option UO.Engineer.craftRecipesTRPPerLvl
+{
+	type = integer, min = 0, max = 20, default = 3,
+	page = UO, translation = UO.Engineer.craftRecipesTRPPerLvl,
+}
+option UO.Engineer.empStunTime
+{
+	type = integer, min = 0, max = 120, default = 20,
+	page = UO, translation = UO.Engineer.empStunTime,
+}
+option UO.Engineer.empStunHRadis
+{
+	type = integer, min = 0, max = 18, default = 6,
+	page = UO, translation = UO.Engineer.empStunHRadis,
+}
+option UO.Engineer.empStunVRadis
+{
+	type = integer, min = 0, max = 5, default = 1,
+	page = UO, translation = UO.Engineer.empStunVRadis,
+}
+
+
+option UO.Builder
+{
+	type = boolean, default = false,
+	page = UO, translation = UO.Builder,
+}
+option UO.Builder.buildingTPR
+{
+	type = integer, min = 0, max = 100, default = 50,
+	page = UO, translation = UO.Builder.buildingTPR,
+}
+option UO.Builder.buildingTPRPerLvl
+{
+	type = double, min = 0, max = 20, default = 3,
+	page = UO, translation = UO.Builder.buildingTPRPerLvl,
+}
+option UO.Builder.buildingTPR
+{
+	type = integer, min = 0, max = 100, default = 50,
+	page = UO, translation = UO.Builder.buildingTPR,
+}
+option UO.Builder.buildingTPRPerLvl
+{
+	type = double, min = 0, max = 10, default = 1.5,
+	page = UO, translation = UO.Builder.buildingTPRPerLvl,
+}
+option UO.Builder.buildingBHP
+{
+	type = integer, min = 0, max = 600, default = 300,
+	page = UO, translation = UO.Builder.buildingBHP,
+}
+option UO.Builder.buildingBHPPerLvl
+{
+	type = integer, min = 0, max = 100, default = 20,
+	page = UO, translation = UO.Builder.buildingBHPPerLvl,
+}
+option UO.Builder.buildingCapBonus
+{
+	type = integer, min = 0, max = 100, default = 50,
+	page = UO, translation = UO.Builder.buildingCapBonus,
+}
+option UO.Builder.buildingCapBonusPerLvl
+{
+	type = integer, min = 0, max = 20, default = 5,
+	page = UO, translation = UO.Builder.buildingCapBonusPerLvl,
+}
+
+
+option UO.Mechanic
+{
+	type = boolean, default = false,
+	page = UO, translation = UO.Mechanic,
+}
+option UO.Mechanic.scrappingTPR
+{
+	type = integer, min = 0, max = 100, default = 50,
+	page = UO, translation = UO.Mechanic.scrappingTPR,
+}
+option UO.Mechanic.scrappingTPRPerLvl
+{
+	type = double, min = 0, max = 20, default = 1.5,
+	page = UO, translation = UO.Mechanic.scrappingTPRPerLvl,
+}
+option UO.Mechanic.installTPR
+{
+	type = integer, min = 0, max = 100, default = 50,
+	page = UO, translation = UO.Mechanic.installTPR,
+}
+option UO.Mechanic.installTPRPerLvl
+{
+	type = integer, min = 0, max = 20, default = 3,
+	page = UO, translation = UO.Mechanic.installTPRPerLvl,
+}
+option UO.Mechanic.repairBonusPercent
+{
+	type = integer, min = 0, max = 100, default = 50,
+	page = UO, translation = UO.Mechanic.repairBonusPercent,
+}
+option UO.Mechanic.repairBonusPercentPerLvl
+{
+	type = double, min = 0, max = 20, default = 2.5,
+	page = UO, translation = UO.Mechanic.repairBonusPercentPerLvl,
+}
+
+
+option UO.Doctor
+{
+	type = boolean, default = false,
+	page = UO, translation = UO.Doctor,
+}
+option UO.Doctor.medicineActionsTRP
+{
+	type = integer, min = 0, max = 100, default = 30,
+	page = UO, translation = UO.Doctor.medicineActionsTRP,
+}
+option UO.Doctor.medicineActionsTRPPerLvl
+{
+	type = integer, min = 0, max = 20, default = 3,
+	page = UO, translation = UO.Doctor.medicineActionsTRPPerLvl,
+}
+option UO.Doctor.cataplasmPowerPercent
+{
+	type = integer, min = 0, max = 400, default = 200,
+	page = UO, translation = UO.Doctor.cataplasmPowerPercent,
+}
+option UO.Doctor.cataplasmPowerPercentPerLvl
+{
+	type = integer, min = 0, max = 40, default = 10,
+	page = UO, translation = UO.Doctor.cataplasmPowerPercentPerLvl,
+}
+option UO.Doctor.bandageLifePercent
+{
+	type = integer, min = 0, max = 400, default = 200,
+	page = UO, translation = UO.Doctor.bandageLifePercent,
+}
+option UO.Doctor.bandageLifePercentPerLvl
+{
+	type = integer, min = 0, max = 40, default = 10,
+	page = UO, translation = UO.Doctor.bandageLifePercentPerLvl,
+}
+option UO.Doctor.hungModifier
+{
+	type = double, min = 1, max = 100, default = 2.5,
+	page = UO, translation = UO.Doctor.hungModifier,
+}
+option UO.Doctor.hungModifierPerLvl
+{
+	type = double, min = 0, max = 10, default = 0.1,
+	page = UO, translation = UO.Doctor.hungModifierPerLvl,
+}

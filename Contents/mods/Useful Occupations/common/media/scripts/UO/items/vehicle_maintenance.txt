@@ -1,0 +1,141 @@
+module UO {
+    item EngineSpecialParts
+    {
+        DisplayCategory = VehicleMaintenance,
+        Type = Normal,
+        Weight = 8.00,
+        Icon = UO/EngineSpecialParts,
+        Count = 1,
+        WorldStaticModel = EngineSpecialParts,
+    }
+
+    item SpecialBattery
+    {
+        DisplayCategory = VehicleMaintenance,
+        Type = Normal,
+        Weight = 12.00,
+        Icon = UO/SpecialBattery,
+        Count = 1,
+        WorldStaticModel = SpecialBattery,
+    }
+
+    item SpecialSilencer
+    {
+        DisplayCategory = VehicleMaintenance,
+        Type = Normal,
+        Weight = 2.50,
+        Icon = UO/SpecialSilencer,
+        Count = 1,
+        WorldStaticModel = SpecialSilencer,
+    }
+
+    item SpecialSuspension
+    {
+        DisplayCategory = VehicleMaintenance,
+        Type = Normal,
+        Weight = 6.00,
+        Icon = UO/SpecialSuspension,
+        Count = 1,
+        WorldStaticModel = SpecialSuspension,
+    }
+
+    item SpecialBrake
+    {
+        DisplayCategory = VehicleMaintenance,
+        Type = Normal,
+        Weight = 3.00,
+        Icon = UO/SpecialBrake,
+        Count = 1,
+        WorldStaticModel = SpecialBrake,
+    }
+
+    item SpecialHood
+    {
+        DisplayCategory = VehicleMaintenance,
+        Type = Normal,
+        Weight = 15.00,
+        Icon = UO/SpecialHood,
+        Count = 1,
+        WorldStaticModel = SpecialHood,
+    }
+
+    item SpecialTire
+    {
+        DisplayCategory = VehicleMaintenance,
+        Type = Normal,
+        Weight = 10.00,
+        Icon = UO/SpecialTire,
+        Count = 1,
+        WorldStaticModel = SpecialTire,
+    }
+
+    item SpecialSeat
+    {
+        DisplayCategory = VehicleMaintenance,
+        Type = Normal,
+        Weight = 12.00,
+        Icon = UO/SpecialSeat,
+        Count = 1,
+        WorldStaticModel = SpecialSeat,
+    }
+
+    item SpecialFrontDoor
+    {
+        DisplayCategory = VehicleMaintenance,
+        Type = Normal,
+        Weight = 18.00,
+        Icon = UO/SpecialFrontDoor,
+        Count = 1,
+        WorldStaticModel = SpecialFrontDoor,
+    }
+
+    item SpecialRearDoor
+    {
+        DisplayCategory = VehicleMaintenance,
+        Type = Normal,
+        Weight = 16.00,
+        Icon = UO/SpecialRearDoor,
+        Count = 1,
+        WorldStaticModel = SpecialRearDoor,
+    }
+
+    item SpecialRearWindow
+    {
+        DisplayCategory = VehicleMaintenance,
+        Type = Normal,
+        Weight = 8.00,
+        Icon = UO/SpecialRearWindow,
+        Count = 1,
+        WorldStaticModel = SpecialRearWindow,
+    }
+
+    item SpecialWindshield
+    {
+        DisplayCategory = VehicleMaintenance,
+        Type = Normal,
+        Weight = 12.00,
+        Icon = UO/SpecialWindshield,
+        Count = 1,
+        WorldStaticModel = SpecialWindshield,
+    }
+
+    item SpecialWindow
+    {
+        DisplayCategory = VehicleMaintenance,
+        Type = Normal,
+        Weight = 6.00,
+        Icon = UO/SpecialWindow,
+        Count = 1,
+        WorldStaticModel = SpecialWindow,
+    }
+
+    item SpecialFuelTank
+    {
+        DisplayCategory = VehicleMaintenance,
+        Type = Normal,
+        Weight = 6.00,
+        Icon = UO/SpecialFuelTank,
+        Count = 1,
+        WorldStaticModel = SpecialFuelTank,
+    }
+}
