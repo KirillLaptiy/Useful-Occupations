@@ -24,7 +24,7 @@ local initProfessions = function()
 			type = "unemployed",
 			name = getText("UI_prof_unemployed"),
 			iconPath = "useful_occupations_unemployed",
-			points = 30,
+			points = 40,
 
 			---@class Profession.Unemployed.traits
 			traits = {

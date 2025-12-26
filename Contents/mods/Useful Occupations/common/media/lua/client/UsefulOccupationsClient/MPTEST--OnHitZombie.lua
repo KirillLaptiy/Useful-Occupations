@@ -11,25 +11,19 @@
 local trainedFighterType = UsefulOccupations.PersonalTraits.TrainedFighter.type
 local marksmanType = UsefulOccupations.PersonalTraits.Marksman.type
 
-local UOFunctions = UsefulOccupations.Functions
-
 ---@param player IsoGameCharacter
 ---@param weapon HandWeapon
 local canSuperCrit = function(player, weapon)
-	local modData = UOFunctions.getModData()
-
 	local isFirearmWeapon = weapon:isAimedFirearm()
 
-	local canSuperCritMelee = player:HasTrait(trainedFighterType)
-		and isFirearmWeapon == false
-		and modData.invincibleState ~= "onCooldown"
+	local canSuperCritMelee = player:HasTrait(trainedFighterType) and isFirearmWeapon == false
 
 	local canSuperCritFirearm = player:HasTrait(marksmanType) and isFirearmWeapon == true
 
 	return canSuperCritMelee or canSuperCritFirearm
 end
 
--- Проверить в МП, что когда хитует игрок с трейтом, то для остальных игроков зомби не будут падать с 1 удара
+-- Check in MP that when a player with a trait hits, zombies won't fall in one hit for other players.
 Events.OnHitZombie.Add(function(zombie, attacker, _, weapon)
 	-- Do super crit
 	if weapon:getType() ~= "BareHands" and canSuperCrit(attacker, weapon) then
@@ -48,6 +42,6 @@ end)
 Events.OnWeaponHitCharacter.Add(function(attacker, target, _, damage)
 	-- Trained fighter has increased stopm power
 	if attacker:HasTrait(trainedFighterType) and attacker:isDoStomp() then
-		target:setHealth(target:getHealth() - (damage + 1) * 2)
+		target:setHealth(target:getHealth() - ((damage + 0.1) * 1.5))
 	end
 end)

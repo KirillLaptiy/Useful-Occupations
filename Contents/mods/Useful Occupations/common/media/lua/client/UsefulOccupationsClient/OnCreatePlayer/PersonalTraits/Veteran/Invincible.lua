@@ -13,152 +13,13 @@
 UsefulOccupations.DoTraitsOnCreatePlayer.Invincible = function(player)
 	local dodgeEnduranceCost = UsefulOccupations.PersonalTraits.Invincible.values.dodgeEnduranceCost() / 100
 	local dodgeEnduranceEdge = UsefulOccupations.PersonalTraits.Invincible.values.dodgeEnduranceEdge() / 100
-	local targetPerk = Perks.Nimble
 	local targetPerkEffect = UsefulOccupations.PersonalTraits.Invincible.values.targetPerkEffect() / 100
 	local perkActiveTime = UsefulOccupations.PersonalTraits.Invincible.values.perkActiveTime()
 	local perkCooldownTime = UsefulOccupations.PersonalTraits.Invincible.values.perkCooldownTime() * 60
-	local perkCooldownEffectsStartPercent =
-		UsefulOccupations.PersonalTraits.Invincible.values.perkCooldownEffectsStartPercent()
+	local zombieDisableCost = UsefulOccupations.PersonalTraits.Invincible.values.zombieDisableCost() / 100
+	local zombieDisableEdge = UsefulOccupations.PersonalTraits.Invincible.values.zombieDisableEdge() / 100
 
-	local injuryFields = {
-		Burn = {
-			burnTime = { get = "getBurnTime", set = "setBurnTime" },
-			burnSpeedModifier = { get = "getBurnSpeedModifier", set = "setBurnSpeedModifier" },
-			needBurnWash = { get = "isNeedBurnWash", set = "setNeedBurnWash" },
-			lastTimeBurnWash = { get = "getLastTimeBurnWash", set = "setLastTimeBurnWash" },
-		},
-
-		Cut = {
-			isCut = { get = "isCut", set = "setCut" },
-			cutTime = { get = "getCutTime", set = "setCutTime" },
-			cutSpeedModifier = { get = "getCutSpeedModifier", set = "setCutSpeedModifier" },
-		},
-
-		DeepWound = {
-			isDeepWounded = { get = "isDeepWounded", set = "setDeepWounded" },
-			deepWoundTime = { get = "getDeepWoundTime", set = "setDeepWoundTime" },
-			deepWoundSpeedModifier = { get = "getDeepWoundSpeedModifier", set = "setDeepWoundSpeedModifier" },
-		},
-
-		Bite = {
-			bitten = { get = "bitten", set = "SetBitten" },
-			biteTime = { get = "getBiteTime", set = "setBiteTime" },
-		},
-
-		Scratch = {
-			scratched = { get = "scratched", set = "setScratched" },
-			scratchTime = { get = "getScratchTime", set = "setScratchTime" },
-			scratchSpeedModifier = { get = "getScratchSpeedModifier", set = "setScratchSpeedModifier" },
-		},
-
-		Infection = {
-			infectedWound = { get = "isInfectedWound", set = "setInfectedWound" },
-			woundInfectionLevel = { get = "getWoundInfectionLevel", set = "setWoundInfectionLevel" },
-			isInfected = { get = "IsInfected", set = "SetInfected" },
-			fakeInfected = { get = "IsFakeInfected", set = "SetFakeInfected" },
-			cauterized = { get = "IsCauterized", set = "SetCauterized" },
-		},
-
-		Fracture = {
-			fractureTime = { get = "getFractureTime", set = "setFractureTime" },
-		},
-
-		Bandage = {
-			bandaged = { get = "bandaged", set = "setBandaged" },
-			bandageLife = { get = "getBandageLife", set = "setBandageLife" },
-			bandageType = { get = "getBandageType", set = "setBandageType" },
-			stitched = { get = "stitched", set = "setStitched" },
-			stitchTime = { get = "getStitchTime", set = "setStitchTime" },
-		},
-
-		Splint = {
-			splint = { get = "isSplint", set = "setSplint" },
-			splintFactor = { get = "getSplintFactor", set = "setSplintFactor" },
-			splintItem = { get = "getSplintItem", set = "setSplintItem" },
-		},
-
-		OtherDamage = {
-			haveBullet = { get = "haveBullet", set = "setHaveBullet" },
-			haveGlass = { get = "haveGlass", set = "setHaveGlass" },
-			stiffness = { get = "getStiffness", set = "setStiffness" },
-			wetness = { get = "getWetness", set = "setWetness" },
-			additionalPain = { get = "getAdditionalPain", set = "setAdditionalPain" },
-			alcoholLevel = { get = "getAlcoholLevel", set = "setAlcoholLevel" },
-			comfreyFactor = { get = "getComfreyFactor", set = "setComfreyFactor" },
-			garlicFactor = { get = "getGarlicFactor", set = "setGarlicFactor" },
-			plantainFactor = { get = "getPlantainFactor", set = "setPlantainFactor" },
-			health = { get = "getHealth", set = "SetHealth" },
-		},
-
-		Bleeding = {
-			bleeding = { get = "bleeding", set = "setBleeding" },
-			bleedingTime = { get = "getBleedingTime", set = "setBleedingTime" },
-			bleedingStemmed = { get = "IsBleedingStemmed", set = "SetBleedingStemmed" },
-		},
-	}
-
-	local statsFields = {
-		fatigue = { get = "getFatigue", set = "setFatigue" },
-		hunger = { get = "getHunger", set = "setHunger" },
-		thirst = { get = "getThirst", set = "setThirst" },
-		stress = { get = "getStress", set = "setStress" },
-		panic = { get = "getPanic", set = "setPanic" },
-		drunkenness = { get = "getDrunkenness", set = "setDrunkenness" },
-		pain = { get = "getPain", set = "setPain" },
-		endurance = { get = "getEndurance", set = "setEndurance" },
-		sickness = { get = "getSickness", set = "setSickness" },
-		boredom = { get = "getBoredom", set = "setBoredom" },
-	}
-
-	local bodyDamageFields = {
-		boredom = { get = "getBoredomLevel", set = "setBoredomLevel" },
-		catchACold = { get = "getCatchACold", set = "setCatchACold" },
-		coldDamageStage = { get = "getColdDamageStage", set = "setColdDamageStage" },
-		coldProgressionRate = { get = "getColdProgressionRate", set = "setColdProgressionRate" },
-		coldReduction = { get = "getColdReduction", set = "setColdReduction" },
-		coldSneezeTimerMax = { get = "getColdSneezeTimerMax", set = "setColdSneezeTimerMax" },
-		coldSneezeTimerMin = { get = "getColdSneezeTimerMin", set = "setColdSneezeTimerMin" },
-		coldStrength = { get = "getColdStrength", set = "setColdStrength" },
-		continualPainIncrease = { get = "getContinualPainIncrease", set = "setContinualPainIncrease" },
-		fakeInfectionLevel = { get = "getFakeInfectionLevel", set = "setFakeInfectionLevel" },
-		hasACold = { get = "isHasACold", set = "setHasACold" },
-		infected = { get = "isInfected", set = "setInfected" },
-		infectionGrowthRate = { get = "getInfectionGrowthRate", set = "setInfectionGrowthRate" },
-		infectionLevel = { get = "getInfectionLevel", set = "setInfectionLevel" },
-		infectionMortalityDuration = { get = "getInfectionMortalityDuration", set = "setInfectionMortalityDuration" },
-		infectionTime = { get = "getInfectionTime", set = "setInfectionTime" },
-		isFakeInfected = { get = "IsFakeInfected", set = "setIsFakeInfected" },
-		overallBodyHealth = { get = "getOverallBodyHealth", set = "setOverallBodyHealth" },
-		sneezeCoughDelay = { get = "getSneezeCoughDelay", set = "setSneezeCoughDelay" },
-		sneezeCoughTime = { get = "getSneezeCoughTime", set = "setSneezeCoughTime" },
-		wetness = { get = "getWetness", set = "setWetness" },
-		healthFromFood = { get = "getHealthFromFood", set = "setHealthFromFood" },
-		healthFromFoodTimer = { get = "getHealthFromFoodTimer", set = "setHealthFromFoodTimer" },
-		foodSicknessLevel = { get = "getFoodSicknessLevel", set = "setFoodSicknessLevel" },
-		poisonLevel = { get = "getPoisonLevel", set = "setPoisonLevel" },
-		panicIncreaseValue = { get = "getPanicIncreaseValue", set = "setPanicIncreaseValue" },
-		panicReductionValue = { get = "getPanicReductionValue", set = "setPanicReductionValue" },
-		painReduction = { get = "getPainReduction", set = "setPainReduction" },
-		painReductionFromMeds = { get = "getPainReductionFromMeds", set = "setPainReductionFromMeds" },
-		sleepingHealthAddition = { get = "getSleepingHealthAddition", set = "setSleepingHealthAddition" },
-		standardHealthAddition = { get = "getStandardHealthAddition", set = "setStandardHealthAddition" },
-		unhappynessLevel = { get = "getUnhappynessLevel", set = "setUnhappynessLevel" },
-	}
-
-	local injurySettersExtraValues = {
-		setBandaged = function()
-			return 1
-		end,
-		setSplint = function()
-			return 1
-		end,
-		setHaveBullet = function()
-			return player:getPerkLevel(Perks.Doctor)
-		end,
-		setScratched = function()
-			return true
-		end,
-	}
+	local targetPerk = Perks.Nimble
 
 	local perkStates = {
 		active = "active",
@@ -166,125 +27,15 @@ UsefulOccupations.DoTraitsOnCreatePlayer.Invincible = function(player)
 		onCooldown = "onCooldown",
 	}
 
-	local playerMovementState = PlayerMovementState.instance()
-
 	local modData = UsefulOccupations.Functions.getModData()
 
-	local stats = player:getStats()
-
 	local bodyDamage = player:getBodyDamage()
-	local bodyParts = bodyDamage:getBodyParts()
-
-	local movementHandler = UOPlayerMovementHandler:getInstance()
+	local stats = player:getStats()
 
 	local canDodge = stats:getEndurance() > dodgeEnduranceEdge
 	local dodgeCost = dodgeEnduranceCost - (targetPerkEffect * player:getPerkLevel(targetPerk))
 
-	local collided = false
-	local isSprinting = false
-
-	local updateBodyPartInjuries = function()
-		modData.bodyPartsData = {}
-
-		for i = 0, bodyParts:size() - 1 do
-			local part = bodyParts:get(i)
-
-			local entry = { index = part:getIndex() }
-
-			for injuryType, fields in pairs(injuryFields) do
-				entry[injuryType] = {}
-
-				for fieldName, methods in pairs(fields) do
-					local value = part[methods.get](part)
-					entry[injuryType][fieldName] = value
-				end
-			end
-
-			table.insert(modData.bodyPartsData, entry)
-		end
-	end
-
-	local applyBodyPartInjuries = function()
-		for _, entry in ipairs(modData.bodyPartsData) do
-			---@type BodyPart
-			local part = bodyParts:get(entry.index)
-
-			for injuryType, fields in pairs(injuryFields) do
-				local saved = entry[injuryType]
-
-				if saved then
-					for fieldName, value in pairs(saved) do
-						local setter = fields[fieldName].set
-						local extraValue = injurySettersExtraValues[setter]
-
-						if extraValue ~= nil then
-							part[setter](part, value, extraValue())
-						else
-							part[setter](part, value)
-						end
-					end
-				end
-			end
-		end
-	end
-
-	local updateStats = function()
-		modData.statsData = {}
-
-		local entry = {}
-
-		for statusType, fields in pairs(statsFields) do
-			local value = stats[fields.get](stats)
-			entry[statusType] = value
-		end
-
-		table.insert(modData.statsData, entry)
-	end
-
-	local applyStats = function()
-		local saved = modData.statsData[1]
-
-		if not saved then
-			return
-		end
-
-		for statusType, value in pairs(saved) do
-			local setter = statsFields[statusType].set
-
-			if setter then
-				stats[setter](stats, value)
-			end
-		end
-	end
-
-	local updateBodyDamage = function()
-		modData.bodyDamageData = {}
-
-		local entry = {}
-
-		for bodyDamageType, fields in pairs(bodyDamageFields) do
-			local value = bodyDamage[fields.get](bodyDamage)
-			entry[bodyDamageType] = value
-		end
-
-		table.insert(modData.bodyDamageData, entry)
-	end
-
-	local applyBodyDamage = function()
-		local saved = modData.bodyDamageData[1]
-
-		if not saved then
-			return
-		end
-
-		for bodyDamageType, value in pairs(saved) do
-			local setter = bodyDamageFields[bodyDamageType].set
-
-			if setter then
-				bodyDamage[setter](bodyDamage, value)
-			end
-		end
-	end
+	local zombieDisableCost = zombieDisableCost - (targetPerkEffect * player:getPerkLevel(targetPerk))
 
 	local doDodge = function()
 		local endurance = stats:getEndurance()
@@ -314,31 +65,20 @@ UsefulOccupations.DoTraitsOnCreatePlayer.Invincible = function(player)
 		end)
 	end
 
-	local activatePerk = function()
-		modData.invincibleState = perkStates.active
-		modData.invincibleActiveTime = perkActiveTime
-
+	-- Aborts death drag down and pushes near zombies
+	---@param zombie IsoZombie
+	local abortDeathDragDown = function(zombie)
 		player:setDeathDragDown(false)
 		player:setPlayingDeathSound(false)
 
-		updateBodyPartInjuries()
-		updateStats()
-		updateBodyDamage()
-
-		player:setGodMod(true)
-		player:setUnlimitedCarry(true)
-
-		UOItemsStatsHandler:updateWeaponUnbreakable(true)
-	end
-
-	---@param zombie IsoZombie
-	local pushZombie = function(zombie)
-		zombie:setKnockedDown(true)
-		zombie:setStaggerBack(true)
-		zombie:setHitReaction("")
-		zombie:setPlayerAttackPosition("FRONT")
-		zombie:setHitForce(5.0)
-		zombie:reportEvent("wasHit")
+		if not zombie:isKnockedDown() then
+			zombie:setKnockedDown(true)
+			zombie:setStaggerBack(true)
+			zombie:setHitReaction("")
+			zombie:setPlayerAttackPosition("FRONT")
+			zombie:setHitForce(5.0)
+			zombie:reportEvent("wasHit")
+		end
 	end
 
 	local checkNearZombies = function()
@@ -355,8 +95,6 @@ UsefulOccupations.DoTraitsOnCreatePlayer.Invincible = function(player)
 			local distance = player:DistTo(enemy)
 
 			if enemy:isZombie() and distance <= 4 then
-				local isKnockedDown = enemy:isKnockedDown()
-
 				-- Dodge zombie attack
 				if
 					canDodge == true
@@ -369,203 +107,134 @@ UsefulOccupations.DoTraitsOnCreatePlayer.Invincible = function(player)
 
 				-- Activate perk if character at death's door
 				if isDeathDragDown then
-					if modData.invincibleState == perkStates.ready then
-						activatePerk()
-					end
-
-					if isKnockedDown == false then
-						pushZombie(enemy)
-					end
+					abortDeathDragDown(enemy)
 				end
 			end
 		end
 	end
 
-	local processPerkActiveState = function()
+	local processActiveState = function()
+		if modData.invincibleState ~= perkStates.active then
+			return
+		end
+
+		local bodyParts = bodyDamage:getBodyParts()
+
+		for i = 0, bodyParts:size() - 1 do
+			---@type BodyPart
+			local bodyPart = bodyParts:get(i)
+
+			bodyPart:SetHealth(100)
+		end
+	end
+
+	local processReadyState = function()
+		-- Switch perk state to "active"
+		if bodyDamage:getHealth() <= 30 and modData.invincibleState == perkStates.ready then
+			modData.invincibleState = perkStates.active
+			modData.invincibleActiveTime = perkActiveTime
+
+			processActiveState()
+		end
+	end
+
+	-- Updates trait's remaining active time
+	local updateActiveTime = function()
+		if modData.invincibleState ~= perkStates.active then
+			return
+		end
+
+		-- Makes game speed affects active time
+		local time = 0.1
+
+		local gameSpeed = getGameSpeed()
+
+		if gameSpeed == 2 then
+			time = time * 5
+		elseif gameSpeed == 3 then
+			time = time * 20
+		elseif gameSpeed == 4 then
+			time = time * 40
+		end
+
 		-- Decrease perk active time
-		modData.invincibleActiveTime = math.max(0, modData.invincibleActiveTime - 1)
-
-		-- Do weapon unbreakable
-		UOItemsStatsHandler:updateWeaponUnbreakable(true)
-
-		-- Increse all movement speed
-		movementHandler.setInvincibleMult(2)
-
-		-- Always climb fence when perk active
-		movementHandler.setClimbWallChance(100, 0, true)
+		modData.invincibleActiveTime = math.max(0, modData.invincibleActiveTime - time)
 
 		-- Switch perk state to "cooldown"
 		if modData.invincibleActiveTime == 0 then
 			modData.invincibleState = perkStates.onCooldown
 			modData.invincibleCooldownTime = perkCooldownTime
-
-			player:setGodMod(false)
-			player:setUnlimitedCarry(false)
-
-			UOItemsStatsHandler:updateWeaponUnbreakable(false)
-
-			movementHandler.setInvincibleMult(1)
-
-			movementHandler.resetClimbWallChance()
-
-			applyBodyPartInjuries()
-			applyStats()
-			applyBodyDamage()
 		end
 	end
 
-	local updatePerkCooldownTime = function()
+	-- Updates trait's remaining cooldown time
+	local updateCooldownTime = function()
 		if modData.invincibleState ~= perkStates.onCooldown then
 			return
 		end
 
 		modData.invincibleCooldownTime = math.max(0, modData.invincibleCooldownTime - 10)
-	end
-
-	local processPerkCooldownState = function()
-		local passedCooldownPercent = perkCooldownTime > 0
-				and math.floor((1 - (modData.invincibleCooldownTime / perkCooldownTime)) * 100)
-			or 100
-
-		-- Do when perk on cooldown
-		if passedCooldownPercent >= perkCooldownEffectsStartPercent then
-			-- Set all movement slowness
-			movementHandler.setInvincibleMult(passedCooldownPercent / 100)
-
-			-- Set can't run and can't sprint
-			player:setAllowRun(false)
-			player:setAllowSprint(false)
-
-			-- Set climb wall chance 0%
-			movementHandler.setClimbWallChance(0, 100, true)
-
-			-- Reduce endurance secret strength
-			UOEnduranceSecret:setInvincibleMult(passedCooldownPercent / 100)
-
-			-- Add stiffness for each bodypart
-			for i = 0, bodyParts:size() - 1 do
-				---@type BodyPart
-				local part = bodyParts:get(i)
-				part:addStiffness(part:getStiffness() + (100 - passedCooldownPercent))
-			end
-
-			-- Add stress
-			stats:setStress(stats:getStress() + ((100 - passedCooldownPercent) / 100))
-
-			bodyDamage:setUnhappynessLevel(bodyDamage:getUnhappynessLevel() + (100 - passedCooldownPercent))
-		end
 
 		-- Switch perk state to "ready"
 		if modData.invincibleCooldownTime == 0 then
 			modData.invincibleState = perkStates.ready
-
-			-- Allow run and sprint
-			player:setAllowRun(true)
-			player:setAllowSprint(true)
-
-			-- Reset all movement speed
-			movementHandler.setInvincibleMult(1)
-
-			-- Reset climb wall chance to default
-			movementHandler.resetClimbWallChance()
-
-			-- Reset endurance secret strength
-			UOEnduranceSecret:setInvincibleMult(1)
 		end
 	end
 
-	local processPerkState = function()
-		if modData.invincibleState == perkStates.active then
-			processPerkActiveState()
-		elseif modData.invincibleState == perkStates.onCooldown then
-			processPerkCooldownState()
-		end
-	end
-
+	-- Update dodge cost on new perk level
 	UsefulOccupations.Functions.addEvent(Events.LevelPerk, function(_, perk, perkLvl, _)
 		if perk == targetPerk then
 			dodgeCost = dodgeEnduranceCost - (targetPerkEffect * perkLvl)
 		end
 	end)
 
-	-- Update perk cooldown time
-	UsefulOccupations.Functions.addEvent(Events.EveryTenMinutes, updatePerkCooldownTime)
+	UsefulOccupations.Functions.processEveryMs(30, function()
+		processReadyState()
+		checkNearZombies()
+		processActiveState()
+	end)
 
-	-- Makes zombies crawl after being pushed while running while this skill is active
+	UsefulOccupations.Functions.processEveryMs(100, updateActiveTime)
+	UsefulOccupations.Functions.addEvent(Events.EveryTenMinutes, updateCooldownTime)
+
+	-- When bumps a zombie while running, disables it by consuming endurance
 	---@param character IsoGameCharacter
 	---@param collidedCharacter IsoZombie
 	UsefulOccupations.Functions.addEvent(Events.OnCharacterCollide, function(character, collidedCharacter)
-		if
-			modData.invincibleState == perkStates.active
-			and isSprinting == true
-			and character == player
-			and collidedCharacter:isZombie() == true
-		then
-			collided = true
+		if character ~= player or not collidedCharacter:isZombie() or collidedCharacter:isKnockedDown() then
+			return
+		end
 
-			player:setBumpFall(false)
+		local endurance = stats:getEndurance()
 
+		-- The character needs endurance to disable a zombie
+		if endurance < zombieDisableEdge then
+			return
+		end
+
+		local running = player:isPlayerMoving() and (player:isRunning() or player:isSprinting())
+
+		if running == true and collidedCharacter:isZombie() == true then
 			collidedCharacter:setKnockedDown(true)
 			collidedCharacter:setStaggerBack(true)
 			collidedCharacter:setBecomeCrawler(true)
+
+			stats:setEndurance(endurance - zombieDisableCost)
+			player:playerVoiceSound("JumpLow")
 		end
 	end)
 
-	UsefulOccupations.Functions.processEveryMs(30, function()
-		checkNearZombies()
-
-		-- Updating the sprint status
-		if collided == true then
-			if player:isCurrentState(playerMovementState) == true then
-				collided = false
-				player:setForceSprint(true)
+	-- The character does not fall. Re-enables sprint after bump
+	UsefulOccupations.Functions.addEvent(Events.OnTick, function(_)
+		if player:isBumped() then
+			if player:isSprinting() then
+				UsefulOccupations.Functions.processAfterDelay(50, function()
+					player:setForceSprint(true)
+				end)
 			end
-		else
-			isSprinting = player:isSprinting()
+
+			player:setBumpFall(false)
+			player:setBumpStaggered(false)
 		end
 	end)
-
-	UsefulOccupations.Functions.processEveryMs(1000, processPerkState)
 end
-
-local isSprinting = false
-
----@param character IsoGameCharacter
----@param collidedCharacter IsoZombie
-Events.OnCharacterCollide.Add(function(character, collidedCharacter)
-	local player = getPlayer()
-
-	if character ~= player or not collidedCharacter:isZombie() or collidedCharacter:isKnockedDown() then
-		return
-	end
-
-	local running = character:isRunning() or character:isSprinting()
-
-	if running == true and collidedCharacter:isZombie() == true then
-
-		collidedCharacter:setKnockedDown(true)
-		collidedCharacter:setStaggerBack(true)
-		collidedCharacter:setBecomeCrawler(true)
-	end
-end)
-
-Events.OnTick.Add(function(_)
-	local player = getPlayer()
-
-	if player:isBumped() then
-		if player:isSprinting() then
-			isSprinting = true
-		end
-
-		player:setBumpFall(false)
-		player:setBumpStaggered(false)
-	end
-
-	if isSprinting then
-		isSprinting = false
-
-		UsefulOccupations.Functions.processAfterDelay(50, function()
-			player:setForceSprint(true)
-		end)
-	end
-end)

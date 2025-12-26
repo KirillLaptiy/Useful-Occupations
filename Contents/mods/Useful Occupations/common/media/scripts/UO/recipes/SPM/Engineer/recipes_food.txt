@@ -10,6 +10,7 @@ module UO {
         inputs
         {
             item 1 [Base.ChocolateCoveredCoffeeBeans;Base.Coffee2],
+            item 2 [UO.MetalPiece],
             item 1 tags[Charcoal],
             item 1 [*],
             -fluid 1 [Water],

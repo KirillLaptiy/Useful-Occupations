@@ -597,12 +597,12 @@ option UO.Invincible
 }
 option UO.Invincible.dodgeEnduranceCost
 {
-	type = integer, min = 0, max = 100, default = 3,
+	type = integer, min = 0, max = 100, default = 2,
 	page = UO, translation = UO.Invincible.dodgeEnduranceCost,
 }
 option UO.Invincible.dodgeEnduranceEdge
 {
-	type = integer, min = 0, max = 100, default = 30,
+	type = integer, min = 0, max = 100, default = 15,
 	page = UO, translation = UO.Invincible.dodgeEnduranceEdge,
 }
 option UO.Invincible.targetPerkEffect
@@ -617,13 +617,18 @@ option UO.Invincible.perkActiveTime
 }
 option UO.Invincible.perkCooldownTime
 {
-	type = integer, min = 0, max = 10000, default = 120,
+	type = integer, min = 0, max = 10000, default = 72,
 	page = UO, translation = UO.Invincible.perkCooldownTime,
 }
-option UO.Invincible.perkCooldownEffectsStartPercent
+option UO.Invincible.zombieDisableCost
 {
-	type = integer, min = 0, max = 100, default = 5,
-	page = UO, translation = UO.Invincible.perkCooldownEffectsStartPercent,
+	type = integer, min = 0, max = 100, default = 3,
+	page = UO, translation = UO.Invincible.zombieDisableCost,
+}
+option UO.Invincible.zombieDisableEdge
+{
+	type = integer, min = 0, max = 100, default = 20,
+	page = UO, translation = UO.Invincible.zombieDisableEdge,
 }
 
 
@@ -684,15 +689,15 @@ option UO.Builder.buildingTPRPerLvl
 	type = double, min = 0, max = 20, default = 3,
 	page = UO, translation = UO.Builder.buildingTPRPerLvl,
 }
-option UO.Builder.buildingTPR
+option UO.Builder.scrappingTPR
 {
 	type = integer, min = 0, max = 100, default = 50,
-	page = UO, translation = UO.Builder.buildingTPR,
+	page = UO, translation = UO.Builder.scrappingTPR,
 }
-option UO.Builder.buildingTPRPerLvl
+option UO.Builder.scrappingTPRPerLvl
 {
 	type = double, min = 0, max = 10, default = 1.5,
-	page = UO, translation = UO.Builder.buildingTPRPerLvl,
+	page = UO, translation = UO.Builder.scrappingTPRPerLvl,
 }
 option UO.Builder.buildingBHP
 {

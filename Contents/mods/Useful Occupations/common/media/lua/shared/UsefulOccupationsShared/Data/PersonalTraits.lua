@@ -623,6 +623,10 @@ local PersonalTraits = {
 			-- This is how much of the perk's cooldown must pass in percentage for the main debuffs to start working
 			-- (5%, 6 game hours by default)
 			perkCooldownEffectsStartPercent = getSandboxValue("UO.Invincible.perkCooldownEffectsStartPercent"),
+			-- Zombie disable cost as a percentage of total endurance
+			zombieDisableCost = getSandboxValue("UO.Invincible.zombieDisableCost"),
+			-- Minimum endurance required for a zombie to turn into a crawler (as a percentage of the total)
+			zombieDisableEdge = getSandboxValue("UO.Invincible.zombieDisableEdge"),
 		},
 		---@class PersonalTraits.Invincible.MutualExclusives
 		mutualExclusives = {},
