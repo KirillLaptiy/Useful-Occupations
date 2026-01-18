@@ -12,7 +12,7 @@
 
 -- Static data
 ---@class UsefulOccupations.XpBoost
----@field perk Perk
+---@field perk PerkFactory.Perk
 ---@field level integer
 
 -- Traits on game start

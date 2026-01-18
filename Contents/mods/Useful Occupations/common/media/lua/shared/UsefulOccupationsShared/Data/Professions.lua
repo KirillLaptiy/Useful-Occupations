@@ -13,6 +13,7 @@
 ---@field name string
 ---@field iconPath string
 ---@field points integer
+---@field desc string
 ---@field traits UsefulOccupations.AnyTrait[]
 ---@field xpBoosts UsefulOccupations.XpBoost[]
 
@@ -25,6 +26,7 @@ local initProfessions = function()
 			name = getText("UI_prof_unemployed"),
 			iconPath = "useful_occupations_unemployed",
 			points = 40,
+			desc = getText("UI_prof_unemployed_desc"),
 
 			---@class Profession.Unemployed.traits
 			traits = {
@@ -41,6 +43,7 @@ local initProfessions = function()
 			name = getText("UI_prof_parkranger"),
 			iconPath = "useful_occupations_parkranger",
 			points = 0,
+			desc = getText("UI_prof_scout_desc"),
 
 			---@class Profession.Scout.traits
 			traits = {
@@ -69,6 +72,7 @@ local initProfessions = function()
 			name = getText("UI_prof_Veteran"),
 			iconPath = "useful_occupations_veteran",
 			points = 0,
+			desc = getText("UI_prof_veteran_desc"),
 
 			---@class Profession.Veteran.traits
 			traits = {
@@ -92,6 +96,7 @@ local initProfessions = function()
 			name = getText("UI_prof_spm"),
 			iconPath = "useful_occupations_spm",
 			points = 0,
+			desc = getText("UI_prof_spm_desc"),
 
 			---@class Profession.SPM.traits
 			traits = {

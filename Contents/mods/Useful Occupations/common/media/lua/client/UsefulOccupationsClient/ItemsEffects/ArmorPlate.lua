@@ -64,8 +64,8 @@ local armorPlateTypes = {
 local group = BodyLocations.getGroup("Human")
 
 for _, armorType in pairs(armorClothingLocations) do
-	local bodyLocation = BodyLocation.new(group, armorType)
-	group:getAllLocations():add(bodyLocation)
+	local bodyLocation = ItemBodyLocation.register("uo:" .. string.lower(armorType))
+	group:getOrCreateLocation(bodyLocation)
 end
 
 local itemsToRemove = {}
