@@ -26,6 +26,11 @@ UsefulOccupations.DoTraitsOnCreatePlayer.ScoutSkills = function(player)
 
 	local modData = UsefulOccupations.Functions.getModData()
 
+	local stats = player:getStats()
+
+	local lastHunger = stats:get(CharacterStat.HUNGER)
+	local lastThirst = stats:get(CharacterStat.THIRST)
+
 	-- When moving, thirst and hunger accumulate more slowly.
 	UsefulOccupations.Functions.processEveryMs(msToCall, function()
 		if player:isWalking() and not player:IsRunning() and not player:isSprinting() then
@@ -35,16 +40,22 @@ UsefulOccupations.DoTraitsOnCreatePlayer.ScoutSkills = function(player)
 		end
 
 		if modData.walkTime > 0 then
-			local stats = player:getStats()
-			local hunger = stats:getHunger()
-			local thirst = stats:getThirst()
+			local hunger = stats:get(CharacterStat.HUNGER)
+			local thirst = stats:get(CharacterStat.THIRST)
+
+			local hungerDifference = math.abs(hunger - lastHunger)
+			local thirstDifference = math.abs(thirst - lastThirst)
 
 			-- Dynamic influence
 			local hungerReducePercent = hungerReduceMin + (hungerReduceMax - hungerReduceMin) * (modData.walkTime / hungerTimeToMax)
 			local thirstReducePercent = thirstReduceMin + (thirstReduceMax - thirstReduceMin) * (modData.walkTime / thirstTimeToMax)
 
-			stats:setHunger(hunger - (hunger * hungerReducePercent))
-			stats:setThirst(thirst - (thirst * thirstReducePercent))
+			stats:set(CharacterStat.HUNGER, hunger - (hungerDifference * hungerReducePercent))
+			stats:set(CharacterStat.THIRST, thirst - (thirstDifference * thirstReducePercent))
+
+			-- Update last values
+			lastHunger = stats:get(CharacterStat.HUNGER)
+			lastThirst = stats:get(CharacterStat.THIRST)
 		end
 	end)
 end

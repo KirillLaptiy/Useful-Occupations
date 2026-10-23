@@ -11,11 +11,11 @@
 ---@class UOOnGameBoot
 UOOnGameBoot = {}
 
+local funcs = UsefulOccupations.Functions
+
 local scoutSkillsType = UsefulOccupations.PersonalTraits.ScoutSkills.type
 local enduranceSecretType = UsefulOccupations.PersonalTraits.EnduranceSecret.type
 local engineerType = UsefulOccupations.PersonalTraits.Engineer.type
-
-local modModule = "uo:"
 
 local reduceActionsTimeByTraits = require("UsefulOccupationsShared/ReduceActionsTimeByTraits")
 
@@ -58,28 +58,6 @@ local setTraitParams = function(trait, traitData)
 	end
 end
 
----@param str string
----@return CharacterTrait
-local getTraitByStr = function(str)
-	local trait = CharacterTrait.get(ResourceLocation.of(modModule .. str))
-	trait = trait or CharacterTrait.get(ResourceLocation.of(str))
-
-	if trait == nil then
-		error("TRAIT BY STR:" .. str .. "NOT FOUND")
-	end
-
-	return trait
-end
-
----@param str string
----@return CharacterTrait
-local tryGetTraitByStr = function(str)
-	local trait = CharacterTrait.get(ResourceLocation.of(modModule .. str))
-	trait = trait or CharacterTrait.get(ResourceLocation.of(str))
-
-	return trait
-end
-
 local addUsefulTraits = function()
 	-- Clear vanilla traits
 	-- CharacterTraitDefinition.Reset()
@@ -116,10 +94,10 @@ local addUsefulTraits = function()
 			end
 		end
 
-		local characterTrait = tryGetTraitByStr(traitData.type)
+		local characterTrait = funcs.tryGetTraitByStr(traitData.type)
 
 		if characterTrait == nil then
-			characterTrait = CharacterTrait.register(modModule .. traitData.type)
+			characterTrait = CharacterTrait.register(UsefulOccupations.ModModule .. traitData.type)
 		end
 
 		-- Add trait
@@ -133,13 +111,13 @@ local addUsefulTraits = function()
 		-- Set vanilla mutual exclusives
 		---@param vanillaMExclusive string
 		for _, vanillaMExclusive in pairs(vanillaMutualExclusives) do
-			CharacterTraitDefinition.setMutualExclusive(characterTrait, getTraitByStr(vanillaMExclusive))
+			CharacterTraitDefinition.setMutualExclusive(characterTrait, funcs.getTraitByStr(vanillaMExclusive))
 		end
 
 		-- Set trait data mutual exclusives
 		---@param mExclusive string
 		for _, mExclusive in pairs(traitData.mutualExclusives) do
-			CharacterTraitDefinition.setMutualExclusive(characterTrait, getTraitByStr(mExclusive))
+			CharacterTraitDefinition.setMutualExclusive(characterTrait, funcs.getTraitByStr(mExclusive))
 		end
 
 		-- Set description
@@ -160,9 +138,9 @@ local addUsefulTraits = function()
 		if traitForbidden and not trait:isFree() then
 			local traitType = trait:getType()
 
-			local scoutSkills = getTraitByStr(scoutSkillsType)
-			local enduranceSecret = getTraitByStr(enduranceSecretType)
-			local engineer = getTraitByStr(engineerType)
+			local scoutSkills = funcs.getTraitByStr(scoutSkillsType)
+			local enduranceSecret = funcs.getTraitByStr(enduranceSecretType)
+			local engineer = funcs.getTraitByStr(engineerType)
 
 			CharacterTraitDefinition.setMutualExclusive(scoutSkills, traitType)
 			CharacterTraitDefinition.setMutualExclusive(enduranceSecret, traitType)
@@ -181,8 +159,7 @@ UOOnGameBoot.addUsefulProfessions = function()
 	-- Add professions
 	---@param professionData UsefulOccupations.Profession
 	for _, professionData in pairs(UsefulOccupations.Professions) do
-		local characterProfession = CharacterProfession.register(modModule .. professionData.type)
-		print(professionData.type)
+		local characterProfession = CharacterProfession.register(UsefulOccupations.ModModule .. professionData.type)
 
 		local profession = CharacterProfessionDefinition.addCharacterProfessionDefinition(
 			characterProfession,
@@ -194,7 +171,7 @@ UOOnGameBoot.addUsefulProfessions = function()
 
 		-- Add profession's personal traits
 		for _, trait in pairs(professionData.traits) do
-			local personalTrait = getTraitByStr(trait.type)
+			local personalTrait = funcs.getTraitByStr(trait.type)
 			profession:addGrantedTrait(personalTrait)
 		end
 

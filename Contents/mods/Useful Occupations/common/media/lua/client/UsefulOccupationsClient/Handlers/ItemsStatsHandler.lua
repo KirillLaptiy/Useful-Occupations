@@ -29,6 +29,11 @@
 ---@class UOItemsStatsHandler
 UOItemsStatsHandler = {}
 
+---@type UsefulOccupations.Functions
+local funcs
+---@type UsefulOccupations.PersonalTraits
+local personalTraits
+
 local itemValues = {
 	"stompPower",
 	"hitChance",
@@ -86,7 +91,7 @@ end
 ---@param item HandWeapon
 ---@param itemdata table
 local updateFirearm = function(item, itemdata)
-	if player:HasTrait(UsefulOccupations.PersonalTraits.Marksman.type) then
+	if player:hasTrait(funcs.getTraitByStr(personalTraits.Marksman.type)) then
 		UsefulOccupations.InventoryItemsStatsHandler.Marksman(item, itemdata)
 	end
 end
@@ -94,7 +99,7 @@ end
 ---@param item HandWeapon
 ---@param itemdata table
 local updateMelee = function(item, itemdata)
-	if player:HasTrait(UsefulOccupations.PersonalTraits.TrainedFighter.type) then
+	if player:hasTrait(funcs.getTraitByStr(personalTraits.TrainedFighter.type)) then
 		UsefulOccupations.InventoryItemsStatsHandler.TrainedFighter(item, itemdata)
 	end
 end
@@ -102,7 +107,7 @@ end
 ---@param item Clothing
 ---@param itemdata table
 local updateClothing = function(item, itemdata)
-	if player:HasTrait(UsefulOccupations.PersonalTraits.Graceful.type) then
+	if player:hasTrait(funcs.getTraitByStr(personalTraits.Graceful.type)) then
 		UsefulOccupations.InventoryItemsStatsHandler.Graceful(item, itemdata)
 	end
 end
@@ -110,7 +115,7 @@ end
 ---@param item InventoryContainer
 ---@param itemdata table
 local updateInvContainer = function(item, itemdata)
-	if player:HasTrait(UsefulOccupations.PersonalTraits.Graceful.type) then
+	if player:hasTrait(funcs.getTraitByStr(personalTraits.Graceful.type)) then
 		UsefulOccupations.InventoryItemsStatsHandler.Graceful(item, itemdata)
 	end
 end
@@ -122,6 +127,7 @@ local updateInventoryItemsStats = function()
 
 		for i = 0, items:size() - 1 do
 			---@type InventoryItem
+			---@diagnostic disable-next-line: assign-type-mismatch
 			local item = items:get(i)
 
 			---@type UOItemsStatsHandler.itemValues
@@ -154,12 +160,12 @@ local updateInventoryItemsStats = function()
 						updateMelee(item, itemdata)
 					end
 
-				-- Clothing effect
+					-- Clothing effect
 				elseif item:IsClothing() then
 					---@diagnostic disable-next-line: param-type-mismatch
 					updateClothing(item, itemdata)
 
-				-- Backpack effect
+					-- Backpack effect
 				elseif item:IsInventoryContainer() then
 					---@diagnostic disable-next-line: param-type-mismatch
 					updateInvContainer(item, itemdata)
@@ -184,9 +190,12 @@ function UOItemsStatsHandler:updateInventoryItemsStats()
 	updateInventoryItemsStats()
 end
 
+-- Do on create player
 table.insert(UsefulOccupations.DoFuncsOnCreatePlayer, function(_, createdPlayer)
 	player = createdPlayer
 	inventory = player:getInventory()
+	funcs = UsefulOccupations.Functions
+	personalTraits = UsefulOccupations.PersonalTraits
 
 	updateInventoryItemsStats()
 end)

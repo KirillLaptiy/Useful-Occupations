@@ -16,9 +16,9 @@ local marksmanType = UsefulOccupations.PersonalTraits.Marksman.type
 local canSuperCrit = function(player, weapon)
 	local isFirearmWeapon = weapon:isAimedFirearm()
 
-	local canSuperCritMelee = player:HasTrait(trainedFighterType) and isFirearmWeapon == false
+	local canSuperCritMelee = player:hasTrait(UsefulOccupations.Functions.getTraitByStr(trainedFighterType)) and isFirearmWeapon == false
 
-	local canSuperCritFirearm = player:HasTrait(marksmanType) and isFirearmWeapon == true
+	local canSuperCritFirearm = player:hasTrait(UsefulOccupations.Functions.getTraitByStr(marksmanType)) and isFirearmWeapon == true
 
 	return canSuperCritMelee or canSuperCritFirearm
 end
@@ -34,14 +34,14 @@ Events.OnHitZombie.Add(function(zombie, attacker, _, weapon)
 		end
 	end
 
-	if attacker:HasTrait(trainedFighterType) then
+	if attacker:hasTrait(UsefulOccupations.Functions.getTraitByStr(trainedFighterType)) then
 		zombie:setAlwaysKnockedDown(true)
 	end
 end)
 
 Events.OnWeaponHitCharacter.Add(function(attacker, target, _, damage)
 	-- Trained fighter has increased stopm power
-	if attacker:HasTrait(trainedFighterType) and attacker:isDoStomp() then
+	if attacker:hasTrait(UsefulOccupations.Functions.getTraitByStr(trainedFighterType)) and attacker:isDoStomp() then
 		target:setHealth(target:getHealth() - ((damage + 0.1) * 1.5))
 	end
 end)

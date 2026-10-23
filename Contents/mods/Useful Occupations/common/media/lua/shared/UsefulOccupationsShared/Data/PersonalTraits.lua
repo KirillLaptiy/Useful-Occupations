@@ -256,67 +256,67 @@ local PersonalTraits = {
 			---@class PersonalTraits.Graceful.values.sneakWalk
 			sneakWalk = {
 				startBonusPercent = getSandboxValue("UO.Graceful.sneakWalk_startBonusPercent"),
-				percentPerLvl = getSandboxValue("UO.Graceful.sneakWalk_startBonusPercent"),
+				percentPerLvl = getSandboxValue("UO.Graceful.sneakWalk_percentPerLvl"),
 			},
 
 			---@class PersonalTraits.Graceful.values.sneakRun
 			sneakRun = {
 				startBonusPercent = getSandboxValue("UO.Graceful.sneakRun_startBonusPercent"),
-				percentPerLvl = getSandboxValue("UO.Graceful.sneakRun_startBonusPercent"),
+				percentPerLvl = getSandboxValue("UO.Graceful.sneakRun_percentPerLvl"),
 			},
 
 			---@class PersonalTraits.Graceful.values.defaultRun
 			defaultRun = {
 				startBonusPercent = getSandboxValue("UO.Graceful.defaultRun_startBonusPercent"),
-				percentPerLvl = getSandboxValue("UO.Graceful.defaultRun_startBonusPercent"),
+				percentPerLvl = getSandboxValue("UO.Graceful.defaultRun_percentPerLvl"),
 			},
 
 			---@class PersonalTraits.Graceful.values.defaultSprint
 			defaultSprint = {
 				startBonusPercent = getSandboxValue("UO.Graceful.defaultSprint_startBonusPercent"),
-				percentPerLvl = getSandboxValue("UO.Graceful.defaultSprint_startBonusPercent"),
+				percentPerLvl = getSandboxValue("UO.Graceful.defaultSprint_percentPerLvl"),
 			},
 
 			---@class PersonalTraits.Graceful.values.climbWall
 			climbWall = {
 				startBonusPercent = getSandboxValue("UO.Graceful.climbWall_startBonusPercent"),
-				percentPerLvl = getSandboxValue("UO.Graceful.climbWall_startBonusPercent"),
+				percentPerLvl = getSandboxValue("UO.Graceful.climbWall_percentPerLvl"),
 			},
 
 			---@class PersonalTraits.Graceful.values.climbWindow
 			climbWindow = {
 				startBonusPercent = getSandboxValue("UO.Graceful.climbWindow_startBonusPercent"),
-				percentPerLvl = getSandboxValue("UO.Graceful.climbWindow_startBonusPercent"),
+				percentPerLvl = getSandboxValue("UO.Graceful.climbWindow_percentPerLvl"),
 			},
 
 			---@class PersonalTraits.Graceful.values.climbFence_Walk
 			climbFence_Walk = {
 				startBonusPercent = getSandboxValue("UO.Graceful.climbFence_Walk_startBonusPercent"),
-				percentPerLvl = getSandboxValue("UO.Graceful.climbFence_Walk_startBonusPercent"),
+				percentPerLvl = getSandboxValue("UO.Graceful.climbFence_Walk_percentPerLvl"),
 			},
 
 			---@class PersonalTraits.Graceful.values.climbFence_Run
 			climbFence_Run = {
 				startBonusPercent = getSandboxValue("UO.Graceful.climbFence_Run_startBonusPercent"),
-				percentPerLvl = getSandboxValue("UO.Graceful.climbFence_Run_startBonusPercent"),
+				percentPerLvl = getSandboxValue("UO.Graceful.climbFence_Run_percentPerLvl"),
 			},
 
 			---@class PersonalTraits.Graceful.values.climbFence_Sprint
 			climbFence_Sprint = {
 				startBonusPercent = getSandboxValue("UO.Graceful.climbFence_Sprint_startBonusPercent"),
-				percentPerLvl = getSandboxValue("UO.Graceful.climbFence_Sprint_startBonusPercent"),
+				percentPerLvl = getSandboxValue("UO.Graceful.climbFence_Sprint_percentPerLvl"),
 			},
 
 			---@class PersonalTraits.Graceful.values.turn
 			turn = {
 				startBonusPercent = getSandboxValue("UO.Graceful.turn_startBonusPercent"),
-				percentPerLvl = getSandboxValue("UO.Graceful.turn_startBonusPercent"),
+				percentPerLvl = getSandboxValue("UO.Graceful.turn_percentPerLvl"),
 			},
 
 			---@class PersonalTraits.Graceful.values.turn180
 			turn180 = {
 				startBonusPercent = getSandboxValue("UO.Graceful.turn180_startBonusPercent"),
-				percentPerLvl = getSandboxValue("UO.Graceful.turn180_startBonusPercent"),
+				percentPerLvl = getSandboxValue("UO.Graceful.turn180_percentPerLvl"),
 			},
 
 			-- Weight Multiplier for worn clothing (0.25 - 75% reduce)

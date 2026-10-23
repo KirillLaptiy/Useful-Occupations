@@ -24,7 +24,6 @@ local addZombiesStunTime = function(square)
 	local stunTime = empStunTime * 1000
 
 	for h = 0, movingObjects:size() - 1 do
-		---@type IsoZombie
 		local obj = movingObjects:get(h)
 
 		if obj:isZombie() then

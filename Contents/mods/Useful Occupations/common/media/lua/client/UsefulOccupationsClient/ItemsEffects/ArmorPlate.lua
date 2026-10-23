@@ -64,9 +64,18 @@ local armorPlateTypes = {
 local group = BodyLocations.getGroup("Human")
 
 for _, armorType in pairs(armorClothingLocations) do
-	local bodyLocation = ItemBodyLocation.register("uo:" .. string.lower(armorType))
+	local bodyLocation = ItemBodyLocation.get(ResourceLocation.of("uo:" .. string.lower(armorType)))
+	bodyLocation = bodyLocation or ItemBodyLocation.register("uo:" .. string.lower(armorType))
 	group:getOrCreateLocation(bodyLocation)
 end
+
+Events.OnGameStart.Add(function()
+	for _, armorType in pairs(armorClothingLocations) do
+		local bodyLocation = ItemBodyLocation.get(ResourceLocation.of("uo:" .. string.lower(armorType)))
+
+		print(bodyLocation)
+	end
+end)
 
 local itemsToRemove = {}
 
@@ -82,7 +91,8 @@ local addArmorForBloodType = function(item, itemData, partType)
 
 		---@type Clothing
 		---@diagnostic disable-next-line: assign-type-mismatch
-		local armorClothing = player:getWornItem(armorClothingLocations[partType]) or instanceItem(itemType)
+		local armorClothing = player:getWornItem(UsefulOccupations.Functions.getItemBodyLocByStr[string.lower(partType)]) or
+			instanceItem(itemType)
 
 		if armorClothing:getCondition() < armorClothing:getConditionMax() then
 			itemData["UOArmorPlates" .. partType] = math.max(0, itemData["UOArmorPlates" .. partType] - 1)
@@ -299,6 +309,7 @@ end
 local getArmorPlateFromContainers = function(containers, plateType)
 	for i = 0, containers:size() - 1 do
 		---@type ItemContainer
+		---@diagnostic disable-next-line: undefined-field
 		local container = containers:get(i):getItemContainer()
 
 		if container then
@@ -447,7 +458,7 @@ function ISGarmentUI:doDrawItem(y, item, alt)
 	if item.itemindex == self.selected then
 		---@diagnostic disable-next-line: param-type-mismatch
 		self:drawRect(0, y, self:getWidth(), item.height, 0.2, 1.0, 1.0, 1.0)
-	---@diagnostic disable-next-line: undefined-field
+		---@diagnostic disable-next-line: undefined-field
 	elseif item.itemindex == self.mouseoverselected then
 		---@diagnostic disable-next-line: param-type-mismatch
 		self:drawRect(0, y, self:getWidth(), item.height, 0.1, 1.0, 1.0, 1.0)

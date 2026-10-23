@@ -22,13 +22,13 @@ UsefulOccupations.DoTraitsOnCreatePlayer.EnduranceSecret = function(player)
 	}
 
 	local stats = player:getStats()
-	local lastEndurance = stats:getEndurance()
+	local lastEndurance = stats:get(CharacterStat.ENDURANCE)
 	local enduranceSpendReduce = spendMainReduce + (spendPerkReduce * player:getPerkLevel(targetPerk))
 	local enduranceState = nil
 
 	-- Every 0.5 second check player endurance
 	UsefulOccupations.Functions.processEveryMs(500, function()
-		local currentEndurance = stats:getEndurance()
+		local currentEndurance = stats:get(CharacterStat.ENDURANCE)
 
 		local spentEndurance = lastEndurance - currentEndurance
 
@@ -55,9 +55,9 @@ UsefulOccupations.DoTraitsOnCreatePlayer.EnduranceSecret = function(player)
 			enduranceToRefill = -spentEndurance * (1 + enduranceRestBonus)
 		end
 
-		stats:setEndurance(currentEndurance + enduranceToRefill)
+		stats:set(CharacterStat.ENDURANCE, currentEndurance + enduranceToRefill)
 
-		lastEndurance = stats:getEndurance()
+		lastEndurance = stats:get(CharacterStat.ENDURANCE)
 	end)
 
 	-- Update target perk effect

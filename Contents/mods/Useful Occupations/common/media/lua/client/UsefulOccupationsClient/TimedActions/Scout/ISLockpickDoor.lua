@@ -67,13 +67,10 @@ end
 
 function ISLockpickDoor:getSoundPrefix()
 	local sprite = self.door:getSprite()
+	if not sprite then return end
 
-	if not sprite then
-		return
-	end
-
-	if sprite:getProperties():Is("DoorSound") then
-		return sprite:getProperties():Val("DoorSound")
+	if sprite:getProperties():has("DoorSound") then
+		return sprite:getProperties():get("DoorSound")
 	end
 
 	return "WoodDoor"

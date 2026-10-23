@@ -2,7 +2,7 @@ module UO {
     item StoneBlankSaw
     {
         DisplayCategory = StoneBlank,
-        Type = Normal,
+        ItemType = base:normal,
         Weight = 0.80,
         Icon = UO/StoneBlankSaw,
         Count = 1,
@@ -12,7 +12,7 @@ module UO {
     item StoneBlankScrewdriver
     {
         DisplayCategory = StoneBlank,
-        Type = Normal,
+        ItemType = base:normal,
         Weight = 0.50,
         Icon = UO/StoneBlankScrewdriver,
         Count = 1,
@@ -22,7 +22,7 @@ module UO {
     item StoneBlankPin
     {
         DisplayCategory = StoneBlank,
-        Type = Normal,
+        ItemType = base:normal,
         Weight = 0.30,
         Icon = UO/StoneBlankPin,
         Count = 1,
@@ -32,18 +32,18 @@ module UO {
     item Flint
     {
         DisplayCategory = StoneBlank,
-        Type = Normal,
+        ItemType = base:normal,
         Weight = 0.05,
         Icon = UO/Flint,
         Count = 1,
         WorldStaticModel = Flint,
-        Tags = FlintPiece,
+        Tags = base:flintpiece,
     }
 
     item ScrewdriverTipInStoneRaw
     {
         DisplayCategory = StoneBlank,
-        Type = Food,
+        ItemType = base:food,
         Weight = 0.9,
         Icon = UO/ScrewdriverTipInStoneRaw,
         Count = 1,
@@ -59,7 +59,7 @@ module UO {
     item ScrewdriverTipInStoneRawCantCook
     {
         DisplayCategory = StoneBlank,
-        Type = Food,
+        ItemType = base:food,
         Weight = 0.9,
         Icon = UO/ScrewdriverTipInStoneRaw,
         Count = 1,
@@ -73,7 +73,7 @@ module UO {
     item ScrewdriverTipInStone
     {
         DisplayCategory = StoneBlank,
-        Type = Normal,
+        ItemType = base:normal,
         Weight = 0.9,
         Icon = UO/ScrewdriverTipInStone,
         Count = 1,
@@ -83,7 +83,7 @@ module UO {
     item MetalPinInStoneRaw
     {
         DisplayCategory = StoneBlank,
-        Type = Food,
+        ItemType = base:food,
         Weight = 0.9,
         Icon = UO/MetalPinInStoneRaw,
         Count = 1,
@@ -99,7 +99,7 @@ module UO {
     item MetalPinInStoneRawCantCook
     {
         DisplayCategory = StoneBlank,
-        Type = Food,
+        ItemType = base:food,
         Weight = 0.9,
         Icon = UO/MetalPinInStoneRaw,
         Count = 1,
@@ -113,7 +113,7 @@ module UO {
     item MetalPinInStone
     {
         DisplayCategory = StoneBlank,
-        Type = Normal,
+        ItemType = base:normal,
         Weight = 0.9,
         Icon = UO/MetalPinInStone,
         Count = 1,
@@ -123,7 +123,7 @@ module UO {
     item SawBladeInStoneRaw
     {
         DisplayCategory = StoneBlank,
-        Type = Food,
+        ItemType = base:food,
         Weight = 1.0,
         Icon = UO/SawBladeInStoneRaw,
         Count = 1,
@@ -139,7 +139,7 @@ module UO {
     item SawBladeInStoneRawCantCook
     {
         DisplayCategory = StoneBlank,
-        Type = Food,
+        ItemType = base:food,
         Weight = 1.0,
         Icon = UO/SawBladeInStoneRaw,
         Count = 1,
@@ -153,7 +153,7 @@ module UO {
     item SawBladeInStone
     {
         DisplayCategory = StoneBlank,
-        Type = Normal,
+        ItemType = base:normal,
         Weight = 1.0,
         Icon = UO/SawBladeInStone,
         Count = 1,

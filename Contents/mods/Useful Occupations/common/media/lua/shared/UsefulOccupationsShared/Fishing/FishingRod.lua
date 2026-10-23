@@ -19,7 +19,7 @@ function FishingRod:new(player, joypad)
 	---@diagnostic disable-next-line: redundant-parameter
 	local o = fishingRodOld(self, player, joypad)
 
-	if player:HasTrait(scoutSkillsType) then
+	if player:hasTrait(UsefulOccupations.Functions.getTraitByStr(scoutSkillsType)) then
 		o.skillLevel = o.skillLevel * 4
 	end
 

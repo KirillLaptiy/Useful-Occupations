@@ -129,27 +129,6 @@ module UO {
         }
     }
 
-    craftRecipe UO_Make223Bullets
-    {
-        timedAction = CraftWeapon1H,
-        time = 150,
-        Tags = InHandCraft,
-        category = Weaponry,
-
-        inputs
-        {
-            item 6 [UO.AmmoMaterial],
-            item 1 [Base.GunPowder;3:UO.HomemadePowder],
-            item 6 [UO.PrimerCap],
-            item 1 tags[Hammer] mode:keep,
-        }
-
-        outputs
-        {
-            item 6 Base.223Bullets,
-        }
-    }
-
     craftRecipe UO_Make308Bullets
     {
         timedAction = CraftWeapon1H,

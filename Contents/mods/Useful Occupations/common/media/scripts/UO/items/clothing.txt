@@ -1,3 +1,4 @@
+---------------
 module UO {
     imports {
         Base
@@ -6,9 +7,9 @@ module UO {
 	item ArmorPlate_Back
 	{
 		DisplayCategory = Clothing,
-		Type = Clothing,
+		ItemType = base:clothing,
 		BloodLocation = Bag,
-		BodyLocation = uo:armorplate_back,
+		BodyLocation = base:zeddmg,
 		ClothingItem = Ring_Left_RingFinger_Signet,
 		CanHaveHoles = false,
 		BiteDefense = 125,
@@ -18,14 +19,16 @@ module UO {
 		RemoveOnBroken = false,
 		ChanceToFall = 0,
 		ConditionMax = 10,
+		WorldRender = false,
+        hidden = true,
 	}
 
 	item ArmorPlate_Head
 	{
 		DisplayCategory = Clothing,
-		Type = Clothing,
+		ItemType = base:clothing,
 		BloodLocation = Head,
-		BodyLocation = uo:armorplate_head,
+		BodyLocation = base:zeddmg,
 		ClothingItem = Ring_Left_RingFinger_Signet,
 		CanHaveHoles = false,
 		BiteDefense = 125,
@@ -35,14 +38,16 @@ module UO {
 		RemoveOnBroken = false,
 		ChanceToFall = 0,
 		ConditionMax = 10,
+		WorldRender = false,
+        hidden = true,
 	}
 
 	item ArmorPlate_Neck
 	{
 		DisplayCategory = Clothing,
-		Type = Clothing,
+		ItemType = base:clothing,
 		BloodLocation = Neck,
-		BodyLocation = uo:armorplate_neck,
+		BodyLocation = base:zeddmg,
 		ClothingItem = Ring_Left_RingFinger_Signet,
 		CanHaveHoles = false,
 		BiteDefense = 125,
@@ -52,14 +57,16 @@ module UO {
 		RemoveOnBroken = false,
 		ChanceToFall = 0,
 		ConditionMax = 10,
+		WorldRender = false,
+        hidden = true,
 	}
 
 	item ArmorPlate_Groin
 	{
 		DisplayCategory = Clothing,
-		Type = Clothing,
+		ItemType = base:clothing,
 		BloodLocation = Groin,
-		BodyLocation = uo:armorplate_groin,
+		BodyLocation = base:zeddmg,
 		ClothingItem = Ring_Left_RingFinger_Signet,
 		CanHaveHoles = false,
 		BiteDefense = 125,
@@ -69,14 +76,16 @@ module UO {
 		RemoveOnBroken = false,
 		ChanceToFall = 0,
 		ConditionMax = 10,
+		WorldRender = false,
+        hidden = true,
 	}
 
 	item ArmorPlate_Torso_Upper
 	{
 		DisplayCategory = Clothing,
-		Type = Clothing,
+		ItemType = base:clothing,
 		BloodLocation = UpperBody,
-		BodyLocation = uo:armorplate_torso_upper,
+		BodyLocation = base:zeddmg,
 		ClothingItem = Ring_Left_RingFinger_Signet,
 		CanHaveHoles = false,
 		BiteDefense = 125,
@@ -86,14 +95,16 @@ module UO {
 		RemoveOnBroken = false,
 		ChanceToFall = 0,
 		ConditionMax = 10,
+		WorldRender = false,
+        hidden = true,
 	}
 
 	item ArmorPlate_Torso_Lower
 	{
 		DisplayCategory = Clothing,
-		Type = Clothing,
+		ItemType = base:clothing,
 		BloodLocation = LowerBody,
-		BodyLocation = uo:armorplate_torso_lower,
+		BodyLocation = base:zeddmg,
 		ClothingItem = Ring_Left_RingFinger_Signet,
 		CanHaveHoles = false,
 		BiteDefense = 125,
@@ -103,14 +114,16 @@ module UO {
 		RemoveOnBroken = false,
 		ChanceToFall = 0,
 		ConditionMax = 10,
+		WorldRender = false,
+        hidden = true,
 	}
 
 	item ArmorPlate_Hand_L
 	{
 		DisplayCategory = Clothing,
-		Type = Clothing,
+		ItemType = base:clothing,
 		BloodLocation = Hand_L,
-		BodyLocation = uo:armorplate_hand_l,
+		BodyLocation = base:zeddmg,
 		ClothingItem = Ring_Left_RingFinger_Signet,
 		CanHaveHoles = false,
 		BiteDefense = 125,
@@ -120,14 +133,16 @@ module UO {
 		RemoveOnBroken = false,
 		ChanceToFall = 0,
 		ConditionMax = 10,
+		WorldRender = false,
+        hidden = true,
 	}
 
 	item ArmorPlate_Hand_R
 	{
 		DisplayCategory = Clothing,
-		Type = Clothing,
+		ItemType = base:clothing,
 		BloodLocation = Hand_R,
-		BodyLocation = uo:armorplate_hand_r,
+		BodyLocation = base:zeddmg,
 		ClothingItem = Ring_Left_RingFinger_Signet,
 		CanHaveHoles = false,
 		BiteDefense = 125,
@@ -137,14 +152,16 @@ module UO {
 		RemoveOnBroken = false,
 		ChanceToFall = 0,
 		ConditionMax = 10,
+		WorldRender = false,
+        hidden = true,
 	}
 
 	item ArmorPlate_ForeArm_L
 	{
 		DisplayCategory = Clothing,
-		Type = Clothing,
+		ItemType = base:clothing,
 		BloodLocation = ForeArm_L,
-		BodyLocation = uo:armorplate_forearm_l,
+		BodyLocation = base:zeddmg,
 		ClothingItem = Ring_Left_RingFinger_Signet,
 		CanHaveHoles = false,
 		BiteDefense = 125,
@@ -154,14 +171,16 @@ module UO {
 		RemoveOnBroken = false,
 		ChanceToFall = 0,
 		ConditionMax = 10,
+		WorldRender = false,
+        hidden = true,
 	}
 
 	item ArmorPlate_ForeArm_R
 	{
 		DisplayCategory = Clothing,
-		Type = Clothing,
+		ItemType = base:clothing,
 		BloodLocation = ForeArm_R,
-		BodyLocation = uo:armorplate_forearm_r,
+		BodyLocation = base:zeddmg,
 		ClothingItem = Ring_Left_RingFinger_Signet,
 		CanHaveHoles = false,
 		BiteDefense = 125,
@@ -171,14 +190,16 @@ module UO {
 		RemoveOnBroken = false,
 		ChanceToFall = 0,
 		ConditionMax = 10,
+		WorldRender = false,
+        hidden = true,
 	}
 
 	item ArmorPlate_UpperArm_L
 	{
 		DisplayCategory = Clothing,
-		Type = Clothing,
+		ItemType = base:clothing,
 		BloodLocation = UpperArm_L,
-		BodyLocation = uo:armorplate_upperarm_l,
+		BodyLocation = base:zeddmg,
 		ClothingItem = Ring_Left_RingFinger_Signet,
 		CanHaveHoles = false,
 		BiteDefense = 125,
@@ -188,14 +209,16 @@ module UO {
 		RemoveOnBroken = false,
 		ChanceToFall = 0,
 		ConditionMax = 10,
+		WorldRender = false,
+        hidden = true,
 	}
 
 	item ArmorPlate_UpperArm_R
 	{
 		DisplayCategory = Clothing,
-		Type = Clothing,
+		ItemType = base:clothing,
 		BloodLocation = UpperArm_R,
-		BodyLocation = uo:armorplate_upperarm_r,
+		BodyLocation = base:zeddmg,
 		ClothingItem = Ring_Left_RingFinger_Signet,
 		CanHaveHoles = false,
 		BiteDefense = 125,
@@ -205,14 +228,16 @@ module UO {
 		RemoveOnBroken = false,
 		ChanceToFall = 0,
 		ConditionMax = 10,
+		WorldRender = false,
+        hidden = true,
 	}
 
 	item ArmorPlate_UpperLeg_L
 	{
 		DisplayCategory = Clothing,
-		Type = Clothing,
+		ItemType = base:clothing,
 		BloodLocation = UpperLeg_L,
-		BodyLocation = uo:armorplate_upperleg_l,
+		BodyLocation = base:zeddmg,
 		ClothingItem = Ring_Left_RingFinger_Signet,
 		CanHaveHoles = false,
 		BiteDefense = 125,
@@ -222,14 +247,16 @@ module UO {
 		RemoveOnBroken = false,
 		ChanceToFall = 0,
 		ConditionMax = 10,
+		WorldRender = false,
+        hidden = true,
 	}
 
 	item ArmorPlate_UpperLeg_R
 	{
 		DisplayCategory = Clothing,
-		Type = Clothing,
+		ItemType = base:clothing,
 		BloodLocation = UpperLeg_R,
-		BodyLocation = uo:armorplate_upperleg_r,
+		BodyLocation = base:zeddmg,
 		ClothingItem = Ring_Left_RingFinger_Signet,
 		CanHaveHoles = false,
 		BiteDefense = 125,
@@ -239,14 +266,16 @@ module UO {
 		RemoveOnBroken = false,
 		ChanceToFall = 0,
 		ConditionMax = 10,
+		WorldRender = false,
+        hidden = true,
 	}
 
 	item ArmorPlate_LowerLeg_L
 	{
 		DisplayCategory = Clothing,
-		Type = Clothing,
+		ItemType = base:clothing,
 		BloodLocation = LowerLeg_L,
-		BodyLocation = uo:armorplate_lowerleg_l,
+		BodyLocation = base:zeddmg,
 		ClothingItem = Ring_Left_RingFinger_Signet,
 		CanHaveHoles = false,
 		BiteDefense = 125,
@@ -256,14 +285,16 @@ module UO {
 		RemoveOnBroken = false,
 		ChanceToFall = 0,
 		ConditionMax = 10,
+		WorldRender = false,
+        hidden = true,
 	}
 
 	item ArmorPlate_LowerLeg_R
 	{
 		DisplayCategory = Clothing,
-		Type = Clothing,
+		ItemType = base:clothing,
 		BloodLocation = LowerLeg_R,
-		BodyLocation = uo:armorplate_lowerleg_r,
+		BodyLocation = base:zeddmg,
 		ClothingItem = Ring_Left_RingFinger_Signet,
 		CanHaveHoles = false,
 		BiteDefense = 125,
@@ -273,14 +304,16 @@ module UO {
 		RemoveOnBroken = false,
 		ChanceToFall = 0,
 		ConditionMax = 10,
+		WorldRender = false,
+        hidden = true,
 	}
 
 	item ArmorPlate_Foot_L
 	{
 		DisplayCategory = Clothing,
-		Type = Clothing,
+		ItemType = base:clothing,
 		BloodLocation = Foot_L,
-		BodyLocation = uo:armorplate_foot_l,
+		BodyLocation = base:zeddmg,
 		ClothingItem = Ring_Left_RingFinger_Signet,
 		CanHaveHoles = false,
 		BiteDefense = 125,
@@ -290,14 +323,16 @@ module UO {
 		RemoveOnBroken = false,
 		ChanceToFall = 0,
 		ConditionMax = 10,
+		WorldRender = false,
+        hidden = true,
 	}
 
 	item ArmorPlate_Foot_R
 	{
 		DisplayCategory = Clothing,
-		Type = Clothing,
+		ItemType = base:clothing,
 		BloodLocation = Foot_R,
-		BodyLocation = uo:armorplate_foot_r,
+		BodyLocation = base:zeddmg,
 		ClothingItem = Ring_Left_RingFinger_Signet,
 		CanHaveHoles = false,
 		BiteDefense = 125,
@@ -307,5 +342,7 @@ module UO {
 		RemoveOnBroken = false,
 		ChanceToFall = 0,
 		ConditionMax = 10,
+		WorldRender = false,
+        hidden = true,
 	}
 }

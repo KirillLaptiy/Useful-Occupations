@@ -2,7 +2,7 @@ module UO {
     item EngineSpecialParts
     {
         DisplayCategory = VehicleMaintenance,
-        Type = Normal,
+        ItemType = base:normal,
         Weight = 8.00,
         Icon = UO/EngineSpecialParts,
         Count = 1,
@@ -12,7 +12,7 @@ module UO {
     item SpecialBattery
     {
         DisplayCategory = VehicleMaintenance,
-        Type = Normal,
+        ItemType = base:normal,
         Weight = 12.00,
         Icon = UO/SpecialBattery,
         Count = 1,
@@ -22,7 +22,7 @@ module UO {
     item SpecialSilencer
     {
         DisplayCategory = VehicleMaintenance,
-        Type = Normal,
+        ItemType = base:normal,
         Weight = 2.50,
         Icon = UO/SpecialSilencer,
         Count = 1,
@@ -32,7 +32,7 @@ module UO {
     item SpecialSuspension
     {
         DisplayCategory = VehicleMaintenance,
-        Type = Normal,
+        ItemType = base:normal,
         Weight = 6.00,
         Icon = UO/SpecialSuspension,
         Count = 1,
@@ -42,7 +42,7 @@ module UO {
     item SpecialBrake
     {
         DisplayCategory = VehicleMaintenance,
-        Type = Normal,
+        ItemType = base:normal,
         Weight = 3.00,
         Icon = UO/SpecialBrake,
         Count = 1,
@@ -52,7 +52,7 @@ module UO {
     item SpecialHood
     {
         DisplayCategory = VehicleMaintenance,
-        Type = Normal,
+        ItemType = base:normal,
         Weight = 15.00,
         Icon = UO/SpecialHood,
         Count = 1,
@@ -62,7 +62,7 @@ module UO {
     item SpecialTire
     {
         DisplayCategory = VehicleMaintenance,
-        Type = Normal,
+        ItemType = base:normal,
         Weight = 10.00,
         Icon = UO/SpecialTire,
         Count = 1,
@@ -72,7 +72,7 @@ module UO {
     item SpecialSeat
     {
         DisplayCategory = VehicleMaintenance,
-        Type = Normal,
+        ItemType = base:normal,
         Weight = 12.00,
         Icon = UO/SpecialSeat,
         Count = 1,
@@ -82,7 +82,7 @@ module UO {
     item SpecialFrontDoor
     {
         DisplayCategory = VehicleMaintenance,
-        Type = Normal,
+        ItemType = base:normal,
         Weight = 18.00,
         Icon = UO/SpecialFrontDoor,
         Count = 1,
@@ -92,7 +92,7 @@ module UO {
     item SpecialRearDoor
     {
         DisplayCategory = VehicleMaintenance,
-        Type = Normal,
+        ItemType = base:normal,
         Weight = 16.00,
         Icon = UO/SpecialRearDoor,
         Count = 1,
@@ -102,7 +102,7 @@ module UO {
     item SpecialRearWindow
     {
         DisplayCategory = VehicleMaintenance,
-        Type = Normal,
+        ItemType = base:normal,
         Weight = 8.00,
         Icon = UO/SpecialRearWindow,
         Count = 1,
@@ -112,7 +112,7 @@ module UO {
     item SpecialWindshield
     {
         DisplayCategory = VehicleMaintenance,
-        Type = Normal,
+        ItemType = base:normal,
         Weight = 12.00,
         Icon = UO/SpecialWindshield,
         Count = 1,
@@ -122,7 +122,7 @@ module UO {
     item SpecialWindow
     {
         DisplayCategory = VehicleMaintenance,
-        Type = Normal,
+        ItemType = base:normal,
         Weight = 6.00,
         Icon = UO/SpecialWindow,
         Count = 1,
@@ -132,7 +132,7 @@ module UO {
     item SpecialFuelTank
     {
         DisplayCategory = VehicleMaintenance,
-        Type = Normal,
+        ItemType = base:normal,
         Weight = 6.00,
         Icon = UO/SpecialFuelTank,
         Count = 1,

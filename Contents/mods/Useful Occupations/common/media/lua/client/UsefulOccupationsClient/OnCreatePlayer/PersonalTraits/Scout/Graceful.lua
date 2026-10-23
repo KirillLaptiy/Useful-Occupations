@@ -108,13 +108,14 @@ UsefulOccupations.DoTraitsOnCreatePlayer.Graceful = function(player)
 	---@param value MovementValue
 	local calculateNewMultipler = function(value)
 		local targetPerkLvl = player:getPerkLevel(value.targetPerk)
+
 		local newMultiplier = 1 + (value.startBonusPercent / 100) + (targetPerkLvl * (value.percentPerLvl / 100))
 
 		return newMultiplier
 	end
 
 	-- Updating speed scale multipliers
-	---@param perk Perk | nil
+	---@param perk PerkFactory.Perk | nil
 	local updateSSMultipliers = function(perk)
 		-- Update all multiplier on game start
 		local needUpdateAll = perk == nil

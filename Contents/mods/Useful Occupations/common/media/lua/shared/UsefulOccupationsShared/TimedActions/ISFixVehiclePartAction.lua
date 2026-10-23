@@ -15,7 +15,7 @@ function ISFixVehiclePartAction:complete()
 	FixingManager.fixItem(self.item, self.character, self.fixing, self.fixer)
 
     -- Mechanic repairs vehicle parts more effective
-	if self.character:HasTrait(traitType) then
+	if self.character:hasTrait(UsefulOccupations.Functions.getTraitByStr(traitType)) then
 		local mechanicBonusMult = 1
 		+ (UsefulOccupations.TraitsOnGameBoot.Mechanic.getBonusRepairPercent(self.character) / 100)
 		self.item:setCondition(self.item:getCondition() * mechanicBonusMult)

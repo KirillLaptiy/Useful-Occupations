@@ -25,7 +25,7 @@ function ISRepairLightbar:complete()
 		local condPerPart = 15 + skill
 
         -- Mechanic repairs light bar more effective
-		if self.character:HasTrait(traitType) then
+		if self.character:hasTrait(UsefulOccupations.Functions.getTraitByStr(traitType)) then
 			local mechanicBonusMult = 1 + (UsefulOccupations.TraitsOnGameBoot.Mechanic.getBonusRepairPercent(self.character) / 100)
 			condPerPart = condPerPart * mechanicBonusMult
 		end

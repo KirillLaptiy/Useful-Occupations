@@ -12,7 +12,7 @@ local traitType = UsefulOccupations.PersonalTraits.Doctor.type
 
 ---@diagnostic disable-next-line: duplicate-set-field
 function ISHandcraftAction:performRecipe()
-	local hasDoctorTrait = self.character:HasTrait(traitType)
+	local hasDoctorTrait = self.character:hasTrait(UsefulOccupations.Functions.getTraitByStr(traitType))
 
 	if self.logic then
 		if self.logic:performCurrentRecipe() then

@@ -20,8 +20,8 @@ end
 
 ---@diagnostic disable-next-line: duplicate-set-field
 function ISApplyBandage:complete()
-	if self.character:HasTrait("Hemophobic") and self.bodyPart:getBleedingTime() > 0 then
-		self.character:getStats():setPanic(self.character:getStats():getPanic() + 50)
+	if self.character:hasTrait(UsefulOccupations.Functions.getTraitByStr("Hemophobic")) and self.bodyPart:getBleedingTime() > 0 then
+		self.character:getStats():set(CharacterStat.PANIC, self.character:getStats():get(CharacterStat.PANIC) + 50)
 		--Stat_Panic
 		syncPlayerStats(self.character, 0x00000100)
 	end
@@ -30,7 +30,7 @@ function ISApplyBandage:complete()
 		local bandageLife = ZombRandFloat((self.doctorLevel + 1) * 0.5, (self.doctorLevel + 1) * 1.0)
 			+ self.item:getBandagePower()
 
-		if self.character:HasTrait(doctorType) then
+		if self.character:hasTrait(UsefulOccupations.Functions.getTraitByStr(doctorType)) then
 			bandageLife = bandageLife * getBandageMult(self.character)
 		end
 
@@ -69,6 +69,7 @@ function ISApplyBandage:complete()
 				bandage:UseAndSync()
 			end
 		end
+		---@diagnostic disable-next-line: param-type-mismatch
 		self.otherPlayer:getBodyDamage():SetBandaged(self.bodyPart:getIndex(), false, 0, false, nil)
 	end
 

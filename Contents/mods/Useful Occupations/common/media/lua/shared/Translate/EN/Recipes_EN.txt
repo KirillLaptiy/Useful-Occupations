@@ -230,7 +230,6 @@ Recipes_EN {
     UO_MakeKnifeCrafted = "1",
     UO_MakeBaseballBat = "1",
     UO_MakeWoodenMallet = "1",
-    UO_Make223Bullets = "1",
     UO_Make308Bullets = "1",
     UO_MakeBullets38 = "1",
     UO_MakeBullets44 = "1",

@@ -8,6 +8,8 @@
 *
 ]]
 
+local funcs = UsefulOccupations.Functions
+
 local scoutStartKitStr = "UO.ScoutStartKit"
 local spmStartKitStr = "UO.SPMStartKit"
 
@@ -42,12 +44,15 @@ Events.OnCreatePlayer.Add(function(playerNum, player)
 
 		-- Add vanilla traits from they decorations
 		for _, trait in pairs(UsefulOccupations.DecorationTraits) do
-			if player:HasTrait(trait.originalTraitType) then
-				player:getTraits():remove(trait.originalTraitType)
+			local characterTrait = funcs.getTraitByStr(trait.originalTraitType)
+			local characterDecTrait = funcs.getTraitByStr(trait.decorationTraitType)
+
+			if player:hasTrait(characterTrait) then
+				player:getCharacterTraits():remove(characterTrait)
 
 				-- Avoids double trait cases (like fit and stout traits)
-				if not player:HasTrait(trait.decorationTraitType) then
-					player:getTraits():add(trait.decorationTraitType)
+				if not player:hasTrait(characterDecTrait) then
+					player:getCharacterTraits():add(characterDecTrait)
 				end
 			end
 		end
@@ -74,7 +79,8 @@ Events.OnCreatePlayer.Add(function(playerNum, player)
 	for func in pairs(UsefulOccupations.DoTraitsOnCreatePlayer) do
 		local traitName = tostring(func)
 
-		if player:HasTrait(traitName) then
+		---@diagnostic disable-next-line: param-type-mismatch
+		if player:hasTrait(UsefulOccupations.Functions.tryGetTraitByStr(traitName)) then
 			UsefulOccupations.DoTraitsOnCreatePlayer[func](player)
 		end
 	end
@@ -87,7 +93,7 @@ Events.OnCreatePlayer.Add(function(playerNum, player)
 	end
 
 	-- Give start profession items
-	local profession = player:getDescriptor():getProfession()
+	local profession = player:getDescriptor():getCharacterProfession():getName():lower()
 	local inventory = player:getInventory()
 
 	local scoutKitEnabled = getSandboxValue(scoutStartKitStr)

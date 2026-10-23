@@ -28,7 +28,6 @@
 ---@field Desensitized DoTraitsOnCreatePlayer.Desensitized
 ---@field Marksman DoTraitsOnCreatePlayer.Marksman
 ---@field TrainedFighter DoTraitsOnCreatePlayer.TrainedFighter
----@field Mechanic DoTraitsOnCreatePlayer.Mechanic
 
 -- Functions on game start
 ---@class UsefulOccupations.DoFuncsOnCreatePlayer
@@ -46,6 +45,7 @@
 
 --- Main data
 ---@class UsefulOccupations
+---@field ModModule string
 ---@field DoTraitsOnCreatePlayer UsefulOccupations.DoTraitsOnCreatePlayer
 ---@field DoFuncsOnCreatePlayer UsefulOccupations.DoFuncsOnCreatePlayer
 ---@field TraitsOnGameBoot UsefulOccupations.TraitsOnGameBoot
@@ -60,6 +60,7 @@
 ---@type UsefulOccupations
 ---@diagnostic disable-next-line: missing-fields
 UsefulOccupations = {
+	ModModule = "uo:",
 	---@diagnostic disable-next-line: missing-fields
 	DoTraitsOnCreatePlayer = {},
 	DoFuncsOnCreatePlayer = {},

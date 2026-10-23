@@ -15,7 +15,8 @@ Inconspicuous = {}
 UsefulOccupations.DoTraitsOnCreatePlayer.Inconspicuous = function(player)
 	local traitValues = UsefulOccupations.PersonalTraits.Inconspicuous.values
 
-	local stunDurationAfterForfeit = 1
+	local stunDurationSmall = 50
+	local stunDurationLarge = 2000
 
 	local defaultBonusMult = traitValues.defaultBonusMult()
 	local sneakingBonusMult = traitValues.sneakingBonusMult()
@@ -67,14 +68,15 @@ UsefulOccupations.DoTraitsOnCreatePlayer.Inconspicuous = function(player)
 	local playerActivityBonus = 0
 
 	---@param zombie IsoZombie
-	local forfeitPlayer = function(zombie)
+	---@param stunTime integer
+	local forfeitPlayer = function(zombie, stunTime)
 		zombiesTime[zombie] = nil
 
 		---@diagnostic disable-next-line: param-type-mismatch
 		zombie:setTarget(nil)
 		zombie:setUseless(true)
 
-		UsefulOccupations.Functions.processAfterDelay(stunDurationAfterForfeit, function()
+		UsefulOccupations.Functions.processAfterDelay(stunTime, function()
 			zombie:setUseless(false)
 		end)
 	end
@@ -118,6 +120,9 @@ UsefulOccupations.DoTraitsOnCreatePlayer.Inconspicuous = function(player)
 		-- Clears bad pretending conditions
 		if isTargetedByZombies() == false then
 			badPretendingConditions = false
+		else
+			badPretendingConditions = true
+			return
 		end
 
 		-- Bad conditions when:
@@ -129,7 +134,6 @@ UsefulOccupations.DoTraitsOnCreatePlayer.Inconspicuous = function(player)
 		if
 			(player:isWalking() and (player:isRunning() or player:isSprinting()))
 			or player:isCurrentState(swipeStatePlayer)
-			or player:isStrafing()
 			or player:isSneaking()
 			or player:isCurrentState(climbOverWallState)
 			or player:isSitOnGround()
@@ -185,25 +189,26 @@ UsefulOccupations.DoTraitsOnCreatePlayer.Inconspicuous = function(player)
 		if isPretendingZombie == true then
 			setPretendingZombie(false)
 		else
-			-- Can't activate zombie walk if zombies see the player
-			if isTargetedByZombies() == true then
-				HaloTextHelper.addText(player, getText("IGUI_InconspicuousNeedNoZombies"))
-				return
-			end
+			-- DISABLED: Can't activate zombie walk if zombies see the player
+			-- if isTargetedByZombies() == true then
+			-- 	HaloTextHelper.addText(player, getText("IGUI_InconspicuousNeedNoZombies"))
+			-- 	return
+			-- end
 
 			local primaryHandItem = player:getPrimaryHandItem()
 			local secondaryHandItem = player:getSecondaryHandItem()
+			local isPrimaryWeapon = primaryHandItem and primaryHandItem:IsWeapon() and
+				primaryHandItem:getType() ~= "BareHands"
+			local isSecondaryWeapon = secondaryHandItem
+				and secondaryHandItem:IsWeapon()
+				and secondaryHandItem:getType() ~= "BareHands"
 
-			if primaryHandItem or secondaryHandItem then
-				if primaryHandItem and primaryHandItem:IsWeapon() and primaryHandItem:getType() ~= "BareHands" then
+			if isPrimaryWeapon or isSecondaryWeapon then
+				if isPrimaryWeapon then
 					ISTimedActionQueue.add(ISInconspicuousUnequipAction:new(player, primaryHandItem, 20))
 				end
 
-				if
-					secondaryHandItem
-					and secondaryHandItem:IsWeapon()
-					and secondaryHandItem:getType() ~= "BareHands"
-				then
+				if isSecondaryWeapon then
 					ISTimedActionQueue.add(ISInconspicuousUnequipAction:new(player, secondaryHandItem, 20))
 				end
 
@@ -223,7 +228,7 @@ UsefulOccupations.DoTraitsOnCreatePlayer.Inconspicuous = function(player)
 
 		if isPretendingZombie and item:IsWeapon() and item:getType() ~= "BareHands" then
 			setPretendingZombie(false)
-			HaloTextHelper.addText(character, getText("IGUI_InconspicuousNoWeapon"))
+			-- HaloTextHelper.addText(character, getText("IGUI_InconspicuousNoWeapon"))
 		end
 	end
 
@@ -245,7 +250,7 @@ UsefulOccupations.DoTraitsOnCreatePlayer.Inconspicuous = function(player)
 
 		-- Zombies notice the player from a shorter distance.
 		if distance > forfeitDistance and zombiesTime[zombie] < 5 then
-			forfeitPlayer(zombie)
+			forfeitPlayer(zombie, stunDurationSmall)
 			return
 		end
 	end
@@ -266,13 +271,13 @@ UsefulOccupations.DoTraitsOnCreatePlayer.Inconspicuous = function(player)
 
 		-- Zombie instantly forfeit player if can't see
 		if zombie:CanSee(player) == false then
-			forfeitPlayer(zombie)
+			forfeitPlayer(zombie, stunDurationSmall)
 			return
 		end
 
 		-- Zombie forfeits player that pretending zombie's walk
 		if isPretendingZombie == true and badPretendingConditions == false then
-			forfeitPlayer(zombie)
+			forfeitPlayer(zombie, stunDurationLarge)
 			return
 		end
 

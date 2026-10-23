@@ -65,15 +65,13 @@ UsefulOccupations.DoTraitsOnCreatePlayer.Marksman = function(player)
 	end
 
 	-- Update reload speed
-	local updateReloadSpeed = function()
+	UsefulOccupations.Functions.processEveryMs(30, function ()
 		local defaultReloadSpeed = 0.8 + (0.1 * player:getPerkLevel(Perks.Reloading))
-		player:setVariable("UOReloadSpeed", defaultReloadSpeed * reloadSpeedMult)
-	end
-
-	updateReloadSpeed()
+		player:setVariable("ReloadSpeed", defaultReloadSpeed * reloadSpeedMult)
+	end)
 
 	-- Calculating new multipliers
-	---@param perk Perk
+	---@param perk PerkFactory.Perk
 	---@param perkLvl number
 	UsefulOccupations.Functions.addEvent(Events.LevelPerk, function(_, perk, perkLvl, _)
 		if perk == targetPerk then
@@ -88,7 +86,6 @@ UsefulOccupations.DoTraitsOnCreatePlayer.Marksman = function(player)
 
 		if perk == reloadSpeedTargetPerk then
 			reloadSpeedMult = reloadSpeedDefaultMult + (reloadSpeedBonusPerLvl * perkLvl)
-			updateReloadSpeed()
 		end
 	end)
 end

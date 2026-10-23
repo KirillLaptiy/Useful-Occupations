@@ -6,7 +6,7 @@ module UO {
     item StimulantDrops
     {
         DisplayCategory = FirstAid,
-        Type = Drainable,
+        ItemType = base:drainable,
         Weight = 0.2,
         Icon = StimulantDrops,
         Medical = true,
@@ -15,14 +15,14 @@ module UO {
         UseWhileEquipped = false,
         StaticModel = StimulantDrops,
         WorldStaticModel = StimulantDrops,
-        Tags = Pills;UOPills,
+        Tags = base:Pills;uo:UOPills,
         Tooltip = Tooltip_item_stimulant_drops,
     }
 
 	item StimulantDropsPlus
     {
         DisplayCategory = FirstAid,
-        Type = Drainable,
+        ItemType = base:drainable,
         Weight = 0.2,
         Icon = StimulantDropsPlus,
         Medical = true,
@@ -31,7 +31,7 @@ module UO {
         UseWhileEquipped = false,
         StaticModel = StimulantDropsPlus,
         WorldStaticModel = StimulantDropsPlus,
-        Tags = Pills;UOPills,
+        Tags = base:Pills;uo:UOPills,
         Tooltip = Tooltip_item_stimulant_drops_plus,
     }
 }

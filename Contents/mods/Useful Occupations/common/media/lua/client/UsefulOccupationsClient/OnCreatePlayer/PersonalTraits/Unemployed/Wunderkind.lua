@@ -26,7 +26,7 @@ UsefulOccupations.DoTraitsOnCreatePlayer.Wunderkind = function(player)
 	end
 
 	-- Clear xp boost when perk level reaches last level for xp boost
-	--- @param perk Perk
+	--- @param perk PerkFactory.Perk
 	--- @param perkLvl integer
 	UsefulOccupations.Functions.addEvent(Events.LevelPerk, function(_, perk, perkLvl, _)
 		if perkLvl == lastLevelForXpBoost then

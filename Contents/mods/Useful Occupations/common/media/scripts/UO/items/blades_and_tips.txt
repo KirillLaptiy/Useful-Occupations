@@ -2,7 +2,7 @@ module UO {
     item KnifeBlade
     {
         DisplayCategory = BladesAndTips,
-        Type = Normal,
+        ItemType = base:normal,
         Weight = 0.15,
         Icon = UO/KnifeBlade,
         Count = 1,
@@ -12,7 +12,7 @@ module UO {
     item AxeBlade
     {
         DisplayCategory = BladesAndTips,
-        Type = Normal,
+        ItemType = base:normal,
         Weight = 0.80,
         Icon = UO/AxeBlade,
         Count = 1,
@@ -22,7 +22,7 @@ module UO {
     item LargeTip
     {
         DisplayCategory = BladesAndTips,
-        Type = Normal,
+        ItemType = base:normal,
         Weight = 0.12,
         Icon = UO/LargeTip,
         Count = 1,
@@ -32,7 +32,7 @@ module UO {
     item SmallTip
     {
         DisplayCategory = BladesAndTips,
-        Type = Normal,
+        ItemType = base:normal,
         Weight = 0.03,
         Icon = UO/SmallTip,
         Count = 1,

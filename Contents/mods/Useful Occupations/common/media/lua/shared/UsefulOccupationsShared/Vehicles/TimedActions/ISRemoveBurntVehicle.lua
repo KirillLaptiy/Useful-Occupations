@@ -44,7 +44,7 @@ function ISRemoveBurntVehicle:complete()
 	local rollingCount = math.max(5, metalWeldingLvl)
 
 	-- Mechanic has more rolling counts
-	if self.character:HasTrait(traitType) then
+	if self.character:hasTrait(UsefulOccupations.Functions.getTraitByStr(traitType)) then
 		local mechanicsLvl = self.character:getPerkLevel(Perks.Mechanics)
 		rollingCount = metalWeldingLvl + mechanicsLvl
 	end
@@ -81,7 +81,7 @@ end
 -- Mechanic has 100% chance to get resources
 ---@diagnostic disable-next-line: duplicate-set-field
 function ISRemoveBurntVehicle:checkAddItem(item, baseChance)
-	if self.character:HasTrait(traitType) then
+	if self.character:hasTrait(UsefulOccupations.Functions.getTraitByStr(traitType)) then
 		self.vehicle:getSquare():AddWorldInventoryItem(item, ZombRandFloat(0, 0.9), ZombRandFloat(0, 0.9), 0)
 		return true
 	end

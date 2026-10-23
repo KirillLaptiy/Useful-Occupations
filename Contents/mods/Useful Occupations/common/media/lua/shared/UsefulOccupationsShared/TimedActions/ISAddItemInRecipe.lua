@@ -12,20 +12,24 @@ local traitType = UsefulOccupations.PersonalTraits.Doctor.type
 
 ---@diagnostic disable-next-line: duplicate-set-field
 function ISAddItemInRecipe:complete()
-	local hasDoctorTrait = self.character:HasTrait(traitType)
+	local hasDoctorTrait = self.character:hasTrait(UsefulOccupations.Functions.getTraitByStr(traitType))
 
 	self.character:removeFromHands(self.baseItem)
 
-	---@type Food
 	self.baseItem = self.recipe:addItem(self.baseItem, self.usedItem, self.character)
 
+	---@type Food
+	---@diagnostic disable-next-line: assign-type-mismatch
+	local food = self.baseItem
+
 	if hasDoctorTrait then
-		UsefulOccupations.TraitsOnGameBoot.Doctor.setFoodData(self.baseItem, self.usedItem)
+		---@diagnostic disable-next-line: param-type-mismatch
+		UsefulOccupations.TraitsOnGameBoot.Doctor.setFoodData(food, self.usedItem)
 	end
 
 	ISAddItemInRecipe.checkName(self.baseItem, self.recipe)
 
-	if not self.baseItem:isCustomName() and self.baseItem:getFoodType() == "Beer" then
+	if not self.baseItem:isCustomName() and food:getFoodType() == "Beer" then
 		---@diagnostic disable-next-line: undefined-global
 		baseItem:setName(getText("ContextMenu_FoodType_Beer"))
 	end

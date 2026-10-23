@@ -32,14 +32,14 @@ UsefulOccupations.DoTraitsOnCreatePlayer.Invincible = function(player)
 	local bodyDamage = player:getBodyDamage()
 	local stats = player:getStats()
 
-	local canDodge = stats:getEndurance() > dodgeEnduranceEdge
+	local canDodge = stats:get(CharacterStat.ENDURANCE) > dodgeEnduranceEdge
 	local dodgeCost = dodgeEnduranceCost - (targetPerkEffect * player:getPerkLevel(targetPerk))
 
 	local zombieDisableCost = zombieDisableCost - (targetPerkEffect * player:getPerkLevel(targetPerk))
 
 	local doDodge = function()
-		local endurance = stats:getEndurance()
-		stats:setEndurance(endurance - dodgeCost)
+		local endurance = stats:get(CharacterStat.ENDURANCE)
+		stats:set(CharacterStat.ENDURANCE, endurance - dodgeCost)
 		player:playerVoiceSound("JumpLow")
 	end
 
@@ -86,10 +86,11 @@ UsefulOccupations.DoTraitsOnCreatePlayer.Invincible = function(player)
 
 		local enemies = player:getSpottedList()
 
-		canDodge = stats:getEndurance() > dodgeEnduranceEdge
+		canDodge = stats:get(CharacterStat.ENDURANCE) > dodgeEnduranceEdge
 
 		for i = 0, enemies:size() - 1 do
 			---@type IsoZombie
+			---@diagnostic disable-next-line: assign-type-mismatch
 			local enemy = enemies:get(i)
 
 			local distance = player:DistTo(enemy)
@@ -122,6 +123,7 @@ UsefulOccupations.DoTraitsOnCreatePlayer.Invincible = function(player)
 
 		for i = 0, bodyParts:size() - 1 do
 			---@type BodyPart
+			---@diagnostic disable-next-line: assign-type-mismatch
 			local bodyPart = bodyParts:get(i)
 
 			bodyPart:SetHealth(100)
@@ -205,7 +207,7 @@ UsefulOccupations.DoTraitsOnCreatePlayer.Invincible = function(player)
 			return
 		end
 
-		local endurance = stats:getEndurance()
+		local endurance = stats:get(CharacterStat.ENDURANCE)
 
 		-- The character needs endurance to disable a zombie
 		if endurance < zombieDisableEdge then
@@ -219,7 +221,7 @@ UsefulOccupations.DoTraitsOnCreatePlayer.Invincible = function(player)
 			collidedCharacter:setStaggerBack(true)
 			collidedCharacter:setBecomeCrawler(true)
 
-			stats:setEndurance(endurance - zombieDisableCost)
+			stats:set(CharacterStat.ENDURANCE, endurance - zombieDisableCost)
 			player:playerVoiceSound("JumpLow")
 		end
 	end)

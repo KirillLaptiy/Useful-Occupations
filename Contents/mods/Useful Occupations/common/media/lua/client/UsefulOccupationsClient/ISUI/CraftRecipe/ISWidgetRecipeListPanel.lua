@@ -12,6 +12,8 @@
 -- Handler used to hide craft recipes under certain conditions
 
 Events.OnGameStart.Add(function()
+	local funcs = UsefulOccupations.Functions
+
 	local personalTraits = UsefulOccupations.PersonalTraits
 
 	local engineerType = personalTraits.Engineer.type
@@ -247,7 +249,6 @@ Events.OnGameStart.Add(function()
 		UO_MakeKnifeCrafted = engineerType,
 		UO_MakeBaseballBat = engineerType,
 		UO_MakeWoodenMallet = engineerType,
-		UO_Make223Bullets = engineerType,
 		UO_Make308Bullets = engineerType,
 		UO_MakeBullets38 = engineerType,
 		UO_MakeBullets44 = engineerType,
@@ -315,15 +316,17 @@ Events.OnGameStart.Add(function()
 		UO_WriteMagazine_StrongLockpicks = burglarType,
 	}
 
+	---@param _recipeCollection CraftRecipeListNodeCollection
 	---@diagnostic disable-next-line: duplicate-set-field
-	function ISWidgetRecipeListPanel:setDataList(_recipeList)
+	function ISWidgetRecipeListPanel:setDataList(_recipeCollection)
 		local currentRecipe = self.logic:getRecipe()
 		local currentRecipeFound = false
+
+		local _recipeList = _recipeCollection:getAllRecipes()
 
 		self.recipeListPanel:clear()
 
 		for i = 0, _recipeList:size() - 1 do
-			---@type CraftRecipe
 			local craftRecipe = _recipeList:get(i)
 			local craftRecipeName = craftRecipe:getScriptObjectName()
 
@@ -332,23 +335,23 @@ Events.OnGameStart.Add(function()
 			local traitTypeToBeVisible = visibleRecipesByTraits[craftRecipeName]
 
 			if traitTypeToBeVisible then
-				recipeAllowed = self.player:HasTrait(traitTypeToBeVisible)
+				recipeAllowed = self.player:hasTrait(funcs.getTraitByStr(traitTypeToBeVisible))
 			end
 
 			if recipeAllowed then
+				local func = craftRecipe:getOnAddToMenu()
 				local failed = false
 
-				if _recipeList:get(i):getOnAddToMenu() then
-					local func = _recipeList:get(i):getOnAddToMenu()
+				if func then
 					local params =
-						{ player = self.player, recipe = _recipeList:get(i), shouldShowAll = self.enabledShowAllFilter }
+					{ player = self.player, recipe = _recipeList:get(i), shouldShowAll = self.enabledShowAllFilter }
 
 					failed = not callLuaBool(func, params)
 				end
 
 				if not failed then
 					local listItem =
-						self.recipeListPanel:addItem(_recipeList:get(i):getTranslationName(), _recipeList:get(i))
+						self.recipeListPanel:addItem(craftRecipe:getTranslationName(), craftRecipe)
 
 					if listItem.item == currentRecipe then
 						-- restore selection

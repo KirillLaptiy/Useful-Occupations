@@ -18,23 +18,17 @@ UsefulOccupations.DoTraitsOnCreatePlayer.Desensitized = function(player)
 	local stats = player:getStats()
 	local bodyDamage = player:getBodyDamage()
 
-	local currentPainReduction = bodyDamage:getPainReduction()
-
 	UsefulOccupations.Functions.processEveryMs(30, function()
-		bodyDamage:setPainReduction(currentPainReduction + painReduction)
+		local bodyDamageRed = bodyDamage:getPainReduction()
 
-		currentPainReduction = bodyDamage:getPainReduction() - painReduction
+		bodyDamage:setPainReduction(math.min(painReduction, bodyDamageRed))
 
-		if currentPainReduction < 0 then
-			currentPainReduction = 0
+		if stats:get(CharacterStat.PAIN) > maxPain then
+			stats:set(CharacterStat.PAIN, maxPain)
 		end
 
-		if stats:getPain() > maxPain then
-			stats:setPain(maxPain)
-		end
-
-		if stats:getFatigue() > maxFatigue then
-			stats:setFatigue(maxFatigue)
+		if stats:get(CharacterStat.FATIGUE) > maxFatigue then
+			stats:set(CharacterStat.FATIGUE, maxFatigue)
 		end
 	end)
 end

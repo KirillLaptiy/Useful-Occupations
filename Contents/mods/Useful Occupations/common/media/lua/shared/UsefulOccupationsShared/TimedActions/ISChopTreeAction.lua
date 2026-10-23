@@ -17,11 +17,12 @@ local enduranceUseModifier
 function ISChopTreeAction:animEvent(event, _)
 	if not isClient() then
 		if event == "ChopTree" then
+			---@diagnostic disable-next-line: param-type-mismatch
 			self.tree:WeaponHit(self.character, self.axe)
 
 			local modifier = 1
 
-			if self.character:HasTrait(traitName) then
+			if self.character:hasTrait(UsefulOccupations.Functions.getTraitByStr(traitName)) then
 				modifier = muscleStrainModifier
 			end
 
@@ -40,6 +41,7 @@ function ISChopTreeAction:animEvent(event, _)
 			end
 		end
 	elseif event == "ChopTree" then
+		---@diagnostic disable-next-line: param-type-mismatch
 		self.tree:WeaponHitEffects(self.character, self.axe)
 	end
 end
@@ -47,11 +49,15 @@ end
 -- When chopping trees, the Axeman's endurance use is reduced by 2 times
 ---@diagnostic disable-next-line: duplicate-set-field
 function ISChopTreeAction:useEndurance()
-	if self.axe:isUseEndurance() then
-		local use = self.axe:getWeight()
-			* self.axe:getFatigueMod(self.character)
+	---@type HandWeapon
+	---@diagnostic disable-next-line: assign-type-mismatch
+	local axe = self.axe
+
+	if axe:isUseEndurance() then
+		local use = axe:getWeight()
+			* axe:getFatigueMod(self.character)
 			* self.character:getFatigueMod()
-			* self.axe:getEnduranceMod()
+			* axe:getEnduranceMod()
 			* 0.1
 
 		local useChargeDelta = 1.0
@@ -62,11 +68,11 @@ function ISChopTreeAction:useEndurance()
 			use = use + self.axe:getWeight() / 1.5 / 10 / 20
 		end
 
-		if self.character:HasTrait(traitName) then
+		if self.character:hasTrait(UsefulOccupations.Functions.getTraitByStr(traitName)) then
 			use = use * enduranceUseModifier
 		end
 
-		self.character:getStats():setEndurance(self.character:getStats():getEndurance() - use)
+		self.character:getStats():set(CharacterStat.ENDURANCE, self.character:getStats():get(CharacterStat.ENDURANCE) - use)
 	end
 end
 

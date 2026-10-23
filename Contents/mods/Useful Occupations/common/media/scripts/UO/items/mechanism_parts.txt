@@ -2,7 +2,7 @@ module UO {
     item MechanismBase
     {
         DisplayCategory = MechanismPart,
-        Type = Normal,
+        ItemType = base:normal,
         Weight = 0.80,
         Icon = UO/MechanismBase,
         Count = 1,
@@ -12,7 +12,7 @@ module UO {
     item MechanismHandle
     {
         DisplayCategory = MechanismPart,
-        Type = Normal,
+        ItemType = base:normal,
         Weight = 0.30,
         Icon = UO/MechanismHandle,
         Count = 1,
@@ -22,7 +22,7 @@ module UO {
     item MechanismClamp
     {
         DisplayCategory = MechanismPart,
-        Type = Normal,
+        ItemType = base:normal,
         Weight = 0.40,
         Icon = UO/MechanismClamp,
         Count = 1,
@@ -32,7 +32,7 @@ module UO {
     item HacksawBlade
     {
         DisplayCategory = MechanismPart,
-        Type = Normal,
+        ItemType = base:normal,
         Weight = 0.35,
         Icon = UO/HacksawBlade,
         Count = 1,
@@ -42,7 +42,7 @@ module UO {
     item RotationAxis
     {
         DisplayCategory = MechanismPart,
-        Type = Normal,
+        ItemType = base:normal,
         Weight = 0.60,
         Icon = UO/RotationAxis,
         Count = 1,
@@ -52,7 +52,7 @@ module UO {
     item GearMechanism
     {
         DisplayCategory = MechanismPart,
-        Type = Normal,
+        ItemType = base:normal,
         Weight = 0.70,
         Icon = UO/GearMechanism,
         Count = 1,
@@ -62,7 +62,7 @@ module UO {
     item WorkpieceFixator
     {
         DisplayCategory = MechanismPart,
-        Type = Normal,
+        ItemType = base:normal,
         Weight = 0.50,
         Icon = UO/WorkpieceFixator,
         Count = 1,
@@ -72,11 +72,11 @@ module UO {
     item HandMetalMechanism
     {
         DisplayCategory = MechanismPart,
-        Type = Normal,
+        ItemType = base:normal,
         Weight = 12.00,
         Icon = UO/HandMetalMechanism,
         Count = 1,
         WorldStaticModel = HandMetalMechanism,
-        Tags = HandMetalMechanism,
+        Tags = uo:handmetalmechanism,
     }
 }

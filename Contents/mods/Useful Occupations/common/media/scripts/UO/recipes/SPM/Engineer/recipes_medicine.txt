@@ -256,7 +256,7 @@ module UO {
         {
             item 3 [Base.CottonBalls],
             item 1 [*],
-            -fluid 0.1 [Alcohol],
+            -fluid 0.1 [RubbingAlcohol;Vodka;Whiskey;Tequila;Rum;Scotch],
             item 1 tags[MixingKit] mode:keep,
         }
 

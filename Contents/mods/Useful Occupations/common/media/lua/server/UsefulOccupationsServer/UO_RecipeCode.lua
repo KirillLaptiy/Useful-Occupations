@@ -16,7 +16,7 @@
 
 UORECIPES = {}
 
-local SEALED_TAG = "UO_MREKit"
+local SEALED_TAG = "uo_mrekit"
 
 local invalidSetNames = {
 	setRegistry_id = true,
@@ -52,6 +52,7 @@ end
 ---@param craftRecipeData CraftRecipeData
 function UORECIPES.SEAL_MRE(craftRecipeData, _)
 	---@type InventoryContainer
+	---@diagnostic disable-next-line: assign-type-mismatch
 	local MREPack = craftRecipeData:getAllConsumedItems():get(0)
 
 	local MREPackItems = MREPack:getInventory():getItems()
@@ -68,6 +69,7 @@ function UORECIPES.SEAL_MRE(craftRecipeData, _)
 
 	for i = 0, MREPackItems:size() - 1 do
 		---@type InventoryItem
+		---@diagnostic disable-next-line: assign-type-mismatch
 		local item = MREPackItems:get(i)
 
 		local getSet = findGetSetPairs(item)
@@ -103,7 +105,7 @@ end
 ---@param craftRecipeData CraftRecipeData
 ---@param character IsoPlayer
 function UORECIPES.UNPACK_MRE(craftRecipeData, character)
-	local MRE_SEALED = craftRecipeData:getFirstInputItemWithTag(SEALED_TAG)
+	local MRE_SEALED = craftRecipeData:getFirstInputItemWithTag(UsefulOccupations.Functions.getItemTagByStr(SEALED_TAG))
 
 	local modData = MRE_SEALED:getModData()
 
@@ -147,6 +149,7 @@ end
 function UORECIPES.TakeMetalSheetFromMold(craftRecipeData, character)
 	-- Mold without metal sheet
 	---@type InventoryItem
+	---@diagnostic disable-next-line: assign-type-mismatch
 	local createdItem = craftRecipeData:getAllCreatedItems():get(1)
 
 	-- Remove weak mold
@@ -163,6 +166,7 @@ end
 function UORECIPES.MakeInputFullByFlagNotFull(craftRecipeData, _)
 	-- Propane tank
 	---@type InventoryItem
+	---@diagnostic disable-next-line: assign-type-mismatch
 	local inputItem = craftRecipeData:getAllInputItemsWithFlag("NotFull"):get(0)
 
 	-- Remove old propane tank
@@ -180,6 +184,7 @@ function UORECIPES.MakeAllCreatedEmpty(craftRecipeData, _)
 	UsefulOccupations.Functions.processAfterDelay(10, function()
 		for i = 0, createdItems:size() - 1 do
 			---@type InventoryItem
+			---@diagnostic disable-next-line: assign-type-mismatch
 			local createdItem = createdItems:get(i)
 
 			if createdItem:IsDrainable() then

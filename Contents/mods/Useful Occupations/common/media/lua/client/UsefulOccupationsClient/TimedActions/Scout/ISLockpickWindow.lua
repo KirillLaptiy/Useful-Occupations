@@ -19,17 +19,9 @@ require("TimedActions/ISBaseTimedAction")
 ISLockpickWindow = ISBaseTimedAction:derive("ISLockpickWindow")
 
 function ISLockpickWindow:isValid()
-	if not self.lockpick or self.lockpick:getCondition() < 1 then
-		return false
-	end
-
-	if self.window:isSmashed() then
-		return false
-	end
-
-	if self.window:isPermaLocked() then
-		return false
-	end
+	if not self.lockpick or self.lockpick:getCondition() < 1 then return false end
+	if self.window:isSmashed() then return false end
+	if self.needToBeLocked and (self.window:IsOpen() and not self.window:getFirstCharacterClosing()) then return false end
 
 	return true
 end
@@ -42,22 +34,6 @@ end
 function ISLockpickWindow:update() end
 
 function ISLockpickWindow:start()
-	if self.window:IsOpen() then
-		HaloTextHelper.addText(self.character, getText("IGUI_LockpickingWindowMustBeClosed"))
-		self:forceStop()
-	end
-
-	if self.needToBeLocked == self.window:isLocked() then
-		HaloTextHelper.addText(
-			self.character,
-			getText(
-				self.needToBeLocked and "IGUI_LockpickingWindowAlreadyLocked" or "IGUI_LockpickingWindowAlreadyUnlocked"
-			)
-		)
-
-		self:forceStop()
-	end
-
 	self:setActionAnim("Loot")
 end
 
@@ -74,11 +50,8 @@ function ISLockpickWindow:perform()
 end
 
 function ISLockpickWindow:complete()
-	if self.needToBeLocked then
-		self.window:setIsLocked(true)
-	else
-		self.window:setIsLocked(false)
-	end
+	self.window:setPermaLocked(self.needToBeLocked)
+	self.window:setIsLocked(self.needToBeLocked)
 
 	---@diagnostic disable-next-line: param-type-mismatch
 	self.window:syncIsoObject(false, 0, nil, nil)

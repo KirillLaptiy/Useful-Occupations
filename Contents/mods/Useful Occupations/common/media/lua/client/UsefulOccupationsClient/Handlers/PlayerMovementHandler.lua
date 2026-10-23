@@ -523,15 +523,22 @@ utilMethods.calculateTotalMult = function(multiplier)
 	return multiplier * extraMults.invincible
 end
 
-utilMethods.updateClimbWallChance = function()
-	local willClimb = ZombRand(100) < climbWallChance
-	player:setVariable("ClimbFenceOutcome", willClimb and "success" or "fail")
-	player:setClimbOverWallSuccess(willClimb)
+-- CHANGED CLIMB WALL CHANCE
+utilMethods.applyAlwaysClimbWall = function()
+	-- WE NEED A DELAY TO CORRECLY GET A DIRECTION ANGLE
+	UsefulOccupations.Functions.processAfterDelay(50, function ()
+		local strengthLevel = player:getPerkLevel(Perks.Strength)
 
-	if needUpdateStruggleChance then
-		local willStruggle = ZombRand(100) < climbWallStruggleChance
-		player:setVariable("ClimbFenceStruggle", willStruggle)
-	end
+		player:setPerkLevelDebug(Perks.Strength, math.huge)
+
+		climbOverWallState:setParams(player, IsoDirections.fromAngle(player:getDirectionAngleRadians()))
+		player:setVariable("ClimbFenceOutcome", "success")
+		player:setVariable("ClimbFenceStruggle", false)
+		player:setClimbOverWallStruggle(false);
+		player:setClimbOverWallSuccess(true);
+
+		player:setPerkLevelDebug(Perks.Strength, strengthLevel)
+	end)
 end
 
 -- Some values require constant updating to work correctly
@@ -541,14 +548,14 @@ utilMethods.updateRequiredValues = function()
 		player:setForceSprint(false)
 	end
 
-	-- Update climb wall chance and struggle chance
+	-- NOT WORKING: Update climb wall chance and struggle chance
 	if climbWallChance ~= nil then
 		local isPlayerClimbingWall = player:isCurrentState(climbOverWallState)
 
 		if isPlayerClimbingWall == true and newChanceApplied == false then
 			newChanceApplied = true
-			utilMethods.updateClimbWallChance()
-		elseif isPlayerClimbingWall == false then
+			utilMethods.applyAlwaysClimbWall()
+		elseif isPlayerClimbingWall == false and newChanceApplied == true then
 			newChanceApplied = false
 		end
 	end
@@ -614,7 +621,7 @@ function UOPlayerMovementHandler:getInstance()
 	if player == nil or player ~= getPlayer() then
 		player = getPlayer()
 		utilMethods.updateAllMults(false)
-		UsefulOccupations.Functions.processEveryMs(10, utilMethods.updateRequiredValues)
+		UsefulOccupations.Functions.processEveryMs(30, utilMethods.updateRequiredValues)
 	end
 
 	return instance

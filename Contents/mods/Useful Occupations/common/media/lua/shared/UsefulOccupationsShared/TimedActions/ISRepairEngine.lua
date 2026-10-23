@@ -55,6 +55,7 @@ function ISRepairEngine:complete()
 			end
 
 			local items =
+			---@diagnostic disable-next-line: param-type-mismatch
 				self.character:getInventory():RemoveAll(carbonVehicle and carbonPartsType or partsType, tonumber(done))
 
 			sendRemoveItemsFromContainer(self.character:getInventory(), items)
