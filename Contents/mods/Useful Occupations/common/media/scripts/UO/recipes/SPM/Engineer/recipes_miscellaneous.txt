@@ -9,8 +9,8 @@ module UO {
 
         inputs
         {
-            item 1 [UO.MREBag10],
-            item 1 tags[VacuumSealer] mode:keep,
+            item 1 tags[uo:mrebag],
+            item 1 tags[uo:vacuumsealer] mode:keep,
         }
 
         outputs

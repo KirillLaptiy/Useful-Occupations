@@ -35,7 +35,7 @@ UsefulOccupations.DoTraitsOnCreatePlayer.Invincible = function(player)
 	local canDodge = stats:get(CharacterStat.ENDURANCE) > dodgeEnduranceEdge
 	local dodgeCost = dodgeEnduranceCost - (targetPerkEffect * player:getPerkLevel(targetPerk))
 
-	local zombieDisableCost = zombieDisableCost - (targetPerkEffect * player:getPerkLevel(targetPerk))
+	local zombieCrawlerCost = zombieDisableCost - (targetPerkEffect * player:getPerkLevel(targetPerk))
 
 	local doDodge = function()
 		local endurance = stats:get(CharacterStat.ENDURANCE)
@@ -45,14 +45,19 @@ UsefulOccupations.DoTraitsOnCreatePlayer.Invincible = function(player)
 
 	---@param zombie IsoZombie
 	local dodgeAttackingZombie = function(zombie)
+		if zombie:isCrawling() then
+			zombie:setUseless(true)
+
+			UsefulOccupations.Functions.processAfterDelay(1000 + ZombRand(1000), function()
+				zombie:setUseless(false)
+			end)
+
+			return
+		end
+
 		zombie:setNoTeeth(true)
 
 		UsefulOccupations.Functions.processAfterDelay(500, function()
-			if not canDodge then
-				zombie:setNoTeeth(false)
-				return
-			end
-
 			local distance = player:DistTo(zombie)
 
 			if distance <= 1.05 and zombie:isAttacking() then
@@ -60,55 +65,72 @@ UsefulOccupations.DoTraitsOnCreatePlayer.Invincible = function(player)
 				zombie:setKnockedDown(true)
 				doDodge()
 			end
+		end)
 
+		UsefulOccupations.Functions.processAfterDelay(1000, function()
 			zombie:setNoTeeth(false)
 		end)
 	end
 
+	-- NOT WORKING
 	-- Aborts death drag down and pushes near zombies
-	---@param zombie IsoZombie
-	local abortDeathDragDown = function(zombie)
-		player:setDeathDragDown(false)
-		player:setPlayingDeathSound(false)
+	-- ---@param zombie IsoZombie
+	-- local abortDeathDragDown = function(zombie)
+	-- 	player:setDeathDragDown(false)
+	-- 	player:setPlayingDeathSound(false)
 
-		if not zombie:isKnockedDown() then
-			zombie:setKnockedDown(true)
-			zombie:setStaggerBack(true)
-			zombie:setHitReaction("")
-			zombie:setPlayerAttackPosition("FRONT")
-			zombie:setHitForce(5.0)
-			zombie:reportEvent("wasHit")
-		end
-	end
+	-- 	if not zombie:isKnockedDown() then
+	-- 		zombie:setKnockedDown(true)
+	-- 		zombie:setStaggerBack(true)
+	-- 		zombie:setHitReaction("")
+	-- 		zombie:setPlayerAttackPosition("FRONT")
+	-- 		zombie:setHitForce(5.0)
+	-- 		zombie:reportEvent("wasHit")
+	-- 	end
+	-- end
 
 	local checkNearZombies = function()
-		local isDeathDragDown = player:isDeathDragDown()
+		-- local isDeathDragDown = player:isDeathDragDown()
+		-- if not canDodge and not isDeathDragDown then return end
 
-		local enemies = player:getSpottedList()
+		if not canDodge then return end
+
+		local playerSquare = player:getSquare()
+		local px, py, pz = playerSquare:getX(), playerSquare:getY(), playerSquare:getZ()
+		local cell = player:getCell()
 
 		canDodge = stats:get(CharacterStat.ENDURANCE) > dodgeEnduranceEdge
 
-		for i = 0, enemies:size() - 1 do
-			---@type IsoZombie
-			---@diagnostic disable-next-line: assign-type-mismatch
-			local enemy = enemies:get(i)
+		for dx = -1, 1 do
+			for dy = -1, 1 do
+				local square = cell:getGridSquare(px + dx, py + dy, pz)
 
-			local distance = player:DistTo(enemy)
+				if square then
+					local movingObjects = square:getMovingObjects()
 
-			if enemy:isZombie() and distance <= 4 then
-				-- Dodge zombie attack
-				if
-					canDodge == true
-					and enemy:getTarget() == player
-					and enemy:isNoTeeth() == false
-					and enemy:isAttacking() == true
-				then
-					dodgeAttackingZombie(enemy)
-				end
+					for i = 0, movingObjects:size() - 1 do
+						---@type IsoZombie
+						---@diagnostic disable-next-line: assign-type-mismatch
+						local enemy = movingObjects:get(i)
 
-				-- Activate perk if character at death's door
-				if isDeathDragDown then
-					abortDeathDragDown(enemy)
+						if enemy:isZombie() then
+							-- Dodge zombie attack
+							if
+								canDodge == true
+								and enemy:getTarget() == player
+								and enemy:isNoTeeth() == false
+								and enemy:isAttacking() == true
+							then
+								dodgeAttackingZombie(enemy)
+							end
+
+							-- NOT WORKING
+							-- Activate perk if character at death's door
+							-- if isDeathDragDown then
+							-- 	abortDeathDragDown(enemy)
+							-- end
+						end
+					end
 				end
 			end
 		end
@@ -187,10 +209,11 @@ UsefulOccupations.DoTraitsOnCreatePlayer.Invincible = function(player)
 	UsefulOccupations.Functions.addEvent(Events.LevelPerk, function(_, perk, perkLvl, _)
 		if perk == targetPerk then
 			dodgeCost = dodgeEnduranceCost - (targetPerkEffect * perkLvl)
+			zombieCrawlerCost = zombieDisableCost - (targetPerkEffect * perkLvl)
 		end
 	end)
 
-	UsefulOccupations.Functions.processEveryMs(30, function()
+	UsefulOccupations.Functions.processEveryMs(20, function()
 		processReadyState()
 		checkNearZombies()
 		processActiveState()
@@ -221,7 +244,7 @@ UsefulOccupations.DoTraitsOnCreatePlayer.Invincible = function(player)
 			collidedCharacter:setStaggerBack(true)
 			collidedCharacter:setBecomeCrawler(true)
 
-			stats:set(CharacterStat.ENDURANCE, endurance - zombieDisableCost)
+			stats:set(CharacterStat.ENDURANCE, endurance - zombieCrawlerCost)
 			player:playerVoiceSound("JumpLow")
 		end
 	end)

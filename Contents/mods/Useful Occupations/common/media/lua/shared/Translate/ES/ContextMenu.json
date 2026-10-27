@@ -1,0 +1,12 @@
+{
+    "ContextMenu_Lockpicking": "Forzar cerraduras",
+    "ContextMenu_PickLock": "Forzar cerradura",
+    "ContextMenu_Relock": "Volver a cerrar",
+    "ContextMenu_Need_Lockpick": "Se necesita una ganzúa",
+    "ContextMenu_Need_Close_Window": "Se necesita cerrar la ventana",
+    "ContextMenu_AlarmControl": "Control de alarma",
+    "ContextMenu_DisableAlarm": "Desactivar alarma",
+    "ContextMenu_EnableAlarm": "Activar alarma",
+    "ContextMenu_Need_AlarmController": "Se necesita un controlador de alarma",
+    "ContextMenu_CheckAlarm": "Comprobar alarma"
+}

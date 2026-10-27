@@ -4,7 +4,7 @@ module UO {
         DisplayCategory = Material,
         ItemType = base:normal,
         Weight = 0.20,
-        Icon = UO/MetalPiece,
+        Icon = MetalPiece,
         Count = 1,
         WorldStaticModel = MetalPiece,
     }
@@ -14,7 +14,7 @@ module UO {
         DisplayCategory = Material,
         ItemType = base:normal,
         Weight = 0.10,
-        Icon = UO/AmmoMaterial,
+        Icon = AmmoMaterial,
         Count = 1,
         WorldStaticModel = AmmoMaterial,
     }
@@ -24,7 +24,7 @@ module UO {
         DisplayCategory = Material,
         ItemType = base:normal,
         Weight = 0.15,
-        Icon = UO/Plastic,
+        Icon = Plastic,
         Count = 1,
         WorldStaticModel = Plastic,
     }
@@ -34,7 +34,7 @@ module UO {
         DisplayCategory = Material,
         ItemType = base:normal,
         Weight = 1.20,
-        Icon = UO/GunPartsCarbon,
+        Icon = GunPartsCarbon,
         Count = 1,
         WorldStaticModel = GunPartsCarbon,
     }
@@ -44,7 +44,7 @@ module UO {
         DisplayCategory = Material,
         ItemType = base:normal,
         Weight = 0.70,
-        Icon = UO/GunParts,
+        Icon = GunParts,
         Count = 1,
         WorldStaticModel = GunParts,
     }
@@ -54,9 +54,9 @@ module UO {
         DisplayCategory = Material,
         ItemType = base:normal,
         Weight = 0.30,
-        Icon = UO/Charcoal,
+        Icon = UO_Charcoal,
         Count = 1,
-        WorldStaticModel = Charcoal,
+        WorldStaticModel = UO_Charcoal,
         Tags = base:charcoal;base:isfirefuel,
     }
 
@@ -65,7 +65,7 @@ module UO {
         DisplayCategory = Material,
         ItemType = base:normal,
         Weight = 1.50,
-        Icon = UO/OxidizerRawPot,
+        Icon = OxidizerRawPot,
         Count = 1,
         WorldStaticModel = OxidizerRawPot,
         Tooltip = Tooltip_item_dry_in_24,
@@ -76,7 +76,7 @@ module UO {
         DisplayCategory = Material,
         ItemType = base:normal,
         Weight = 1.20,
-        Icon = UO/OxidizerPot,
+        Icon = OxidizerPot,
         Count = 1,
         WorldStaticModel = OxidizerPot,
     }
@@ -86,7 +86,7 @@ module UO {
         DisplayCategory = Material,
         ItemType = base:normal,
         Weight = 0.50,
-        Icon = UO/Oxidizer,
+        Icon = Oxidizer,
         Count = 1,
         WorldStaticModel = Oxidizer,
     }
@@ -96,7 +96,7 @@ module UO {
         DisplayCategory = Material,
         ItemType = base:normal,
         Weight = 0.005,
-        Icon = UO/PrimerCap,
+        Icon = PrimerCap,
         Count = 1,
         WorldStaticModel = PrimerCap,
     }
@@ -106,7 +106,7 @@ module UO {
         DisplayCategory = Material,
         ItemType = base:normal,
         Weight = 0.05,
-        Icon = UO/HomemadePowder,
+        Icon = HomemadePowder,
         Count = 1,
         WorldStaticModel = HomemadePowder,
     }
@@ -116,7 +116,7 @@ module UO {
         DisplayCategory = Material,
         ItemType = base:normal,
         Weight = 0.10,
-        Icon = UO/Bark,
+        Icon = Bark,
         Count = 1,
         WorldStaticModel = Bark,
     }
@@ -126,7 +126,7 @@ module UO {
         DisplayCategory = Material,
         ItemType = base:normal,
         Weight = 0.20,
-        Icon = UO/Resin,
+        Icon = Resin,
         Count = 1,
         WorldStaticModel = Resin,
     }
@@ -136,7 +136,7 @@ module UO {
         DisplayCategory = Material,
         ItemType = base:normal,
         Weight = 1.00,
-        Icon = UO/Moonshine,
+        Icon = Moonshine,
         Count = 1,
         WorldStaticModel = Moonshine,
     }
@@ -146,9 +146,9 @@ module UO {
         DisplayCategory = Material,
         ItemType = base:normal,
         Weight = 0.70,
-        Icon = UO/Alcohol,
+        Icon = UO_Alcohol,
         Count = 1,
-        WorldStaticModel = Alcohol,
+        WorldStaticModel = UO_Alcohol,
     }
 
     item PureAlcohol
@@ -156,9 +156,9 @@ module UO {
         DisplayCategory = Material,
         ItemType = base:normal,
         Weight = 0.50,
-        Icon = UO/PureAlcohol,
+        Icon = UO_PureAlcohol,
         Count = 1,
-        WorldStaticModel = PureAlcohol,
+        WorldStaticModel = UO_PureAlcohol,
     }
 
     item SawBlade
@@ -166,7 +166,7 @@ module UO {
         DisplayCategory = Material,
         ItemType = base:normal,
         Weight = 0.30,
-        Icon = UO/SawBlade,
+        Icon = SawBlade,
         Count = 1,
         WorldStaticModel = SawBlade,
     }
@@ -176,7 +176,7 @@ module UO {
         DisplayCategory = Material,
         ItemType = base:normal,
         Weight = 0.02,
-        Icon = UO/MetalPin,
+        Icon = MetalPin,
         Count = 1,
         WorldStaticModel = MetalPin,
     }
@@ -186,7 +186,7 @@ module UO {
         DisplayCategory = Material,
         ItemType = base:normal,
         Weight = 0.05,
-        Icon = UO/ScrewdriverTip,
+        Icon = ScrewdriverTip,
         Count = 1,
         WorldStaticModel = ScrewdriverTip,
     }
@@ -196,7 +196,7 @@ module UO {
         DisplayCategory = Material,
         ItemType = base:normal,
         Weight = 0.10,
-        Icon = UO/CarbonFiber,
+        Icon = CarbonFiber,
         Count = 1,
         WorldStaticModel = CarbonFiber,
     }
@@ -206,7 +206,7 @@ module UO {
         DisplayCategory = Material,
         ItemType = base:normal,
         Weight = 0.25,
-        Icon = UO/CarbonMesh,
+        Icon = CarbonMesh,
         Count = 1,
         WorldStaticModel = CarbonMesh,
     }
@@ -216,7 +216,7 @@ module UO {
         DisplayCategory = Material,
         ItemType = base:normal,
         Weight = 1.20,
-        Icon = UO/CarbonMetal,
+        Icon = CarbonMetal,
         Count = 1,
         WorldStaticModel = CarbonMetal,
     }
@@ -226,7 +226,7 @@ module UO {
         DisplayCategory = Material,
         ItemType = base:normal,
         Weight = 4.00,
-        Icon = UO/CarbonDoorPlate,
+        Icon = CarbonDoorPlate,
         Count = 1,
         WorldStaticModel = CarbonDoorPlate,
     }
@@ -236,7 +236,7 @@ module UO {
         DisplayCategory = Material,
         ItemType = base:normal,
         Weight = 3.00,
-        Icon = UO/CarbonGrate,
+        Icon = CarbonGrate,
         Count = 1,
         WorldStaticModel = CarbonGrate,
     }
@@ -246,7 +246,7 @@ module UO {
         DisplayCategory = Material,
         ItemType = base:normal,
         Weight = 0.50,
-        Icon = UO/StoneDust,
+        Icon = StoneDust,
         Count = 1,
         WorldStaticModel = StoneDust,
     }
@@ -256,7 +256,7 @@ module UO {
         DisplayCategory = Material,
         ItemType = base:food,
         Weight = 2.2,
-        Icon = UO/FiberMaterialPot,
+        Icon = FiberMaterialPot,
         Count = 1,
         MinutesToCook = 25,
         ReplaceOnCooked = UO.CarbonFiberPot,
@@ -272,7 +272,7 @@ module UO {
         DisplayCategory = Material,
         ItemType = base:food,
         Weight = 2.2,
-        Icon = UO/FiberMaterialPot,
+        Icon = FiberMaterialPot,
         Count = 1,
         IsCookable = false,
         CantEat = true,
@@ -285,7 +285,7 @@ module UO {
         DisplayCategory = Material,
         ItemType = base:normal,
         Weight = 2.1,
-        Icon = UO/CarbonFiberPot,
+        Icon = CarbonFiberPot,
         Count = 1,
         WorldStaticModel = CarbonFiberPot,
     }
@@ -295,7 +295,7 @@ module UO {
         DisplayCategory = Material,
         ItemType = base:food,
         Weight = 2.2,
-        Icon = UO/BarkPot,
+        Icon = BarkPot,
         Count = 1,
         MinutesToCook = 15,
         ReplaceOnCooked = UO.ResinPot,
@@ -311,7 +311,7 @@ module UO {
         DisplayCategory = Material,
         ItemType = base:food,
         Weight = 2.2,
-        Icon = UO/BarkPot,
+        Icon = BarkPot,
         Count = 1,
         IsCookable = false,
         CantEat = true,
@@ -324,7 +324,7 @@ module UO {
         DisplayCategory = Material,
         ItemType = base:normal,
         Weight = 2.3,
-        Icon = UO/ResinPot,
+        Icon = ResinPot,
         Count = 1,
         WorldStaticModel = ResinPot,
     }
@@ -334,7 +334,7 @@ module UO {
         DisplayCategory = Material,
         ItemType = base:food,
         Weight = 2.3,
-        Icon = UO/LogPot,
+        Icon = LogPot,
         Count = 1,
         MinutesToCook = 45,
         ReplaceOnCooked = UO.CharcoalPot,
@@ -350,7 +350,7 @@ module UO {
         DisplayCategory = Material,
         ItemType = base:food,
         Weight = 2.3,
-        Icon = UO/LogPot,
+        Icon = LogPot,
         Count = 1,
         IsCookable = false,
         CantEat = true,
@@ -363,7 +363,7 @@ module UO {
         DisplayCategory = Material,
         ItemType = base:normal,
         Weight = 2.0,
-        Icon = UO/CharcoalPot,
+        Icon = CharcoalPot,
         Count = 1,
         WorldStaticModel = CharcoalPot,
     }

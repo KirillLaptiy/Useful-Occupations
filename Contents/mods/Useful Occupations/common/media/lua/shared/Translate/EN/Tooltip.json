@@ -1,0 +1,23 @@
+{
+    "Tooltip_item_requires_roasting": "Requires roasting in a campfire",
+    "Tooltip_item_flint_lighter": "Only suitable for lighting campfires",
+    "Tooltip_item_weak_lockpick": "Scout only\nAllows picking any doors, windows. 1 use",
+    "Tooltip_item_lockpick": "Scout only\nAllows picking any doors, windows. 10 uses",
+    "Tooltip_item_strong_lockpick": "Scout only\nAllows picking any doors, windows. Unbreakable",
+    "Tooltip_item_alarm_controller": "Can check, disable and enable alarms on doors and windows\nDoes not use battery to check alarm",
+    "Tooltip_item_mre": "Vacuum-seal the item\nIn the sealed package, items do not spoil\nCan be opened with a knife or scissors",
+    "Tooltip_item_mrekit": "Can be opened with a knife or scissors",
+    "Tooltip_item_resin_mold": "1 use",
+    "Tooltip_item_clay_mold": "1 use",
+    "Tooltip_item_cement_mold": "Unbreakable",
+    "Tooltip_item_dry_in_24": "Will dry in 24 hours",
+    "Tooltip_item_dry_in_72": "Will dry in 72 hours",
+    "Tooltip_item_dry_in_120": "Will dry in 120 hours",
+    "Tooltip_item_cloth_armor_plate": "Can be attached to any clothing, to body parts\n1 use",
+    "Tooltip_item_metal_armor_plate": "Can be attached to any clothing, to body parts\n3 uses",
+    "Tooltip_item_carbon_armor_plate": "Can be attached to any clothing, to body parts\n10 uses",
+    "Tooltip_item_only_for_engineer": "Engineer only",
+    "Tooltip_item_stimulant_drops": "Removes all negative vision and hearing traits (except deaf)\nLasts 12 hours.\n5 uses",
+    "Tooltip_item_stimulant_drops_plus": "Removes all negative vision and hearing traits (except deaf)\nAdds traits 'Keen Hearing', 'Cat's Eyes', 'Eagle Eyed'\nLasts 24 hours\n5 uses",
+    "Tooltip_item_stimulant_gel": "x1.5 More XP for all 'Physical' skills\nLasts 6 hours"
+}

@@ -63,11 +63,11 @@ UO_ON_EAT.StimulantGel = function(_, _, _)
 
 	-- prevent double gel effect
 	if modData.gelEffectTime > 0 then
-		modData.gelEffectTime = modData.gelEffectTime + 120
+		modData.gelEffectTime = modData.gelEffectTime + 360
 		return
 	end
 
-	modData.gelEffectTime = modData.gelEffectTime + 120
+	modData.gelEffectTime = modData.gelEffectTime + 360
 
 	stimulantGelEffect()
 end

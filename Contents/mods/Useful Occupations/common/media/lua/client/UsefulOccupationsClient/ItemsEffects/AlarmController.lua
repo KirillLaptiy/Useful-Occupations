@@ -90,7 +90,7 @@ local addProcessAlarmOptions = function(context, worldobjects, playerObj, obj, a
 	target:addSubMenu(buildingAlarmOpt, buildingAlarmMenu)
 
 	local check = buildingAlarmMenu:addOption(
-		getText("Check Alarm"),
+		getText("ContextMenu_CheckAlarm"),
 		worldobjects,
 		processBuildingAlarm,
 		playerObj,

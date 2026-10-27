@@ -4,7 +4,7 @@ module UO {
         DisplayCategory = SkillBook,
         ItemType = base:literature,
         Weight = 0.5,
-        Icon = UO/Magazine_StrongLockpicks,
+        Icon = Magazine_StrongLockpicks,
         BoredomChange = -20,
         StressChange = -15,
         Teachedrecipes = UO_MakeWeakLockpick;UO_MakeLockpickEngineer;UO_MakeStrongLockpick,

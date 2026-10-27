@@ -135,8 +135,8 @@ local PersonalTraits = {
 	---@class PersonalTraits.Axeman
 	Axeman = {
 		type = "Axeman",
-		name = getText("UI_trait_axeman"),
-		desc = getText("UI_trait_axemandesc"),
+		name = getText("UI_trait_Axeman"),
+		desc = getText("UI_trait_AxemanDesc"),
 		---@class PersonalTraits.Axeman.xpBoosts
 		xpBoosts = {},
 		---@class PersonalTraits.Axeman.freeRecipes
@@ -155,8 +155,8 @@ local PersonalTraits = {
 	---@class PersonalTraits.Organized
 	Organized = {
 		type = "Organized",
-		name = getText("UI_trait_Packmule"),
-		desc = getText("UI_trait_PackmuleDesc"),
+		name = getText("UI_trait_Organized"),
+		desc = getText("UI_trait_OrganizedDesc"),
 		---@class PersonalTraits.Organized.xpBoosts
 		xpBoosts = {},
 		---@class PersonalTraits.Organized.freeRecipes
@@ -188,8 +188,8 @@ local PersonalTraits = {
 	---@class PersonalTraits.Outdoorsman
 	Outdoorsman = {
 		type = "Outdoorsman",
-		name = getText("UI_trait_outdoorsman"),
-		desc = getText("UI_trait_outdoorsmandesc"),
+		name = getText("UI_trait_Outdoorsman"),
+		desc = getText("UI_trait_OutdoorsmanDesc"),
 		---@class PersonalTraits.Outdoorsman.xpBoosts
 		xpBoosts = {},
 		---@class PersonalTraits.Outdoorsman.freeRecipes
@@ -214,7 +214,7 @@ local PersonalTraits = {
 	---@class PersonalTraits.Burglar
 	Burglar = {
 		type = "Burglar",
-		name = getText("UI_prof_Burglar"),
+		name = getText("UI_trait_Burglar"),
 		desc = getText("UI_trait_BurglarDesc"),
 		---@class PersonalTraits.Burglar.xpBoosts
 		xpBoosts = {
@@ -236,8 +236,8 @@ local PersonalTraits = {
 	---@class PersonalTraits.Graceful
 	Graceful = {
 		type = "Graceful",
-		name = getText("UI_trait_graceful"),
-		desc = getText("UI_trait_gracefuldesc"),
+		name = getText("UI_trait_Graceful"),
+		desc = getText("UI_trait_GracefulDesc"),
 		---@class PersonalTraits.Graceful.xpBoosts
 		xpBoosts = {
 			{ perk = Perks.Sprinting, level = 3 },
@@ -391,8 +391,8 @@ local PersonalTraits = {
 	---@class PersonalTraits.Marksman
 	Marksman = {
 		type = "Marksman",
-		name = getText("UI_trait_marksman"),
-		desc = getText("UI_trait_marksmandesc"),
+		name = getText("UI_trait_Marksman"),
+		desc = getText("UI_trait_MarksmanDesc"),
 		---@class PersonalTraits.Marksman.xpBoosts
 		xpBoosts = {
 			{ perk = Perks.Aiming, level = 3 },

@@ -53,7 +53,7 @@ function ISChangeArmorPlate:complete()
 end
 
 function ISChangeArmorPlate:getDuration()
-	return 500
+	return self.character:isTimedActionInstant() and 1 or 500
 end
 
 ---@param character IsoPlayer

@@ -4,7 +4,7 @@ module UO {
         DisplayCategory = MechanismPart,
         ItemType = base:normal,
         Weight = 0.80,
-        Icon = UO/MechanismBase,
+        Icon = MechanismBase,
         Count = 1,
         WorldStaticModel = MechanismBase,
     }
@@ -14,7 +14,7 @@ module UO {
         DisplayCategory = MechanismPart,
         ItemType = base:normal,
         Weight = 0.30,
-        Icon = UO/MechanismHandle,
+        Icon = MechanismHandle,
         Count = 1,
         WorldStaticModel = MechanismHandle,
     }
@@ -24,7 +24,7 @@ module UO {
         DisplayCategory = MechanismPart,
         ItemType = base:normal,
         Weight = 0.40,
-        Icon = UO/MechanismClamp,
+        Icon = MechanismClamp,
         Count = 1,
         WorldStaticModel = MechanismClamp,
     }
@@ -34,7 +34,7 @@ module UO {
         DisplayCategory = MechanismPart,
         ItemType = base:normal,
         Weight = 0.35,
-        Icon = UO/HacksawBlade,
+        Icon = HacksawBlade,
         Count = 1,
         WorldStaticModel = HacksawBlade,
     }
@@ -44,7 +44,7 @@ module UO {
         DisplayCategory = MechanismPart,
         ItemType = base:normal,
         Weight = 0.60,
-        Icon = UO/RotationAxis,
+        Icon = RotationAxis,
         Count = 1,
         WorldStaticModel = RotationAxis,
     }
@@ -54,7 +54,7 @@ module UO {
         DisplayCategory = MechanismPart,
         ItemType = base:normal,
         Weight = 0.70,
-        Icon = UO/GearMechanism,
+        Icon = GearMechanism,
         Count = 1,
         WorldStaticModel = GearMechanism,
     }
@@ -64,7 +64,7 @@ module UO {
         DisplayCategory = MechanismPart,
         ItemType = base:normal,
         Weight = 0.50,
-        Icon = UO/WorkpieceFixator,
+        Icon = WorkpieceFixator,
         Count = 1,
         WorldStaticModel = WorkpieceFixator,
     }
@@ -74,7 +74,7 @@ module UO {
         DisplayCategory = MechanismPart,
         ItemType = base:normal,
         Weight = 12.00,
-        Icon = UO/HandMetalMechanism,
+        Icon = HandMetalMechanism,
         Count = 1,
         WorldStaticModel = HandMetalMechanism,
         Tags = uo:handmetalmechanism,

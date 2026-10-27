@@ -4,7 +4,7 @@ module UO {
         timedAction = Making_Surface,
         time = 300,
         Tags = InHandCraft,
-        category = Blades,
+        category = Metalworking,
         xpAward = MetalWelding:10,
 
         inputs
@@ -13,7 +13,7 @@ module UO {
             item 1 [Base.Screws;UO.MetalPin],
             item 1 tags[Whetstone] mode:keep,
             item 1 tags[Hammer] mode:keep,
-            item 1 tags[HandMetalMechanism] mode:keep,
+            item 1 tags[uo:handmetalmechanism] mode:keep,
         }
 
         outputs
@@ -27,7 +27,7 @@ module UO {
         timedAction = Making_Surface,
         time = 300,
         Tags = InHandCraft,
-        category = Blades,
+        category = Metalworking,
         xpAward = MetalWelding:10,
 
         inputs
@@ -36,7 +36,7 @@ module UO {
             item 2 [Base.Screws;UO.MetalPin],
             item 1 tags[Whetstone] mode:keep,
             item 1 tags[Hammer] mode:keep,
-            item 1 tags[HandMetalMechanism] mode:keep,
+            item 1 tags[uo:handmetalmechanism] mode:keep,
         }
 
         outputs
@@ -50,7 +50,7 @@ module UO {
         timedAction = Making_Surface,
         time = 300,
         Tags = InHandCraft,
-        category = Blades,
+        category = Metalworking,
         xpAward = MetalWelding:10,
 
         inputs
@@ -58,7 +58,7 @@ module UO {
             item 1 [Base.SheetMetal],
             item 2 [Base.Screws;UO.MetalPin],
             item 1 tags[Hammer] mode:keep,
-            item 1 tags[HandMetalMechanism] mode:keep,
+            item 1 tags[uo:handmetalmechanism] mode:keep,
         }
 
         outputs
@@ -72,7 +72,7 @@ module UO {
         timedAction = Making_Surface,
         time = 300,
         Tags = InHandCraft,
-        category = Blades,
+        category = Metalworking,
         xpAward = MetalWelding:10,
 
         inputs
@@ -80,7 +80,7 @@ module UO {
             item 1 [Base.SmallSheetMetal],
             item 2 [Base.Screws;UO.MetalPin],
             item 1 tags[Hammer] mode:keep,
-            item 1 tags[HandMetalMechanism] mode:keep,
+            item 1 tags[uo:handmetalmechanism] mode:keep,
         }
 
         outputs
@@ -94,14 +94,14 @@ module UO {
         timedAction = Making_Surface,
         time = 300,
         Tags = InHandCraft,
-        category = Blades,
+        category = Metalworking,
         xpAward = MetalWelding:10,
 
         inputs
         {
             item 1 [UO.LargeTip],
             item 1 tags[Hammer] mode:keep,
-            item 1 tags[HandMetalMechanism] mode:keep,
+            item 1 tags[uo:handmetalmechanism] mode:keep,
         }
 
         outputs

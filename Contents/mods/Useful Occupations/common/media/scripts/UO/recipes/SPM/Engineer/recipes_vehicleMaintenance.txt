@@ -14,9 +14,9 @@ module UO {
             item 1 [Base.BlowTorch] mode:keep,
             item 1 tags[Wrench] mode:keep,
             item 1 tags[PipeWrench] mode:keep,
-            item 1 tags[Caliper] mode:keep,
+            item 1 tags[uo:caliper] mode:keep,
             item 1 tags[Screwdriver] mode:keep,
-            item 1 tags[HandMetalMechanism] mode:keep,
+            item 1 tags[uo:handmetalmechanism] mode:keep,
         }
 
         outputs
@@ -25,6 +25,7 @@ module UO {
         }
     }
 
+    -------
     craftRecipe UO_MakeEngineSpecialParts
     {
         timedAction = Welding_Surface,
@@ -39,7 +40,7 @@ module UO {
             item 4 [Base.Screws],
             item 1 tags[Wrench] mode:keep,
             item 1 tags[PipeWrench] mode:keep,
-            item 1 tags[Caliper] mode:keep,
+            item 1 tags[uo:caliper] mode:keep,
             item 1 tags[Screwdriver] mode:keep,
             item 1 tags[MetalworkingPliers] mode:keep,
         }
@@ -66,8 +67,8 @@ module UO {
             item 3 [UO.Plastic],
             item 1 tags[Wrench] mode:keep,
             item 1 tags[Screwdriver] mode:keep,
-            item 1 tags[SolderingIron] mode:keep,
-            item 1 tags[HandMetalMechanism] mode:keep,
+            item 1 tags[uo:solderingiron] mode:keep,
+            item 1 tags[uo:handmetalmechanism] mode:keep,
         }
 
         outputs
@@ -92,8 +93,8 @@ module UO {
             item 6 [UO.Plastic],
             item 1 tags[Wrench] mode:keep,
             item 1 tags[Screwdriver] mode:keep,
-            item 1 tags[SolderingIron] mode:keep,
-            item 1 tags[HandMetalMechanism] mode:keep,
+            item 1 tags[uo:solderingiron] mode:keep,
+            item 1 tags[uo:handmetalmechanism] mode:keep,
         }
 
         outputs
@@ -118,8 +119,8 @@ module UO {
             item 4 [UO.Plastic],
             item 1 tags[Wrench] mode:keep,
             item 1 tags[Screwdriver] mode:keep,
-            item 1 tags[SolderingIron] mode:keep,
-            item 1 tags[HandMetalMechanism] mode:keep,
+            item 1 tags[uo:solderingiron] mode:keep,
+            item 1 tags[uo:handmetalmechanism] mode:keep,
         }
 
         outputs
@@ -128,6 +129,7 @@ module UO {
         }
     }
 
+    -----
     craftRecipe UO_MakeSpecialBattery
     {
         timedAction = MakingElectrical,
@@ -144,8 +146,8 @@ module UO {
             item 8 [UO.Plastic],
             item 1 tags[Wrench] mode:keep,
             item 1 tags[Screwdriver] mode:keep,
-            item 1 tags[SolderingIron] mode:keep,
-            item 1 tags[HandMetalMechanism] mode:keep,
+            item 1 tags[uo:solderingiron] mode:keep,
+            item 1 tags[uo:handmetalmechanism] mode:keep,
         }
 
         outputs
@@ -170,7 +172,7 @@ module UO {
             item 1 tags[SheetMetalSnips] mode:keep,
             item 1 tags[Wrench] mode:keep,
             item 1 tags[Hammer] mode:keep,
-            item 1 tags[HandMetalMechanism] mode:keep,
+            item 1 tags[uo:handmetalmechanism] mode:keep,
         }
 
         outputs
@@ -195,7 +197,7 @@ module UO {
             item 1 tags[SheetMetalSnips] mode:keep,
             item 1 tags[Wrench] mode:keep,
             item 1 tags[Hammer] mode:keep,
-            item 1 tags[HandMetalMechanism] mode:keep,
+            item 1 tags[uo:handmetalmechanism] mode:keep,
         }
 
         outputs
@@ -220,7 +222,7 @@ module UO {
             item 1 tags[SheetMetalSnips] mode:keep,
             item 1 tags[Wrench] mode:keep,
             item 1 tags[Hammer] mode:keep,
-            item 1 tags[HandMetalMechanism] mode:keep,
+            item 1 tags[uo:handmetalmechanism] mode:keep,
         }
 
         outputs
@@ -229,6 +231,7 @@ module UO {
         }
     }
 
+    -----
     craftRecipe UO_MakeSpecialSilencer
     {
         timedAction = Welding_Surface,
@@ -326,6 +329,7 @@ module UO {
         }
     }
 
+    -----
     craftRecipe UO_MakeSpecialSuspension
     {
         timedAction = Welding_Surface,
@@ -363,9 +367,9 @@ module UO {
             item 6 [Base.Screws],
             item 1 tags[PipeWrench] mode:keep,
             item 1 tags[Wrench] mode:keep,
-            item 1 tags[Caliper] mode:keep,
+            item 1 tags[uo:caliper] mode:keep,
             item 1 tags[Hammer] mode:keep,
-            item 1 tags[HandMetalMechanism] mode:keep,
+            item 1 tags[uo:handmetalmechanism] mode:keep,
         }
 
         outputs
@@ -388,9 +392,9 @@ module UO {
             item 12 [Base.Screws],
             item 1 tags[PipeWrench] mode:keep,
             item 1 tags[Wrench] mode:keep,
-            item 1 tags[Caliper] mode:keep,
+            item 1 tags[uo:caliper] mode:keep,
             item 1 tags[Hammer] mode:keep,
-            item 1 tags[HandMetalMechanism] mode:keep,
+            item 1 tags[uo:handmetalmechanism] mode:keep,
         }
 
         outputs
@@ -413,9 +417,9 @@ module UO {
             item 8 [Base.Screws],
             item 1 tags[PipeWrench] mode:keep,
             item 1 tags[Wrench] mode:keep,
-            item 1 tags[Caliper] mode:keep,
+            item 1 tags[uo:caliper] mode:keep,
             item 1 tags[Hammer] mode:keep,
-            item 1 tags[HandMetalMechanism] mode:keep,
+            item 1 tags[uo:handmetalmechanism] mode:keep,
         }
 
         outputs
@@ -424,6 +428,7 @@ module UO {
         }
     }
 
+    -----
     craftRecipe UO_MakeSpecialBrake
     {
         timedAction = Welding_Surface,
@@ -438,7 +443,7 @@ module UO {
             item 6 [Base.Screws],
             item 1 tags[PipeWrench] mode:keep,
             item 1 tags[Wrench] mode:keep,
-            item 1 tags[Caliper] mode:keep,
+            item 1 tags[uo:caliper] mode:keep,
             item 1 tags[Hammer] mode:keep,
             item 1 tags[MetalworkingPliers] mode:keep,
         }
@@ -464,8 +469,8 @@ module UO {
             item 1 tags[PipeWrench] mode:keep,
             item 1 tags[Wrench] mode:keep,
             item 1 tags[Screwdriver] mode:keep,
-            item 1 tags[Caliper] mode:keep,
-            item 1 tags[HandMetalMechanism] mode:keep,
+            item 1 tags[uo:caliper] mode:keep,
+            item 1 tags[uo:handmetalmechanism] mode:keep,
         }
 
         outputs
@@ -489,8 +494,8 @@ module UO {
             item 1 tags[PipeWrench] mode:keep,
             item 1 tags[Wrench] mode:keep,
             item 1 tags[Screwdriver] mode:keep,
-            item 1 tags[Caliper] mode:keep,
-            item 1 tags[HandMetalMechanism] mode:keep,
+            item 1 tags[uo:caliper] mode:keep,
+            item 1 tags[uo:handmetalmechanism] mode:keep,
         }
 
         outputs
@@ -514,8 +519,8 @@ module UO {
             item 1 tags[PipeWrench] mode:keep,
             item 1 tags[Wrench] mode:keep,
             item 1 tags[Screwdriver] mode:keep,
-            item 1 tags[Caliper] mode:keep,
-            item 1 tags[HandMetalMechanism] mode:keep,
+            item 1 tags[uo:caliper] mode:keep,
+            item 1 tags[uo:handmetalmechanism] mode:keep,
         }
 
         outputs
@@ -524,6 +529,7 @@ module UO {
         }
     }
 
+    -----
     craftRecipe UO_MakeSpecialHood
     {
         timedAction = Welding_Surface,
@@ -539,7 +545,7 @@ module UO {
             item 1 tags[PipeWrench] mode:keep,
             item 1 tags[Wrench] mode:keep,
             item 1 tags[Screwdriver] mode:keep,
-            item 1 tags[Caliper] mode:keep,
+            item 1 tags[uo:caliper] mode:keep,
             item 1 tags[MetalworkingPliers] mode:keep,
         }
 
@@ -565,7 +571,7 @@ module UO {
             item 1 tags[SheetMetalSnips] mode:keep,
             item 1 tags[PipeWrench] mode:keep,
             item 1 [Base.BlowTorch] mode:keep,
-            item 1 tags[HandMetalMechanism] mode:keep,
+            item 1 tags[uo:handmetalmechanism] mode:keep,
         }
 
         outputs
@@ -590,7 +596,7 @@ module UO {
             item 1 tags[SheetMetalSnips] mode:keep,
             item 1 tags[PipeWrench] mode:keep,
             item 1 [Base.BlowTorch] mode:keep,
-            item 1 tags[HandMetalMechanism] mode:keep,
+            item 1 tags[uo:handmetalmechanism] mode:keep,
         }
 
         outputs
@@ -615,7 +621,7 @@ module UO {
             item 1 tags[SheetMetalSnips] mode:keep,
             item 1 tags[PipeWrench] mode:keep,
             item 1 [Base.BlowTorch] mode:keep,
-            item 1 tags[HandMetalMechanism] mode:keep,
+            item 1 tags[uo:handmetalmechanism] mode:keep,
         }
 
         outputs
@@ -624,6 +630,7 @@ module UO {
         }
     }
 
+    -----
     craftRecipe UO_MakeSpecialTire
     {
         timedAction = Welding_Surface,
@@ -669,7 +676,7 @@ module UO {
             item 1 tags[Scissors] mode:keep,
             item 1 tags[Hammer] mode:keep,
             item 1 [Base.Needle;Base.Needle_Bone;Base.Needle_Brass;Base.Needle_Forged;Base.SutureNeedle;Base.Needle_Forged] mode:keep,
-            item 1 tags[HandMetalMechanism] mode:keep,
+            item 1 tags[uo:handmetalmechanism] mode:keep,
         }
 
         outputs
@@ -698,7 +705,7 @@ module UO {
             item 1 tags[Scissors] mode:keep,
             item 1 tags[Hammer] mode:keep,
             item 1 [Base.Needle;Base.Needle_Bone;Base.Needle_Brass;Base.Needle_Forged;Base.SutureNeedle;Base.Needle_Forged] mode:keep,
-            item 1 tags[HandMetalMechanism] mode:keep,
+            item 1 tags[uo:handmetalmechanism] mode:keep,
         }
 
         outputs
@@ -727,7 +734,7 @@ module UO {
             item 1 tags[Scissors] mode:keep,
             item 1 tags[Hammer] mode:keep,
             item 1 [Base.Needle;Base.Needle_Bone;Base.Needle_Brass;Base.Needle_Forged;Base.SutureNeedle;Base.Needle_Forged] mode:keep,
-            item 1 tags[HandMetalMechanism] mode:keep,
+            item 1 tags[uo:handmetalmechanism] mode:keep,
         }
 
         outputs
@@ -736,6 +743,7 @@ module UO {
         }
     }
 
+    -----
     craftRecipe UO_MakeSpecialSeat
     {
         timedAction = Making_Surface,
@@ -756,7 +764,7 @@ module UO {
             item 1 tags[Scissors] mode:keep,
             item 1 tags[Hammer] mode:keep,
             item 1 [Base.Needle;Base.Needle_Bone;Base.Needle_Brass;Base.Needle_Forged;Base.SutureNeedle;Base.Needle_Forged] mode:keep,
-            item 1 tags[HandMetalMechanism] mode:keep,
+            item 1 tags[uo:handmetalmechanism] mode:keep,
         }
 
         outputs
@@ -780,7 +788,7 @@ module UO {
             item 1 tags[SheetMetalSnips] mode:keep,
             item 1 [Base.BlowTorch] mode:keep,
             item 1 tags[Hammer] mode:keep,
-            item 1 tags[HandMetalMechanism] mode:keep,
+            item 1 tags[uo:handmetalmechanism] mode:keep,
         }
 
         outputs
@@ -804,7 +812,7 @@ module UO {
             item 1 tags[SheetMetalSnips] mode:keep,
             item 1 [Base.BlowTorch] mode:keep,
             item 1 tags[Hammer] mode:keep,
-            item 1 tags[HandMetalMechanism] mode:keep,
+            item 1 tags[uo:handmetalmechanism] mode:keep,
         }
 
         outputs
@@ -828,7 +836,7 @@ module UO {
             item 1 tags[SheetMetalSnips] mode:keep,
             item 1 [Base.BlowTorch] mode:keep,
             item 1 tags[Hammer] mode:keep,
-            item 1 tags[HandMetalMechanism] mode:keep,
+            item 1 tags[uo:handmetalmechanism] mode:keep,
         }
 
         outputs
@@ -837,6 +845,7 @@ module UO {
         }
     }
 
+    -----
     craftRecipe UO_MakeSpecialFrontDoor
     {
         timedAction = Welding_Surface,
@@ -875,7 +884,7 @@ module UO {
             item 1 tags[SheetMetalSnips] mode:keep,
             item 1 [Base.BlowTorch] mode:keep,
             item 1 tags[Hammer] mode:keep,
-            item 1 tags[HandMetalMechanism] mode:keep,
+            item 1 tags[uo:handmetalmechanism] mode:keep,
         }
 
         outputs
@@ -899,7 +908,7 @@ module UO {
             item 1 tags[SheetMetalSnips] mode:keep,
             item 1 [Base.BlowTorch] mode:keep,
             item 1 tags[Hammer] mode:keep,
-            item 1 tags[HandMetalMechanism] mode:keep,
+            item 1 tags[uo:handmetalmechanism] mode:keep,
         }
 
         outputs
@@ -923,7 +932,7 @@ module UO {
             item 1 tags[SheetMetalSnips] mode:keep,
             item 1 [Base.BlowTorch] mode:keep,
             item 1 tags[Hammer] mode:keep,
-            item 1 tags[HandMetalMechanism] mode:keep,
+            item 1 tags[uo:handmetalmechanism] mode:keep,
         }
 
         outputs
@@ -932,6 +941,7 @@ module UO {
         }
     }
 
+    -----
     craftRecipe UO_MakeSpecialRearDoor
     {
         timedAction = Welding_Surface,
@@ -970,7 +980,7 @@ module UO {
             item 1 tags[MetalSaw] mode:keep,
             item 1 tags[SheetMetalSnips] mode:keep,
             item 1 tags[DrillMetal] mode:keep,
-            item 1 tags[HandMetalMechanism] mode:keep,
+            item 1 tags[uo:handmetalmechanism] mode:keep,
         }
 
         outputs
@@ -994,7 +1004,7 @@ module UO {
             item 1 tags[MetalSaw] mode:keep,
             item 1 tags[SheetMetalSnips] mode:keep,
             item 1 tags[DrillMetal] mode:keep,
-            item 1 tags[HandMetalMechanism] mode:keep,
+            item 1 tags[uo:handmetalmechanism] mode:keep,
         }
 
         outputs
@@ -1018,7 +1028,7 @@ module UO {
             item 1 tags[MetalSaw] mode:keep,
             item 1 tags[SheetMetalSnips] mode:keep,
             item 1 tags[DrillMetal] mode:keep,
-            item 1 tags[HandMetalMechanism] mode:keep,
+            item 1 tags[uo:handmetalmechanism] mode:keep,
         }
 
         outputs
@@ -1028,6 +1038,7 @@ module UO {
     }
 
 
+    -----
     craftRecipe UO_MakeSpecialRearWindow
     {
         timedAction = Making_Surface,
@@ -1043,7 +1054,7 @@ module UO {
             item 1 tags[MetalSaw] mode:keep,
             item 1 tags[SheetMetalSnips] mode:keep,
             item 1 tags[DrillMetal] mode:keep,
-            item 1 tags[HandMetalMechanism] mode:keep,
+            item 1 tags[uo:handmetalmechanism] mode:keep,
         }
 
         outputs
@@ -1067,7 +1078,7 @@ module UO {
             item 1 tags[MetalSaw] mode:keep,
             item 1 tags[SheetMetalSnips] mode:keep,
             item 1 tags[DrillMetal] mode:keep,
-            item 1 tags[HandMetalMechanism] mode:keep,
+            item 1 tags[uo:handmetalmechanism] mode:keep,
         }
 
         outputs
@@ -1091,7 +1102,7 @@ module UO {
             item 1 tags[MetalSaw] mode:keep,
             item 1 tags[SheetMetalSnips] mode:keep,
             item 1 tags[DrillMetal] mode:keep,
-            item 1 tags[HandMetalMechanism] mode:keep,
+            item 1 tags[uo:handmetalmechanism] mode:keep,
         }
 
         outputs
@@ -1115,7 +1126,7 @@ module UO {
             item 1 tags[MetalSaw] mode:keep,
             item 1 tags[SheetMetalSnips] mode:keep,
             item 1 tags[DrillMetal] mode:keep,
-            item 1 tags[HandMetalMechanism] mode:keep,
+            item 1 tags[uo:handmetalmechanism] mode:keep,
         }
 
         outputs
@@ -1125,6 +1136,7 @@ module UO {
     }
 
 
+    -----
     craftRecipe UO_MakeSpecialWindshield
     {
         timedAction = Making_Surface,
@@ -1140,7 +1152,7 @@ module UO {
             item 1 tags[MetalSaw] mode:keep,
             item 1 tags[SheetMetalSnips] mode:keep,
             item 1 tags[DrillMetal] mode:keep,
-            item 1 tags[HandMetalMechanism] mode:keep,
+            item 1 tags[uo:handmetalmechanism] mode:keep,
         }
 
         outputs
@@ -1163,7 +1175,7 @@ module UO {
             item 1 tags[MetalSaw] mode:keep,
             item 1 tags[SheetMetalSnips] mode:keep,
             item 1 tags[DrillMetal] mode:keep,
-            item 1 tags[HandMetalMechanism] mode:keep,
+            item 1 tags[uo:handmetalmechanism] mode:keep,
         }
 
         outputs
@@ -1186,7 +1198,7 @@ module UO {
             item 1 tags[MetalSaw] mode:keep,
             item 1 tags[SheetMetalSnips] mode:keep,
             item 1 tags[DrillMetal] mode:keep,
-            item 1 tags[HandMetalMechanism] mode:keep,
+            item 1 tags[uo:handmetalmechanism] mode:keep,
         }
 
         outputs
@@ -1209,7 +1221,7 @@ module UO {
             item 1 tags[MetalSaw] mode:keep,
             item 1 tags[SheetMetalSnips] mode:keep,
             item 1 tags[DrillMetal] mode:keep,
-            item 1 tags[HandMetalMechanism] mode:keep,
+            item 1 tags[uo:handmetalmechanism] mode:keep,
         }
 
         outputs
@@ -1232,7 +1244,7 @@ module UO {
             item 1 tags[MetalSaw] mode:keep,
             item 1 tags[SheetMetalSnips] mode:keep,
             item 1 tags[DrillMetal] mode:keep,
-            item 1 tags[HandMetalMechanism] mode:keep,
+            item 1 tags[uo:handmetalmechanism] mode:keep,
         }
 
         outputs
@@ -1255,7 +1267,7 @@ module UO {
             item 1 tags[MetalSaw] mode:keep,
             item 1 tags[SheetMetalSnips] mode:keep,
             item 1 tags[DrillMetal] mode:keep,
-            item 1 tags[HandMetalMechanism] mode:keep,
+            item 1 tags[uo:handmetalmechanism] mode:keep,
         }
 
         outputs
@@ -1278,7 +1290,7 @@ module UO {
             item 1 tags[MetalSaw] mode:keep,
             item 1 tags[SheetMetalSnips] mode:keep,
             item 1 tags[DrillMetal] mode:keep,
-            item 1 tags[HandMetalMechanism] mode:keep,
+            item 1 tags[uo:handmetalmechanism] mode:keep,
         }
 
         outputs
@@ -1287,6 +1299,7 @@ module UO {
         }
     }
 
+    -----
     craftRecipe UO_MakeSpecialWindow
     {
         timedAction = Making_Surface,
@@ -1303,7 +1316,7 @@ module UO {
             item 1 tags[MetalSaw] mode:keep,
             item 1 tags[SheetMetalSnips] mode:keep,
             item 1 tags[DrillMetal] mode:keep,
-            item 1 tags[HandMetalMechanism] mode:keep,
+            item 1 tags[uo:handmetalmechanism] mode:keep,
         }
 
         outputs
@@ -1329,7 +1342,7 @@ module UO {
             item 1 [Base.BlowTorch] mode:keep,
             item 1 tags[PipeWrench] mode:keep,
             item 1 tags[Hammer] mode:keep,
-            item 1 tags[HandMetalMechanism] mode:keep,
+            item 1 tags[uo:handmetalmechanism] mode:keep,
         }
 
         outputs
@@ -1355,7 +1368,7 @@ module UO {
             item 1 [Base.BlowTorch] mode:keep,
             item 1 tags[PipeWrench] mode:keep,
             item 1 tags[Hammer] mode:keep,
-            item 1 tags[HandMetalMechanism] mode:keep,
+            item 1 tags[uo:handmetalmechanism] mode:keep,
         }
 
         outputs
@@ -1381,7 +1394,7 @@ module UO {
             item 1 [Base.BlowTorch] mode:keep,
             item 1 tags[PipeWrench] mode:keep,
             item 1 tags[Hammer] mode:keep,
-            item 1 tags[HandMetalMechanism] mode:keep,
+            item 1 tags[uo:handmetalmechanism] mode:keep,
         }
 
         outputs
@@ -1407,7 +1420,7 @@ module UO {
             item 1 [Base.BlowTorch] mode:keep,
             item 1 tags[PipeWrench] mode:keep,
             item 1 tags[Hammer] mode:keep,
-            item 1 tags[HandMetalMechanism] mode:keep,
+            item 1 tags[uo:handmetalmechanism] mode:keep,
         }
 
         outputs
@@ -1433,7 +1446,7 @@ module UO {
             item 1 [Base.BlowTorch] mode:keep,
             item 1 tags[PipeWrench] mode:keep,
             item 1 tags[Hammer] mode:keep,
-            item 1 tags[HandMetalMechanism] mode:keep,
+            item 1 tags[uo:handmetalmechanism] mode:keep,
         }
 
         outputs
@@ -1459,7 +1472,7 @@ module UO {
             item 1 [Base.BlowTorch] mode:keep,
             item 1 tags[PipeWrench] mode:keep,
             item 1 tags[Hammer] mode:keep,
-            item 1 tags[HandMetalMechanism] mode:keep,
+            item 1 tags[uo:handmetalmechanism] mode:keep,
         }
 
         outputs
@@ -1485,7 +1498,7 @@ module UO {
             item 1 [Base.BlowTorch] mode:keep,
             item 1 tags[PipeWrench] mode:keep,
             item 1 tags[Hammer] mode:keep,
-            item 1 tags[HandMetalMechanism] mode:keep,
+            item 1 tags[uo:handmetalmechanism] mode:keep,
         }
 
         outputs
@@ -1511,7 +1524,7 @@ module UO {
             item 1 [Base.BlowTorch] mode:keep,
             item 1 tags[PipeWrench] mode:keep,
             item 1 tags[Hammer] mode:keep,
-            item 1 tags[HandMetalMechanism] mode:keep,
+            item 1 tags[uo:handmetalmechanism] mode:keep,
         }
 
         outputs
@@ -1537,7 +1550,7 @@ module UO {
             item 1 [Base.BlowTorch] mode:keep,
             item 1 tags[PipeWrench] mode:keep,
             item 1 tags[Hammer] mode:keep,
-            item 1 tags[HandMetalMechanism] mode:keep,
+            item 1 tags[uo:handmetalmechanism] mode:keep,
         }
 
         outputs
@@ -1546,6 +1559,7 @@ module UO {
         }
     }
 
+    -----
     craftRecipe UO_MakeSpecialFuelTank
     {
         timedAction = Welding_Surface,

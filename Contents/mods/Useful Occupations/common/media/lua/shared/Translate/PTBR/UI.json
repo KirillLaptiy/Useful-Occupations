@@ -1,0 +1,64 @@
+{
+    "UI_prof_unemployed": "I. Profissão Personalizada",
+    "UI_prof_unemployed_desc": "Uma folha em branco. Comece sua jornada com uma velocidade de aprendizado incrível para recuperar o tempo perdido.",
+    "UI_prof_spm": "IV. Mestre de Propósito Especial",
+    "UI_prof_spm_desc": "Forças especiais de engenharia universal. Capaz de criar qualquer coisa a partir de qualquer coisa, transformando lixo em obras-primas de sobrevivência.",
+    "UI_prof_veteran": "III. Veterano",
+    "UI_prof_veteran_desc": "Um assassino endurecido em batalhas. Seu corpo é uma arma, e sua mente é uma fortaleza de aço imune aos horrores do apocalipse.",
+    "UI_prof_scout": "II. Batedor",
+    "UI_prof_scout_desc": "Mestre da sobrevivência na natureza. Adapta-se a condições adversas mais rápido que qualquer um, encontrando comida onde outros desistem.",
+
+    "UI_trait_Wunderkind": "Prodígio",
+    "UI_trait_WunderkindDesc": "Gênio. Absorva conhecimento mais rápido enquanto os outros estão apenas começando a entender as coisas. Dá +125 XP até o nível 3 de habilidades e dobra os bônus de livros.",
+
+    "UI_trait_ScoutSkills": "Habilidades de Batedor",
+    "UI_trait_ScoutSkillsDesc": "Olhar de falcão. Você vê mais, consome menos e pesca onde logicamente não deveria haver peixes. Reduz a fome e a sede ao caminhar, permite identificar cogumelos e frutas venenosas e dá bônus à pesca.",
+
+    "UI_trait_Outdoorsman": "Desbravador",
+    "UI_trait_OutdoorsmanDesc": "Um com a natureza. O mau tempo, a sujeira e os elementos não são mais seus inimigos. 90 de chance de não ficar doente pelo clima e 99 de chance de não se arranhar em árvores. Acelera o corte de árvores, lavagem e acendimento de fogueiras.",
+
+    "UI_trait_Axeman": "Lenhador",
+    "UI_trait_AxemanDesc": "Lenhador berserker. Árvores caem com um único olhar, e seus músculos nem têm tempo de se cansar. +5 velocidade de balanço, +25 velocidade de golpe e 1.5x mais dano a árvores. Reduz a fadiga e a tensão muscular ao cortar.",
+
+    "UI_trait_Burglar": "Arrombador",
+    "UI_trait_BurglarDesc": "Ladrão silencioso. Fechaduras, janelas e até ignições de carros se abrem para você. Permite arrombar portas, janelas e carros usando uma gazua, e quebrar janelas sem barulho.",
+
+    "UI_trait_Graceful": "Gracioso",
+    "UI_trait_GracefulDesc": "Sombra do vento. Silencioso, rápido e esquivo como um fantasma. Aumenta a velocidade de virar, andar, correr e escalar, e reduz o peso das roupas vestidas.",
+
+    "UI_trait_Organized": "Organizado",
+    "UI_trait_OrganizedDesc": "Ordem em tudo. Suas mochilas e bolsos carregam uma quantidade incrível de carga. +30 de capacidade em todos os contêineres, e a força afeta o peso de carregamento mais forte que o normal.",
+
+    "UI_trait_Dextrous": "Ágil",
+    "UI_trait_DextrousDesc": "Reflexos relâmpago. Você move itens enquanto os outros estão apenas pensando nisso. A velocidade de transferência de inventário é aumentada em 75.",
+
+    "UI_trait_Inconspicuous": "Discreto",
+    "UI_trait_InconspicuousDesc": "Você se mistura com os mortos. Zumbis não vão te notar mesmo se você ficar bem do lado deles. Ativa na tecla 'G'. Zumbis perdem você de vista extremamente rápido, e o alcance de detecção é reduzido em 2 vezes. Não funciona se você já foi avistado ou está fazendo ações suspeitas.",
+
+    "UI_trait_Marksman": "Atirador",
+    "UI_trait_MarksmanDesc": "Deus do tiro. Cada bala encontra seu alvo, e os críticos perfuram qualquer crânio. Acelera a mira e o recarregamento, aumenta o dano, o alcance e a chance de crítico. Dá uma chance de super-crítico que mata zumbis instantaneamente. As armas não travam.",
+
+    "UI_trait_Desensitized": "Insensibilizado",
+    "UI_trait_DesensitizedDesc": "A loucura passa por você. Nem dor, nem montanhas de cadáveres, nem horrores quebrarão sua mente. Reduz a dor máxima e a sonolência, e concede resistência à dor. Você não entra em pânico e não ganha estresse ao ver cadáveres.",
+
+    "UI_trait_TrainedFighter": "Lutador Treinado",
+    "UI_trait_TrainedFighterDesc": "Máquina de matar. Seus golpes são esmagadores, e sua postura é inabalável. Aumenta o dano, o alcance e os críticos. Você sempre derruba os inimigos, bate, empurra e pisa mais rápido, não desacelera após ataques e não sente dor muscular.",
+
+    "UI_trait_EnduranceSecret": "Segredo da Resistência",
+    "UI_trait_EnduranceSecretDesc": "Máquina de movimento perpétuo. Você gasta resistência com incrível eficiência, e a fadiga é algo estranho para você. Reduz muito o consumo de resistência de todas as fontes e acelera sua recuperação.",
+
+    "UI_trait_Invincible": "Invencível",
+    "UI_trait_InvincibleDesc": "Nem mesmo uma horda de zumbis pode resistir ao seu poder... Passivamente: Permite esquivar de mordidas ao custo de resistência e não tropeçar ao colidir com zumbis. Imunidade a rastejantes - rastejantes não podem te atacar. Ao colidir com um zumbi enquanto corre ou dá um sprint, em vez de cair, você aleija o zumbi. Ativa quando a saúde cai abaixo de 30. Você restaura totalmente a saúde e por 3 minutos não deixa ela diminuir sem curar ferimentos. Recarga de 72 horas.",
+
+    "UI_trait_Engineer": "Engenheiro",
+    "UI_trait_EngineerDesc": "Senhor dos mecanismos. Um faz-tudo, capaz de montar qualquer coisa com incrível velocidade. Conhece receitas exclusivas de engenheiro e gasta menos tempo fabricando.",
+
+    "UI_trait_Builder": "Construtor",
+    "UI_trait_BuilderDesc": "Arquiteto do apocalipse. Construa fortalezas impenetráveis num piscar de olhos. Constrói 2x mais rápido, as estruturas são mais fortes e comportam mais, e você ganha mais recursos ao desmontar.",
+
+    "UI_trait_Mechanic": "Mecânico",
+    "UI_trait_MechanicDesc": "Alma do carro. Dê vida a qualquer sucata sobre rodas e desmonte-a com precisão cirúrgica. Conhece todas as receitas de mecânico. Instala, remove peças e conserta carros muito mais rápido e eficientemente.",
+
+    "UI_trait_Doctor": "Médico",
+    "UI_trait_DoctorDesc": "Anjo da guarda. Cure ferimentos fatais em segundos e cozinhe alimentos que dão força incrível. Cura mais rápido, bandagens e cataplasmas duram muito mais, e a comida fica mais saciante."
+}
