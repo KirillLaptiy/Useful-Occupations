@@ -9,13 +9,20 @@ module UO {
 
         inputs
         {
-            item 1 tags[uo:mrebag],
+            item 1 [UO.MREBag10;UO.MREBag25;UO.MREBag50;UO.MREBag100] mappers[mrePackUO],
             item 1 tags[uo:vacuumsealer] mode:keep,
         }
 
         outputs
         {
-            item 1 UO.MREKit,
+            item 1 mapper:mrePackUO,
+        }
+        itemMapper mrePackUO
+        {
+            UO.MREKit10 = UO.MREBag10,
+            UO.MREKit25 = UO.MREBag25,
+            UO.MREKit50 = UO.MREBag50,
+            UO.MREKit100 = UO.MREBag100,
         }
     }
 
@@ -29,7 +36,7 @@ module UO {
 
         inputs
         {
-            item 1 [UO.MREKit],
+            item 1 tags[uo:mrekit],
             item 1 tags[Scissors;SharpKnife] mode:keep,
         }
 

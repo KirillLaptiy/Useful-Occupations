@@ -1,0 +1,318 @@
+module UO {
+    craftRecipe UO_MakeStimulantDrops
+    {
+        timedAction = MixingMortarPestle,
+        time = 150,
+        Tags = InHandCraft,
+        category = Medical,
+        xpAward = Doctor:30,
+
+        inputs
+        {
+            item 1 [Base.MintHerb;Base.MintHerbDried],
+            item 1 [Base.LemonGrass],
+            item 1 [Base.Dandelions],
+            item 1 [*],
+            -fluid 1 [Water],
+            item 1 tags[uo:mixingkit] mode:keep,
+            item 1 tags[SharpKnife] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 UO.StimulantDrops,
+        }
+    }
+
+    craftRecipe UO_MakeStimulantDropsPlus
+    {
+        timedAction = MixingMortarPestle,
+        time = 150,
+        Tags = InHandCraft,
+        category = Medical,
+        xpAward = Doctor:50,
+
+        inputs
+        {
+            item 1 [Base.Rosemary;Base.RosemaryDried;Base.Seasoning_Rosemary],
+            item 1 [Base.Oregano;Base.OreganoDried;Base.Seasoning_Oregano],
+            item 1 [Base.Thyme;Base.ThymeDried;Base.Seasoning_Thyme],
+            item 1 [Base.Lemon;Base.Lime],
+            item 1 tags[Charcoal],
+            item 1 [*],
+            -fluid 1 [Water],
+            item 1 tags[uo:mixingkit] mode:keep,
+            item 1 tags[SharpKnife] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 UO.StimulantDropsPlus,
+        }
+    }
+
+    craftRecipe UO_MakePillsBeta
+    {
+        timedAction = MixingMortarPestle,
+        time = 150,
+        Tags = InHandCraft,
+        category = Medical,
+        xpAward = Doctor:30,
+
+        inputs
+        {
+            item 1 [Base.Lavender;Base.LavenderPetalsDried],
+            item 1 [Base.Thyme;Base.ThymeDried;Base.Seasoning_Thyme;Base.Sage;Base.BlackSage;Base.SageDried;Base.Seasoning_Sage],
+            item 1 [Base.MintHerb;Base.MintHerbDried],
+            item 1 [*],
+            -fluid 1 [Water],
+            item 1 tags[uo:mixingkit] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 Base.PillsBeta,
+        }
+    }
+
+    craftRecipe UO_MakePillsVitamins
+    {
+        timedAction = MixingMortarPestle,
+        time = 150,
+        Tags = InHandCraft,
+        category = Medical,
+        xpAward = Doctor:30,
+
+        inputs
+        {
+            item 1 [Base.BerryBlack;Base.BerryBlue;Base.BerryGeneric5;Base.BerryGeneric4;Base.BerryGeneric3;Base.BerryGeneric2;Base.BerryGeneric1;Base.BerryPoisonIvy],
+            item 1 [Base.OilVegetable],
+            item 1 tags[Charcoal],
+            item 1 [*],
+            -fluid 1 [Water],
+            item 1 tags[uo:mixingkit] mode:keep,
+            item 1 tags[uo:syringe] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 Base.PillsVitamins,
+        }
+    }
+
+    craftRecipe UO_MakeBandage
+    {
+        timedAction = MixingMortarPestle,
+        time = 150,
+        Tags = InHandCraft,
+        category = Medical,
+        xpAward = Doctor:30,
+
+        inputs
+        {
+            item 1 [Base.AlcoholRippedSheets],
+            item 1 tags[Charcoal],
+            item 1 [*],
+            -fluid 1 [Water],
+            item 1 tags[uo:mixingkit] mode:keep,
+            item 1 tags[SharpKnife] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 Base.Bandage,
+        }
+    }
+
+    craftRecipe UO_MakeCottonBalls
+    {
+        timedAction = MixingMortarPestle,
+        time = 150,
+        Tags = InHandCraft,
+        category = Medical,
+        xpAward = Doctor:30,
+
+        inputs
+        {
+            item 1 [UO.Bark],
+            item 1 [*],
+            -fluid 1 [Water],
+            item 1 tags[uo:mixingkit] mode:keep,
+            item 1 tags[SharpKnife] mode:keep,
+            item 1 tags[Tweezers] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 Base.CottonBalls,
+        }
+    }
+
+    craftRecipe UO_MakeDisinfectant
+    {
+        timedAction = MixingMortarPestle,
+        time = 150,
+        Tags = InHandCraft,
+        category = Medical,
+        xpAward = Doctor:30,
+
+        inputs
+        {
+            item 1 [*],
+            -fluid 0.5 [Water],
+            item 2 [Base.Lavender;Base.LavenderPetalsDried;Base.Thyme;Base.ThymeDried;Base.Seasoning_Thyme;Base.Sage;Base.BlackSage;Base.SageDried;Base.Seasoning_Sage],
+            item 2 [Base.Salt],
+            item 1 tags[uo:mixingkit] mode:keep,
+            item 1 tags[SharpKnife] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 Base.Disinfectant,
+        }
+    }
+
+    craftRecipe UO_MakePillsAntiDep
+    {
+        timedAction = MixingMortarPestle,
+        time = 150,
+        Tags = InHandCraft,
+        category = Medical,
+        xpAward = Doctor:30,
+
+        inputs
+        {
+            item 1 [Base.Lavender;Base.LavenderPetalsDried],
+            item 1 [Base.MintHerb;Base.MintHerbDried],
+            item 1 [Base.Rosemary;Base.RosemaryDried;Base.Seasoning_Rosemary],
+            item 1 [Base.Thyme;Base.ThymeDried;Base.Seasoning_Thyme],
+            item 1 [*],
+            -fluid 1 [Water],
+            item 1 tags[uo:mixingkit] mode:keep,
+            item 1 tags[SharpKnife] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 Base.PillsAntiDep,
+        }
+    }
+
+    craftRecipe UO_MakeBandaid4
+    {
+        timedAction = MixingMortarPestle,
+        time = 150,
+        Tags = InHandCraft,
+        category = Medical,
+        xpAward = Doctor:30,
+
+        inputs
+        {
+            item 1 [Base.AlcoholRippedSheets],
+            item 1 [Base.Scotchtape;Base.DuctTape],
+            item 1 tags[SharpKnife] mode:keep,
+        }
+
+        outputs
+        {
+            item 4 Base.Bandaid,
+        }
+    }
+
+    craftRecipe UO_MakePillsSleepingTablets
+    {
+        timedAction = MixingMortarPestle,
+        time = 150,
+        Tags = InHandCraft,
+        category = Medical,
+        xpAward = Doctor:30,
+
+        inputs
+        {
+            item 1 [Base.Lavender;Base.LavenderPetalsDried],
+            item 1 [Base.Chamomile;Base.ChamomileDried],
+            item 1 [Base.Marigold;Base.MarigoldDried],
+            item 1 [*],
+            -fluid 1 [Water],
+            item 1 tags[uo:mixingkit] mode:keep,
+            item 1 tags[SharpKnife] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 Base.PillsSleepingTablets,
+        }
+    }
+
+    craftRecipe UO_MakeAlcoholWipes
+    {
+        timedAction = MixingMortarPestle,
+        time = 150,
+        Tags = InHandCraft,
+        category = Medical,
+        xpAward = Doctor:30,
+
+        inputs
+        {
+            item 3 [Base.CottonBalls],
+            item 1 [*],
+            -fluid 0.1 [RubbingAlcohol;Vodka;Whiskey;Tequila;Rum;Scotch],
+            item 1 tags[uo:mixingkit] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 Base.AlcoholWipes,
+        }
+    }
+
+    craftRecipe UO_MakePills
+    {
+        timedAction = MixingMortarPestle,
+        time = 150,
+        Tags = InHandCraft,
+        category = Medical,
+        xpAward = Doctor:30,
+
+        inputs
+        {
+            item 1 [Base.Chamomile;Base.ChamomileDried],
+            item 1 [Base.MintHerb;Base.MintHerbDried],
+            item 1 [Base.Sage;Base.BlackSage;Base.SageDried;Base.Seasoning_Sage;Base.Thyme;Base.ThymeDried;Base.Seasoning_Thyme],
+            item 1 [*],
+            -fluid 1 [Water],
+            item 1 tags[uo:mixingkit] mode:keep,
+            item 1 tags[SharpKnife] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 Base.Pills,
+        }
+    }
+
+    craftRecipe UO_MakeAntibiotics
+    {
+        timedAction = MixingMortarPestle,
+        time = 150,
+        Tags = InHandCraft,
+        category = Medical,
+        xpAward = Doctor:30,
+
+        inputs
+        {
+            item 1 [Base.Thyme;Base.ThymeDried;Base.Seasoning_Thyme],
+            item 1 [Base.Sage;Base.BlackSage;Base.SageDried;Base.Seasoning_Sage],
+            item 1 [Base.Lavender;Base.LavenderPetalsDried;Base.Rosemary;Base.RosemaryDried;Base.Seasoning_Rosemary],
+            item 1 [*],
+            -fluid 1 [Water],
+            item 1 tags[uo:mixingkit] mode:keep,
+            item 1 tags[SharpKnife] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 Base.Antibiotics,
+        }
+    }
+}

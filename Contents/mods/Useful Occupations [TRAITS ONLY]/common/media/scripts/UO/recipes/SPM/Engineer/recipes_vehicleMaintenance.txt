@@ -1,0 +1,1587 @@
+module UO {
+    craftRecipe UO_MakeEngineParts
+    {
+        timedAction = Making_Surface,
+        time = 300,
+        Tags = InHandCraft,
+        category = VehicleMaintenance,
+        xpAward = MetalWelding:15,
+
+        inputs
+        {
+            item 2 [Base.SheetMetal],
+            item 4 [Base.Screws],
+            item 1 [Base.BlowTorch] mode:keep,
+            item 1 tags[Wrench] mode:keep,
+            item 1 tags[PipeWrench] mode:keep,
+            item 1 tags[uo:caliper] mode:keep,
+            item 1 tags[Screwdriver] mode:keep,
+            item 1 tags[uo:handmetalmechanism] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 Base.EngineParts,
+        }
+    }
+
+    -------
+    craftRecipe UO_MakeEngineSpecialParts
+    {
+        timedAction = Welding_Surface,
+        time = 500,
+        Tags = AdvancedForge,
+        category = VehicleMaintenance,
+        xpAward = Blacksmith:50,
+
+        inputs
+        {
+            item 2 [UO.CarbonMetal],
+            item 4 [Base.Screws],
+            item 1 tags[Wrench] mode:keep,
+            item 1 tags[PipeWrench] mode:keep,
+            item 1 tags[uo:caliper] mode:keep,
+            item 1 tags[Screwdriver] mode:keep,
+            item 1 tags[MetalworkingPliers] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 UO.EngineSpecialParts,
+        }
+    }
+
+    craftRecipe UO_MakeCarBattery1
+    {
+        timedAction = MakingElectrical,
+        time = 300,
+        Tags = InHandCraft,
+        category = VehicleMaintenance,
+        xpAward = Electricity:30,
+
+        inputs
+        {
+            item 3 [Base.ElectronicsScrap],
+            item 3 [Base.TirePiece],
+            item 1 tags[Charcoal],
+            item 3 [UO.Plastic],
+            item 1 tags[Wrench] mode:keep,
+            item 1 tags[Screwdriver] mode:keep,
+            item 1 tags[uo:solderingiron] mode:keep,
+            item 1 tags[uo:handmetalmechanism] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 Base.CarBattery1,
+        }
+    }
+
+    craftRecipe UO_MakeCarBattery2
+    {
+        timedAction = MakingElectrical,
+        time = 300,
+        Tags = InHandCraft,
+        category = VehicleMaintenance,
+        xpAward = Electricity:30,
+
+        inputs
+        {
+            item 6 [Base.ElectronicsScrap],
+            item 6 [Base.TirePiece],
+            item 2 tags[Charcoal],
+            item 6 [UO.Plastic],
+            item 1 tags[Wrench] mode:keep,
+            item 1 tags[Screwdriver] mode:keep,
+            item 1 tags[uo:solderingiron] mode:keep,
+            item 1 tags[uo:handmetalmechanism] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 Base.CarBattery2,
+        }
+    }
+
+    craftRecipe UO_MakeCarBattery3
+    {
+        timedAction = MakingElectrical,
+        time = 300,
+        Tags = InHandCraft,
+        category = VehicleMaintenance,
+        xpAward = Electricity:30,
+
+        inputs
+        {
+            item 4 [Base.ElectronicsScrap],
+            item 4 [Base.TirePiece],
+            item 2 tags[Charcoal],
+            item 4 [UO.Plastic],
+            item 1 tags[Wrench] mode:keep,
+            item 1 tags[Screwdriver] mode:keep,
+            item 1 tags[uo:solderingiron] mode:keep,
+            item 1 tags[uo:handmetalmechanism] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 Base.CarBattery3,
+        }
+    }
+
+    -----
+    craftRecipe UO_MakeSpecialBattery
+    {
+        timedAction = MakingElectrical,
+        time = 500,
+        Tags = InHandCraft,
+        category = VehicleMaintenance,
+        xpAward = Electricity:50,
+
+        inputs
+        {
+            item 8 [Base.ElectronicsScrap],
+            item 8 [Base.TirePiece],
+            item 2 tags[Charcoal],
+            item 8 [UO.Plastic],
+            item 1 tags[Wrench] mode:keep,
+            item 1 tags[Screwdriver] mode:keep,
+            item 1 tags[uo:solderingiron] mode:keep,
+            item 1 tags[uo:handmetalmechanism] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 UO.SpecialBattery,
+        }
+    }
+
+    craftRecipe UO_MakeModernCarMuffler1
+    {
+        timedAction = Making_Surface,
+        time = 300,
+        Tags = InHandCraft,
+        category = VehicleMaintenance,
+        xpAward = MetalWelding:30,
+
+        inputs
+        {
+            item 2 [Base.SheetMetal],
+            item 4 [Base.Screws],
+            item 1 [Base.BlowTorch] mode:keep,
+            item 1 tags[SheetMetalSnips] mode:keep,
+            item 1 tags[Wrench] mode:keep,
+            item 1 tags[Hammer] mode:keep,
+            item 1 tags[uo:handmetalmechanism] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 Base.ModernCarMuffler1,
+        }
+    }
+
+    craftRecipe UO_MakeModernCarMuffler2
+    {
+        timedAction = Making_Surface,
+        time = 300,
+        Tags = InHandCraft,
+        category = VehicleMaintenance,
+        xpAward = MetalWelding:30,
+
+        inputs
+        {
+            item 4 [Base.SheetMetal],
+            item 8 [Base.Screws],
+            item 1 [Base.BlowTorch] mode:keep,
+            item 1 tags[SheetMetalSnips] mode:keep,
+            item 1 tags[Wrench] mode:keep,
+            item 1 tags[Hammer] mode:keep,
+            item 1 tags[uo:handmetalmechanism] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 Base.ModernCarMuffler2,
+        }
+    }
+
+    craftRecipe UO_MakeModernCarMuffler3
+    {
+        timedAction = Making_Surface,
+        time = 300,
+        Tags = InHandCraft,
+        category = VehicleMaintenance,
+        xpAward = MetalWelding:30,
+
+        inputs
+        {
+            item 3 [Base.SheetMetal],
+            item 6 [Base.Screws],
+            item 1 [Base.BlowTorch] mode:keep,
+            item 1 tags[SheetMetalSnips] mode:keep,
+            item 1 tags[Wrench] mode:keep,
+            item 1 tags[Hammer] mode:keep,
+            item 1 tags[uo:handmetalmechanism] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 Base.ModernCarMuffler3,
+        }
+    }
+
+    -----
+    craftRecipe UO_MakeSpecialSilencer
+    {
+        timedAction = Welding_Surface,
+        time = 500,
+        Tags = AdvancedForge,
+        category = VehicleMaintenance,
+        xpAward = Blacksmith:50,
+
+        inputs
+        {
+            item 2 [UO.CarbonMetal],
+            item 4 [Base.Screws],
+            item 1 [Base.BlowTorch] mode:keep,
+            item 1 tags[SheetMetalSnips] mode:keep,
+            item 1 tags[Wrench] mode:keep,
+            item 1 tags[Hammer] mode:keep,
+            item 1 tags[MetalworkingPliers] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 UO.SpecialSilencer,
+        }
+    }
+
+    craftRecipe UO_MakeModernSuspension1
+    {
+        timedAction = Making_Surface,
+        time = 300,
+        Tags = InHandCraft,
+        category = VehicleMaintenance,
+        xpAward = MetalWelding:30,
+
+        inputs
+        {
+            item 4 [Base.SheetMetal],
+            item 8 [Base.Screws],
+            item 1 tags[SheetMetalSnips] mode:keep,
+            item 1 [Base.BlowTorch] mode:keep,
+            item 1 tags[PipeWrench] mode:keep,
+            item 1 tags[MetalworkingPliers] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 Base.ModernSuspension1,
+        }
+    }
+
+    craftRecipe UO_MakeModernSuspension2
+    {
+        timedAction = Making_Surface,
+        time = 300,
+        Tags = InHandCraft,
+        category = VehicleMaintenance,
+        xpAward = MetalWelding:30,
+
+        inputs
+        {
+            item 8 [Base.SheetMetal],
+            item 16 [Base.Screws],
+            item 1 tags[SheetMetalSnips] mode:keep,
+            item 1 [Base.BlowTorch] mode:keep,
+            item 1 tags[PipeWrench] mode:keep,
+            item 1 tags[MetalworkingPliers] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 Base.ModernSuspension2,
+        }
+    }
+
+    craftRecipe UO_MakeModernSuspension3
+    {
+        timedAction = Making_Surface,
+        time = 300,
+        Tags = InHandCraft,
+        category = VehicleMaintenance,
+        xpAward = MetalWelding:30,
+
+        inputs
+        {
+            item 6 [Base.SheetMetal],
+            item 12 [Base.Screws],
+            item 1 tags[SheetMetalSnips] mode:keep,
+            item 1 [Base.BlowTorch] mode:keep,
+            item 1 tags[PipeWrench] mode:keep,
+            item 1 tags[MetalworkingPliers] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 Base.ModernSuspension3,
+        }
+    }
+
+    -----
+    craftRecipe UO_MakeSpecialSuspension
+    {
+        timedAction = Welding_Surface,
+        time = 500,
+        Tags = AdvancedForge,
+        category = VehicleMaintenance,
+        xpAward = Blacksmith:50,
+
+        inputs
+        {
+            item 4 [UO.CarbonMetal],
+            item 8 [Base.Screws],
+            item 1 tags[SheetMetalSnips] mode:keep,
+            item 1 tags[PipeWrench] mode:keep,
+            item 1 tags[MetalworkingPliers] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 UO.SpecialSuspension,
+        }
+    }
+
+    craftRecipe UO_MakeModernBrake1
+    {
+        timedAction = Making_Surface,
+        time = 300,
+        Tags = InHandCraft,
+        category = VehicleMaintenance,
+        xpAward = MetalWelding:30,
+
+        inputs
+        {
+            item 3 [Base.SheetMetal],
+            item 6 [Base.Screws],
+            item 1 tags[PipeWrench] mode:keep,
+            item 1 tags[Wrench] mode:keep,
+            item 1 tags[uo:caliper] mode:keep,
+            item 1 tags[Hammer] mode:keep,
+            item 1 tags[uo:handmetalmechanism] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 Base.ModernBrake1,
+        }
+    }
+
+    craftRecipe UO_MakeModernBrake2
+    {
+        timedAction = Making_Surface,
+        time = 300,
+        Tags = InHandCraft,
+        category = VehicleMaintenance,
+        xpAward = MetalWelding:30,
+
+        inputs
+        {
+            item 6 [Base.SheetMetal],
+            item 12 [Base.Screws],
+            item 1 tags[PipeWrench] mode:keep,
+            item 1 tags[Wrench] mode:keep,
+            item 1 tags[uo:caliper] mode:keep,
+            item 1 tags[Hammer] mode:keep,
+            item 1 tags[uo:handmetalmechanism] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 Base.ModernBrake1,
+        }
+    }
+
+    craftRecipe UO_MakeModernBrake3
+    {
+        timedAction = Making_Surface,
+        time = 300,
+        Tags = InHandCraft,
+        category = VehicleMaintenance,
+        xpAward = MetalWelding:30,
+
+        inputs
+        {
+            item 4 [Base.SheetMetal],
+            item 8 [Base.Screws],
+            item 1 tags[PipeWrench] mode:keep,
+            item 1 tags[Wrench] mode:keep,
+            item 1 tags[uo:caliper] mode:keep,
+            item 1 tags[Hammer] mode:keep,
+            item 1 tags[uo:handmetalmechanism] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 Base.ModernBrake3,
+        }
+    }
+
+    -----
+    craftRecipe UO_MakeSpecialBrake
+    {
+        timedAction = Welding_Surface,
+        time = 500,
+        Tags = AdvancedForge,
+        category = VehicleMaintenance,
+        xpAward = Blacksmith:50,
+
+        inputs
+        {
+            item 3 [UO.CarbonMetal],
+            item 6 [Base.Screws],
+            item 1 tags[PipeWrench] mode:keep,
+            item 1 tags[Wrench] mode:keep,
+            item 1 tags[uo:caliper] mode:keep,
+            item 1 tags[Hammer] mode:keep,
+            item 1 tags[MetalworkingPliers] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 UO.SpecialBrake,
+        }
+    }
+
+    craftRecipe UO_MakeEngineDoor1
+    {
+        timedAction = Making_Surface,
+        time = 300,
+        Tags = InHandCraft,
+        category = VehicleMaintenance,
+        xpAward = MetalWelding:30,
+
+        inputs
+        {
+            item 2 [Base.SheetMetal],
+            item 4 [Base.Screws],
+            item 1 tags[PipeWrench] mode:keep,
+            item 1 tags[Wrench] mode:keep,
+            item 1 tags[Screwdriver] mode:keep,
+            item 1 tags[uo:caliper] mode:keep,
+            item 1 tags[uo:handmetalmechanism] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 Base.EngineDoor1,
+        }
+    }
+
+    craftRecipe UO_MakeEngineDoor2
+    {
+        timedAction = Making_Surface,
+        time = 300,
+        Tags = InHandCraft,
+        category = VehicleMaintenance,
+        xpAward = MetalWelding:30,
+
+        inputs
+        {
+            item 4 [Base.SheetMetal],
+            item 8 [Base.Screws],
+            item 1 tags[PipeWrench] mode:keep,
+            item 1 tags[Wrench] mode:keep,
+            item 1 tags[Screwdriver] mode:keep,
+            item 1 tags[uo:caliper] mode:keep,
+            item 1 tags[uo:handmetalmechanism] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 Base.EngineDoor2,
+        }
+    }
+
+    craftRecipe UO_MakeEngineDoor3
+    {
+        timedAction = Making_Surface,
+        time = 300,
+        Tags = InHandCraft,
+        category = VehicleMaintenance,
+        xpAward = MetalWelding:30,
+
+        inputs
+        {
+            item 3 [Base.SheetMetal],
+            item 6 [Base.Screws],
+            item 1 tags[PipeWrench] mode:keep,
+            item 1 tags[Wrench] mode:keep,
+            item 1 tags[Screwdriver] mode:keep,
+            item 1 tags[uo:caliper] mode:keep,
+            item 1 tags[uo:handmetalmechanism] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 Base.EngineDoor3,
+        }
+    }
+
+    -----
+    craftRecipe UO_MakeSpecialHood
+    {
+        timedAction = Welding_Surface,
+        time = 500,
+        Tags = AdvancedForge,
+        category = VehicleMaintenance,
+        xpAward = Blacksmith:50,
+
+        inputs
+        {
+            item 2 [UO.CarbonMetal],
+            item 4 [Base.Screws],
+            item 1 tags[PipeWrench] mode:keep,
+            item 1 tags[Wrench] mode:keep,
+            item 1 tags[Screwdriver] mode:keep,
+            item 1 tags[uo:caliper] mode:keep,
+            item 1 tags[MetalworkingPliers] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 UO.SpecialHood,
+        }
+    }
+
+    craftRecipe UO_MakeModernTire1
+    {
+        timedAction = Making_Surface,
+        time = 300,
+        Tags = InHandCraft,
+        category = VehicleMaintenance,
+        xpAward = MetalWelding:30,
+
+        inputs
+        {
+            item 4 [Base.SheetMetal],
+            item 4 [Base.Screws],
+            item 4 [Base.TirePiece],
+            item 1 tags[SheetMetalSnips] mode:keep,
+            item 1 tags[PipeWrench] mode:keep,
+            item 1 [Base.BlowTorch] mode:keep,
+            item 1 tags[uo:handmetalmechanism] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 Base.ModernTire1,
+        }
+    }
+
+    craftRecipe UO_MakeModernTire2
+    {
+        timedAction = Making_Surface,
+        time = 300,
+        Tags = InHandCraft,
+        category = VehicleMaintenance,
+        xpAward = MetalWelding:30,
+
+        inputs
+        {
+            item 3 [Base.SheetMetal],
+            item 4 [Base.Screws],
+            item 4 [Base.TirePiece],
+            item 1 tags[SheetMetalSnips] mode:keep,
+            item 1 tags[PipeWrench] mode:keep,
+            item 1 [Base.BlowTorch] mode:keep,
+            item 1 tags[uo:handmetalmechanism] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 Base.ModernTire2,
+        }
+    }
+
+    craftRecipe UO_MakeModernTire3
+    {
+        timedAction = Making_Surface,
+        time = 300,
+        Tags = InHandCraft,
+        category = VehicleMaintenance,
+        xpAward = MetalWelding:30,
+
+        inputs
+        {
+            item 2 [Base.SheetMetal],
+            item 4 [Base.Screws],
+            item 4 [Base.TirePiece],
+            item 1 tags[SheetMetalSnips] mode:keep,
+            item 1 tags[PipeWrench] mode:keep,
+            item 1 [Base.BlowTorch] mode:keep,
+            item 1 tags[uo:handmetalmechanism] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 Base.ModernTire3,
+        }
+    }
+
+    -----
+    craftRecipe UO_MakeSpecialTire
+    {
+        timedAction = Welding_Surface,
+        time = 500,
+        Tags = AdvancedForge,
+        category = VehicleMaintenance,
+        xpAward = Blacksmith:50,
+
+        inputs
+        {
+            item 2 [UO.CarbonMetal],
+            item 4 [Base.TirePiece],
+            item 4 [Base.Screws],
+            item 1 tags[SheetMetalSnips] mode:keep,
+            item 1 tags[PipeWrench] mode:keep,
+            item 1 tags[MetalworkingPliers] mode:keep,
+            item 1 tags[Hammer] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 UO.SpecialTire,
+        }
+    }
+
+    craftRecipe UO_MakeNormalCarSeat1
+    {
+        timedAction = Making_Surface,
+        time = 300,
+        Tags = InHandCraft,
+        category = VehicleMaintenance,
+        xpAward = MetalWelding:15;Tailoring:30,
+
+        inputs
+        {
+            item 4 [Base.MetalBar],
+            item 2 [Base.SheetMetal],
+            item 4 [Base.RippedSheets],
+            item 8 [Base.LeatherStrips],
+            item 1 [Base.Thread],
+            item 4 [Base.Screws],
+            item 1 tags[Screwdriver] mode:keep,
+            item 1 tags[Scissors] mode:keep,
+            item 1 tags[Hammer] mode:keep,
+            item 1 [Base.Needle;Base.Needle_Bone;Base.Needle_Brass;Base.Needle_Forged;Base.SutureNeedle;Base.Needle_Forged] mode:keep,
+            item 1 tags[uo:handmetalmechanism] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 Base.NormalCarSeat1,
+        }
+    }
+
+    craftRecipe UO_MakeNormalCarSeat2
+    {
+        timedAction = Making_Surface,
+        time = 300,
+        Tags = InHandCraft,
+        category = VehicleMaintenance,
+        xpAward = MetalWelding:15;Tailoring:30,
+
+        inputs
+        {
+            item 4 [Base.MetalBar],
+            item 2 [Base.SheetMetal],
+            item 4 [Base.RippedSheets],
+            item 8 [Base.LeatherStrips],
+            item 1 [Base.Thread],
+            item 4 [Base.Screws],
+            item 1 tags[Screwdriver] mode:keep,
+            item 1 tags[Scissors] mode:keep,
+            item 1 tags[Hammer] mode:keep,
+            item 1 [Base.Needle;Base.Needle_Bone;Base.Needle_Brass;Base.Needle_Forged;Base.SutureNeedle;Base.Needle_Forged] mode:keep,
+            item 1 tags[uo:handmetalmechanism] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 Base.NormalCarSeat2,
+        }
+    }
+
+    craftRecipe UO_MakeNormalCarSeat3
+    {
+        timedAction = Making_Surface,
+        time = 300,
+        Tags = InHandCraft,
+        category = VehicleMaintenance,
+        xpAward = MetalWelding:15;Tailoring:30,
+
+        inputs
+        {
+            item 4 [Base.MetalBar],
+            item 2 [Base.SheetMetal],
+            item 4 [Base.RippedSheets],
+            item 8 [Base.LeatherStrips],
+            item 1 [Base.Thread],
+            item 4 [Base.Screws],
+            item 1 tags[Screwdriver] mode:keep,
+            item 1 tags[Scissors] mode:keep,
+            item 1 tags[Hammer] mode:keep,
+            item 1 [Base.Needle;Base.Needle_Bone;Base.Needle_Brass;Base.Needle_Forged;Base.SutureNeedle;Base.Needle_Forged] mode:keep,
+            item 1 tags[uo:handmetalmechanism] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 Base.NormalCarSeat3,
+        }
+    }
+
+    -----
+    craftRecipe UO_MakeSpecialSeat
+    {
+        timedAction = Making_Surface,
+        time = 500,
+        Tags = InHandCraft,
+        category = VehicleMaintenance,
+        xpAward = MetalWelding:30;Tailoring:80,
+
+        inputs
+        {
+            item 4 [Base.MetalBar],
+            item 2 [UO.CarbonMetal],
+            item 4 [Base.RippedSheets],
+            item 8 [Base.LeatherStrips],
+            item 1 [Base.Thread],
+            item 4 [Base.Screws],
+            item 1 tags[Screwdriver] mode:keep,
+            item 1 tags[Scissors] mode:keep,
+            item 1 tags[Hammer] mode:keep,
+            item 1 [Base.Needle;Base.Needle_Bone;Base.Needle_Brass;Base.Needle_Forged;Base.SutureNeedle;Base.Needle_Forged] mode:keep,
+            item 1 tags[uo:handmetalmechanism] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 UO.SpecialSeat,
+        }
+    }
+
+    craftRecipe UO_MakeFrontCarDoor1
+    {
+        timedAction = Making_Surface,
+        time = 300,
+        Tags = InHandCraft,
+        category = VehicleMaintenance,
+        xpAward = MetalWelding:30,
+
+        inputs
+        {
+            item 2 [Base.SheetMetal],
+            item 4 [Base.Screws],
+            item 1 tags[SheetMetalSnips] mode:keep,
+            item 1 [Base.BlowTorch] mode:keep,
+            item 1 tags[Hammer] mode:keep,
+            item 1 tags[uo:handmetalmechanism] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 Base.FrontCarDoor1,
+        }
+    }
+
+    craftRecipe UO_MakeFrontCarDoor2
+    {
+        timedAction = Making_Surface,
+        time = 300,
+        Tags = InHandCraft,
+        category = VehicleMaintenance,
+        xpAward = MetalWelding:30,
+
+        inputs
+        {
+            item 4 [Base.SheetMetal],
+            item 4 [Base.Screws],
+            item 1 tags[SheetMetalSnips] mode:keep,
+            item 1 [Base.BlowTorch] mode:keep,
+            item 1 tags[Hammer] mode:keep,
+            item 1 tags[uo:handmetalmechanism] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 Base.FrontCarDoor2,
+        }
+    }
+
+    craftRecipe UO_MakeFrontCarDoor3
+    {
+        timedAction = Making_Surface,
+        time = 300,
+        Tags = InHandCraft,
+        category = VehicleMaintenance,
+        xpAward = MetalWelding:30,
+
+        inputs
+        {
+            item 3 [Base.SheetMetal],
+            item 4 [Base.Screws],
+            item 1 tags[SheetMetalSnips] mode:keep,
+            item 1 [Base.BlowTorch] mode:keep,
+            item 1 tags[Hammer] mode:keep,
+            item 1 tags[uo:handmetalmechanism] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 Base.FrontCarDoor3,
+        }
+    }
+
+    -----
+    craftRecipe UO_MakeSpecialFrontDoor
+    {
+        timedAction = Welding_Surface,
+        time = 500,
+        Tags = AdvancedForge,
+        category = VehicleMaintenance,
+        xpAward = Blacksmith:50,
+
+        inputs
+        {
+            item 2 [UO.CarbonMetal],
+            item 4 [Base.Screws],
+            item 1 tags[SheetMetalSnips] mode:keep,
+            item 1 tags[Hammer] mode:keep,
+            item 1 tags[MetalworkingPliers] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 UO.SpecialFrontDoor,
+        }
+    }
+
+    craftRecipe UO_MakeRearCarDoor1
+    {
+        timedAction = Making_Surface,
+        time = 300,
+        Tags = InHandCraft,
+        category = VehicleMaintenance,
+        xpAward = MetalWelding:30,
+
+        inputs
+        {
+            item 2 [Base.SheetMetal],
+            item 4 [Base.Screws],
+            item 1 tags[SheetMetalSnips] mode:keep,
+            item 1 [Base.BlowTorch] mode:keep,
+            item 1 tags[Hammer] mode:keep,
+            item 1 tags[uo:handmetalmechanism] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 Base.RearCarDoor1,
+        }
+    }
+
+    craftRecipe UO_MakeRearCarDoor2
+    {
+        timedAction = Making_Surface,
+        time = 300,
+        Tags = InHandCraft,
+        category = VehicleMaintenance,
+        xpAward = MetalWelding:30,
+
+        inputs
+        {
+            item 4 [Base.SheetMetal],
+            item 4 [Base.Screws],
+            item 1 tags[SheetMetalSnips] mode:keep,
+            item 1 [Base.BlowTorch] mode:keep,
+            item 1 tags[Hammer] mode:keep,
+            item 1 tags[uo:handmetalmechanism] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 Base.RearCarDoor2,
+        }
+    }
+
+    craftRecipe UO_MakeRearCarDoor3
+    {
+        timedAction = Making_Surface,
+        time = 300,
+        Tags = InHandCraft,
+        category = VehicleMaintenance,
+        xpAward = MetalWelding:30,
+
+        inputs
+        {
+            item 3 [Base.SheetMetal],
+            item 4 [Base.Screws],
+            item 1 tags[SheetMetalSnips] mode:keep,
+            item 1 [Base.BlowTorch] mode:keep,
+            item 1 tags[Hammer] mode:keep,
+            item 1 tags[uo:handmetalmechanism] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 Base.RearCarDoor3,
+        }
+    }
+
+    -----
+    craftRecipe UO_MakeSpecialRearDoor
+    {
+        timedAction = Welding_Surface,
+        time = 500,
+        Tags = AdvancedForge,
+        category = VehicleMaintenance,
+        xpAward = Blacksmith:50,
+
+        inputs
+        {
+            item 2 [UO.CarbonMetal],
+            item 4 [Base.Screws],
+            item 1 tags[SheetMetalSnips] mode:keep,
+            item 1 tags[Hammer] mode:keep,
+            item 1 tags[MetalworkingPliers] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 UO.SpecialRearDoor,
+        }
+    }
+
+    craftRecipe UO_MakeRearWindshield1
+    {
+        timedAction = Making_Surface,
+        time = 300,
+        Tags = InHandCraft,
+        category = VehicleMaintenance,
+        xpAward = Glassmaking:50,
+
+        inputs
+        {
+            item 3 [Base.GlassPanel],
+            item 1 tags[PipeWrench] mode:keep,
+            item 1 tags[MetalSaw] mode:keep,
+            item 1 tags[SheetMetalSnips] mode:keep,
+            item 1 tags[DrillMetal] mode:keep,
+            item 1 tags[uo:handmetalmechanism] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 Base.RearWindshield1,
+        }
+    }
+
+    craftRecipe UO_MakeRearWindshield2
+    {
+        timedAction = Making_Surface,
+        time = 300,
+        Tags = InHandCraft,
+        category = VehicleMaintenance,
+        xpAward = Glassmaking:50,
+
+        inputs
+        {
+            item 3 [Base.GlassPanel],
+            item 1 tags[PipeWrench] mode:keep,
+            item 1 tags[MetalSaw] mode:keep,
+            item 1 tags[SheetMetalSnips] mode:keep,
+            item 1 tags[DrillMetal] mode:keep,
+            item 1 tags[uo:handmetalmechanism] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 Base.RearWindshield2,
+        }
+    }
+
+    craftRecipe UO_MakeRearWindshield3
+    {
+        timedAction = Making_Surface,
+        time = 300,
+        Tags = InHandCraft,
+        category = VehicleMaintenance,
+        xpAward = Glassmaking:50,
+
+        inputs
+        {
+            item 3 [Base.GlassPanel],
+            item 1 tags[PipeWrench] mode:keep,
+            item 1 tags[MetalSaw] mode:keep,
+            item 1 tags[SheetMetalSnips] mode:keep,
+            item 1 tags[DrillMetal] mode:keep,
+            item 1 tags[uo:handmetalmechanism] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 Base.RearWindshield3,
+        }
+    }
+
+
+    -----
+    craftRecipe UO_MakeSpecialRearWindow
+    {
+        timedAction = Making_Surface,
+        time = 500,
+        Tags = InHandCraft,
+        category = VehicleMaintenance,
+        xpAward = Glassmaking:100,
+
+        inputs
+        {
+            item 6 [Base.GlassPanel],
+            item 1 tags[PipeWrench] mode:keep,
+            item 1 tags[MetalSaw] mode:keep,
+            item 1 tags[SheetMetalSnips] mode:keep,
+            item 1 tags[DrillMetal] mode:keep,
+            item 1 tags[uo:handmetalmechanism] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 UO.SpecialRearWindow,
+        }
+    }
+
+    craftRecipe UO_MakeWindshield1
+    {
+        timedAction = Making_Surface,
+        time = 300,
+        Tags = InHandCraft,
+        category = VehicleMaintenance,
+        xpAward = Glassmaking:50,
+
+        inputs
+        {
+            item 3 [Base.GlassPanel],
+            item 1 tags[PipeWrench] mode:keep,
+            item 1 tags[MetalSaw] mode:keep,
+            item 1 tags[SheetMetalSnips] mode:keep,
+            item 1 tags[DrillMetal] mode:keep,
+            item 1 tags[uo:handmetalmechanism] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 Base.Windshield1,
+        }
+    }
+
+    craftRecipe UO_MakeWindshield2
+    {
+        timedAction = Making_Surface,
+        time = 300,
+        Tags = InHandCraft,
+        category = VehicleMaintenance,
+        xpAward = Glassmaking:50,
+
+        inputs
+        {
+            item 3 [Base.GlassPanel],
+            item 1 tags[PipeWrench] mode:keep,
+            item 1 tags[MetalSaw] mode:keep,
+            item 1 tags[SheetMetalSnips] mode:keep,
+            item 1 tags[DrillMetal] mode:keep,
+            item 1 tags[uo:handmetalmechanism] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 Base.Windshield2,
+        }
+    }
+
+    craftRecipe UO_MakeWindshield3
+    {
+        timedAction = Making_Surface,
+        time = 300,
+        Tags = InHandCraft,
+        category = VehicleMaintenance,
+        xpAward = Glassmaking:50,
+
+        inputs
+        {
+            item 3 [Base.GlassPanel],
+            item 1 tags[PipeWrench] mode:keep,
+            item 1 tags[MetalSaw] mode:keep,
+            item 1 tags[SheetMetalSnips] mode:keep,
+            item 1 tags[DrillMetal] mode:keep,
+            item 1 tags[uo:handmetalmechanism] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 Base.Windshield3,
+        }
+    }
+
+
+    -----
+    craftRecipe UO_MakeSpecialWindshield
+    {
+        timedAction = Making_Surface,
+        time = 500,
+        Tags = InHandCraft,
+        category = VehicleMaintenance,
+        xpAward = Glassmaking:100,
+
+        inputs
+        {
+            item 6 [Base.GlassPanel],
+            item 1 tags[PipeWrench] mode:keep,
+            item 1 tags[MetalSaw] mode:keep,
+            item 1 tags[SheetMetalSnips] mode:keep,
+            item 1 tags[DrillMetal] mode:keep,
+            item 1 tags[uo:handmetalmechanism] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 UO.SpecialWindshield,
+        }
+    }
+
+    craftRecipe UO_MakeFrontWindow1
+    {
+        timedAction = Making_Surface,
+        time = 300,
+        Tags = InHandCraft,
+        category = VehicleMaintenance,
+        xpAward = Glassmaking:30,
+
+        inputs
+        {
+            item 1 [Base.GlassPanel],
+            item 1 tags[MetalSaw] mode:keep,
+            item 1 tags[SheetMetalSnips] mode:keep,
+            item 1 tags[DrillMetal] mode:keep,
+            item 1 tags[uo:handmetalmechanism] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 Base.FrontWindow1,
+        }
+    }
+
+    craftRecipe UO_MakeFrontWindow2
+    {
+        timedAction = Making_Surface,
+        time = 300,
+        Tags = InHandCraft,
+        category = VehicleMaintenance,
+        xpAward = Glassmaking:30,
+
+        inputs
+        {
+            item 1 [Base.GlassPanel],
+            item 1 tags[MetalSaw] mode:keep,
+            item 1 tags[SheetMetalSnips] mode:keep,
+            item 1 tags[DrillMetal] mode:keep,
+            item 1 tags[uo:handmetalmechanism] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 Base.FrontWindow2,
+        }
+    }
+
+    craftRecipe UO_MakeFrontWindow3
+    {
+        timedAction = Making_Surface,
+        time = 300,
+        Tags = InHandCraft,
+        category = VehicleMaintenance,
+        xpAward = Glassmaking:30,
+
+        inputs
+        {
+            item 1 [Base.GlassPanel],
+            item 1 tags[MetalSaw] mode:keep,
+            item 1 tags[SheetMetalSnips] mode:keep,
+            item 1 tags[DrillMetal] mode:keep,
+            item 1 tags[uo:handmetalmechanism] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 Base.FrontWindow3,
+        }
+    }
+
+    craftRecipe UO_MakeRearWindow1
+    {
+        timedAction = Making_Surface,
+        time = 300,
+        Tags = InHandCraft,
+        category = VehicleMaintenance,
+        xpAward = Glassmaking:30,
+
+        inputs
+        {
+            item 1 [Base.GlassPanel],
+            item 1 tags[MetalSaw] mode:keep,
+            item 1 tags[SheetMetalSnips] mode:keep,
+            item 1 tags[DrillMetal] mode:keep,
+            item 1 tags[uo:handmetalmechanism] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 Base.RearWindow1,
+        }
+    }
+
+    craftRecipe UO_MakeRearWindow2
+    {
+        timedAction = Making_Surface,
+        time = 300,
+        Tags = InHandCraft,
+        category = VehicleMaintenance,
+        xpAward = Glassmaking:30,
+
+        inputs
+        {
+            item 1 [Base.GlassPanel],
+            item 1 tags[MetalSaw] mode:keep,
+            item 1 tags[SheetMetalSnips] mode:keep,
+            item 1 tags[DrillMetal] mode:keep,
+            item 1 tags[uo:handmetalmechanism] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 Base.RearWindow2,
+        }
+    }
+
+    craftRecipe UO_MakeRearWindow3
+    {
+        timedAction = Making_Surface,
+        time = 300,
+        Tags = InHandCraft,
+        category = VehicleMaintenance,
+        xpAward = Glassmaking:30,
+
+        inputs
+        {
+            item 1 [Base.GlassPanel],
+            item 1 tags[MetalSaw] mode:keep,
+            item 1 tags[SheetMetalSnips] mode:keep,
+            item 1 tags[DrillMetal] mode:keep,
+            item 1 tags[uo:handmetalmechanism] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 Base.RearWindow3,
+        }
+    }
+
+    -----
+    craftRecipe UO_MakeSpecialWindow
+    {
+        timedAction = Making_Surface,
+        time = 500,
+        Tags = InHandCraft,
+        category = VehicleMaintenance,
+        xpAward = Glassmaking:50,
+
+        inputs
+        {
+            item 4 [Base.GlassPanel],
+            item 2 [UO.CarbonMetal],
+            item 4 [Base.Screws],
+            item 1 tags[MetalSaw] mode:keep,
+            item 1 tags[SheetMetalSnips] mode:keep,
+            item 1 tags[DrillMetal] mode:keep,
+            item 1 tags[uo:handmetalmechanism] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 UO.SpecialWindow,
+        }
+    }
+
+    craftRecipe UO_MakeSmallGasTank1
+    {
+        timedAction = Making_Surface,
+        time = 150,
+        Tags = InHandCraft,
+        category = VehicleMaintenance,
+        xpAward = MetalWelding:15,
+
+        inputs
+        {
+            item 3 [Base.SheetMetal],
+            item 3 [Base.TirePiece],
+            item 4 [Base.Screws],
+            item 1 tags[SheetMetalSnips] mode:keep,
+            item 1 [Base.BlowTorch] mode:keep,
+            item 1 tags[PipeWrench] mode:keep,
+            item 1 tags[Hammer] mode:keep,
+            item 1 tags[uo:handmetalmechanism] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 Base.SmallGasTank1,
+        }
+    }
+
+    craftRecipe UO_MakeSmallGasTank2
+    {
+        timedAction = Making_Surface,
+        time = 150,
+        Tags = InHandCraft,
+        category = VehicleMaintenance,
+        xpAward = MetalWelding:15,
+
+        inputs
+        {
+            item 3 [Base.SheetMetal],
+            item 3 [Base.TirePiece],
+            item 4 [Base.Screws],
+            item 1 tags[SheetMetalSnips] mode:keep,
+            item 1 [Base.BlowTorch] mode:keep,
+            item 1 tags[PipeWrench] mode:keep,
+            item 1 tags[Hammer] mode:keep,
+            item 1 tags[uo:handmetalmechanism] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 Base.SmallGasTank2,
+        }
+    }
+
+    craftRecipe UO_MakeSmallGasTank3
+    {
+        timedAction = Making_Surface,
+        time = 150,
+        Tags = InHandCraft,
+        category = VehicleMaintenance,
+        xpAward = MetalWelding:15,
+
+        inputs
+        {
+            item 3 [Base.SheetMetal],
+            item 3 [Base.TirePiece],
+            item 4 [Base.Screws],
+            item 1 tags[SheetMetalSnips] mode:keep,
+            item 1 [Base.BlowTorch] mode:keep,
+            item 1 tags[PipeWrench] mode:keep,
+            item 1 tags[Hammer] mode:keep,
+            item 1 tags[uo:handmetalmechanism] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 Base.SmallGasTank3,
+        }
+    }
+
+    craftRecipe UO_MakeNormalGasTank1
+    {
+        timedAction = Making_Surface,
+        time = 300,
+        Tags = InHandCraft,
+        category = VehicleMaintenance,
+        xpAward = MetalWelding:30,
+
+        inputs
+        {
+            item 6 [Base.SheetMetal],
+            item 4 [Base.TirePiece],
+            item 4 [Base.Screws],
+            item 1 tags[SheetMetalSnips] mode:keep,
+            item 1 [Base.BlowTorch] mode:keep,
+            item 1 tags[PipeWrench] mode:keep,
+            item 1 tags[Hammer] mode:keep,
+            item 1 tags[uo:handmetalmechanism] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 Base.NormalGasTank1,
+        }
+    }
+
+    craftRecipe UO_MakeNormalGasTank2
+    {
+        timedAction = Making_Surface,
+        time = 300,
+        Tags = InHandCraft,
+        category = VehicleMaintenance,
+        xpAward = MetalWelding:30,
+
+        inputs
+        {
+            item 6 [Base.SheetMetal],
+            item 4 [Base.TirePiece],
+            item 4 [Base.Screws],
+            item 1 tags[SheetMetalSnips] mode:keep,
+            item 1 [Base.BlowTorch] mode:keep,
+            item 1 tags[PipeWrench] mode:keep,
+            item 1 tags[Hammer] mode:keep,
+            item 1 tags[uo:handmetalmechanism] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 Base.NormalGasTank2,
+        }
+    }
+
+    craftRecipe UO_MakeNormalGasTank3
+    {
+        timedAction = Making_Surface,
+        time = 300,
+        Tags = InHandCraft,
+        category = VehicleMaintenance,
+        xpAward = MetalWelding:30,
+
+        inputs
+        {
+            item 6 [Base.SheetMetal],
+            item 4 [Base.TirePiece],
+            item 4 [Base.Screws],
+            item 1 tags[SheetMetalSnips] mode:keep,
+            item 1 [Base.BlowTorch] mode:keep,
+            item 1 tags[PipeWrench] mode:keep,
+            item 1 tags[Hammer] mode:keep,
+            item 1 tags[uo:handmetalmechanism] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 Base.NormalGasTank3,
+        }
+    }
+
+    craftRecipe UO_MakeBigGasTank1
+    {
+        timedAction = Making_Surface,
+        time = 500,
+        Tags = InHandCraft,
+        category = VehicleMaintenance,
+        xpAward = MetalWelding:45,
+
+        inputs
+        {
+            item 9 [Base.SheetMetal],
+            item 6 [Base.TirePiece],
+            item 6 [Base.Screws],
+            item 1 tags[SheetMetalSnips] mode:keep,
+            item 1 [Base.BlowTorch] mode:keep,
+            item 1 tags[PipeWrench] mode:keep,
+            item 1 tags[Hammer] mode:keep,
+            item 1 tags[uo:handmetalmechanism] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 Base.BigGasTank1,
+        }
+    }
+
+    craftRecipe UO_MakeBigGasTank2
+    {
+        timedAction = Making_Surface,
+        time = 500,
+        Tags = InHandCraft,
+        category = VehicleMaintenance,
+        xpAward = MetalWelding:45,
+
+        inputs
+        {
+            item 9 [Base.SheetMetal],
+            item 6 [Base.TirePiece],
+            item 6 [Base.Screws],
+            item 1 tags[SheetMetalSnips] mode:keep,
+            item 1 [Base.BlowTorch] mode:keep,
+            item 1 tags[PipeWrench] mode:keep,
+            item 1 tags[Hammer] mode:keep,
+            item 1 tags[uo:handmetalmechanism] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 Base.BigGasTank2,
+        }
+    }
+
+    craftRecipe UO_MakeBigGasTank3
+    {
+        timedAction = Making_Surface,
+        time = 500,
+        Tags = InHandCraft,
+        category = VehicleMaintenance,
+        xpAward = MetalWelding:45,
+
+        inputs
+        {
+            item 9 [Base.SheetMetal],
+            item 6 [Base.TirePiece],
+            item 6 [Base.Screws],
+            item 1 tags[SheetMetalSnips] mode:keep,
+            item 1 [Base.BlowTorch] mode:keep,
+            item 1 tags[PipeWrench] mode:keep,
+            item 1 tags[Hammer] mode:keep,
+            item 1 tags[uo:handmetalmechanism] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 Base.BigGasTank3,
+        }
+    }
+
+    -----
+    craftRecipe UO_MakeSpecialFuelTank
+    {
+        timedAction = Welding_Surface,
+        time = 500,
+        Tags = AdvancedForge,
+        category = VehicleMaintenance,
+        xpAward = Blacksmith:50,
+
+        inputs
+        {
+            item 3 [UO.CarbonMetal],
+            item 4 [Base.TirePiece],
+            item 4 [Base.Screws],
+            item 1 tags[SheetMetalSnips] mode:keep,
+            item 1 tags[PipeWrench] mode:keep,
+            item 1 tags[Hammer] mode:keep,
+            item 1 tags[MetalworkingPliers] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 UO.SpecialFuelTank,
+        }
+    }
+}

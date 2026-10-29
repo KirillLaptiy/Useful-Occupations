@@ -172,7 +172,7 @@ module UO {
         DisplayCategory = Container,
         ItemType = base:container,
         Weight = 0.45,
-        Capacity = 10,
+        Capacity = 5,
         Icon = MREBag10,
         Count = 1,
         Tags = uo:mrebag,
@@ -185,9 +185,9 @@ module UO {
     {
         DisplayCategory = Container,
         ItemType = base:container,
-        Weight = 0.45,
-        Capacity = 25,
-        Icon = MREBag25,
+        Weight = 1,
+        Capacity = 10,
+        Icon = MREBag10,
         Count = 1,
         Tags = uo:mrebag,
         WorldStaticModel = MREBag25,
@@ -199,9 +199,9 @@ module UO {
     {
         DisplayCategory = Container,
         ItemType = base:container,
-        Weight = 0.45,
-        Capacity = 50,
-        Icon = MREBag50,
+        Weight = 1.5,
+        Capacity = 20,
+        Icon = MREBag10,
         Count = 1,
         Tags = uo:mrebag,
         WorldStaticModel = MREBag50,
@@ -213,9 +213,9 @@ module UO {
     {
         DisplayCategory = Container,
         ItemType = base:container,
-        Weight = 0.45,
-        Capacity = 100,
-        Icon = MREBag100,
+        Weight = 2,
+        Capacity = 50,
+        Icon = MREBag10,
         Count = 1,
         Tags = uo:mrebag,
         WorldStaticModel = MREBag100,
@@ -223,14 +223,50 @@ module UO {
         AcceptItemFunction = UORECIPES.UO_MRE_AcceptItem,
     }
 
-    item MREKit
+    item MREKit10
     {
         DisplayCategory = Container,
         ItemType = base:normal,
         Weight = 0.45,
-        Icon = MREKit,
+        Icon = MREKit10,
         Count = 1,
-        WorldStaticModel = MREKit,
+        WorldStaticModel = MREKit10,
+        Tooltip = Tooltip_item_mrekit,
+        Tags = uo:mrekit,
+    }
+
+    item MREKit25
+    {
+        DisplayCategory = Container,
+        ItemType = base:normal,
+        Weight = 1,
+        Icon = MREKit25,
+        Count = 1,
+        WorldStaticModel = MREKit25,
+        Tooltip = Tooltip_item_mrekit,
+        Tags = uo:mrekit,
+    }
+
+    item MREKit50
+    {
+        DisplayCategory = Container,
+        ItemType = base:normal,
+        Weight = 1.5,
+        Icon = MREKit50,
+        Count = 1,
+        WorldStaticModel = MREKit50,
+        Tooltip = Tooltip_item_mrekit,
+        Tags = uo:mrekit,
+    }
+
+    item MREKit100
+    {
+        DisplayCategory = Container,
+        ItemType = base:normal,
+        Weight = 2,
+        Icon = MREKit100,
+        Count = 1,
+        WorldStaticModel = MREKit100,
         Tooltip = Tooltip_item_mrekit,
         Tags = uo:mrekit,
     }

@@ -1,0 +1,12 @@
+{
+    "ContextMenu_Lockpicking": "Взлом замков",
+    "ContextMenu_PickLock": "Вскрыть замок",
+    "ContextMenu_Relock": "Запереть обратно",
+    "ContextMenu_Need_Lockpick": "Нужна отмычка",
+    "ContextMenu_Need_Close_Window": "Нужно закрыть окно",
+    "ContextMenu_AlarmControl": "Управление сигнализацией",
+    "ContextMenu_DisableAlarm": "Отключить сигнализацию",
+    "ContextMenu_EnableAlarm": "Включить сигнализацию",
+    "ContextMenu_Need_AlarmController": "Нужен контроллер сигнализации",
+    "ContextMenu_CheckAlarm": "Проверить сигнализацию"
+}

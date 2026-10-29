@@ -1235,15 +1235,15 @@ module UO {
     craftRecipe UO_MakeMREBag10
     {
         timedAction = Making_Surface,
-        time = 300,
+        time = 60,
         Tags = InHandCraft,
         category = Tools,
 
         inputs
         {
-            item 6 [UO.Plastic],
-            item 4 [Base.RippedSheets;2:Base.LeatherStrips],
-            item 2 [UO.Resin;Base.Glue],
+            item 2 [UO.Plastic],
+            item 2 [Base.RippedSheets;2:Base.LeatherStrips],
+            item 1 [UO.Resin;Base.Glue],
             item 1 [Base.SmallSheetMetal],
             item 1 tags[Hammer] mode:keep,
             item 1 tags[Pliers] mode:keep,
@@ -1260,17 +1260,16 @@ module UO {
     craftRecipe UO_MakeMREBag25
     {
         timedAction = Making_Surface,
-        time = 600,
+        time = 120,
         Tags = InHandCraft,
         category = Tools,
 
         inputs
         {
-            item 15 [UO.Plastic],
-            item 10 [Base.RippedSheets;2:Base.LeatherStrips],
-            item 5 [UO.Resin;Base.Glue],
-            item 2 [Base.SmallSheetMetal],
-            item 1 [Base.MetalBar],
+            item 4 [UO.Plastic],
+            item 3 [Base.RippedSheets;2:Base.LeatherStrips],
+            item 2 [UO.Resin;Base.Glue],
+            item 1 [Base.SmallSheetMetal],
             item 1 tags[Hammer] mode:keep,
             item 1 tags[Pliers] mode:keep,
             item 1 tags[SharpKnife] mode:keep,
@@ -1286,18 +1285,17 @@ module UO {
     craftRecipe UO_MakeMREBag50
     {
         timedAction = Making_Surface,
-        time = 900,
+        time = 240,
         Tags = InHandCraft,
         category = Tools,
 
         inputs
         {
-            item 30 [UO.Plastic],
-            item 20 [Base.RippedSheets;2:Base.LeatherStrips],
-            item 10 [UO.Resin;Base.Glue],
-            item 4 [Base.SmallSheetMetal],
-            item 2 [Base.MetalBar],
-            item 1 [Base.MetalPipe],
+            item 8 [UO.Plastic],
+            item 6 [Base.RippedSheets;2:Base.LeatherStrips],
+            item 3 [UO.Resin;Base.Glue],
+            item 2 [Base.SmallSheetMetal],
+            item 1 [Base.MetalBar],
             item 1 tags[Hammer] mode:keep,
             item 1 tags[Pliers] mode:keep,
             item 1 tags[SharpKnife] mode:keep,
@@ -1313,18 +1311,18 @@ module UO {
     craftRecipe UO_MakeMREBag100
     {
         timedAction = Making_Surface,
-        time = 1200,
+        time = 480,
         Tags = InHandCraft,
         category = Tools,
 
         inputs
         {
-            item 40 [UO.Plastic],
-            item 4 [UO.CarbonMesh],
-            item 8 [UO.CarbonFiber],
-            item 30 [Base.RippedSheets;2:Base.LeatherStrips],
-            item 15 [UO.Resin;Base.Glue],
-            item 2 [Base.MetalPipe],
+            item 12 [UO.Plastic],
+            item 2 [UO.CarbonMesh],
+            item 8 [Base.RippedSheets;2:Base.LeatherStrips],
+            item 4 [UO.Resin;Base.Glue],
+            item 2 [Base.SmallSheetMetal],
+            item 1 [Base.MetalPipe],
             item 1 tags[Hammer] mode:keep,
             item 1 tags[Pliers] mode:keep,
             item 1 tags[SharpKnife] mode:keep,

@@ -94,19 +94,4 @@
 		<m_blendInTime>0.35</m_blendInTime>
 		<m_blendOutTime>0.35</m_blendOutTime>
 	</m_Transitions>
-	<m_Transitions>
-		<m_Target>sneakWalkLoud</m_Target>
-		<m_blendInTime>0.3</m_blendInTime>
-		<m_blendOutTime>0.3</m_blendOutTime>
-		<m_Conditions x_name="dd4b54b3-fa57-4397-8e34-74282bca54fa">
-			<m_Name>isTurningAround</m_Name>
-			<m_Type>BOOL</m_Type>
-			<m_Value>false</m_Value>
-		</m_Conditions>
-	</m_Transitions>
-	<m_Transitions>
-		<m_Target>sneakRunLoud</m_Target>
-		<m_AnimName>Bob_SneakToSneakRun</m_AnimName>
-		<m_blendInTime>0.1</m_blendInTime>
-	</m_Transitions>
 </animNode>

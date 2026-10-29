@@ -653,30 +653,51 @@ module UO
 
 	model MREBag25
 	{
-		mesh = UO/MREBag25,
-		scale = 2,
-		texture = UO/UV/MREBag25,
+		mesh = UO/MREBag10,
+		scale = 2.5,
+		texture = UO/UV/MREBag10,
 	}
 
 	model MREBag50
 	{
-		mesh = UO/MREBag50,
-		scale = 2,
-		texture = UO/UV/MREBag50,
+		mesh = UO/MREBag10,
+		scale = 3,
+		texture = UO/UV/MREBag10,
 	}
 
 	model MREBag100
 	{
-		mesh = UO/MREBag100,
-		scale = 2,
-		texture = UO/UV/MREBag100,
+		mesh = UO/MREBag10,
+		scale = 3.5,
+		texture = UO/UV/MREBag10,
 	}
 
-	model MREKit
+	model MREKit10
 	{
 		mesh = UO/MREKit,
 		scale = 2,
-		texture = UO/UV/MREKit,
+		texture = UO/UV/MREKit10,
+	}
+
+	model MREKit25
+	{
+		mesh = UO/MREKit,
+		scale = 2.5,
+		texture = UO/UV/MREKit25,
+	}
+
+	model MREKit50
+	{
+		mesh = UO/MREKit,
+		scale = 3,
+		texture = UO/UV/MREKit50,
+	}
+
+	model MREKit100
+	{
+		mesh = UO/MREKit,
+		scale = 3.5,
+		texture = UO/UV/MREKit100,
 	}
 
 	model MixingKit

@@ -191,3 +191,4 @@ Events.OnGameBoot.Add(function()
 	-- Reduce timed actions time
 	reduceActionsTimeByTraits()
 end)
+

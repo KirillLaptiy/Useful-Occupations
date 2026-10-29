@@ -1,0 +1,793 @@
+module UO
+{
+	model EngineSpecialParts
+	{
+		mesh = UO/EngineSpecialParts,
+		scale = 1.0,
+		texture = UO/UV/EngineSpecialParts,
+	}
+
+	model CarBattery
+	{
+		mesh = UO/CarBattery,
+		scale = 1.25,
+		texture = UO/UV/CarBattery,
+	}
+
+	model Muffler
+	{
+		mesh = UO/Muffler,
+		scale = 1.25,
+		texture = UO/UV/Muffler,
+	}
+
+	model Suspension
+	{
+		mesh = UO/Suspension,
+		scale = 1.25,
+		texture = UO/UV/Suspension,
+	}
+
+	model SpecialBrake
+	{
+		mesh = UO/SpecialBrake,
+		scale = 1.25,
+		texture = UO/UV/SpecialBrake,
+	}
+
+	model CarHood
+	{
+		mesh = UO/CarHood,
+		scale = 1.0,
+		texture = UO/UV/CarHood,
+	}
+
+	model CarWindShield
+	{
+		mesh = UO/CarWindShield,
+		scale = 1.15,
+		texture = UO/UV/CarWindShield,
+	}
+
+	model GasTank
+	{
+		mesh = UO/GasTank,
+		scale = 1.15,
+		texture = UO/UV/GasTank,
+	}
+
+	model CarDoor
+	{
+		mesh = UO/CarDoor,
+		scale = 1.0,
+		texture = UO/UV/CarDoor,
+	}
+
+	model SpecialSeat
+	{
+		mesh = UO/SpecialSeat,
+		scale = 1.55,
+		texture = UO/UV/SpecialSeat,
+	}
+
+	model SpecialTire
+	{
+		mesh = UO/SpecialTire,
+		scale = 1.85,
+		texture = UO/UV/SpecialTire,
+	}
+
+	model MetalPiece
+	{
+		mesh = UO/MetalPiece,
+		scale = 1.0,
+		texture = UO/UV/MetalPiece,
+	}
+
+	model WeakLockpick
+	{
+		mesh = UO/WeakLockpick,
+		scale = 2.0,
+		texture = UO/UV/WeakLockpick,
+	}
+
+	model Lockpick
+	{
+		mesh = UO/Lockpick,
+		scale = 1.25,
+		texture = UO/UV/Lockpick,
+	}
+
+	model StrongLockpick
+	{
+		mesh = UO/StrongLockpick,
+		scale = 1.35,
+		texture = UO/UV/StrongLockpick,
+	}
+
+	model AmmoMaterial
+	{
+		mesh = UO/AmmoMaterial,
+		scale = 1.35,
+		texture = UO/UV/AmmoMaterial,
+	}
+
+	model Plastic
+	{
+		mesh = UO/Plastic,
+		scale = 2.0,
+		texture = UO/UV/Plastic,
+	}
+
+	model GunParts
+	{
+		mesh = UO/GunParts,
+		scale = 4.0,
+		texture = UO/UV/GunParts,
+	}
+
+	model GunPartsCarbon
+	{
+		mesh = UO/GunParts,
+		scale = 4.0,
+		texture = UO/UV/GunPartsCarbon,
+	}
+
+	model UO_Charcoal
+	{
+		mesh = UO/UO_Charcoal,
+		scale = 3.0,
+		texture = UO/UV/UO_Charcoal,
+	}
+
+	model OxidizerRawPot
+	{
+		mesh = UO/Pot,
+		scale = 0.4,
+		texture = UO/UV/OxidizerRawPot,
+	}
+
+	model OxidizerPot
+	{
+		mesh = UO/Pot,
+		scale = 0.4,
+		texture = UO/UV/OxidizerPot,
+	}
+
+	model Oxidizer
+	{
+		mesh = UO/Oxidizer,
+		scale = 3,
+		texture = UO/UV/Oxidizer,
+	}
+
+	model PrimerCap
+	{
+		mesh = UO/PrimerCap,
+		scale = 0.7,
+		texture = UO/UV/PrimerCap,
+	}
+
+	model HomemadePowder
+	{
+		mesh = UO/HomemadePowder,
+		scale = 1.5,
+		texture = UO/UV/HomemadePowder,
+	}
+
+	model Bark
+	{
+		mesh = UO/Bark,
+		scale = 3,
+		texture = UO/UV/Bark,
+	}
+
+	model Resin
+	{
+		mesh = UO/Resin,
+		scale = 1.5,
+		texture = UO/UV/Resin,
+	}
+
+	model UO_Alcohol
+	{
+		mesh = UO/UO_Alcohol,
+		scale = 1.5,
+		texture = UO/UV/UO_Alcohol,
+	}
+
+	model UO_PureAlcohol
+	{
+		mesh = UO/UO_PureAlcohol,
+		scale = 1.2,
+		texture = UO/UV/UO_PureAlcohol,
+	}
+
+	model SawBlade
+	{
+		mesh = UO/SawBlade,
+		scale = 1.3,
+		texture = UO/UV/SawBlade,
+	}
+
+	model MetalPin
+	{
+		mesh = UO/MetalPin,
+		scale = 1,
+		texture = UO/UV/MetalPin,
+	}
+
+	model Moonshine
+	{
+		mesh = UO/Moonshine,
+		scale = 1.2,
+		texture = UO/UV/Moonshine,
+	}
+
+	model ScrewdriverTip
+	{
+		mesh = UO/ScrewdriverTip,
+		scale = 1.2,
+		texture = UO/UV/ScrewdriverTip,
+	}
+
+	model CarbonMetal
+	{
+		mesh = UO/CarbonMetal,
+		scale = 3,
+		texture = UO/UV/CarbonMetal,
+	}
+
+	model CarbonMesh
+	{
+		mesh = UO/CarbonMesh,
+		scale = 3,
+		texture = UO/UV/CarbonMesh,
+	}
+
+	model CarbonFiber
+	{
+		mesh = UO/CarbonFiber,
+		scale = 2.5,
+		texture = UO/UV/CarbonFiber,
+	}
+
+	model CarbonDoorPlate
+	{
+		mesh = UO/CarbonDoorPlate,
+		scale = 7,
+		texture = UO/UV/CarbonDoorPlate,
+	}
+
+	model CarbonGrate
+	{
+		mesh = UO/CarbonGrate,
+		scale = 5,
+		texture = UO/UV/CarbonGrate,
+	}
+
+	model StoneBlankSaw
+	{
+		mesh = UO/StoneBlankSaw,
+		scale = 2.5,
+		texture = UO/UV/StoneBlankSaw,
+	}
+
+	model StoneBlankScrewdriver
+	{
+		mesh = UO/StoneBlankScrewdriver,
+		scale = 2,
+		texture = UO/UV/StoneBlankScrewdriver,
+	}
+
+	model StoneBlankPin
+	{
+		mesh = UO/StoneBlankPin,
+		scale = 1,
+		texture = UO/UV/StoneBlankPin,
+	}
+
+	model Pliers
+	{
+		mesh = UO/UO_Pliers,
+		scale = 1,
+		texture = UO/UV/UO_Pliers,
+	}
+
+	model Chisel
+	{
+		mesh = UO/Chisel,
+		scale = 2,
+		texture = UO/UV/Chisel,
+	}
+
+	model UO_FlintLighter
+	{
+		mesh = UO/UO_FlintLighter,
+		scale = 1.7,
+		texture = UO/UV/UO_FlintLighter,
+	}
+
+	model Syringe
+	{
+		mesh = UO/Syringe,
+		scale = 1.4,
+		texture = UO/UV/Syringe,
+	}
+
+	model AlarmController
+	{
+		mesh = UO/AlarmController,
+		scale = 1.5,
+		texture = UO/UV/AlarmController,
+	}
+
+	model KnifeBlade
+	{
+		mesh = UO/KnifeBlade,
+		scale = 2,
+		texture = UO/UV/KnifeBlade,
+	}
+
+	model AxeBlade
+	{
+		mesh = UO/AxeBlade,
+		scale = 1.9,
+		texture = UO/UV/AxeBlade,
+	}
+
+	model Caliper
+	{
+		mesh = UO/Caliper,
+		scale = 1.9,
+		texture = UO/UV/Caliper,
+	}
+
+	model BoreGauge
+	{
+		mesh = UO/BoreGauge,
+		scale = 1.9,
+		texture = UO/UV/BoreGauge,
+	}
+
+	model MetalShears
+	{
+		mesh = UO/MetalShears,
+		scale = 3.2,
+		texture = UO/UV/MetalShears,
+	}
+
+	model HandDrill
+	{
+		mesh = UO/HandDrill,
+		scale = 4,
+		texture = UO/UV/HandDrill,
+	}
+
+	model UO_Flint
+	{
+		mesh = UO/UO_Flint,
+		scale = 0.5,
+		texture = UO/UV/UO_Flint,
+	}
+
+	model SolderingIron
+	{
+		mesh = UO/SolderingIron,
+		scale = 1.2,
+		texture = UO/UV/SolderingIron,
+	}
+
+	model StoneDust
+	{
+		mesh = UO/StoneDust,
+		scale = 1.2,
+		texture = UO/UV/StoneDust,
+	}
+
+	model WoodMold
+	{
+		mesh = UO/Mold,
+		scale = 1.2,
+		texture = UO/UV/WoodMold,
+	}
+
+	model ResinMoldRaw
+	{
+		mesh = UO/Mold,
+		scale = 1.2,
+		texture = UO/UV/ResinMoldRaw,
+	}
+
+	model ResinMoldDry
+	{
+		mesh = UO/Mold,
+		scale = 1.2,
+		texture = UO/UV/ResinMoldDry,
+	}
+
+	model ResinMold
+	{
+		mesh = UO/Mold,
+		scale = 1.2,
+		texture = UO/UV/ResinMold,
+	}
+
+	model ClayMoldRaw
+	{
+		mesh = UO/Mold,
+		scale = 1.2,
+		texture = UO/UV/ClayMoldRaw,
+	}
+
+	model ClayMoldDry
+	{
+		mesh = UO/Mold,
+		scale = 1.2,
+		texture = UO/UV/ClayMoldDry,
+	}
+
+	model ClayMold
+	{
+		mesh = UO/Mold,
+		scale = 1.2,
+		texture = UO/UV/ClayMold,
+	}
+
+	model CementMoldRaw
+	{
+		mesh = UO/Mold,
+		scale = 1.2,
+		texture = UO/UV/CementMoldRaw,
+	}
+
+	model CementMoldDry
+	{
+		mesh = UO/Mold,
+		scale = 1.2,
+		texture = UO/UV/CementMoldDry,
+	}
+
+	model CementMold
+	{
+		mesh = UO/Mold,
+		scale = 1.2,
+		texture = UO/UV/CementMold,
+	}
+
+	model SmallTip
+	{
+		mesh = UO/SmallTip,
+		scale = 1.3,
+		texture = UO/UV/Tip,
+	}
+
+	model LargeTip
+	{
+		mesh = UO/LargeTip,
+		scale = 0.8,
+		texture = UO/UV/Tip,
+	}
+
+	model ClothArmorPlate
+	{
+		mesh = UO/ClothPlate,
+		scale = 0.6,
+		texture = UO/UV/ClothArmorPlate,
+	}
+
+	model MetalArmorPlate
+	{
+		mesh = UO/ClothPlate,
+		scale = 0.6,
+		texture = UO/UV/MetalArmorPlate,
+	}
+
+	model CarbonArmorPlate
+	{
+		mesh = UO/ClothPlate,
+		scale = 0.6,
+		texture = UO/UV/CarbonArmorPlate,
+	}
+
+	model MechanismBase
+	{
+		mesh = UO/MechanismBase,
+		scale = 1.2,
+		texture = UO/UV/MParts,
+	}
+
+	model MechanismHandle
+	{
+		mesh = UO/MechanismHandle,
+		scale = 1,
+		texture = UO/UV/MParts,
+	}
+
+	model MechanismClamp
+	{
+		mesh = UO/MechanismClamp,
+		scale = 2,
+		texture = UO/UV/MParts,
+	}
+
+	model HacksawBlade
+	{
+		mesh = UO/HacksawBlade,
+		scale = 0.5,
+		texture = UO/UV/MParts,
+	}
+
+	model GearMechanism
+	{
+		mesh = UO/GearMechanism,
+		scale = 1,
+		texture = UO/UV/MParts,
+	}
+
+	model WorkpieceFixator
+	{
+		mesh = UO/WorkpieceFixator,
+		scale = 1,
+		texture = UO/UV/MParts,
+	}
+
+	model RotationAxis
+	{
+		mesh = UO/RotationAxis,
+		scale = 2,
+		texture = UO/UV/RotationAxis,
+	}
+
+	model HandMetalMechanism
+	{
+		mesh = UO/HandMetalMechanism,
+		scale = 1.2,
+		texture = UO/UV/HandMetalMechanism,
+	}
+
+	model StimulantDrops
+	{
+		mesh = UO/StimulantDrops,
+		scale = 0.3,
+		texture = UO/UV/StimulantDrops,
+	}
+
+	model StimulantDropsPlus
+	{
+		mesh = UO/StimulantDrops,
+		scale = 0.3,
+		texture = UO/UV/StimulantDropsPlus,
+	}
+
+	model EnergyDrink
+	{
+		mesh = UO/EnergyDrink,
+		scale = 1.7,
+		texture = UO/UV/EnergyDrink,
+	}
+
+	model StimulantGel
+	{
+		mesh = UO/StimulantGel,
+		scale = 0.8,
+		texture = UO/UV/StimulantGel,
+	}
+
+	model HerbalTea
+	{
+		mesh = UO/HerbalTea,
+		scale = 1.3,
+		texture = UO/UV/HerbalTea,
+	}
+
+	model Magazine_StrongLockpicks
+	{
+		mesh = UO/Magazine_StrongLockpicks,
+		scale = 2.8,
+		texture = UO/UV/Magazine_StrongLockpicks,
+	}
+
+	model EMPGrenade
+	{
+		mesh = UO/EMPGrenade,
+		scale = 0.8,
+		texture = UO/UV/EMPGrenade,
+	}
+
+	model MetalSheetResinRaw
+	{
+		mesh = UO/MetalSheetMold,
+		scale = 1.2,
+		texture = UO/UV/MetalSheetResinRaw,
+	}
+
+	model MetalSheetClayRaw
+	{
+		mesh = UO/MetalSheetMold,
+		scale = 1.2,
+		texture = UO/UV/MetalSheetClayRaw,
+	}
+
+	model MetalSheetCementRaw
+	{
+		mesh = UO/MetalSheetMold,
+		scale = 1.2,
+		texture = UO/UV/MetalSheetCementRaw,
+	}
+
+	model MetalSheetResin
+	{
+		mesh = UO/MetalSheetMold,
+		scale = 1.2,
+		texture = UO/UV/MetalSheetResin,
+	}
+
+	model MetalSheetClay
+	{
+		mesh = UO/MetalSheetMold,
+		scale = 1.2,
+		texture = UO/UV/MetalSheetClay,
+	}
+
+	model MetalSheetCement
+	{
+		mesh = UO/MetalSheetMold,
+		scale = 1.2,
+		texture = UO/UV/MetalSheetCement,
+	}
+
+	model VacuumSealer
+	{
+		mesh = UO/VacuumSealer,
+		scale = 1,
+		texture = UO/UV/VacuumSealer,
+	}
+
+	model MREBag10
+	{
+		mesh = UO/MREBag10,
+		scale = 2,
+		texture = UO/UV/MREBag10,
+	}
+
+	model MREBag25
+	{
+		mesh = UO/MREBag10,
+		scale = 2.5,
+		texture = UO/UV/MREBag10,
+	}
+
+	model MREBag50
+	{
+		mesh = UO/MREBag10,
+		scale = 3,
+		texture = UO/UV/MREBag10,
+	}
+
+	model MREBag100
+	{
+		mesh = UO/MREBag10,
+		scale = 3.5,
+		texture = UO/UV/MREBag10,
+	}
+
+	model MREKit10
+	{
+		mesh = UO/MREKit,
+		scale = 2,
+		texture = UO/UV/MREKit10,
+	}
+
+	model MREKit25
+	{
+		mesh = UO/MREKit,
+		scale = 2.5,
+		texture = UO/UV/MREKit25,
+	}
+
+	model MREKit50
+	{
+		mesh = UO/MREKit,
+		scale = 3,
+		texture = UO/UV/MREKit50,
+	}
+
+	model MREKit100
+	{
+		mesh = UO/MREKit,
+		scale = 3.5,
+		texture = UO/UV/MREKit100,
+	}
+
+	model MixingKit
+	{
+		mesh = UO/MixingKit,
+		scale = 1.5,
+		texture = UO/UV/MixingKit,
+	}
+
+	model ScrewdriverTipInStoneRaw
+	{
+		mesh = UO/ScrewdriverTipInStone,
+		scale = 2,
+		texture = UO/UV/ScrewdriverTipInStoneRaw,
+	}
+
+	model ScrewdriverTipInStone
+	{
+		mesh = UO/ScrewdriverTipInStone,
+		scale = 2,
+		texture = UO/UV/ScrewdriverTipInStone,
+	}
+
+	model MetalPinInStoneRaw
+	{
+		mesh = UO/MetalPinInStone,
+		scale = 1,
+		texture = UO/UV/MetalPinInStoneRaw,
+	}
+
+	model MetalPinInStone
+	{
+		mesh = UO/MetalPinInStone,
+		scale = 1,
+		texture = UO/UV/MetalPinInStone,
+	}
+
+	model SawBladeInStoneRaw
+	{
+		mesh = UO/SawBladeInStone,
+		scale = 2.5,
+		texture = UO/UV/SawBladeInStoneRaw,
+	}
+
+	model SawBladeInStone
+	{
+		mesh = UO/SawBladeInStone,
+		scale = 2.5,
+		texture = UO/UV/SawBladeInStone,
+	}
+
+	model FiberMaterialPot
+	{
+		mesh = UO/Pot,
+		scale = 0.4,
+		texture = UO/UV/FiberMaterialPot,
+	}
+
+	model CarbonFiberPot
+	{
+		mesh = UO/Pot,
+		scale = 0.4,
+		texture = UO/UV/CarbonFiberPot,
+	}
+
+	model BarkPot
+	{
+		mesh = UO/Pot,
+		scale = 0.4,
+		texture = UO/UV/BarkPot,
+	}
+
+	model ResinPot
+	{
+		mesh = UO/Pot,
+		scale = 0.4,
+		texture = UO/UV/ResinPot,
+	}
+
+	model LogPot
+	{
+		mesh = UO/Pot,
+		scale = 0.4,
+		texture = UO/UV/LogPot,
+	}
+
+	model CharcoalPot
+	{
+		mesh = UO/Pot,
+		scale = 0.4,
+		texture = UO/UV/CharcoalPot,
+	}
+}

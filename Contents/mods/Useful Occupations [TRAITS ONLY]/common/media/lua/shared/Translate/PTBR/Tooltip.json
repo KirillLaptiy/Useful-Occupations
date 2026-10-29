@@ -1,0 +1,23 @@
+{
+    "Tooltip_item_requires_roasting": "Requer assar em uma fogueira",
+    "Tooltip_item_flint_lighter": "Adequado apenas para acender fogueiras",
+    "Tooltip_item_weak_lockpick": "Apenas para Batedor\nPermite arrombar qualquer porta, janela. 1 uso",
+    "Tooltip_item_lockpick": "Apenas para Batedor\nPermite arrombar qualquer porta, janela. 10 usos",
+    "Tooltip_item_strong_lockpick": "Apenas para Batedor\nPermite arrombar qualquer porta, janela. Inquebrável",
+    "Tooltip_item_alarm_controller": "Pode verificar, desativar e ativar alarmes em portas e janelas\nNão gasta bateria para verificar o alarme",
+    "Tooltip_item_mre": "Pacote de comida para emergência\nPode ser aberto com uma faca ou tesoura",
+    "Tooltip_item_mrekit": "Pode ser aberto com uma faca ou tesoura",
+    "Tooltip_item_resin_mold": "1 uso",
+    "Tooltip_item_clay_mold": "1 uso",
+    "Tooltip_item_cement_mold": "Inquebrável",
+    "Tooltip_item_dry_in_24": "Secará em 24 horas",
+    "Tooltip_item_dry_in_72": "Secará em 72 horas",
+    "Tooltip_item_dry_in_120": "Secará em 120 horas",
+    "Tooltip_item_cloth_armor_plate": "Pode ser acoplado a qualquer roupa, em partes do corpo\n1 uso",
+    "Tooltip_item_metal_armor_plate": "Pode ser acoplado a qualquer roupa, em partes do corpo\n3 usos",
+    "Tooltip_item_carbon_armor_plate": "Pode ser acoplado a qualquer roupa, em partes do corpo\n10 usos",
+    "Tooltip_item_only_for_engineer": "Apenas para Engenheiro",
+    "Tooltip_item_stimulant_drops": "Remove todos os traços negativos de visão e audição (exceto surdo)\nDura 12 horas.\n5 usos",
+    "Tooltip_item_stimulant_drops_plus": "Remove todos os traços negativos de visão e audição (exceto surdo)\nAdiciona os traços 'Audição Aguçada', 'Olhos de Gato', 'Visão de Águia'\nDura 24 horas\n5 usos",
+    "Tooltip_item_stimulant_gel": "x1.5 Mais XP para todas as habilidades 'Físicas'\nDura 6 horas"
+}

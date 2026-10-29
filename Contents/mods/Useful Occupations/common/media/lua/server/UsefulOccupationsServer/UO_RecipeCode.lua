@@ -13,6 +13,7 @@
 ---@field module string
 ---@field originalName string
 ---@field modData table
+---@field fluids string?
 
 UORECIPES = {}
 
@@ -74,7 +75,31 @@ local SAFE_STATS_MAP = {
 	["isFavorite"] = "setFavorite",
 }
 
--- Prevent containers in mre
+-- MOD DATA CAN'T RECEIVE FLUID, SO WE NEED TO SERIALIZE IT TO STRING
+---@param fluidContainer FluidContainer
+---@return string
+local function serializeFluids(fluidContainer)
+	if not fluidContainer then return "" end
+
+	local result = {}
+
+	local allFluids = Fluid.getAllFluids()
+
+	if allFluids then
+		for i = 0, allFluids:size() - 1 do
+			local fluid = allFluids:get(i)
+			local amount = fluidContainer:getSpecificFluidAmount(fluid)
+
+			if amount and amount > 0 then
+				table.insert(result, fluid:getFluidTypeString() .. ":" .. tostring(amount))
+			end
+		end
+	end
+
+	return table.concat(result, ";")
+end
+
+-- Prevent ability to put containers in the mre
 ---@param mre ItemContainer
 ---@param item InventoryItem
 function UORECIPES.UO_MRE_AcceptItem(mre, item)
@@ -115,6 +140,7 @@ function UORECIPES.SEAL_MRE(craftRecipeData, _)
 					module = item:getModule(),
 					originalName = item:getDisplayName(),
 					modData = item:getModData(),
+					fluids = nil,
 				}
 
 				for getMethod, setMethod in pairs(SAFE_STATS_MAP) do
@@ -124,6 +150,12 @@ function UORECIPES.SEAL_MRE(craftRecipeData, _)
 							data[getMethod] = value
 						end
 					end
+				end
+
+				-- Saving fluid container data if the item is a fluid container
+				local fluidContainer = item:getFluidContainer()
+				if fluidContainer and fluidContainer:getAmount() > 0 then
+					data.fluids = serializeFluids(fluidContainer)
 				end
 
 				return data
@@ -159,6 +191,27 @@ function UORECIPES.UNPACK_MRE(craftRecipeData, character)
 				local value = storedItem[getMethod]
 				if value ~= nil and item[setMethod] then
 					pcall(item[setMethod], item, value)
+				end
+			end
+
+			-- Restoring fluid container data if it was saved
+			local fluidContainer = item:getFluidContainer()
+			if fluidContainer then
+				local fluidString = storedItem.fluids
+				fluidContainer:Empty()
+
+				---@diagnostic disable-next-line: param-type-mismatch
+				for entry in string.gmatch(fluidString, "([^;]+)") do
+					local fluidType, amountStr = entry:match("([^:]+):([%d%.]+)")
+
+					if fluidType and amountStr then
+						local amount = tonumber(amountStr)
+						local fluid = Fluid.Get(fluidType)
+
+						if fluidType and amount then
+							fluidContainer:addFluid(fluid, amount)
+						end
+					end
 				end
 			end
 

@@ -1,0 +1,82 @@
+module UO {
+    item MechanismBase
+    {
+        DisplayCategory = MechanismPart,
+        ItemType = base:normal,
+        Weight = 0.80,
+        Icon = MechanismBase,
+        Count = 1,
+        WorldStaticModel = MechanismBase,
+    }
+
+    item MechanismHandle
+    {
+        DisplayCategory = MechanismPart,
+        ItemType = base:normal,
+        Weight = 0.30,
+        Icon = MechanismHandle,
+        Count = 1,
+        WorldStaticModel = MechanismHandle,
+    }
+
+    item MechanismClamp
+    {
+        DisplayCategory = MechanismPart,
+        ItemType = base:normal,
+        Weight = 0.40,
+        Icon = MechanismClamp,
+        Count = 1,
+        WorldStaticModel = MechanismClamp,
+    }
+
+    item HacksawBlade
+    {
+        DisplayCategory = MechanismPart,
+        ItemType = base:normal,
+        Weight = 0.35,
+        Icon = HacksawBlade,
+        Count = 1,
+        WorldStaticModel = HacksawBlade,
+    }
+
+    item RotationAxis
+    {
+        DisplayCategory = MechanismPart,
+        ItemType = base:normal,
+        Weight = 0.60,
+        Icon = RotationAxis,
+        Count = 1,
+        WorldStaticModel = RotationAxis,
+    }
+
+    item GearMechanism
+    {
+        DisplayCategory = MechanismPart,
+        ItemType = base:normal,
+        Weight = 0.70,
+        Icon = GearMechanism,
+        Count = 1,
+        WorldStaticModel = GearMechanism,
+    }
+
+    item WorkpieceFixator
+    {
+        DisplayCategory = MechanismPart,
+        ItemType = base:normal,
+        Weight = 0.50,
+        Icon = WorkpieceFixator,
+        Count = 1,
+        WorldStaticModel = WorkpieceFixator,
+    }
+
+    item HandMetalMechanism
+    {
+        DisplayCategory = MechanismPart,
+        ItemType = base:normal,
+        Weight = 12.00,
+        Icon = HandMetalMechanism,
+        Count = 1,
+        WorldStaticModel = HandMetalMechanism,
+        Tags = uo:handmetalmechanism,
+    }
+}
