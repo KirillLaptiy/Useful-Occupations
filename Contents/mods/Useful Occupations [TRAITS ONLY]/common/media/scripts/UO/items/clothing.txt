@@ -1,0 +1,348 @@
+---------------
+module UO {
+    imports {
+        Base
+    }
+
+	item ArmorPlate_Back
+	{
+		DisplayCategory = Clothing,
+		ItemType = base:clothing,
+		BloodLocation = Bag,
+		BodyLocation = base:zeddmg,
+		ClothingItem = Ring_Left_RingFinger_Signet,
+		CanHaveHoles = false,
+		BiteDefense = 125,
+		ScratchDefense = 125,
+		BulletDefense = 125,
+		ConditionLowerChanceOneIn = 1,
+		RemoveOnBroken = false,
+		ChanceToFall = 0,
+		ConditionMax = 10,
+		WorldRender = false,
+        hidden = true,
+	}
+
+	item ArmorPlate_Head
+	{
+		DisplayCategory = Clothing,
+		ItemType = base:clothing,
+		BloodLocation = Head,
+		BodyLocation = base:zeddmg,
+		ClothingItem = Ring_Left_RingFinger_Signet,
+		CanHaveHoles = false,
+		BiteDefense = 125,
+		ScratchDefense = 125,
+		BulletDefense = 125,
+		ConditionLowerChanceOneIn = 1,
+		RemoveOnBroken = false,
+		ChanceToFall = 0,
+		ConditionMax = 10,
+		WorldRender = false,
+        hidden = true,
+	}
+
+	item ArmorPlate_Neck
+	{
+		DisplayCategory = Clothing,
+		ItemType = base:clothing,
+		BloodLocation = Neck,
+		BodyLocation = base:zeddmg,
+		ClothingItem = Ring_Left_RingFinger_Signet,
+		CanHaveHoles = false,
+		BiteDefense = 125,
+		ScratchDefense = 125,
+		BulletDefense = 125,
+		ConditionLowerChanceOneIn = 1,
+		RemoveOnBroken = false,
+		ChanceToFall = 0,
+		ConditionMax = 10,
+		WorldRender = false,
+        hidden = true,
+	}
+
+	item ArmorPlate_Groin
+	{
+		DisplayCategory = Clothing,
+		ItemType = base:clothing,
+		BloodLocation = Groin,
+		BodyLocation = base:zeddmg,
+		ClothingItem = Ring_Left_RingFinger_Signet,
+		CanHaveHoles = false,
+		BiteDefense = 125,
+		ScratchDefense = 125,
+		BulletDefense = 125,
+		ConditionLowerChanceOneIn = 1,
+		RemoveOnBroken = false,
+		ChanceToFall = 0,
+		ConditionMax = 10,
+		WorldRender = false,
+        hidden = true,
+	}
+
+	item ArmorPlate_Torso_Upper
+	{
+		DisplayCategory = Clothing,
+		ItemType = base:clothing,
+		BloodLocation = UpperBody,
+		BodyLocation = base:zeddmg,
+		ClothingItem = Ring_Left_RingFinger_Signet,
+		CanHaveHoles = false,
+		BiteDefense = 125,
+		ScratchDefense = 125,
+		BulletDefense = 125,
+		ConditionLowerChanceOneIn = 1,
+		RemoveOnBroken = false,
+		ChanceToFall = 0,
+		ConditionMax = 10,
+		WorldRender = false,
+        hidden = true,
+	}
+
+	item ArmorPlate_Torso_Lower
+	{
+		DisplayCategory = Clothing,
+		ItemType = base:clothing,
+		BloodLocation = LowerBody,
+		BodyLocation = base:zeddmg,
+		ClothingItem = Ring_Left_RingFinger_Signet,
+		CanHaveHoles = false,
+		BiteDefense = 125,
+		ScratchDefense = 125,
+		BulletDefense = 125,
+		ConditionLowerChanceOneIn = 1,
+		RemoveOnBroken = false,
+		ChanceToFall = 0,
+		ConditionMax = 10,
+		WorldRender = false,
+        hidden = true,
+	}
+
+	item ArmorPlate_Hand_L
+	{
+		DisplayCategory = Clothing,
+		ItemType = base:clothing,
+		BloodLocation = Hand_L,
+		BodyLocation = base:zeddmg,
+		ClothingItem = Ring_Left_RingFinger_Signet,
+		CanHaveHoles = false,
+		BiteDefense = 125,
+		ScratchDefense = 125,
+		BulletDefense = 125,
+		ConditionLowerChanceOneIn = 1,
+		RemoveOnBroken = false,
+		ChanceToFall = 0,
+		ConditionMax = 10,
+		WorldRender = false,
+        hidden = true,
+	}
+
+	item ArmorPlate_Hand_R
+	{
+		DisplayCategory = Clothing,
+		ItemType = base:clothing,
+		BloodLocation = Hand_R,
+		BodyLocation = base:zeddmg,
+		ClothingItem = Ring_Left_RingFinger_Signet,
+		CanHaveHoles = false,
+		BiteDefense = 125,
+		ScratchDefense = 125,
+		BulletDefense = 125,
+		ConditionLowerChanceOneIn = 1,
+		RemoveOnBroken = false,
+		ChanceToFall = 0,
+		ConditionMax = 10,
+		WorldRender = false,
+        hidden = true,
+	}
+
+	item ArmorPlate_ForeArm_L
+	{
+		DisplayCategory = Clothing,
+		ItemType = base:clothing,
+		BloodLocation = ForeArm_L,
+		BodyLocation = base:zeddmg,
+		ClothingItem = Ring_Left_RingFinger_Signet,
+		CanHaveHoles = false,
+		BiteDefense = 125,
+		ScratchDefense = 125,
+		BulletDefense = 125,
+		ConditionLowerChanceOneIn = 1,
+		RemoveOnBroken = false,
+		ChanceToFall = 0,
+		ConditionMax = 10,
+		WorldRender = false,
+        hidden = true,
+	}
+
+	item ArmorPlate_ForeArm_R
+	{
+		DisplayCategory = Clothing,
+		ItemType = base:clothing,
+		BloodLocation = ForeArm_R,
+		BodyLocation = base:zeddmg,
+		ClothingItem = Ring_Left_RingFinger_Signet,
+		CanHaveHoles = false,
+		BiteDefense = 125,
+		ScratchDefense = 125,
+		BulletDefense = 125,
+		ConditionLowerChanceOneIn = 1,
+		RemoveOnBroken = false,
+		ChanceToFall = 0,
+		ConditionMax = 10,
+		WorldRender = false,
+        hidden = true,
+	}
+
+	item ArmorPlate_UpperArm_L
+	{
+		DisplayCategory = Clothing,
+		ItemType = base:clothing,
+		BloodLocation = UpperArm_L,
+		BodyLocation = base:zeddmg,
+		ClothingItem = Ring_Left_RingFinger_Signet,
+		CanHaveHoles = false,
+		BiteDefense = 125,
+		ScratchDefense = 125,
+		BulletDefense = 125,
+		ConditionLowerChanceOneIn = 1,
+		RemoveOnBroken = false,
+		ChanceToFall = 0,
+		ConditionMax = 10,
+		WorldRender = false,
+        hidden = true,
+	}
+
+	item ArmorPlate_UpperArm_R
+	{
+		DisplayCategory = Clothing,
+		ItemType = base:clothing,
+		BloodLocation = UpperArm_R,
+		BodyLocation = base:zeddmg,
+		ClothingItem = Ring_Left_RingFinger_Signet,
+		CanHaveHoles = false,
+		BiteDefense = 125,
+		ScratchDefense = 125,
+		BulletDefense = 125,
+		ConditionLowerChanceOneIn = 1,
+		RemoveOnBroken = false,
+		ChanceToFall = 0,
+		ConditionMax = 10,
+		WorldRender = false,
+        hidden = true,
+	}
+
+	item ArmorPlate_UpperLeg_L
+	{
+		DisplayCategory = Clothing,
+		ItemType = base:clothing,
+		BloodLocation = UpperLeg_L,
+		BodyLocation = base:zeddmg,
+		ClothingItem = Ring_Left_RingFinger_Signet,
+		CanHaveHoles = false,
+		BiteDefense = 125,
+		ScratchDefense = 125,
+		BulletDefense = 125,
+		ConditionLowerChanceOneIn = 1,
+		RemoveOnBroken = false,
+		ChanceToFall = 0,
+		ConditionMax = 10,
+		WorldRender = false,
+        hidden = true,
+	}
+
+	item ArmorPlate_UpperLeg_R
+	{
+		DisplayCategory = Clothing,
+		ItemType = base:clothing,
+		BloodLocation = UpperLeg_R,
+		BodyLocation = base:zeddmg,
+		ClothingItem = Ring_Left_RingFinger_Signet,
+		CanHaveHoles = false,
+		BiteDefense = 125,
+		ScratchDefense = 125,
+		BulletDefense = 125,
+		ConditionLowerChanceOneIn = 1,
+		RemoveOnBroken = false,
+		ChanceToFall = 0,
+		ConditionMax = 10,
+		WorldRender = false,
+        hidden = true,
+	}
+
+	item ArmorPlate_LowerLeg_L
+	{
+		DisplayCategory = Clothing,
+		ItemType = base:clothing,
+		BloodLocation = LowerLeg_L,
+		BodyLocation = base:zeddmg,
+		ClothingItem = Ring_Left_RingFinger_Signet,
+		CanHaveHoles = false,
+		BiteDefense = 125,
+		ScratchDefense = 125,
+		BulletDefense = 125,
+		ConditionLowerChanceOneIn = 1,
+		RemoveOnBroken = false,
+		ChanceToFall = 0,
+		ConditionMax = 10,
+		WorldRender = false,
+        hidden = true,
+	}
+
+	item ArmorPlate_LowerLeg_R
+	{
+		DisplayCategory = Clothing,
+		ItemType = base:clothing,
+		BloodLocation = LowerLeg_R,
+		BodyLocation = base:zeddmg,
+		ClothingItem = Ring_Left_RingFinger_Signet,
+		CanHaveHoles = false,
+		BiteDefense = 125,
+		ScratchDefense = 125,
+		BulletDefense = 125,
+		ConditionLowerChanceOneIn = 1,
+		RemoveOnBroken = false,
+		ChanceToFall = 0,
+		ConditionMax = 10,
+		WorldRender = false,
+        hidden = true,
+	}
+
+	item ArmorPlate_Foot_L
+	{
+		DisplayCategory = Clothing,
+		ItemType = base:clothing,
+		BloodLocation = Foot_L,
+		BodyLocation = base:zeddmg,
+		ClothingItem = Ring_Left_RingFinger_Signet,
+		CanHaveHoles = false,
+		BiteDefense = 125,
+		ScratchDefense = 125,
+		BulletDefense = 125,
+		ConditionLowerChanceOneIn = 1,
+		RemoveOnBroken = false,
+		ChanceToFall = 0,
+		ConditionMax = 10,
+		WorldRender = false,
+        hidden = true,
+	}
+
+	item ArmorPlate_Foot_R
+	{
+		DisplayCategory = Clothing,
+		ItemType = base:clothing,
+		BloodLocation = Foot_R,
+		BodyLocation = base:zeddmg,
+		ClothingItem = Ring_Left_RingFinger_Signet,
+		CanHaveHoles = false,
+		BiteDefense = 125,
+		ScratchDefense = 125,
+		BulletDefense = 125,
+		ConditionLowerChanceOneIn = 1,
+		RemoveOnBroken = false,
+		ChanceToFall = 0,
+		ConditionMax = 10,
+		WorldRender = false,
+        hidden = true,
+	}
+}

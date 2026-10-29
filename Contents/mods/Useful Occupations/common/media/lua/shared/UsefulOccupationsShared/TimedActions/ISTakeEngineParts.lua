@@ -33,6 +33,7 @@ function ISTakeEngineParts:complete()
 		if numParts > 0 then
 			local items = self.character
 				:getInventory()
+				---@diagnostic disable-next-line: param-type-mismatch
 				:AddItems(carbonVehicle and carbonPartsType or partsType, tonumber(numParts))
 			sendAddItemsToContainer(self.character:getInventory(), items)
 		else

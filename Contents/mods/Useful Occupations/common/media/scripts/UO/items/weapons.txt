@@ -6,7 +6,7 @@ module UO {
     item HammerCrafted
     {
         DisplayCategory = ToolWeapon,
-        Type = Weapon,
+        ItemType = base:weapon,
         Weight = 1.6,
         Icon = HammerCrafted,
         AttachmentType = Hammer,
@@ -44,8 +44,9 @@ module UO {
         Swingtime = 2.6,
         TreeDamage = 1,
         WeaponLength = 0.23,
-        WeaponSprite = HammerCrafted,
-        Tags = Hammer;HammerStone;Crude;KillAnimal;RepairWithGlue;RepairWithTape,
+        WeaponSprite = UO.HammerCrafted,
+        WorldStaticModel = HammerCrafted,
+        Tags = base:hammer;base:hammerstone;base:crude;base:killanimal;base:repairwithglue;base:repairwithtape,
         HeadCondition = 12,
         HeadConditionMax = 12,
         OnBreak = OnBreak.HammerStone,
@@ -56,7 +57,7 @@ module UO {
     item AxeCrafted
     {
         DisplayCategory = WeaponCrafted,
-        Type = Weapon,
+        ItemType = base:weapon,
         Weight = 1.6,
         Icon = AxeCrafted,
         AttachmentType = BigWeapon,
@@ -96,8 +97,9 @@ module UO {
         Swingtime = 2.4,
         TreeDamage = 18,
         TwoHandWeapon = true,
-        WeaponSprite = AxeCrafted,
-        Tags = ChopTree;CutPlant;KillAnimal;RepairWithTape;RepairWithGlue,
+        WeaponSprite = UO.AxeCrafted,
+        WorldStaticModel = AxeCrafted,
+        Tags = base:choptree;base:cutplant;base:killanimal;base:repairwithtape;base:repairwithglue,
         HeadCondition = 10,
         OnBreak = OnBreak.AxeStone,
         HeadConditionLowerChanceMultiplier = 0.7,
@@ -107,7 +109,7 @@ module UO {
     item KnifeCrafted
     {
         DisplayCategory = WeaponCrafted,
-        Type = Weapon,
+        ItemType = base:weapon,
         Weight = 0.56,
         Icon = KnifeCrafted,
         AimingMod = 0.9,
@@ -150,8 +152,9 @@ module UO {
         Swingtime = 1.6,
         TreeDamage = 0,
         WeaponLength = 0.19,
-        WeaponSprite = KnifeCrafted,
-        Tags = HasMetal;Sharpenable;SharpKnife,
+        WeaponSprite = UO.KnifeCrafted,
+        WorldStaticModel = KnifeCrafted,
+        Tags = base:hasmetal;base:sharpenable;base:sharpknife,
         Sharpness = 1.0,
         Researchablerecipes = Forge_Crude_Blade;Forge_Small_Knife,
     }
@@ -159,7 +162,7 @@ module UO {
     item SpearCrafted
     {
         DisplayCategory = WeaponCrafted,
-        Type = Weapon,
+        ItemType = base:weapon,
         Weight = 1.92,
         Icon = SpearCrafted,
         AttachmentType = Shovel,
@@ -199,8 +202,9 @@ module UO {
         Swingtime = 1.7,
         TreeDamage = 0,
         TwoHandWeapon = true,
-        WeaponSprite = SpearCrafted,
-        Tags = FishingSpear;RepairWithGlue;RepairWithTape,
+        WeaponSprite = UO.SpearCrafted,
+        WorldStaticModel = SpearCrafted,
+        Tags = base:fishingspear;base:repairwithglue;base:repairwithtape,
         HeadCondition = 10,
         OnBreak = OnBreak.SpearStone,
         HeadConditionLowerChanceMultiplier = 0.8,
@@ -210,7 +214,7 @@ module UO {
     item MetalBat
     {
         DisplayCategory = SportsWeapon,
-        Type = Weapon,
+        ItemType = base:weapon,
         Weight = 1.6,
         Icon = MetalBat,
         AttachmentType = Shovel,
@@ -250,7 +254,8 @@ module UO {
         TreeDamage = 2,
         TwoHandWeapon = true,
         WeaponLength = 0.5,
-        WeaponSprite = MetalBat,
+        WeaponSprite = UO.MetalBat,
+        WorldStaticModel = MetalBat,
         OnBreak = OnBreak.BaseballBat,
         Researchablerecipes = CanReinforceLongWeapon;MakeRakeHeadWeapon;CarveBat;CarveShortBat,
     }
@@ -258,7 +263,7 @@ module UO {
     item CarbonAxe
     {
         DisplayCategory = ToolWeapon,
-        Type = Weapon,
+        ItemType = base:weapon,
         Weight = 1.8,
         Icon = CarbonAxe,
         AttachmentType = BigWeapon,
@@ -301,8 +306,9 @@ module UO {
         TreeDamage = 60,
         TwoHandWeapon = true,
         WeaponLength = 0.38,
-        WeaponSprite = CarbonAxe,
-        Tags = ChopTree;CutPlant;RemoveBarricade;KillAnimal,
+        WeaponSprite = UO.CarbonAxe,
+        WorldStaticModel = CarbonAxe,
+        Tags = base:choptree;base:cutplant;base:removebarricade;base:killanimal;base:sharpenable,
         Sharpness = 1.0,
         HeadCondition = 500,
         HeadConditionLowerChanceMultiplier = 0.1,
@@ -313,7 +319,7 @@ module UO {
     item CarbonBat
     {
         DisplayCategory = SportsWeapon,
-        Type = Weapon,
+        ItemType = base:weapon,
         Weight = 1.2,
         Icon = CarbonBat,
         AttachmentType = Shovel,
@@ -353,16 +359,17 @@ module UO {
         TreeDamage = 5,
         TwoHandWeapon = true,
         WeaponLength = 0.5,
-        WeaponSprite = CarbonBat,
+        WeaponSprite = UO.CarbonBat,
+        WorldStaticModel = CarbonBat,
         OnBreak = OnBreak.BaseballBat,
-        Tags = KillAnimal,
+        Tags = base:killanimal,
         Researchablerecipes = CanReinforceLongWeapon;MakeRakeHeadWeapon;CarveBat;CarveShortBat,
     }
 
     item CarbonHammer
     {
         DisplayCategory = ToolWeapon,
-        Type = Weapon,
+        ItemType = base:weapon,
         Weight = 0.9,
         Icon = CarbonHammer,
         AttachmentType = Hammer,
@@ -401,8 +408,9 @@ module UO {
         Swingtime = 1.6,
         TreeDamage = 3,
         WeaponLength = 0.23,
-        WeaponSprite = CarbonHammer,
-        Tags = Hammer;RemoveBarricade;KillAnimal,
+        WeaponSprite = UO.CarbonHammer,
+        WorldStaticModel = CarbonHammer,
+        Tags = base:hammer;base:removebarricade;base:killanimal,
         HeadCondition = 300,
         OnBreak = OnBreak.Clawhammer,
         HeadConditionLowerChanceMultiplier = 0.05,
@@ -412,7 +420,7 @@ module UO {
     item CarbonKatana
     {
         DisplayCategory = Weapon,
-        Type = Weapon,
+        ItemType = base:weapon,
         Weight = 1.3,
         Icon = CarbonKatana,
         AttachmentType = Sword,
@@ -448,11 +456,12 @@ module UO {
         SwingAnim = Bat,
         SwingSound = KatanaSwing,
         Swingtime = 1.9,
-        Tags = IgnoreZombieDensity;FullBlade,
+        Tags = base:ignorezombiedensity;base:fullblade,
         TreeDamage = 4,
         TwoHandWeapon = true,
         WeaponLength = 0.4,
-        WeaponSprite = CarbonKatana,
+        WeaponSprite = UO.CarbonKatana,
+        WorldStaticModel = CarbonKatana,
         Sharpness = 1.0,
         OnBreak = OnBreak.Katana,
         Researchablerecipes = Forge_Crude_Shortsword_Blade;Forge_Crude_Sword_Blade;Forge_ShortSwordBlade;Forge_Sword_Blade;Forge_Straight_Razor,
@@ -461,7 +470,7 @@ module UO {
     item CarbonKnife
     {
         DisplayCategory = Weapon,
-        Type = Weapon,
+        ItemType = base:weapon,
         Weight = 0.4,
         Icon = CarbonKnife,
         AimingMod = 0.8,
@@ -504,8 +513,9 @@ module UO {
         Swingtime = 1.2,
         TreeDamage = 0,
         WeaponLength = 0.25,
-        WeaponSprite = CarbonKnife,
-        Tags = CutPlant;SharpKnife;ButcherAnimal;KillAnimal,
+        WeaponSprite = UO.CarbonKnife,
+        WorldStaticModel = CarbonKnife,
+        Tags = base:cutplant;base:sharpknife;base:butcheranimal;base:killanimal,
         Sharpness = 1.0,
         OnBreak = OnBreak.HuntingKnife,
         Researchablerecipes = Forge_Hunting_Knife_Blade;Forge_Large_Knife_Blade;Forge_Crude_Blade;Forge_Small_Knife;Forge_Fleshing_Tool,
@@ -514,7 +524,7 @@ module UO {
     item CarbonSpear
     {
         DisplayCategory = Weapon,
-        Type = Weapon,
+        ItemType = base:weapon,
         Weight = 1.5,
         Icon = CarbonSpear,
         AttachmentType = Shovel,
@@ -553,8 +563,9 @@ module UO {
         Swingtime = 1.8,
         TreeDamage = 1,
         TwoHandWeapon = true,
-        WeaponSprite = SpearLongForged,
-        Tags = FishingSpear,
+        WeaponSprite = UO.CarbonSpear,
+        WorldStaticModel = CarbonSpear,
+        Tags = base:fishingspear,
         Sharpness = 1.0,
         HeadCondition = 400,
         HeadConditionMax = 400,
@@ -566,7 +577,7 @@ module UO {
     item CarbonHatchet
     {
         DisplayCategory = ToolWeapon,
-        Type = Weapon,
+        ItemType = base:weapon,
         Weight = 0.9,
         Icon = CarbonHatchet,
         AttachmentType = Hammer,
@@ -603,8 +614,9 @@ module UO {
         Swingtime = 1.7,
         TreeDamage = 25,
         WeaponLength = 0.35,
-        WeaponSprite = CarbonHatchet,
-        Tags = ChopTree;CutPlant;ButcherAnimal;KillAnimal,
+        WeaponSprite = UO.CarbonHatchet,
+        WorldStaticModel = CarbonHatchet,
+        Tags = base:choptree;base:cutplant;base:butcheranimal;base:killanimal,
         Sharpness = 1.0,
         HeadCondition = 300,
         OnBreak = OnBreak.HandAxe,
@@ -615,7 +627,7 @@ module UO {
     item EMPGrenade
 	{
 		DisplayCategory = Explosives,
-		Type = Weapon,
+        ItemType = base:weapon,
 		Weight = 0.3,
 		Icon = EMPGrenade,
         ExplosionSound = SmokeBombLoop,
@@ -624,13 +636,13 @@ module UO {
 		MaxRange = 8,
 		MinDamage = 0,
 		MinimumSwingTime = 0.2,
-		PhysicsObject = MolotovCocktail,
+		PhysicsObject = UO.EMPGrenade,
 		SwingAmountBeforeImpact = 0.1,
 		SwingAnim = Throw,
 		SwingSound = SmokeBombThrow,
 		SwingTime = 0.2,
 		UseSelf = TRUE,
-		WeaponSprite = EMPGrenade,
+		WeaponSprite = UO.EMPGrenade,
 		ConditionMax = 1,
 	}
 }

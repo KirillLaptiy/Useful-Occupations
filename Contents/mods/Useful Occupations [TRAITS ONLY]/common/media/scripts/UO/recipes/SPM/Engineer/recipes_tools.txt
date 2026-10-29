@@ -1,0 +1,1517 @@
+module UO {
+    craftRecipe UO_MakeWeakLockpickBurglar
+    {
+        timedAction = CutWire,
+        time = 150,
+        Tags = InHandCraft,
+        category = Tools,
+        needToBeLearn = true,
+
+        inputs
+        {
+            item 2 [Base.Paperclip],
+        }
+
+        outputs
+        {
+            item 1 UO.WeakLockpick,
+        }
+    }
+
+    craftRecipe UO_MakeWeakLockpickEngineer
+    {
+        timedAction = CutWire,
+        time = 150,
+        Tags = InHandCraft,
+        category = Tools,
+        needToBeLearn = true,
+
+        inputs
+        {
+            item 1 [Base.Paperclip],
+        }
+
+        outputs
+        {
+            item 1 UO.WeakLockpick,
+        }
+    }
+
+    craftRecipe UO_MakeLockpickBurglar
+    {
+        timedAction = SmithingHammer,
+        time = 300,
+        Tags = Forge,
+        category = Tools,
+        xpAward = Blacksmith:10,
+
+        inputs
+        {
+            item 1 [Base.SmallSheetMetal],
+            item 1 tags[Hammer] mode:keep,
+            item 1 tags[MetalworkingPliers] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 UO.Lockpick,
+        }
+    }
+
+    craftRecipe UO_MakeLockpickEngineer
+    {
+        timedAction = Making_Surface,
+        time = 150,
+        Tags = InHandCraft,
+        category = Tools,
+        needToBeLearn = true,
+
+        inputs
+        {
+            item 2 [UO.MetalPiece],
+            item 1 tags[Hammer] mode:keep,
+            item 1 tags[uo:handmetalmechanism] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 UO.Lockpick,
+        }
+    }
+
+    craftRecipe UO_MakeHandleFromSmall
+    {
+        timedAction = SmithingHammer,
+        time = 150,
+        Tags = InHandCraft,
+        category = Tools,
+
+        inputs
+        {
+            item 2 [Base.SmallHandle],
+            item 1 [Base.Nails;Base.Wire],
+            item 1 tags[Hammer] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 Base.Handle,
+        }
+    }
+
+    craftRecipe UO_MakeHandle
+    {
+        timedAction = SmithingHammer,
+        time = 150,
+        Tags = InHandCraft,
+        category = Tools,
+        xpAward = Carving:10,
+
+        inputs
+        {
+            item 2 [Base.Plank;Base.LargeBranch],
+            item 1 tags[SharpKnife] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 Base.Handle,
+        }
+    }
+
+    craftRecipe UO_MakeSmallHandle
+    {
+        timedAction = SmithingHammer,
+        time = 150,
+        Tags = InHandCraft,
+        category = Tools,
+        xpAward = Carving:10,
+
+        inputs
+        {
+            item 1 [Base.TreeBranch2],
+            item 1 tags[SharpKnife] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 Base.SmallHandle,
+        }
+    }
+
+    craftRecipe UO_MakeSmallHandleFromBig
+    {
+        timedAction = SmithingHammer,
+        time = 150,
+        Tags = InHandCraft,
+        category = Tools,
+        xpAward = Carving:10,
+
+        inputs
+        {
+            item 1 [Base.Plank;Base.LargeBranch;Base.TreeBranch2],
+            item 1 tags[SharpKnife] mode:keep,
+        }
+
+        outputs
+        {
+            item 2 Base.SmallHandle,
+        }
+    }
+
+    craftRecipe UO_MakeScrewdriver
+    {
+        timedAction = SmithingHammer,
+        time = 150,
+        Tags = InHandCraft,
+        category = Tools,
+
+        inputs
+        {
+            item 1 [UO.ScrewdriverTip],
+            item 1 [Base.SmallHandle],
+            item 1 tags[Hammer;HammerStone] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 Base.Screwdriver,
+        }
+    }
+
+    craftRecipe UO_MakeSaw
+    {
+        timedAction = SmithingHammer,
+        time = 150,
+        Tags = InHandCraft,
+        category = Tools,
+
+        inputs
+        {
+            item 1 [UO.SawBlade],
+            item 2 [Base.Wire],
+            item 1 [Base.Handle],
+            item 1 tags[Hammer;HammerStone] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 Base.Screwdriver,
+        }
+    }
+
+    craftRecipe UO_MakePliers
+    {
+        timedAction = Making_Surface,
+        time = 150,
+        Tags = InHandCraft,
+        category = Tools,
+        xpAward = MetalWelding:30,
+
+        inputs
+        {
+            item 2 [Base.SmallHandle],
+            item 1 [Base.SmallSheetMetal],
+            item 2 [Base.Screws;UO.MetalPin],
+            item 1 tags[Hammer] mode:keep,
+            item 1 tags[SharpKnife] mode:keep,
+            item 1 tags[uo:handmetalmechanism] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 UO.Pliers,
+        }
+    }
+
+    craftRecipe UO_MakeChisel
+    {
+        timedAction = SmithingHammer,
+        time = 150,
+        Tags = InHandCraft,
+        category = Tools,
+
+        inputs
+        {
+            item 1 [UO.MetalPiece],
+            item 1 [Base.SmallHandle],
+            item 1 [Base.Nails;Base.Wire],
+            item 1 tags[Hammer] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 UO.Chisel,
+        }
+    }
+
+    craftRecipe UO_MakeFlintLighter
+    {
+        timedAction = SmithingHammer,
+        time = 150,
+        Tags = InHandCraft,
+        category = Tools,
+
+        inputs
+        {
+            item 1 [UO.Flint],
+            item 2 [UO.MetalPiece],
+            item 1 [Base.Wire],
+            item 1 [Base.RippedSheets],
+            item 1 tags[Hammer;HammerStone] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 UO.FlintLighter,
+        }
+    }
+
+    craftRecipe UO_MakeLighter
+    {
+        timedAction = Making_Surface,
+        time = 300,
+        Tags = InHandCraft,
+        category = Tools,
+        OnCreate = UORECIPES.MakeAllCreatedEmpty,
+
+        inputs
+        {
+            item 1 [Base.SmallSheetMetal],
+            item 2 [UO.Plastic],
+            item 1 [UO.Flint],
+            item 1 tags[Hammer] mode:keep,
+            item 1 tags[uo:handmetalmechanism] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 Base.Lighter,
+        }
+    }
+
+    craftRecipe UO_MakeLighterFluid
+    {
+        timedAction = Making_Surface,
+        time = 300,
+        Tags = InHandCraft,
+        category = Tools,
+
+        inputs
+        {
+            item 6 [UO.Plastic],
+            item 1 [*],
+            -fluid 0.20 [Petrol],
+            item 1 tags[Hammer] mode:keep,
+            item 1 tags[uo:handmetalmechanism] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 Base.LighterFluid,
+        }
+    }
+
+    craftRecipe UO_MakeJack
+    {
+        timedAction = Making_Surface,
+        time = 300,
+        Tags = InHandCraft,
+        category = Tools,
+        xpAward = MetalWelding:30,
+
+        inputs
+        {
+            item 1 [Base.SheetMetal],
+            item 2 [Base.Screws;UO.MetalPin],
+            item 1 [Base.Wire],
+            item 1 tags[Hammer] mode:keep,
+            item 1 tags[Screwdriver] mode:keep,
+            item 1 tags[uo:handmetalmechanism] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 Base.Jack,
+        }
+    }
+
+    craftRecipe UO_MakeWrench
+    {
+        timedAction = Making_Surface,
+        time = 300,
+        Tags = InHandCraft,
+        category = Tools,
+        xpAward = MetalWelding:30,
+
+        inputs
+        {
+            item 1 [Base.SmallSheetMetal],
+            item 1 [Base.Screws;UO.MetalPin],
+            item 1 tags[Hammer] mode:keep,
+            item 1 tags[Screwdriver] mode:keep,
+            item 1 tags[uo:handmetalmechanism] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 Base.Wrench,
+        }
+    }
+
+    craftRecipe UO_MakeLugWrench
+    {
+        timedAction = Making_Surface,
+        time = 300,
+        Tags = InHandCraft,
+        category = Tools,
+        xpAward = MetalWelding:30,
+
+        inputs
+        {
+            item 1 [Base.SmallSheetMetal],
+            item 1 [Base.Screws;UO.MetalPin],
+            item 1 tags[Hammer] mode:keep,
+            item 1 tags[Screwdriver] mode:keep,
+            item 1 tags[uo:handmetalmechanism] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 Base.LugWrench,
+        }
+    }
+
+    craftRecipe UO_MakePipeWrench
+    {
+        timedAction = Making_Surface,
+        time = 300,
+        Tags = InHandCraft,
+        category = Tools,
+        xpAward = MetalWelding:30,
+
+        inputs
+        {
+            item 1 [Base.SmallSheetMetal],
+            item 2 [Base.Screws;UO.MetalPin],
+            item 1 tags[Hammer] mode:keep,
+            item 1 tags[Screwdriver] mode:keep,
+            item 1 tags[uo:handmetalmechanism] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 Base.PipeWrench,
+        }
+    }
+
+    craftRecipe UO_MakeCaliper
+    {
+        timedAction = Making_Surface,
+        time = 300,
+        Tags = InHandCraft,
+        category = Tools,
+        xpAward = MetalWelding:30,
+
+        inputs
+        {
+            item 4 [UO.MetalPiece],
+            item 1 [Base.Screws;UO.MetalPin],
+            item 1 tags[Screwdriver] mode:keep,
+            item 1 tags[uo:handmetalmechanism] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 UO.Caliper,
+        }
+    }
+
+    craftRecipe UO_MakeBoreGauge
+    {
+        timedAction = Making_Surface,
+        time = 300,
+        Tags = InHandCraft,
+        category = Tools,
+        xpAward = MetalWelding:30,
+
+        inputs
+        {
+            item 3 [UO.MetalPiece],
+            item 1 [Base.Wire],
+            item 1 [Base.Screws;UO.MetalPin],
+            item 1 tags[Hammer] mode:keep,
+            item 1 tags[Screwdriver] mode:keep,
+            item 1 tags[uo:handmetalmechanism] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 UO.BoreGauge,
+        }
+    }
+
+    craftRecipe UO_MakeMetalShears
+    {
+        timedAction = Making_Surface,
+        time = 300,
+        Tags = InHandCraft,
+        category = Tools,
+        xpAward = MetalWelding:30,
+
+        inputs
+        {
+            item 2 [Base.SmallSheetMetal],
+            item 2 [Base.SmallHandle],
+            item 2 [Base.Screws;UO.MetalPin],
+            item 1 tags[Hammer] mode:keep,
+            item 1 tags[Whetstone] mode:keep,
+            item 1 tags[uo:handmetalmechanism] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 UO.MetalShears,
+        }
+    }
+
+    craftRecipe UO_MakeHandDrill
+    {
+        timedAction = Making_Surface,
+        time = 300,
+        Tags = InHandCraft,
+        category = Tools,
+        xpAward = MetalWelding:30,
+
+        inputs
+        {
+            item 1 [Base.SmallSheetMetal],
+            item 1 [Base.SmallHandle],
+            item 1 [Base.Screws;UO.MetalPin],
+            item 1 tags[Screwdriver] mode:keep,
+            item 1 tags[uo:handmetalmechanism] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 UO.HandDrill,
+        }
+    }
+
+    craftRecipe UO_MakeBlowTorch
+    {
+        timedAction = Making_Surface,
+        time = 300,
+        Tags = InHandCraft,
+        category = Tools,
+        xpAward = Electricity:30,
+
+        inputs
+        {
+            item 2 [UO.MetalPiece],
+            item 1 [Base.Screws;UO.MetalPin],
+            item 1 [Base.TirePiece;Base.Scotchtape],
+            item 1 tags[Screwdriver] mode:keep,
+            item 1 tags[uo:handmetalmechanism] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 Base.BlowTorch,
+        }
+    }
+
+    craftRecipe UO_MakeSolderingIron
+    {
+        timedAction = Making_Surface,
+        time = 300,
+        Tags = InHandCraft,
+        category = Tools,
+        xpAward = Electricity:30,
+
+        inputs
+        {
+            item 2 [UO.MetalPiece],
+            item 1 [Base.ElectricWire],
+            item 2 [Base.Nails],
+            item 1 tags[Screwdriver] mode:keep,
+            item 1 tags[uo:handmetalmechanism] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 UO.SolderingIron,
+        }
+    }
+
+    craftRecipe UO_MakeWhetstone
+    {
+        timedAction = Making_Surface,
+        time = 300,
+        Tags = InHandCraft,
+        category = Tools,
+        xpAward = MetalWelding:30,
+
+        inputs
+        {
+            item 4 [UO.MetalPiece],
+            item 2 [Base.Screws;UO.MetalPin],
+            item 1 tags[Hammer] mode:keep,
+            item 1 tags[Screwdriver] mode:keep,
+            item 1 tags[uo:handmetalmechanism] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 Base.Whetstone,
+        }
+    }
+
+    craftRecipe UO_MakeMasonsTrowel
+    {
+        timedAction = Making_Surface,
+        time = 300,
+        Tags = InHandCraft,
+        category = Tools,
+        xpAward = MetalWelding:30,
+
+        inputs
+        {
+            item 1 [Base.SmallSheetMetal],
+            item 1 [Base.SmallHandle],
+            item 2 [Base.Screws;UO.MetalPin],
+            item 1 tags[Hammer] mode:keep,
+            item 1 tags[Whetstone] mode:keep,
+            item 1 tags[uo:handmetalmechanism] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 Base.MasonsTrowel,
+        }
+    }
+
+    craftRecipe UO_MakeScalpel
+    {
+        timedAction = Making_Surface,
+        time = 300,
+        Tags = InHandCraft,
+        category = Tools,
+        xpAward = MetalWelding:30,
+
+        inputs
+        {
+            item 1 [Base.SmallSheetMetal],
+            item 1 tags[Whetstone] mode:keep,
+            item 1 tags[uo:handmetalmechanism] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 Base.Scalpel,
+        }
+    }
+
+    craftRecipe UO_MakeHandShovel
+    {
+        timedAction = Making_Surface,
+        time = 300,
+        Tags = InHandCraft,
+        category = Tools,
+
+        inputs
+        {
+            item 1 [Base.SmallSheetMetal],
+            item 1 [Base.Screws;UO.MetalPin],
+            item 1 [Base.SmallHandle],
+            item 1 tags[Hammer] mode:keep,
+            item 1 tags[Whetstone] mode:keep,
+            item 1 tags[uo:handmetalmechanism] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 Base.HandShovel,
+        }
+    }
+
+    craftRecipe UO_MakeHandTorch
+    {
+        timedAction = MakingElectrical,
+        time = 300,
+        Tags = InHandCraft,
+        category = Tools,
+        xpAward = Electricity:15,
+        OnCreate = UORECIPES.MakeAllCreatedEmpty,
+
+        inputs
+        {
+            item 1 [Base.ElectronicsScrap],
+            item 6 [UO.Plastic],
+            item 1 tags[Screwdriver] mode:keep,
+            item 1 tags[uo:solderingiron] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 Base.HandTorch,
+        }
+    }
+
+    craftRecipe UO_MakeGunLight
+    {
+        timedAction = MakingElectrical,
+        time = 300,
+        Tags = InHandCraft,
+        category = Tools,
+
+        inputs
+        {
+            item 1 [Base.HandTorch] flags[InheritUses],
+            item 2 [UO.MetalPiece],
+            item 1 tags[Hammer] mode:keep,
+            item 1 tags[uo:handmetalmechanism] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 Base.GunLight,
+        }
+    }
+
+    craftRecipe UO_MakeTorch
+    {
+        timedAction = MakingElectrical,
+        time = 300,
+        Tags = InHandCraft,
+        category = Tools,
+        xpAward = Electricity:30,
+        OnCreate = UORECIPES.MakeAllCreatedEmpty,
+
+        inputs
+        {
+            item 2 [Base.ElectronicsScrap],
+            item 12 [UO.Plastic],
+            item 1 tags[Screwdriver] mode:keep,
+            item 1 tags[uo:solderingiron] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 Base.Torch,
+        }
+    }
+
+    craftRecipe UO_MakeTinOpener
+    {
+        timedAction = SmithingHammer,
+        time = 300,
+        Tags = InHandCraft,
+        category = Tools,
+        xpAward = Carving:10,
+
+        inputs
+        {
+            item 1 [Base.SmallHandle],
+            item 2 [UO.MetalPiece],
+            item 1 tags[Hammer] mode:keep,
+            item 1 tags[CarpentryChisel] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 Base.TinOpener,
+        }
+    }
+
+    craftRecipe UO_MakePetrolCan
+    {
+        timedAction = Making_Surface,
+        time = 300,
+        Tags = InHandCraft,
+        category = Tools,
+        xpAward = MetalWelding:30,
+
+        inputs
+        {
+            item 2 [Base.SheetMetal],
+            item 4 [Base.Screws;UO.MetalPin],
+            item 1 tags[Hammer] mode:keep,
+            item 1 tags[uo:solderingiron] mode:keep,
+            item 1 tags[uo:handmetalmechanism] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 Base.PetrolCan,
+        }
+    }
+
+    craftRecipe UO_MakeWeldingMask
+    {
+        timedAction = Making_Surface,
+        time = 300,
+        Tags = InHandCraft,
+        category = Tools,
+        xpAward = MetalWelding:30,
+
+        inputs
+        {
+            item 1 [Base.SmallSheetMetal],
+            item 1 [UO.Plastic],
+            item 1 tags[uo:solderingiron] mode:keep,
+            item 1 tags[uo:handmetalmechanism] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 Base.WeldingMask,
+        }
+    }
+
+    craftRecipe UO_MakeNeedle
+    {
+        timedAction = SmithingHammer,
+        time = 300,
+        Tags = InHandCraft,
+        category = Tools,
+
+        inputs
+        {
+            item 1 [UO.MetalPiece],
+            item 1 tags[Hammer] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 Base.Needle,
+        }
+    }
+
+    craftRecipe UO_MakeScissors
+    {
+        timedAction = SmithingHammer,
+        time = 300,
+        Tags = InHandCraft,
+        category = Tools,
+
+        inputs
+        {
+            item 2 [UO.MetalPiece],
+            item 1 [UO.SmallHandle],
+            item 1 tags[Hammer] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 Base.Scissors,
+        }
+    }
+
+    craftRecipe UO_MakeStrongLockpick
+    {
+        timedAction = Making_Surface,
+        time = 300,
+        Tags = InHandCraft,
+        category = Tools,
+        xpAward = MetalWelding:30,
+        needToBeLearn = true,
+
+        inputs
+        {
+            item 1 [Base.SheetMetal],
+            item 1 tags[Hammer] mode:keep,
+            item 1 tags[uo:handmetalmechanism] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 UO.StrongLockpick,
+        }
+    }
+
+    craftRecipe UO_MakeBucketEmpty
+    {
+        timedAction = Welding_Surface,
+        time = 300,
+        Tags = InHandCraft,
+        category = Tools,
+        xpAward = MetalWelding:30,
+
+        inputs
+        {
+            item 2 [Base.SheetMetal],
+            item 2 [Base.Wire],
+            item 2 [Base.Screws;UO.MetalPin],
+            item 1 tags[Hammer] mode:keep,
+            item 1 tags[uo:handmetalmechanism] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 Base.BucketEmpty,
+        }
+    }
+
+    craftRecipe UO_MakePencil
+    {
+        timedAction = CutClothing,
+        time = 300,
+        Tags = InHandCraft,
+        category = Tools,
+
+        inputs
+        {
+            item 2 [Base.SmallHandle],
+            item 2 tags[Charcoal],
+            item 1 tags[SharpKnife] mode:keep,
+        }
+
+        outputs
+        {
+            item 4 Base.Pencil,
+        }
+    }
+
+    craftRecipe UO_MakeWalkieTalkie3
+    {
+        timedAction = MakingElectrical,
+        time = 300,
+        Tags = InHandCraft,
+        category = Tools,
+        xpAward = Electricity:10,
+
+        inputs
+        {
+            item 2 [Base.ElectronicsScrap],
+            item 6 [UO.Plastic],
+            item 1 [Base.Wire],
+            item 1 tags[Screwdriver] mode:keep,
+            item 1 tags[uo:solderingiron] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 Base.WalkieTalkie3,
+        }
+    }
+
+    craftRecipe UO_MakeGardeningSprayEmpty
+    {
+        timedAction = MakingElectrical,
+        time = 300,
+        Tags = InHandCraft,
+        category = Tools,
+        xpAward = MetalWelding:10,
+
+        inputs
+        {
+            item 6 [UO.Plastic],
+            item 1 [Base.SmallSheetMetal],
+            item 1 tags[uo:solderingiron] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 Base.GardeningSprayEmpty,
+        }
+    }
+
+    craftRecipe UO_MakePropaneTank
+    {
+        timedAction = Making_Surface,
+        time = 300,
+        Tags = InHandCraft,
+        category = Tools,
+        xpAward = MetalWelding:30,
+        OnCreate = UORECIPES.MakeAllCreatedEmpty,
+
+        inputs
+        {
+            item 3 [Base.SheetMetal],
+            item 6 [Base.Screws;UO.MetalPin],
+            item 1 tags[Hammer] mode:keep,
+            item 1 tags[uo:solderingiron] mode:keep,
+            item 1 tags[uo:handmetalmechanism] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 Base.PropaneTank,
+        }
+    }
+
+    craftRecipe UO_MakeSyringe
+    {
+        timedAction = MakingElectrical,
+        time = 150,
+        Tags = InHandCraft,
+        category = Tools,
+
+        inputs
+        {
+            item 2 [UO.Plastic],
+            item 1 [Base.Needle;Base.Needle_Forged],
+            item 1 tags[uo:solderingiron] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 UO.Syringe,
+        }
+    }
+
+    craftRecipe UO_MakeHat_GasMask
+    {
+        timedAction = MakingElectrical,
+        time = 150,
+        Tags = InHandCraft,
+        category = Tools,
+
+        inputs
+        {
+            item 4 [UO.MetalPiece],
+            item 2 [UO.Plastic],
+            item 4 [Base.RippedSheets],
+            item 1 tags[Hammer] mode:keep,
+            item 1 tags[uo:solderingiron] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 Base.Hat_GasMask,
+        }
+    }
+    
+    craftRecipe UO_MakeGasmaskFilter
+    {
+        timedAction = MakingElectrical,
+        time = 150,
+        Tags = InHandCraft,
+        category = Tools,
+
+        inputs
+        {
+            item 1 tags[Charcoal],
+            item 2 [UO.Plastic],
+            item 1 tags[Hammer] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 Base.GasmaskFilter,
+        }
+    }
+
+    craftRecipe UO_MakeRespiratorFilters
+    {
+        timedAction = MakingElectrical,
+        time = 150,
+        Tags = InHandCraft,
+        category = Tools,
+
+        inputs
+        {
+            item 1 tags[Charcoal],
+            item 2 [UO.Plastic],
+            item 1 tags[Hammer] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 Base.RespiratorFilters,
+        }
+    }
+
+    craftRecipe UO_MakeWristWatch_Left_DigitalBlack
+    {
+        timedAction = MakingElectrical,
+        time = 150,
+        Tags = InHandCraft,
+        category = Tools,
+        xpAward = Electricity:10,
+
+        inputs
+        {
+            item 1 [Base.ElectronicsScrap],
+            item 1 [Base.Battery] flags[ItemCount],
+            item 1 [UO.Plastic],
+            item 1 tags[Screwdriver] mode:keep,
+            item 1 tags[uo:solderingiron] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 Base.WristWatch_Left_DigitalBlack,
+        }
+    }
+
+    craftRecipe UO_MakeDumbBell
+    {
+        timedAction = Making_Surface,
+        time = 300,
+        Tags = InHandCraft,
+        category = Tools,
+        xpAward = MetalWelding:30,
+
+        inputs
+        {
+            item 1 [Base.SheetMetal],
+            item 1 [Base.MetalPipe],
+            item 1 tags[Hammer] mode:keep,
+            item 1 tags[uo:handmetalmechanism] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 Base.DumbBell,
+        }
+    }
+
+    craftRecipe UO_MakeBarBell
+    {
+        timedAction = Making_Surface,
+        time = 300,
+        Tags = InHandCraft,
+        category = Tools,
+        xpAward = MetalWelding:30,
+
+        inputs
+        {
+            item 2 [Base.SheetMetal],
+            item 1 [Base.MetalPipe],
+            item 1 tags[Hammer] mode:keep,
+            item 1 tags[uo:handmetalmechanism] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 Base.BarBell,
+        }
+    }
+
+    craftRecipe UO_MakeCarBatteryCharger
+    {
+        timedAction = Making_Surface,
+        time = 300,
+        Tags = InHandCraft,
+        category = Tools,
+        xpAward = Electricity:30,
+
+        inputs
+        {
+            item 1 [Base.SheetMetal],
+            item 3 [Base.ElectronicsScrap],
+            item 4 [Base.Battery] flags[ItemCount],
+            item 1 tags[Hammer] mode:keep,
+            item 1 tags[SharpKnife] mode:keep,
+            item 1 tags[Pliers] mode:keep,
+            item 1 tags[uo:handmetalmechanism] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 Base.CarBatteryCharger,
+        }
+    }
+
+    craftRecipe UO_MakeAlarmController
+    {
+        timedAction = Making_Surface,
+        time = 150,
+        Tags = InHandCraft,
+        category = Tools,
+        xpAward = Electricity:30,
+        OnCreate = UORECIPES.MakeAllCreatedEmpty,
+
+        inputs
+        {
+            item 1 [Base.SheetMetal],
+            item 3 [Base.ElectronicsScrap],
+            item 4 [UO.Plastic],
+            item 1 tags[Hammer] mode:keep,
+            item 1 tags[SharpKnife] mode:keep,
+            item 1 tags[Pliers] mode:keep,
+            item 1 tags[uo:handmetalmechanism] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 UO.AlarmController,
+        }
+    }
+
+    craftRecipe UO_RefillAlarmController
+    {
+        timedAction = Making_Surface,
+        time = 150,
+        Tags = InHandCraft,
+        category = Tools,
+        OnCreate = UORECIPES.MakeInputFullByFlagNotFull,
+
+        inputs
+        {
+            item 1 [UO.AlarmController] flags[NotFull;ItemCount],
+            item 1 [Base.Battery] flags[ItemCount],
+        }
+
+        outputs
+        {
+        }
+    }
+
+    craftRecipe UO_MakeSutureNeedle
+    {
+        timedAction = Making_Surface,
+        time = 150,
+        Tags = InHandCraft,
+        category = Tools,
+        xpAward = MetalWelding:10,
+
+        inputs
+        {
+            item 1 [Base.Needle;Base.Needle_Forged],
+            item 1 [Base.Wire],
+            item 1 [Base.Thread;Base.String],
+            item 1 tags[Whetstone] mode:keep,
+            item 1 tags[uo:handmetalmechanism] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 Base.SutureNeedle,
+        }
+    }
+
+    craftRecipe UO_MakeSutureNeedleHolder
+    {
+        timedAction = Making_Surface,
+        time = 150,
+        Tags = InHandCraft,
+        category = Tools,
+        xpAward = MetalWelding:10,
+
+        inputs
+        {
+            item 1 [Base.SmallSheetMetal],
+            item 1 [Base.Screws;UO.MetalPin],
+            item 1 [Base.Thread;Base.String],
+            item 1 tags[Whetstone] mode:keep,
+            item 1 tags[Hammer] mode:keep,
+            item 1 tags[uo:handmetalmechanism] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 Base.SutureNeedleHolder,
+        }
+    }
+
+    craftRecipe UO_MakeVacuumSealer
+    {
+        timedAction = Making_Surface,
+        time = 150,
+        Tags = InHandCraft,
+        category = Tools,
+
+        inputs
+        {
+            item 1 [Base.SmallSheetMetal],
+            item 1 [Base.MetalPipe],
+            item 6 [UO.Plastic],
+            item 6 [Base.RippedSheets],
+            item 1 tags[Hammer] mode:keep,
+            item 1 tags[Pliers] mode:keep,
+            item 1 tags[SharpKnife] mode:keep,
+            item 1 tags[uo:handmetalmechanism] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 UO.VacuumSealer,
+        }
+    }
+
+    craftRecipe UO_MakeMREBag10
+    {
+        timedAction = Making_Surface,
+        time = 60,
+        Tags = InHandCraft,
+        category = Tools,
+
+        inputs
+        {
+            item 2 [UO.Plastic],
+            item 2 [Base.RippedSheets;2:Base.LeatherStrips],
+            item 1 [UO.Resin;Base.Glue],
+            item 1 [Base.SmallSheetMetal],
+            item 1 tags[Hammer] mode:keep,
+            item 1 tags[Pliers] mode:keep,
+            item 1 tags[SharpKnife] mode:keep,
+            item 1 tags[uo:handmetalmechanism] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 UO.MREBag10,
+        }
+    }
+
+    craftRecipe UO_MakeMREBag25
+    {
+        timedAction = Making_Surface,
+        time = 120,
+        Tags = InHandCraft,
+        category = Tools,
+
+        inputs
+        {
+            item 4 [UO.Plastic],
+            item 3 [Base.RippedSheets;2:Base.LeatherStrips],
+            item 2 [UO.Resin;Base.Glue],
+            item 1 [Base.SmallSheetMetal],
+            item 1 tags[Hammer] mode:keep,
+            item 1 tags[Pliers] mode:keep,
+            item 1 tags[SharpKnife] mode:keep,
+            item 1 tags[uo:handmetalmechanism] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 UO.MREBag25,
+        }
+    }
+
+    craftRecipe UO_MakeMREBag50
+    {
+        timedAction = Making_Surface,
+        time = 240,
+        Tags = InHandCraft,
+        category = Tools,
+
+        inputs
+        {
+            item 8 [UO.Plastic],
+            item 6 [Base.RippedSheets;2:Base.LeatherStrips],
+            item 3 [UO.Resin;Base.Glue],
+            item 2 [Base.SmallSheetMetal],
+            item 1 [Base.MetalBar],
+            item 1 tags[Hammer] mode:keep,
+            item 1 tags[Pliers] mode:keep,
+            item 1 tags[SharpKnife] mode:keep,
+            item 1 tags[uo:handmetalmechanism] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 UO.MREBag50,
+        }
+    }
+
+    craftRecipe UO_MakeMREBag100
+    {
+        timedAction = Making_Surface,
+        time = 480,
+        Tags = InHandCraft,
+        category = Tools,
+
+        inputs
+        {
+            item 12 [UO.Plastic],
+            item 2 [UO.CarbonMesh],
+            item 8 [Base.RippedSheets;2:Base.LeatherStrips],
+            item 4 [UO.Resin;Base.Glue],
+            item 2 [Base.SmallSheetMetal],
+            item 1 [Base.MetalPipe],
+            item 1 tags[Hammer] mode:keep,
+            item 1 tags[Pliers] mode:keep,
+            item 1 tags[SharpKnife] mode:keep,
+            item 1 tags[uo:handmetalmechanism] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 UO.MREBag100,
+        }
+    }
+
+    craftRecipe UO_MakeMechanismBase
+    {
+        timedAction = BuildLowMetal,
+        time = 300,
+        Tags = InHandCraft,
+        category = Tools,
+
+        inputs
+        {
+            item 3 [UO.MetalPiece],
+            item 3 [Base.Plank],
+            item 4 [Base.Screws;UO.MetalPin],
+            item 4 [Base.Nails],
+            item 1 tags[Hammer] mode:keep,
+            item 1 tags[Screwdriver] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 UO.MechanismBase,
+        }
+    }
+
+    craftRecipe UO_MakeMechanismHandle
+    {
+        timedAction = BuildLowMetal,
+        time = 300,
+        Tags = InHandCraft,
+        category = Tools,
+
+        inputs
+        {
+            item 1 [Base.Plank],
+            item 1 [UO.MetalPiece],
+            item 1 [Base.Screws;UO.MetalPin],
+            item 1 tags[Saw] mode:keep,
+            item 1 tags[Screwdriver] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 UO.MechanismHandle,
+        }
+    }
+
+    craftRecipe UO_MakeMechanismClamp
+    {
+        timedAction = BuildLowMetal,
+        time = 300,
+        Tags = InHandCraft,
+        category = Tools,
+
+        inputs
+        {
+            item 1 [Base.Wire],
+            item 2 [UO.MetalPiece],
+            item 2 [Base.Screws;UO.MetalPin],
+            item 1 tags[Hammer] mode:keep,
+            item 1 tags[Screwdriver] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 UO.MechanismClamp,
+        }
+    }
+
+    craftRecipe UO_MakeHacksawBlade
+    {
+        timedAction = BuildLowMetal,
+        time = 300,
+        Tags = InHandCraft,
+        category = Tools,
+
+        inputs
+        {
+            item 2 [UO.SawBlade],
+            item 2 [Base.Screws;UO.MetalPin],
+            item 1 tags[Hammer] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 UO.HacksawBlade,
+        }
+    }
+
+    craftRecipe UO_MakeRotationAxis
+    {
+        timedAction = BuildLowMetal,
+        time = 300,
+        Tags = InHandCraft,
+        category = Tools,
+
+        inputs
+        {
+            item 3 [UO.MetalPiece],
+            item 2 [Base.Paperclip],
+            item 1 tags[Screwdriver] mode:keep,
+            item 1 tags[Hammer] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 UO.RotationAxis,
+        }
+    }
+
+    craftRecipe UO_MakeGearMechanism
+    {
+        timedAction = BuildLowMetal,
+        time = 300,
+        Tags = InHandCraft,
+        category = Tools,
+
+        inputs
+        {
+            item 3 [UO.MetalPiece],
+            item 1 [Base.Screws;UO.MetalPin],
+            item 1 tags[Screwdriver] mode:keep,
+            item 1 tags[Hammer] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 UO.GearMechanism,
+        }
+    }
+
+    craftRecipe UO_MakeWorkpieceFixator
+    {
+        timedAction = BuildLowMetal,
+        time = 300,
+        Tags = InHandCraft,
+        category = Tools,
+
+        inputs
+        {
+            item 2 [UO.MetalPiece],
+            item 1 [Base.Plank],
+            item 2 [Base.Wire],
+            item 1 tags[Screwdriver] mode:keep,
+            item 1 tags[Hammer] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 UO.WorkpieceFixator,
+        }
+    }
+
+    craftRecipe UO_MakeHandMetalMechanism
+    {
+        timedAction = BuildLowMetal,
+        time = 300,
+        Tags = InHandCraft,
+        category = Tools,
+
+        inputs
+        {
+            item 1 [UO.MechanismBase],
+            item 1 [UO.MechanismHandle],
+            item 1 [UO.MechanismClamp],
+            item 1 [UO.HacksawBlade],
+            item 1 [UO.RotationAxis],
+            item 1 [UO.GearMechanism],
+            item 1 [UO.WorkpieceFixator],
+            item 4 [Base.Wire],
+            item 1 tags[Screwdriver] mode:keep,
+            item 1 tags[Saw] mode:keep,
+            item 1 tags[Hammer] mode:keep,
+            item 1 tags[CarpentryChisel] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 UO.HandMetalMechanism,
+        }
+    }
+}

@@ -8,100 +8,103 @@
 *
 ]]
 
-local function readExistingStats(fileName)
-	local stats = {
-		Name = {},
-		Gender = {},
-		Professions = {},
-		Traits = {},
-	}
+-- CURRENTLY NOT IN USE
+-- CREATED IN CASE THE MOD IS UPDATED REGULARLY
 
-	local fileReader = getFileReader(fileName, false)
-	if not fileReader then
-		return stats
-	end
+-- local function readExistingStats(fileName)
+-- 	local stats = {
+-- 		Name = {},
+-- 		Gender = {},
+-- 		Professions = {},
+-- 		Traits = {},
+-- 	}
 
-	while true do
-		local line = fileReader:readLine()
-		if not line then
-			break
-		end
+-- 	local fileReader = getFileReader(fileName, false)
+-- 	if not fileReader then
+-- 		return stats
+-- 	end
 
-		if line:match("^%s*Player Stats%s*:") or line:match("^%s*$") then
-			-- skip
-		else
-			local key, values = line:match("^(.-)%s*:%s*(.*)$")
-			if key and values and values ~= "" then
-				for name, count in values:gmatch("([^%[%],]+)%s*%[([0-9]+)%]") do
-					name = name:gsub("^%s+", ""):gsub("%s+$", "") -- trim
-					local n = tonumber(count) or 0
+-- 	while true do
+-- 		local line = fileReader:readLine()
+-- 		if not line then
+-- 			break
+-- 		end
 
-					stats[key] = stats[key] or {}
-					stats[key][name] = n
-				end
-			end
-		end
-	end
+-- 		if line:match("^%s*Player Stats%s*:") or line:match("^%s*$") then
+-- 			-- skip
+-- 		else
+-- 			local key, values = line:match("^(.-)%s*:%s*(.*)$")
+-- 			if key and values and values ~= "" then
+-- 				for name, count in values:gmatch("([^%[%],]+)%s*%[([0-9]+)%]") do
+-- 					name = name:gsub("^%s+", ""):gsub("%s+$", "") -- trim
+-- 					local n = tonumber(count) or 0
 
-	fileReader:close()
-	return stats
-end
+-- 					stats[key] = stats[key] or {}
+-- 					stats[key][name] = n
+-- 				end
+-- 			end
+-- 		end
+-- 	end
 
-local function writeStats(fileName, stats)
-	local writer = getFileWriter(fileName, false, false)
+-- 	fileReader:close()
+-- 	return stats
+-- end
 
-	writer:write("Player Stats:\n")
+-- local function writeStats(fileName, stats)
+-- 	local writer = getFileWriter(fileName, false, false)
 
-	local function lineFromTable(title, t)
-		local parts = {}
-		for k, v in pairs(t) do
-			table.insert(parts, string.format("%s[%d]", k, v))
-		end
-		return title .. ": " .. table.concat(parts, ", ") .. "\n"
-	end
+-- 	writer:write("Player Stats:\n")
 
-	writer:write(lineFromTable("Name", stats.Name))
-	writer:write(lineFromTable("Gender", stats.Gender))
-	writer:write(lineFromTable("Professions", stats.Professions))
-	writer:write(lineFromTable("Traits", stats.Traits))
+-- 	local function lineFromTable(title, t)
+-- 		local parts = {}
+-- 		for k, v in pairs(t) do
+-- 			table.insert(parts, string.format("%s[%d]", k, v))
+-- 		end
+-- 		return title .. ": " .. table.concat(parts, ", ") .. "\n"
+-- 	end
 
-	writer:close()
-end
+-- 	writer:write(lineFromTable("Name", stats.Name))
+-- 	writer:write(lineFromTable("Gender", stats.Gender))
+-- 	writer:write(lineFromTable("Professions", stats.Professions))
+-- 	writer:write(lineFromTable("Traits", stats.Traits))
 
-local function SavePlayerStats()
-	local player = getPlayer()
+-- 	writer:close()
+-- end
 
-	local modData = player:getModData()
+-- local function SavePlayerStats()
+-- 	local player = getPlayer()
 
-	if modData.UO_StatsSaved then
-		return
-	end
+-- 	local modData = player:getModData()
 
-	local fileName = "PlayerStats.txt"
-	local stats = readExistingStats(fileName)
+-- 	if modData.UO_StatsSaved then
+-- 		return
+-- 	end
 
-	local name = player:getFullName():trim() or "Unknown"
-	local gender = player:isFemale() and "Female" or "Male"
-	local profession = player:getDescriptor():getProfession() or "None"
+-- 	local fileName = "PlayerStats.txt"
+-- 	local stats = readExistingStats(fileName)
 
-	stats.Name[name] = (stats.Name[name] or 0) + 1
-	stats.Gender[gender] = (stats.Gender[gender] or 0) + 1
-	stats.Professions[profession] = (stats.Professions[profession] or 0) + 1
+-- 	local name = player:getFullName():trim() or "Unknown"
+-- 	local gender = player:isFemale() and "Female" or "Male"
+-- 	local profession = player:getDescriptor():getCharacterProfession():getName():lower() or "None"
 
-	if not stats.Traits then
-		stats.Traits = {}
-	end
+-- 	stats.Name[name] = (stats.Name[name] or 0) + 1
+-- 	stats.Gender[gender] = (stats.Gender[gender] or 0) + 1
+-- 	stats.Professions[profession] = (stats.Professions[profession] or 0) + 1
 
-	local traits = player:getTraits()
+-- 	if not stats.Traits then
+-- 		stats.Traits = {}
+-- 	end
 
-	for i = 0, traits:size() - 1 do
-		local trait = traits:get(i)
-		stats.Traits[trait] = (stats.Traits[trait] or 0) + 1
-	end
+-- 	local traits = player:getCharacterTraits():getTraits()
 
-	writeStats(fileName, stats)
+-- 	for i = 0, traits:size() - 1 do
+-- 		local trait = traits:get(i)
+-- 		stats.Traits[trait] = (stats.Traits[trait] or 0) + 1
+-- 	end
 
-	modData.UO_StatsSaved = true
-end
+-- 	writeStats(fileName, stats)
 
-table.insert(UsefulOccupations.DoFuncsOnCreatePlayer, SavePlayerStats)
+-- 	modData.UO_StatsSaved = true
+-- end
+
+-- table.insert(UsefulOccupations.DoFuncsOnCreatePlayer, SavePlayerStats)

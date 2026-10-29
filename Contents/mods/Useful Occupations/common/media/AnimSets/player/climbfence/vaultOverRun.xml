@@ -65,18 +65,6 @@
 		<m_blendInTime>0.3</m_blendInTime>
 	</m_Transitions>
 	<m_Transitions>
-		<m_Target>defaultWalkLoud</m_Target>
-		<m_blendInTime>0.3</m_blendInTime>
-	</m_Transitions>
-	<m_Transitions>
-		<m_Target>sneakWalkLoud</m_Target>
-		<m_blendInTime>0.3</m_blendInTime>
-	</m_Transitions>
-	<m_Transitions>
-		<m_Target>sneakWalkLowLoud</m_Target>
-		<m_blendInTime>0.3</m_blendInTime>
-	</m_Transitions>
-	<m_Transitions>
 		<m_Target>defaultRun</m_Target>
 		<m_blendInTime>0.3</m_blendInTime>
 	</m_Transitions>
@@ -89,23 +77,7 @@
 		<m_blendInTime>0.3</m_blendInTime>
 	</m_Transitions>
 	<m_Transitions>
-		<m_Target>defaultRunLoud</m_Target>
-		<m_blendInTime>0.3</m_blendInTime>
-	</m_Transitions>
-	<m_Transitions>
-		<m_Target>sneakRunLoud</m_Target>
-		<m_blendInTime>0.3</m_blendInTime>
-	</m_Transitions>
-	<m_Transitions>
-		<m_Target>sneakRunLowLoud</m_Target>
-		<m_blendInTime>0.3</m_blendInTime>
-	</m_Transitions>
-	<m_Transitions>
 		<m_Target>inTrees</m_Target>
-		<m_blendInTime>0.3</m_blendInTime>
-	</m_Transitions>
-	<m_Transitions>
-		<m_Target>inTreesLoud</m_Target>
 		<m_blendInTime>0.3</m_blendInTime>
 	</m_Transitions>
 </animNode>

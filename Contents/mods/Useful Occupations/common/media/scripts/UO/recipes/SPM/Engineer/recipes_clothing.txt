@@ -4,7 +4,7 @@ module UO {
         timedAction = SewingCloth,
         time = 150,
         Tags = InHandCraft,
-        category = Clothing,
+        category = Tailoring,
         xpAward = Tailoring:15,
 
         inputs
@@ -25,7 +25,7 @@ module UO {
         timedAction = SewingCloth,
         time = 300,
         Tags = InHandCraft,
-        category = Clothing,
+        category = Tailoring,
         xpAward = Tailoring:30,
 
         inputs
@@ -48,7 +48,7 @@ module UO {
         timedAction = SewingCloth,
         time = 500,
         Tags = InHandCraft,
-        category = Clothing,
+        category = Tailoring,
         xpAward = Tailoring:50,
 
         inputs
@@ -72,7 +72,7 @@ module UO {
         timedAction = SewingCloth,
         time = 150,
         Tags = InHandCraft,
-        category = Clothing,
+        category = Tailoring,
         xpAward = Tailoring:30,
 
         inputs
@@ -94,7 +94,7 @@ module UO {
         timedAction = SewingCloth,
         time = 300,
         Tags = InHandCraft,
-        category = Clothing,
+        category = Tailoring,
         xpAward = Tailoring:30,
 
         inputs
@@ -117,7 +117,7 @@ module UO {
         timedAction = SewingCloth,
         time = 300,
         Tags = InHandCraft,
-        category = Clothing,
+        category = Tailoring,
         xpAward = Tailoring:30,
 
         inputs
@@ -140,7 +140,7 @@ module UO {
         timedAction = SewingCloth,
         time = 150,
         Tags = InHandCraft,
-        category = Clothing,
+        category = Tailoring,
         xpAward = Tailoring:30,
 
         inputs
@@ -162,7 +162,7 @@ module UO {
         timedAction = SewingCloth,
         time = 300,
         Tags = InHandCraft,
-        category = Clothing,
+        category = Tailoring,
         xpAward = Tailoring:50,
 
         inputs
@@ -180,12 +180,13 @@ module UO {
         }
     }
 
+    ----------
     craftRecipe UO_SewClothArmorPlate
     {
         timedAction = SewingCloth,
         time = 300,
         Tags = InHandCraft,
-        category = Clothing,
+        category = Tailoring,
         xpAward = Tailoring:10,
 
         inputs
@@ -203,12 +204,13 @@ module UO {
         }
     }
 
+    ----------
     craftRecipe UO_SewMetalArmorPlate
     {
         timedAction = Making_Surface,
         time = 300,
         Tags = InHandCraft,
-        category = Clothing,
+        category = Tailoring,
         xpAward = Tailoring:30,
 
         inputs
@@ -220,7 +222,7 @@ module UO {
             item 1 tags[Hammer] mode:keep,
             item 1 tags[Pliers] mode:keep,
             item 1 tags[Screwdriver] mode:keep,
-            item 1 tags[HandMetalMechanism] mode:keep,
+            item 1 tags[uo:handmetalmechanism] mode:keep,
             item 1 [Base.Needle;Base.Needle_Bone;Base.Needle_Brass;Base.Needle_Forged;Base.SutureNeedle;Base.Needle_Forged] mode:keep,
         }
 
@@ -230,12 +232,13 @@ module UO {
         }
     }
 
+    ----------
     craftRecipe UO_SewCarbonArmorPlate
     {
         timedAction = CraftArmourPiece,
         time = 500,
         Tags = AdvancedForge,
-        category = Clothing,
+        category = Tailoring,
         xpAward = Tailoring:50;Blacksmith:30,
 
         inputs
@@ -260,7 +263,7 @@ module UO {
         timedAction = CraftArmourPiece,
         time = 300,
         Tags = InHandCraft,
-        category = Clothing,
+        category = Tailoring,
         xpAward = Tailoring:50;MetalWelding:30,
 
         inputs

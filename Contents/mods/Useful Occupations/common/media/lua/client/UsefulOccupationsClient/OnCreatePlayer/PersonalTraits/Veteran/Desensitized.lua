@@ -15,33 +15,20 @@ UsefulOccupations.DoTraitsOnCreatePlayer.Desensitized = function(player)
 	local maxPain = UsefulOccupations.PersonalTraits.Desensitized.values.maxPain()
 	local maxFatigue = UsefulOccupations.PersonalTraits.Desensitized.values.maxFatigue() / 100
 
-	local modData = UsefulOccupations.Functions.getModData()
-
 	local stats = player:getStats()
 	local bodyDamage = player:getBodyDamage()
 
-	local currentPainReduction = bodyDamage:getPainReduction()
-
 	UsefulOccupations.Functions.processEveryMs(30, function()
-		-- Don't reduce pain and fatigue when "Invincible" on cooldown
-		if modData.invincibleState == "onCooldown" then
-			return
+		local bodyDamageRed = bodyDamage:getPainReduction()
+
+		bodyDamage:setPainReduction(math.min(painReduction, bodyDamageRed))
+
+		if stats:get(CharacterStat.PAIN) > maxPain then
+			stats:set(CharacterStat.PAIN, maxPain)
 		end
 
-		bodyDamage:setPainReduction(currentPainReduction + painReduction)
-
-		currentPainReduction = bodyDamage:getPainReduction() - painReduction
-
-		if currentPainReduction < 0 then
-			currentPainReduction = 0
-		end
-
-		if stats:getPain() > maxPain then
-			stats:setPain(maxPain)
-		end
-
-		if stats:getFatigue() > maxFatigue then
-			stats:setFatigue(maxFatigue)
+		if stats:get(CharacterStat.FATIGUE) > maxFatigue then
+			stats:set(CharacterStat.FATIGUE, maxFatigue)
 		end
 	end)
 end

@@ -49,7 +49,7 @@ local reduceActionsTimeByTraits = function()
 				return o
 			end
 
-			if character:HasTrait(trait.type) then
+			if character:hasTrait(UsefulOccupations.Functions.getTraitByStr(trait.type)) then
 				local newTime
 
 				if type(timeReduction) == "function" then

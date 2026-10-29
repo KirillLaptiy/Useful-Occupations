@@ -26,13 +26,13 @@ ISReadABook.checkMultiplier = function(self)
 		-- apply the multiplier to the skill
 		local multiplier = (math.floor(readPercent / 10) * (self.maxMultiplier / 10))
 
-		if self.character:HasTrait(traitName) then
+		if self.character:hasTrait(UsefulOccupations.Functions.getTraitByStr(traitName)) then
 			multiplier = multiplier * booksMultiplier
 		end
 
 		local maxLevel = self.item:getMaxLevelTrained()
 
-		if self.character:HasTrait(traitName) then
+		if self.character:hasTrait(UsefulOccupations.Functions.getTraitByStr(traitName)) then
 			maxLevel = maxLevel + lastBooksMultiplierLevel
 		end
 
@@ -49,6 +49,6 @@ ISReadABook.checkMultiplier = function(self)
 end
 
 -- Init sandbox values
-Events.OnGameStart.Add(function ()
-    traitName = UsefulOccupations.PersonalTraits.Wunderkind.type
+Events.OnGameStart.Add(function()
+	traitName = UsefulOccupations.PersonalTraits.Wunderkind.type
 end)

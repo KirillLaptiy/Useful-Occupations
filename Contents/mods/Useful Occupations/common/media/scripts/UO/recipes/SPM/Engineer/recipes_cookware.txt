@@ -161,7 +161,7 @@ module UO {
         {
             item 1 [Base.SmallSheetMetal],
             item 1 tags[Hammer] mode:keep,
-            item 1 tags[SolderingIron] mode:keep,
+            item 1 tags[uo:solderingiron] mode:keep,
         }
 
         outputs
@@ -244,7 +244,7 @@ module UO {
             item 1 [Base.SmallSheetMetal],
             item 1 [Base.SmallHandle],
             item 1 tags[Hammer] mode:keep,
-            item 1 tags[SolderingIron] mode:keep,
+            item 1 tags[uo:solderingiron] mode:keep,
         }
 
         outputs

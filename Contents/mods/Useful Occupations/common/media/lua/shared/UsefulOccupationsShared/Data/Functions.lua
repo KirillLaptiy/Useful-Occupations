@@ -25,6 +25,10 @@
 ---@field removeAllEvents fun()
 ---Need to clear mod data if a new player was created in the same world
 ---@field clearModData fun()
+---@field getTraitByStr fun(str: string) : CharacterTrait
+---@field getItemTagByStr fun(str: string) : ItemTag
+---@field getItemBodyLocByStr fun(str: string) : ItemBodyLocation
+---@field tryGetTraitByStr fun(str: string) : CharacterTrait | nil
 
 local activeEventList = {}
 
@@ -84,6 +88,43 @@ local Functions = {
 	clearModData = function()
 		getPlayer():getModData().UsefulOccupationsModData = nil
 	end,
+
+	getTraitByStr = function(str)
+		local trait = CharacterTrait.get(ResourceLocation.of(UsefulOccupations.ModModule .. str))
+		trait = trait or CharacterTrait.get(ResourceLocation.of(str))
+
+		if trait == nil then
+			error("TRAIT BY STR:" .. str .. "NOT FOUND")
+		end
+
+		return trait
+	end,
+
+	getItemTagByStr = function(str)
+		local tag = ItemTag.get(ResourceLocation.of(UsefulOccupations.ModModule .. str))
+		tag = tag or ItemTag.register(UsefulOccupations.ModModule .. str)
+
+		return tag
+	end,
+
+	getItemBodyLocByStr = function(str)
+		local bodyLoc = ItemBodyLocation.get(ResourceLocation.of(UsefulOccupations.ModModule .. str))
+
+		if bodyLoc == nil then
+			error("ITEM BODY LOCATION BY STR:" .. str .. "NOT FOUND")
+		end
+
+		return bodyLoc
+	end,
+
+	---@param str string
+	---@return CharacterTrait
+	tryGetTraitByStr = function(str)
+		local trait = CharacterTrait.get(ResourceLocation.of(UsefulOccupations.ModModule .. str))
+		trait = trait or CharacterTrait.get(ResourceLocation.of(str))
+
+		return trait
+	end
 }
 
 return Functions

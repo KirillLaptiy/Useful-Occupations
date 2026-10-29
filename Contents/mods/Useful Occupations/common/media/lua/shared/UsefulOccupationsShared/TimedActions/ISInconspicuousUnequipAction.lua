@@ -107,7 +107,7 @@ function ISInconspicuousUnequipAction:perform()
 	end
 	self.item:setJobDelta(0.0)
 
-	if self.item:IsInventoryContainer() or self.item:hasTag("Wearable") then
+	if self.item:IsInventoryContainer() or self.item:hasTag(UsefulOccupations.Functions.getItemTagByStr("wearable")) then
 		getPlayerInventory(self.character:getPlayerNum()):refreshBackpacks()
 	end
 
@@ -187,7 +187,7 @@ function ISInconspicuousUnequipAction:complete()
 		---@type IsoPlayer
 		local player = self.character
 
-		if player:HasTrait(Inconspicuous:getTraitName()) then
+		if player:hasTrait(UsefulOccupations.Functions.getTraitByStr(Inconspicuous:getTraitName())) then
 			Inconspicuous:togglePretendingZombie()
 		end
 	end

@@ -170,35 +170,4 @@
 		<m_Target>zombieWalkUO</m_Target>
 		<m_blendInTime>0.5</m_blendInTime>
 	</m_Transitions>
-	<m_Transitions>
-		<m_Target>defaultWalkLoud</m_Target>
-		<m_blendInTime>0.3</m_blendInTime>
-		<m_blendOutTime>0.3</m_blendOutTime>
-		<m_Conditions x_name="a862bdb4-6aca-4c00-ad4f-f37235ae3e45">
-			<m_Name>isTurningAround</m_Name>
-			<m_Type>BOOL</m_Type>
-			<m_Value>false</m_Value>
-		</m_Conditions>
-	</m_Transitions>
-	<m_Transitions>
-		<m_Target>defaultRunLoud</m_Target>
-		<m_AnimName>Bob_IdleToRun</m_AnimName>
-		<m_blendInTime>0.1</m_blendInTime>
-		<m_blendOutTime>0.1</m_blendOutTime>
-		<m_Conditions x_name="966b9471-df21-49a6-837c-ce621db8564a">
-			<m_Name>isTurningAround</m_Name>
-			<m_Type>BOOL</m_Type>
-			<m_Value>false</m_Value>
-		</m_Conditions>
-		<m_Conditions x_name="bce52e8f-85ef-4f51-9691-d02a89ea70ae">
-			<m_Name>walkinjury</m_Name>
-			<m_Type>EQU</m_Type>
-			<m_Value>0</m_Value>
-		</m_Conditions>
-		<m_Conditions x_name="90d2c784-b328-451b-a5ca-6604ff94ce22">
-			<m_Name>isOverEncumbered</m_Name>
-			<m_Type>BOOL</m_Type>
-			<m_Value>false</m_Value>
-		</m_Conditions>
-	</m_Transitions>
 </animNode>

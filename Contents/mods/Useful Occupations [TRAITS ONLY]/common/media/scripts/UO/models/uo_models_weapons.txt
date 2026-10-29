@@ -1,0 +1,148 @@
+module UO
+{
+	model AxeCrafted
+	{
+		mesh = UO/AxeCrafted,
+		scale = 0.6,
+		texture = UO/UV/HM,
+		attachment world
+        {
+            offset = 0.03 0.2 0.0,
+            rotate = 90.0 0.0 0.0,
+        }
+	}
+
+	model HammerCrafted
+	{
+		mesh = UO/HammerCrafted,
+		scale = 0.6,
+		texture = UO/UV/HM,
+		attachment world
+        {
+            offset = 0.012 0.125 0.0,
+            rotate = 90.0 0.0 0.0,
+        }
+	}
+
+	model SpearCrafted
+	{
+		mesh = UO/SpearCrafted,
+		scale = 0.8,
+		texture = UO/UV/HM,
+		attachment world
+        {
+            offset = 0.03 0.2 0.0,
+            rotate = 90.0 0.0 90.0,
+        }
+	}
+
+	model KnifeCrafted
+	{
+		mesh = UO/KnifeCrafted,
+		scale = 0.8,
+		texture = UO/UV/HM,
+		attachment world
+        {
+            offset = 0.012 0.125 0.0,
+            rotate = 90.0 0.0 0.0,
+        }
+		
+	}
+
+	model MetalBat
+	{
+		mesh = UO/MetalBat,
+		scale = 0.8,
+		texture = UO/UV/MetalBat,
+		attachment world
+        {
+            offset = 0.0329 0.273 -0.007,
+            rotate = 90.0 0.0 90.0,
+        }
+	}
+
+	model CarbonAxe
+	{
+		mesh = UO/CarbonAxe,
+		scale = 0.8,
+		texture = UO/UV/CarbonTools,
+		attachment world
+        {
+            offset = 0.0179 0.173 -0.007,
+            rotate = 90.0 0.0 90.0,
+        }
+	}
+
+	model CarbonBat
+	{
+		mesh = UO/CarbonBat,
+		scale = 0.8,
+		texture = UO/UV/CarbonTools,
+		attachment world
+        {
+            offset = 0.0329 0.2 0.0,
+            rotate = 90.0 0.0 90.0,
+        }
+	}
+
+	model CarbonHammer
+	{
+		mesh = UO/CarbonHammer,
+		scale = 0.8,
+		texture = UO/UV/CarbonTools,
+		attachment world
+        {
+            offset = 0.022 0.0200 0.0,
+            rotate = 90.0 0.0 90.0,
+        }
+		
+	}
+
+	model CarbonKatana
+	{
+		mesh = UO/CarbonKatana,
+		scale = 0.7,
+		texture = UO/UV/CarbonTools,
+		attachment world
+        {
+            offset = 0.01 0.02 0.0,
+            rotate = 90.0 90.0 90.0,
+        }
+	}
+
+	model CarbonKnife
+	{
+		mesh = UO/CarbonKnife,
+		scale = 0.5,
+		texture = UO/UV/CarbonTools,
+		attachment world
+        {
+            offset = 0.012 0.0265 0.0,
+            rotate = 90.0 90.0 90.0,
+        }
+	}
+
+	model CarbonSpear
+	{
+		mesh = UO/CarbonSpear,
+		scale = 0.8,
+		texture = UO/UV/CarbonTools,
+		attachment world
+        {
+            offset = 0.03 0.2 0.0,
+            rotate = 90.0 0.0 90.0,
+        }
+	}
+
+	model CarbonHatchet
+	{
+		mesh = UO/CarbonHatchet,
+		scale = 0.8,
+		texture = UO/UV/CarbonTools,
+		attachment world
+        {
+            offset = 0.012 0.0100 0.0,
+            rotate = 90.0 90.0 90.0,
+        }
+	}
+}

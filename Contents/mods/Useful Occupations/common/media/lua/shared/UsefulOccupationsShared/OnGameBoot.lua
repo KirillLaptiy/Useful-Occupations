@@ -11,9 +11,13 @@
 ---@class UOOnGameBoot
 UOOnGameBoot = {}
 
+local funcs = UsefulOccupations.Functions
+
 local scoutSkillsType = UsefulOccupations.PersonalTraits.ScoutSkills.type
 local enduranceSecretType = UsefulOccupations.PersonalTraits.EnduranceSecret.type
 local engineerType = UsefulOccupations.PersonalTraits.Engineer.type
+
+local reduceActionsTimeByTraits = require("UsefulOccupationsShared/ReduceActionsTimeByTraits")
 
 ---@param xpHashMap HashMap
 local isTraitForbidden = function(xpHashMap)
@@ -38,24 +42,25 @@ local isTraitForbidden = function(xpHashMap)
 	return false
 end
 
+-- Set trait params
+---@param trait CharacterTraitDefinition
+---@param traitData UsefulOccupations.AnyTrait
+local setTraitParams = function(trait, traitData)
+	-- Add trait's xp boosts
+	for _, xpBoost in pairs(traitData.xpBoosts) do
+		trait:addXPBoost(xpBoost.perk, xpBoost.level)
+	end
+
+	-- Add trait's free recipes
+	for _, freeRecipe in pairs(traitData.freeRecipes) do
+		---@diagnostic disable-next-line: param-type-mismatch
+		trait:getGrantedRecipes():add(freeRecipe)
+	end
+end
+
 local addUsefulTraits = function()
 	-- Clear vanilla traits
-	-- TraitFactory.Reset()
-
-	-- Set trait params
-	---@param trait Trait
-	---@param traitData UsefulOccupations.AnyTrait
-	local setTraitParams = function(trait, traitData)
-		-- Add trait's xp boosts
-		for _, xpBoost in pairs(traitData.xpBoosts) do
-			trait:addXPBoost(xpBoost.perk, xpBoost.level)
-		end
-
-		-- Add trait's free recipes
-		for _, freeRecipe in pairs(traitData.freeRecipes) do
-			trait:getFreeRecipes():add(freeRecipe)
-		end
-	end
+	-- CharacterTraitDefinition.Reset()
 
 	-- Add personal traits
 	---@param traitData UsefulOccupations.PersonalTrait
@@ -64,7 +69,7 @@ local addUsefulTraits = function()
 		local vanillaMutualExclusives = {}
 
 		-- Get vanilla mutual exclusives
-		local traits = TraitFactory.getTraits()
+		local traits = CharacterTraitDefinition.getTraits()
 
 		local vanillaMEType = traitData.type
 
@@ -76,7 +81,8 @@ local addUsefulTraits = function()
 		end
 
 		for i = 0, traits:size() - 1 do
-			---@type Trait
+			---@type CharacterTraitDefinition
+			---@diagnostic disable-next-line: assign-type-mismatch
 			local vanillaTrait = traits:get(i)
 
 			if vanillaTrait:getType() == vanillaMEType then
@@ -88,66 +94,85 @@ local addUsefulTraits = function()
 			end
 		end
 
+		local characterTrait = funcs.tryGetTraitByStr(traitData.type)
+
+		if characterTrait == nil then
+			characterTrait = CharacterTrait.register(UsefulOccupations.ModModule .. traitData.type)
+		end
+
 		-- Add trait
-		local trait = TraitFactory.addTrait(traitData.type, traitData.name, 0, traitData.desc, true)
+		local trait = CharacterTraitDefinition.addCharacterTraitDefinition(characterTrait, traitData.name, 0,
+			traitData.desc, true, false)
 
 		-- Set params
 		setTraitParams(trait, traitData)
 
 		-- Set mutual exclusives
 		-- Set vanilla mutual exclusives
+		---@param vanillaMExclusive string
 		for _, vanillaMExclusive in pairs(vanillaMutualExclusives) do
-			TraitFactory.setMutualExclusive(traitData.type, vanillaMExclusive)
+			CharacterTraitDefinition.setMutualExclusive(characterTrait, funcs.getTraitByStr(vanillaMExclusive))
 		end
 
 		-- Set trait data mutual exclusives
+		---@param mExclusive string
 		for _, mExclusive in pairs(traitData.mutualExclusives) do
-			TraitFactory.setMutualExclusive(traitData.type, mExclusive)
+			CharacterTraitDefinition.setMutualExclusive(characterTrait, funcs.getTraitByStr(mExclusive))
 		end
 
 		-- Set description
+		---@diagnostic disable-next-line: param-type-mismatch
 		BaseGameCharacterDetails.SetTraitDescription(trait)
 	end
 
 	-- Set mutual exclusives for profession (by one of the profession's trait)
-	local traits = TraitFactory.getTraits()
+	local traits = CharacterTraitDefinition.getTraits()
 
-	for i = 0, traits:size() - 1 do
-		---@type Trait
-		local trait = traits:get(i)
+	for i = 1, traits:size() do
+		---@type CharacterTraitDefinition
+		---@diagnostic disable-next-line: assign-type-mismatch
+		local trait = traits:get(i - 1)
 
-		local traitForbidden = isTraitForbidden(trait:getXPBoostMap())
+		local traitForbidden = isTraitForbidden(trait:getXpBoosts())
 
 		if traitForbidden and not trait:isFree() then
 			local traitType = trait:getType()
 
-			TraitFactory.setMutualExclusive(scoutSkillsType, traitType)
-			TraitFactory.setMutualExclusive(enduranceSecretType, traitType)
-			TraitFactory.setMutualExclusive(engineerType, traitType)
+			local scoutSkills = funcs.getTraitByStr(scoutSkillsType)
+			local enduranceSecret = funcs.getTraitByStr(enduranceSecretType)
+			local engineer = funcs.getTraitByStr(engineerType)
+
+			CharacterTraitDefinition.setMutualExclusive(scoutSkills, traitType)
+			CharacterTraitDefinition.setMutualExclusive(enduranceSecret, traitType)
+			CharacterTraitDefinition.setMutualExclusive(engineer, traitType)
 		end
 	end
 
 	-- Sort traits
-	TraitFactory.sortList()
+	-- CharacterTraitDefinition.sortList()
 end
 
 UOOnGameBoot.addUsefulProfessions = function()
 	-- Clear vanilla professions
-	ProfessionFactory.Reset()
+	CharacterProfessionDefinition.reset()
 
 	-- Add professions
 	---@param professionData UsefulOccupations.Profession
 	for _, professionData in pairs(UsefulOccupations.Professions) do
-		local profession = ProfessionFactory.addProfession(
-			professionData.type,
+		local characterProfession = CharacterProfession.register(UsefulOccupations.ModModule .. professionData.type)
+
+		local profession = CharacterProfessionDefinition.addCharacterProfessionDefinition(
+			characterProfession,
 			professionData.name,
-			professionData.iconPath,
-			professionData.points
+			professionData.points,
+			professionData.desc,
+			professionData.iconPath
 		)
 
 		-- Add profession's personal traits
 		for _, trait in pairs(professionData.traits) do
-			profession:addFreeTrait(trait.type)
+			local personalTrait = funcs.getTraitByStr(trait.type)
+			profession:addGrantedTrait(personalTrait)
 		end
 
 		-- Add profession's xp boosts
@@ -155,16 +180,7 @@ UOOnGameBoot.addUsefulProfessions = function()
 			profession:addXPBoost(xpBoost.perk, xpBoost.level)
 		end
 	end
-
-	-- Set description for each profession
-	local profList = ProfessionFactory.getProfessions()
-	for i = 1, profList:size() do
-		local prof = profList:get(i - 1)
-		BaseGameCharacterDetails.SetProfessionDescription(prof)
-	end
 end
-
-local reduceActionsTimeByTraits = require("UsefulOccupationsShared/ReduceActionsTimeByTraits")
 
 Events.OnGameBoot.Add(function()
 	-- Adds traits and professions
@@ -175,3 +191,4 @@ Events.OnGameBoot.Add(function()
 	-- Reduce timed actions time
 	reduceActionsTimeByTraits()
 end)
+

@@ -2,37 +2,37 @@ module UO {
     item Pliers
     {
         DisplayCategory = Tool,
-        Type = Normal,
+        ItemType = base:normal,
         Weight = 0.40,
-        Icon = UO/Pliers,
+        Icon = UO_Pliers,
         Count = 1,
-        WorldStaticModel = Pliers,
-        Tags = Pliers;RemoveBullet;RemoveGlass;MetalworkingPliers,
+        WorldStaticModel = UO_Pliers,
+        Tags = base:pliers;base:removebullet;base:removeglass;base:metalworkingpliers,
     }
 
     item Chisel
     {
         DisplayCategory = Tool,
-        Type = Normal,
+        ItemType = base:normal,
         Weight = 0.25,
-        Icon = UO/Chisel,
+        Icon = Chisel,
         Count = 1,
         WorldStaticModel = Chisel,
-        Tags = MasonsChisel;MetalworkingChisel;CarpentryChisel,
+        Tags = base:masonschisel;base:metalworkingchisel;base:carpentrychisel,
     }
 
     item FlintLighter
     {
         DisplayCategory = Tool,
-        Type = Drainable,
+        ItemType = base:drainable,
         Weight = 0.10,
-        Icon = UO/FlintLighter,
+        Icon = UO_FlintLighter,
         Count = 1,
-        WorldStaticModel = FlintLighter,
+        WorldStaticModel = UO_FlintLighter,
         ConsolidateOption = ContextMenu_Merge,
         UseDelta = 0.1,
         UseWhileEquipped = false,
-        Tags = StartFire;LessFull;FitsWallet,
+        Tags = base:startfire;base:lessfull;base:fitswallet,
         SurvivalGear = true,
         Tooltip = Tooltip_item_flint_lighter,
     }
@@ -40,117 +40,117 @@ module UO {
     item Caliper
     {
         DisplayCategory = Tool,
-        Type = Normal,
+        ItemType = base:normal,
         Weight = 0.35,
-        Icon = UO/Caliper,
+        Icon = Caliper,
         Count = 1,
         WorldStaticModel = Caliper,
-        Tags = Caliper;HasMetal,
+        Tags = uo:caliper;base:hasmetal,
     }
 
     item BoreGauge
     {
         DisplayCategory = Tool,
-        Type = Normal,
+        ItemType = base:normal,
         Weight = 0.30,
-        Icon = UO/BoreGauge,
+        Icon = BoreGauge,
         Count = 1,
         WorldStaticModel = BoreGauge,
-        Tags = BoreGauge;HasMetal,
+        Tags = uo:boregauge;base:hasmetal,
     }
 
     item MetalShears
     {
         DisplayCategory = Tool,
-        Type = Normal,
+        ItemType = base:normal,
         Weight = 0.50,
-        Icon = UO/MetalShears,
+        Icon = MetalShears,
         Count = 1,
         WorldStaticModel = MetalShears,
-        Tags = SheetMetalSnips;HasMetal;CanOpener;LightMetalSnips;Scissors,
+        Tags = base:sheetmetalsnips;base:hasmetal;base:canopener;base:lightmetalsnips;base:scissors,
     }
 
     item HandDrill
     {
         DisplayCategory = Tool,
-        Type = Normal,
+        ItemType = base:normal,
         Weight = 0.90,
-        Icon = UO/HandDrill,
+        Icon = HandDrill,
         Count = 1,
         WorldStaticModel = HandDrill,
-        Tags = DrillWood;DrillMetal;DrillWoodPoor,
+        Tags = base:drillwood;base:drillmetal;base:drillwoodpoor,
     }
 
     item SolderingIron
     {
         DisplayCategory = Tool,
-        Type = Normal,
+        ItemType = base:normal,
         Weight = 0.60,
-        Icon = UO/SolderingIron,
+        Icon = SolderingIron,
         Count = 1,
         WorldStaticModel = SolderingIron,
-        Tags = SolderingIron,
+        Tags = uo:solderingiron,
     }
 
     item WeakLockpick
     {
         DisplayCategory = Tool,
-        Type = Normal,
+        ItemType = base:normal,
         Weight = 0.10,
-        Icon = UO/WeakLockpick,
+        Icon = WeakLockpick,
         Count = 1,
         ConditionMax = 1,
         WorldStaticModel = WeakLockpick,
-        Tags = Lockpick,
+        Tags = uo:lockpick,
         Tooltip = Tooltip_item_weak_lockpick,
     }
 
     item Lockpick
     {
         DisplayCategory = Tool,
-        Type = Normal,
+        ItemType = base:normal,
         Weight = 0.20,
-        Icon = UO/Lockpick,
+        Icon = Lockpick,
         Count = 1,
         ConditionMax = 10,
         WorldStaticModel = Lockpick,
-        Tags = Lockpick,
+        Tags = uo:lockpick,
         Tooltip = Tooltip_item_lockpick,
     }
 
     item StrongLockpick
     {
         DisplayCategory = Tool,
-        Type = Normal,
+        ItemType = base:normal,
         Weight = 0.40,
-        Icon = UO/StrongLockpick,
+        Icon = StrongLockpick,
         Count = 1,
         WorldStaticModel = StrongLockpick,
-        Tags = Lockpick,
+        Tags = uo:lockpick,
         Tooltip = Tooltip_item_strong_lockpick,
     }
 
     item Syringe
     {
         DisplayCategory = Tool,
-        Type = Normal,
+        ItemType = base:normal,
         Weight = 0.20,
-        Icon = UO/Syringe,
+        Icon = Syringe,
         Count = 1,
         WorldStaticModel = Syringe,
-        Tags = Syringe,
+        Tags = uo:syringe,
     }
 
     item AlarmController
     {
         DisplayCategory = Tool,
-        Type = Drainable,
+        ItemType = base:drainable,
         KeepOnDeplete = true,
         CantBeConsolided = true,
         UseWhileEquipped = false,
         UseDelta = 0.1,
         Weight = 0.80,
-        Icon = UO/AlarmController,
+        Icon = AlarmController,
         Count = 1,
         WorldStaticModel = AlarmController,
         Tooltip = Tooltip_item_alarm_controller,
@@ -159,45 +159,126 @@ module UO {
     item VacuumSealer
     {
         DisplayCategory = Tool,
-        Type = Normal,
+        ItemType = base:normal,
         Weight = 3.50,
-        Icon = UO/VacuumSealer,
+        Icon = VacuumSealer,
         Count = 1,
         WorldStaticModel = VacuumSealer,
-        Tags = VacuumSealer,
+        Tags = uo:vacuumsealer,
     }
 
     item MREBag10
     {
         DisplayCategory = Container,
-        Type = Container,
+        ItemType = base:container,
         Weight = 0.45,
-        Capacity = 10,
-        Icon = UO/MREBag10,
+        Capacity = 5,
+        Icon = MREBag10,
         Count = 1,
+        Tags = uo:mrebag,
         WorldStaticModel = MREBag10,
         Tooltip = Tooltip_item_mre,
+        AcceptItemFunction = UORECIPES.UO_MRE_AcceptItem,
     }
 
-    item MREKit
+    item MREBag25
     {
         DisplayCategory = Container,
-        Type = Normal,
-        Weight = 0.45,
-        Icon = UO/MREKit,
+        ItemType = base:container,
+        Weight = 1,
+        Capacity = 10,
+        Icon = MREBag10,
         Count = 1,
-        WorldStaticModel = MREKit,
-        Tags = UO_MREKit,
+        Tags = uo:mrebag,
+        WorldStaticModel = MREBag25,
+        Tooltip = Tooltip_item_mre,
+        AcceptItemFunction = UORECIPES.UO_MRE_AcceptItem,
+    }
+
+    item MREBag50
+    {
+        DisplayCategory = Container,
+        ItemType = base:container,
+        Weight = 1.5,
+        Capacity = 20,
+        Icon = MREBag10,
+        Count = 1,
+        Tags = uo:mrebag,
+        WorldStaticModel = MREBag50,
+        Tooltip = Tooltip_item_mre,
+        AcceptItemFunction = UORECIPES.UO_MRE_AcceptItem,
+    }
+
+    item MREBag100
+    {
+        DisplayCategory = Container,
+        ItemType = base:container,
+        Weight = 2,
+        Capacity = 50,
+        Icon = MREBag10,
+        Count = 1,
+        Tags = uo:mrebag,
+        WorldStaticModel = MREBag100,
+        Tooltip = Tooltip_item_mre,
+        AcceptItemFunction = UORECIPES.UO_MRE_AcceptItem,
+    }
+
+    item MREKit10
+    {
+        DisplayCategory = Container,
+        ItemType = base:normal,
+        Weight = 0.45,
+        Icon = MREKit10,
+        Count = 1,
+        WorldStaticModel = MREKit10,
+        Tooltip = Tooltip_item_mrekit,
+        Tags = uo:mrekit,
+    }
+
+    item MREKit25
+    {
+        DisplayCategory = Container,
+        ItemType = base:normal,
+        Weight = 1,
+        Icon = MREKit25,
+        Count = 1,
+        WorldStaticModel = MREKit25,
+        Tooltip = Tooltip_item_mrekit,
+        Tags = uo:mrekit,
+    }
+
+    item MREKit50
+    {
+        DisplayCategory = Container,
+        ItemType = base:normal,
+        Weight = 1.5,
+        Icon = MREKit50,
+        Count = 1,
+        WorldStaticModel = MREKit50,
+        Tooltip = Tooltip_item_mrekit,
+        Tags = uo:mrekit,
+    }
+
+    item MREKit100
+    {
+        DisplayCategory = Container,
+        ItemType = base:normal,
+        Weight = 2,
+        Icon = MREKit100,
+        Count = 1,
+        WorldStaticModel = MREKit100,
+        Tooltip = Tooltip_item_mrekit,
+        Tags = uo:mrekit,
     }
 
     item MixingKit
     {
         DisplayCategory = Tool,
-        Type = Normal,
+        ItemType = base:normal,
         Weight = 0.5,
-        Icon = UO/MixingKit,
+        Icon = MixingKit,
         Count = 1,
         WorldStaticModel = MixingKit,
-        Tags = MixingKit,
+        Tags = uo:mixingkit,
     }
 }

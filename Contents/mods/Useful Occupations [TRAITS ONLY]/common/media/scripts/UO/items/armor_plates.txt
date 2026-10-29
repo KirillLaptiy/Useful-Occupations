@@ -1,0 +1,38 @@
+---------------
+module UO {
+    item ClothArmorPlate
+    {
+        DisplayCategory = ArmorPlate,
+        ItemType = base:normal,
+        Weight = 0.50,
+        Icon = ClothArmorPlate,
+        Count = 1,
+        ConditionMax = 1,
+        WorldStaticModel = ClothArmorPlate,
+        Tooltip = Tooltip_item_cloth_armor_plate,
+    }
+
+    item MetalArmorPlate
+    {
+        DisplayCategory = ArmorPlate,
+        ItemType = base:normal,
+        Weight = 2.50,
+        Icon = MetalArmorPlate,
+        Count = 1,
+        ConditionMax = 3,
+        WorldStaticModel = MetalArmorPlate,
+        Tooltip = Tooltip_item_metal_armor_plate,
+    }
+
+    item CarbonArmorPlate
+    {
+        DisplayCategory = ArmorPlate,
+        ItemType = base:normal,
+        Weight = 2.00,
+        Icon = CarbonArmorPlate,
+        Count = 1,
+        ConditionMax = 10,
+        WorldStaticModel = CarbonArmorPlate,
+        Tooltip = Tooltip_item_carbon_armor_plate,
+    }
+}

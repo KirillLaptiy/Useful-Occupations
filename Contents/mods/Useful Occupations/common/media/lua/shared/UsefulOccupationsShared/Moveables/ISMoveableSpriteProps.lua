@@ -40,6 +40,7 @@ function ISMoveableSpriteProps:getScrapItemsList(_character)
 
 	for _, mat in ipairs(materials) do
 		scrapDef = ISMoveableDefinitions:getInstance().getScrapDefinition(mat)
+		---@diagnostic disable-next-line: param-type-mismatch
 		chance = self:getChanceByDef(scrapDef, _character)
 		addedAmount = 0
 		if scrapDef and chance then
@@ -49,7 +50,7 @@ function ISMoveableSpriteProps:getScrapItemsList(_character)
 			end
 
 			if returnItems and #returnItems > 0 then
-				local isBuilder = _character:HasTrait(traitType)
+				local isBuilder = _character:hasTrait(UsefulOccupations.Functions.getTraitByStr(traitType))
 
 				-- Builder gets more resources by scrap furniture
 				if isBuilder then
@@ -148,6 +149,6 @@ function ISMoveableSpriteProps:addScrapItemToList(_list, _item, _max, _chance, _
 end
 
 -- Init sandbox values
-Events.OnGameStart.Add(function ()
-    traitType = UsefulOccupations.PersonalTraits.Builder.type
+Events.OnGameStart.Add(function()
+	traitType = UsefulOccupations.PersonalTraits.Builder.type
 end)

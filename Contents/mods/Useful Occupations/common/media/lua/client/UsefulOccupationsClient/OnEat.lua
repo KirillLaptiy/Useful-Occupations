@@ -25,7 +25,7 @@ local stimulantGelEffect = function()
 	local xp = player:getXp()
 	local modData = UsefulOccupations.Functions.getModData()
 
-	---@param perk Perk
+	---@param perk PerkFactory.Perk
 	---@param amount number
 	local function gelEffect(_, perk, amount)
 		if modData.gelEffectTime == 0 then
@@ -54,8 +54,8 @@ end
 UO_ON_EAT.EnergyDrink = function(_, character, _)
 	local stats = character:getStats()
 
-	stats:setEndurance(stats:getEndurance() + 0.15)
-	stats:setFatigue(stats:getFatigue() - 0.15)
+	stats:set(CharacterStat.ENDURANCE, stats:get(CharacterStat.ENDURANCE) + 0.15)
+	stats:set(CharacterStat.FATIGUE, stats:get(CharacterStat.FATIGUE) - 0.15)
 end
 
 UO_ON_EAT.StimulantGel = function(_, _, _)
@@ -63,11 +63,11 @@ UO_ON_EAT.StimulantGel = function(_, _, _)
 
 	-- prevent double gel effect
 	if modData.gelEffectTime > 0 then
-		modData.gelEffectTime = modData.gelEffectTime + 120
+		modData.gelEffectTime = modData.gelEffectTime + 360
 		return
 	end
 
-	modData.gelEffectTime = modData.gelEffectTime + 120
+	modData.gelEffectTime = modData.gelEffectTime + 360
 
 	stimulantGelEffect()
 end

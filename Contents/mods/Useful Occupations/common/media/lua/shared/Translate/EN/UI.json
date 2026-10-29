@@ -1,0 +1,64 @@
+{
+    "UI_prof_unemployed": "I. Custom Profession",
+    "UI_prof_unemployed_desc": "A blank slate. Start your journey with incredible learning speed to catch up.",
+    "UI_prof_spm": "IV. Special Purpose Master",
+    "UI_prof_spm_desc": "Universal engineering special forces. Capable of creating anything out of anything, turning trash into survival masterpieces.",
+    "UI_prof_veteran": "III. Veteran",
+    "UI_prof_veteran_desc": "A killer hardened in battles. Your body is a weapon, and your mind is a steel fortress immune to the horrors of the apocalypse.",
+    "UI_prof_scout": "II. Scout",
+    "UI_prof_scout_desc": "A master of wilderness survival. Adapts to harsh conditions faster than anyone, finding food where others give up.",
+
+    "UI_trait_Wunderkind": "Wunderkind",
+    "UI_trait_WunderkindDesc": "Genius. Absorb knowledge faster while others are just starting to figure things out. Gives +125 XP until level 3 of skills and doubles book bonuses.",
+
+    "UI_trait_ScoutSkills": "Scout Skills",
+    "UI_trait_ScoutSkillsDesc": "Hawk's eye. You see more, consume less, and catch fish where logically there shouldn't be any. Reduces hunger and thirst while walking, allows identifying poisonous mushrooms and berries, and gives bonuses to fishing.",
+
+    "UI_trait_Outdoorsman": "Outdoorsman",
+    "UI_trait_OutdoorsmanDesc": "One with nature. Bad weather, dirt, and the elements are no longer your enemies. 90 chance to not get sick from weather and 99 chance to not get scratched by trees. Speeds up chopping trees, washing, and lighting campfires.",
+
+    "UI_trait_Axeman": "Axeman",
+    "UI_trait_AxemanDesc": "Berserker lumberjack. Trees fall from a single glance, and your muscles don't even have time to get tired. +5 swing speed, +25 hit speed, and 1.5x more damage to trees. Reduces fatigue and muscle strain when chopping.",
+
+    "UI_trait_Burglar": "Burglar",
+    "UI_trait_BurglarDesc": "Quiet thief. Locks, windows, and even car ignitions open up before you. Allows picking doors, windows, and cars using a lockpick, and breaking windows without noise.",
+
+    "UI_trait_Graceful": "Graceful",
+    "UI_trait_GracefulDesc": "Shadow of the wind. Silent, fast, and elusive as a ghost. Increases turning, walking, running, and climbing speed, and reduces the weight of worn clothing.",
+
+    "UI_trait_Organized": "Organized",
+    "UI_trait_OrganizedDesc": "Order in everything. Your backpacks and pockets hold an incredible amount of cargo. +30 to all container capacity, and strength affects carrying weight stronger than usual.",
+
+    "UI_trait_Dextrous": "Dextrous",
+    "UI_trait_DextrousDesc": "Lightning reflexes. You move items while others are just thinking about it. Inventory transfer speed increased by 75.",
+
+    "UI_trait_Inconspicuous": "Inconspicuous",
+    "UI_trait_InconspicuousDesc": "You blend in with the dead. Zombies won't notice you even if you stand right next to them. Activates on the 'G' key. Zombies lose sight of you extremely quickly, and detection range is reduced by 2 times. Does not work if you have already been spotted or are doing suspicious actions.",
+
+    "UI_trait_Marksman": "Marksman",
+    "UI_trait_MarksmanDesc": "God of shooting. Every bullet finds its target, and crits pierce any skull. Speeds up aiming and reloading, increases damage, range, and crit chance. Gives a chance for a super-crit that instantly kills zombies. Weapons don't jam.",
+
+    "UI_trait_Desensitized": "Desensitized",
+    "UI_trait_DesensitizedDesc": "Madness bypasses you. Neither pain, nor mountains of corpses, nor horrors will break your mind. Reduces max pain and drowsiness, and grants resistance to pain. You don't panic and don't get stress from seeing corpses.",
+
+    "UI_trait_TrainedFighter": "Trained Fighter",
+    "UI_trait_TrainedFighterDesc": "Killing machine. Your strikes are crushing, and your stance is unshakable. Increases damage, range, and crits. You always knock enemies off their feet, hit, push, and stomp faster, don't slow down after attacks, and don't get muscle pain.",
+
+    "UI_trait_EnduranceSecret": "Endurance Secret",
+    "UI_trait_EnduranceSecretDesc": "Perpetual motion machine. You spend endurance with incredible efficiency, and fatigue is alien to you. Greatly reduces endurance consumption from all sources and speeds up its recovery.",
+
+    "UI_trait_Invincible": "Invincible",
+    "UI_trait_InvincibleDesc": "Even a horde of zombies cannot resist your might... Passively: Allows dodging bites at the cost of endurance and not tripping when colliding with zombies. Crawler immunity - crawlers cannot attack you. When colliding with a zombie while running or sprinting, instead of falling, you cripple the zombie. Activates when health drops below 30. You fully restore health and for 3 minutes do not let it decrease without healing wounds. Cooldown 72 hours.",
+
+    "UI_trait_Engineer": "Engineer",
+    "UI_trait_EngineerDesc": "Lord of mechanisms. A jack of all trades, capable of assembling anything with incredible speed. Knows unique engineer recipes and spends less time crafting.",
+
+    "UI_trait_Builder": "Builder",
+    "UI_trait_BuilderDesc": "Architect of the apocalypse. Build impregnable fortresses in the blink of an eye. Builds 2x faster, structures are stronger and hold more, and you get more resources when dismantling.",
+
+    "UI_trait_Mechanic": "Mechanic",
+    "UI_trait_MechanicDesc": "Soul of the car. Breathe life into any junk on wheels and dismantle it with surgical precision. Knows all mechanic recipes. Installs, removes parts, and repairs cars much faster and more efficiently.",
+
+    "UI_trait_Doctor": "Doctor",
+    "UI_trait_DoctorDesc": "Guardian angel. Heal fatal wounds in seconds and cook food that gives incredible strength. Heals faster, bandages and poultices last much longer, and food turns out more filling."
+}

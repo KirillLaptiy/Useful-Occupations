@@ -1,0 +1,12 @@
+{
+    "ContextMenu_Lockpicking": "Arrombamento",
+    "ContextMenu_PickLock": "Arrombar fechadura",
+    "ContextMenu_Relock": "Trancar novamente",
+    "ContextMenu_Need_Lockpick": "Precisa de gazua",
+    "ContextMenu_Need_Close_Window": "Precisa fechar a janela",
+    "ContextMenu_AlarmControl": "Controle de alarme",
+    "ContextMenu_DisableAlarm": "Desativar alarme",
+    "ContextMenu_EnableAlarm": "Ativar alarme",
+    "ContextMenu_Need_AlarmController": "Precisa de controlador de alarme",
+    "ContextMenu_CheckAlarm": "Verificar alarme"
+}

@@ -80,13 +80,17 @@ local createErrorTooltip = function(option, message)
 end
 
 local addProcessAlarmOptions = function(context, worldobjects, playerObj, obj, alarmController, buildingDef)
-	local buildingAlarmOpt = context:addOption(getText("ContextMenu_AlarmControl"))
-	local buildingAlarmMenu = context:getNew(context)
+	local optText = obj:isWindow() and "ContextMenu_Window" or "ContextMenu_Door_option"
+	local opt = context:getOptionFromName(getText(optText))
+	local target = opt and opt.subOption and context:getSubMenu(opt.subOption)
 
-	context:addSubMenu(buildingAlarmOpt, buildingAlarmMenu)
+	local buildingAlarmOpt = target:addOption(getText("ContextMenu_AlarmControl"))
+	local buildingAlarmMenu = target:getNew(target)
+
+	target:addSubMenu(buildingAlarmOpt, buildingAlarmMenu)
 
 	local check = buildingAlarmMenu:addOption(
-		getText("Check Alarm"),
+		getText("ContextMenu_CheckAlarm"),
 		worldobjects,
 		processBuildingAlarm,
 		playerObj,

@@ -67,7 +67,7 @@ module UO {
         {
             item 1 [Base.SmallSheetMetal],
             item 1 tags[Hammer] mode:keep,
-            item 1 tags[HandMetalMechanism] mode:keep,
+            item 1 tags[uo:handmetalmechanism] mode:keep,
         }
 
         outputs
@@ -315,7 +315,7 @@ module UO {
         {
             item 2 [UO.MetalPiece],
             item 1 tags[Hammer] mode:keep,
-            item 1 tags[HandMetalMechanism] mode:keep,
+            item 1 tags[uo:handmetalmechanism] mode:keep,
         }
 
         outputs
@@ -335,7 +335,7 @@ module UO {
         {
             item 1 [UO.MetalPiece],
             item 1 tags[Hammer;Screwdriver] mode:keep,
-            item 1 tags[HandMetalMechanism] mode:keep,
+            item 1 tags[uo:handmetalmechanism] mode:keep,
         }
 
         outputs
@@ -356,7 +356,7 @@ module UO {
             item 1 [UO.MetalPiece],
             item 1 [Base.Screws],
             item 1 tags[Hammer;Screwdriver] mode:keep,
-            item 1 tags[HandMetalMechanism] mode:keep,
+            item 1 tags[uo:handmetalmechanism] mode:keep,
         }
 
         outputs
@@ -376,7 +376,7 @@ module UO {
         {
             item 1 [Base.SmallSheetMetal],
             item 1 tags[Hammer] mode:keep,
-            item 1 tags[HandMetalMechanism] mode:keep,
+            item 1 tags[uo:handmetalmechanism] mode:keep,
         }
 
         outputs
@@ -396,7 +396,7 @@ module UO {
         {
             item 2 [UO.MetalPiece],
             item 1 tags[Hammer;Screwdriver] mode:keep,
-            item 1 tags[HandMetalMechanism] mode:keep,
+            item 1 tags[uo:handmetalmechanism] mode:keep,
         }
 
         outputs
@@ -416,7 +416,7 @@ module UO {
         {
             item 2 [UO.MetalPiece],
             item 1 [UO.Plastic],
-            item 1 tags[SolderingIron] mode:keep,
+            item 1 tags[uo:solderingiron] mode:keep,
         }
 
         outputs
@@ -457,7 +457,7 @@ module UO {
         {
             item 1 [UO.MetalPiece],
             item 1 [Base.TirePiece;Base.DuctTape],
-            item 1 tags[HandMetalMechanism;Screwdriver] mode:keep,
+            item 1 tags[uo:handmetalmechanism;Screwdriver] mode:keep,
         }
 
         outputs
@@ -502,7 +502,7 @@ module UO {
             item 1 tags[Hammer] mode:keep,
             item 1 tags[Pliers] mode:keep,
             item 1 tags[SharpKnife] mode:keep,
-            item 1 tags[HandMetalMechanism] mode:keep,
+            item 1 tags[uo:handmetalmechanism] mode:keep,
         }
 
         outputs
@@ -566,7 +566,7 @@ module UO {
             item 3 [UO.MetalPiece],
             item 1 [Base.DuctTape;Base.TirePiece],
             item 1 tags[Screwdriver] mode:keep,
-            item 1 tags[SolderingIron] mode:keep,
+            item 1 tags[uo:solderingiron] mode:keep,
         }
 
         outputs
@@ -752,7 +752,7 @@ module UO {
             item 1 [UO.MetalPiece],
             item 1 [UO.Plastic],
             item 1 [Base.Wire],
-            item 1 tags[SolderingIron] mode:keep,
+            item 1 tags[uo:solderingiron] mode:keep,
         }
 
         outputs
@@ -847,7 +847,7 @@ module UO {
         inputs
         {
             item 1 [UO.Plastic],
-            item 1 tags[SolderingIron] mode:keep,
+            item 1 tags[uo:solderingiron] mode:keep,
         }
 
         outputs
@@ -982,7 +982,7 @@ module UO {
             item 1 [Base.SheetMetal],
             item 1 tags[Hammer] mode:keep,
             item 1 tags[SheetMetalSnips] mode:keep,
-            item 1 tags[HandMetalMechanism] mode:keep,
+            item 1 tags[uo:handmetalmechanism] mode:keep,
         }
 
         outputs
@@ -1057,7 +1057,7 @@ module UO {
         {
             item 1 [Base.SheetMetal],
             item 1 tags[Hammer] mode:keep,
-            item 1 tags[HandMetalMechanism] mode:keep,
+            item 1 tags[uo:handmetalmechanism] mode:keep,
         }
 
         outputs
@@ -1077,7 +1077,7 @@ module UO {
         {
             item 1 [Base.SmallSheetMetal],
             item 1 tags[Hammer] mode:keep,
-            item 1 tags[HandMetalMechanism] mode:keep,
+            item 1 tags[uo:handmetalmechanism] mode:keep,
         }
 
         outputs
@@ -1209,7 +1209,7 @@ module UO {
             item 1 [*],
             -fluid 0.75 [Petrol],
             item 4 [UO.Oxidizer],
-            item 1 tags[MixingKit] mode:keep,
+            item 1 tags[uo:mixingkit] mode:keep,
         }
 
         outputs
@@ -1253,7 +1253,7 @@ module UO {
             item 4 [Base.RippedSheets],
             item 2 tags[Charcoal],
             item 2 [UO.Resin],
-            item 1 tags[MixingKit] mode:keep,
+            item 1 tags[uo:mixingkit] mode:keep,
         }
 
         outputs

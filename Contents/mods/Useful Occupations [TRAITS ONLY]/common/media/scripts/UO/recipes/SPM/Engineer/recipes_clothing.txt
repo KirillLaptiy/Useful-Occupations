@@ -1,0 +1,287 @@
+module UO {
+    craftRecipe UO_SewBag_Schoolbag
+    {
+        timedAction = SewingCloth,
+        time = 150,
+        Tags = InHandCraft,
+        category = Tailoring,
+        xpAward = Tailoring:15,
+
+        inputs
+        {
+            item 6 [Base.RippedSheets],
+            item 6 [Base.LeatherStrips],
+            item 1 tags[Scissors;SharpKnife] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 Base.Bag_Schoolbag,
+        }
+    }
+
+    craftRecipe UO_SewBag_NormalHikingBag
+    {
+        timedAction = SewingCloth,
+        time = 300,
+        Tags = InHandCraft,
+        category = Tailoring,
+        xpAward = Tailoring:30,
+
+        inputs
+        {
+            item 12 [Base.RippedSheets],
+            item 12 [Base.LeatherStrips],
+            item 2 [Base.Thread],
+            item 1 tags[Scissors;SharpKnife] mode:keep,
+            item 1 [Base.Needle;Base.Needle_Bone;Base.Needle_Brass;Base.Needle_Forged;Base.SutureNeedle;Base.Needle_Forged] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 Base.Bag_NormalHikingBag,
+        }
+    }
+
+    craftRecipe UO_SewBag_ALICEpack
+    {
+        timedAction = SewingCloth,
+        time = 500,
+        Tags = InHandCraft,
+        category = Tailoring,
+        xpAward = Tailoring:50,
+
+        inputs
+        {
+            item 18 [Base.RippedSheets],
+            item 18 [Base.LeatherStrips],
+            item 3 [Base.SheetRope;1:Base.Rope;Base.Twine],
+            item 4 [Base.Thread],
+            item 1 tags[Scissors;SharpKnife] mode:keep,
+            item 1 [Base.Needle;Base.Needle_Bone;Base.Needle_Brass;Base.Needle_Forged;Base.SutureNeedle;Base.Needle_Forged] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 Base.Bag_ALICEpack,
+        }
+    }
+
+    craftRecipe UO_SewAmmoStraps
+    {
+        timedAction = SewingCloth,
+        time = 150,
+        Tags = InHandCraft,
+        category = Tailoring,
+        xpAward = Tailoring:30,
+
+        inputs
+        {
+            item 4 [Base.LeatherStrips],
+            item 1 [Base.Thread],
+            item 1 tags[Scissors;SharpKnife] mode:keep,
+            item 1 [Base.Needle;Base.Needle_Bone;Base.Needle_Brass;Base.Needle_Forged;Base.SutureNeedle;Base.Needle_Forged] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 Base.AmmoStraps,
+        }
+    }
+
+    craftRecipe UO_SewAmmoStrap_Shells
+    {
+        timedAction = SewingCloth,
+        time = 300,
+        Tags = InHandCraft,
+        category = Tailoring,
+        xpAward = Tailoring:30,
+
+        inputs
+        {
+            item 1 [Base.AmmoStraps],
+            item 4 [Base.LeatherStrips],
+            item 1 [Base.Thread],
+            item 1 tags[Scissors;SharpKnife] mode:keep,
+            item 1 [Base.Needle;Base.Needle_Bone;Base.Needle_Brass;Base.Needle_Forged;Base.SutureNeedle;Base.Needle_Forged] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 Base.AmmoStrap_Shells,
+        }
+    }
+
+    craftRecipe UO_SewAmmoStrap_Bullets
+    {
+        timedAction = SewingCloth,
+        time = 300,
+        Tags = InHandCraft,
+        category = Tailoring,
+        xpAward = Tailoring:30,
+
+        inputs
+        {
+            item 1 [Base.AmmoStraps],
+            item 4 [Base.LeatherStrips],
+            item 1 [Base.Thread],
+            item 1 tags[Scissors;SharpKnife] mode:keep,
+            item 1 [Base.Needle;Base.Needle_Bone;Base.Needle_Brass;Base.Needle_Forged;Base.SutureNeedle;Base.Needle_Forged] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 Base.AmmoStrap_Bullets,
+        }
+    }
+
+    craftRecipe UO_SewHolsterSimple
+    {
+        timedAction = SewingCloth,
+        time = 150,
+        Tags = InHandCraft,
+        category = Tailoring,
+        xpAward = Tailoring:30,
+
+        inputs
+        {
+            item 2 [Base.LeatherStrips],
+            item 1 [Base.Thread],
+            item 1 tags[Scissors;SharpKnife] mode:keep,
+            item 1 [Base.Needle;Base.Needle_Bone;Base.Needle_Brass;Base.Needle_Forged;Base.SutureNeedle;Base.Needle_Forged] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 Base.HolsterSimple,
+        }
+    }
+
+    craftRecipe UO_SewHolsterDouble
+    {
+        timedAction = SewingCloth,
+        time = 300,
+        Tags = InHandCraft,
+        category = Tailoring,
+        xpAward = Tailoring:50,
+
+        inputs
+        {
+            item 2 [Base.HolsterSimple],
+            item 2 [Base.LeatherStrips],
+            item 1 [Base.Thread],
+            item 1 tags[Scissors;SharpKnife] mode:keep,
+            item 1 [Base.Needle;Base.Needle_Bone;Base.Needle_Brass;Base.Needle_Forged;Base.SutureNeedle;Base.Needle_Forged] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 Base.HolsterDouble,
+        }
+    }
+
+    ----------
+    craftRecipe UO_SewClothArmorPlate
+    {
+        timedAction = SewingCloth,
+        time = 300,
+        Tags = InHandCraft,
+        category = Tailoring,
+        xpAward = Tailoring:10,
+
+        inputs
+        {
+            item 4 [Base.RippedSheets],
+            item 2 [UO.Resin;Base.Glue],
+            item 1 [Base.Thread],
+            item 1 tags[Scissors;SharpKnife] mode:keep,
+            item 1 [Base.Needle;Base.Needle_Bone;Base.Needle_Brass;Base.Needle_Forged;Base.SutureNeedle;Base.Needle_Forged] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 UO.ClothArmorPlate,
+        }
+    }
+
+    ----------
+    craftRecipe UO_SewMetalArmorPlate
+    {
+        timedAction = Making_Surface,
+        time = 300,
+        Tags = InHandCraft,
+        category = Tailoring,
+        xpAward = Tailoring:30,
+
+        inputs
+        {
+            item 1 [Base.SheetMetal],
+            item 2 [Base.RippedSheets],
+            item 2 [UO.Resin;Base.Glue],
+            item 1 [Base.Thread],
+            item 1 tags[Hammer] mode:keep,
+            item 1 tags[Pliers] mode:keep,
+            item 1 tags[Screwdriver] mode:keep,
+            item 1 tags[uo:handmetalmechanism] mode:keep,
+            item 1 [Base.Needle;Base.Needle_Bone;Base.Needle_Brass;Base.Needle_Forged;Base.SutureNeedle;Base.Needle_Forged] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 UO.MetalArmorPlate,
+        }
+    }
+
+    ----------
+    craftRecipe UO_SewCarbonArmorPlate
+    {
+        timedAction = CraftArmourPiece,
+        time = 500,
+        Tags = AdvancedForge,
+        category = Tailoring,
+        xpAward = Tailoring:50;Blacksmith:30,
+
+        inputs
+        {
+            item 1 [UO.CarbonMetal],
+            item 2 [UO.Resin;Base.Glue],
+            item 2 [Base.RippedSheets],
+            item 1 [Base.Thread],
+            item 1 tags[Hammer] mode:keep,
+            item 1 tags[MetalworkingPliers] mode:keep,
+            item 1 [Base.Needle;Base.Needle_Bone;Base.Needle_Brass;Base.Needle_Forged;Base.SutureNeedle;Base.Needle_Forged] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 UO.CarbonArmorPlate,
+        }
+    }
+
+    craftRecipe UO_SewVest_BulletCivilian
+    {
+        timedAction = CraftArmourPiece,
+        time = 300,
+        Tags = InHandCraft,
+        category = Tailoring,
+        xpAward = Tailoring:50;MetalWelding:30,
+
+        inputs
+        {
+            item 6 [Base.RippedSheets],
+            item 2 [Base.SmallSheetMetal],
+            item 2 [UO.Resin;Base.Glue],
+            item 2 [Base.SheetRope;1:Base.Rope;Base.Twine],
+            item 1 [Base.Thread],
+            item 1 tags[Hammer] mode:keep,
+            item 1 tags[Pliers] mode:keep,
+            item 1 tags[SharpKnife] mode:keep,
+            item 1 [Base.Needle;Base.Needle_Bone;Base.Needle_Brass;Base.Needle_Forged;Base.SutureNeedle;Base.Needle_Forged] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 Base.Vest_BulletCivilian,
+        }
+    }
+}

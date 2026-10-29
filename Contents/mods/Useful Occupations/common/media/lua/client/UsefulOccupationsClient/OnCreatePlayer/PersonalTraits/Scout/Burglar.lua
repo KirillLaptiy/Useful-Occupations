@@ -31,6 +31,7 @@ UsefulOccupations.DoTraitsOnCreatePlayer.Burglar = function(_)
 	---@param lockpick InventoryItem
 	local lockpickWindow = function(_, playerObj, window, needToBeLocked, lockpick)
 		if lockpick and luautils.walkAdjWindowOrDoor(playerObj, window:getSquare(), window) then
+			if window:IsOpen() then playerObj:closeWindow(window) end
 			ISInventoryPaneContextMenu.equipWeapon(lockpick, true, false, playerObj:getPlayerNum())
 			ISTimedActionQueue.add(ISLockpickWindow:new(playerObj, window, needToBeLocked, lockpick))
 		end
@@ -52,7 +53,16 @@ UsefulOccupations.DoTraitsOnCreatePlayer.Burglar = function(_)
 	---@return InventoryItem | nil
 	local getValidLockpick = function(container)
 		local lockpicks = ArrayList.new()
-		container:getAllTag("Lockpick", lockpicks)
+
+		-- lockpicks = container:getAllTag(UsefulOccupations.Functions.getItemTagByStr("lockpick"))
+
+		local wloc = container:getAllType("WeakLockpick")
+		local loc = container:getAllType("Lockpick")
+		local sloc = container:getAllType("StrongLockpick")
+
+		lockpicks:addAll(wloc)
+		lockpicks:addAll(loc)
+		lockpicks:addAll(sloc)
 
 		for i = 0, lockpicks:size() - 1 do
 			local lockpick = lockpicks:get(i)
@@ -70,6 +80,7 @@ UsefulOccupations.DoTraitsOnCreatePlayer.Burglar = function(_)
 	local getLockpickFromContainers = function(containers)
 		for i = 0, containers:size() - 1 do
 			---@type ItemContainer
+			---@diagnostic disable-next-line: undefined-field
 			local container = containers:get(i):getItemContainer()
 
 			if container then
@@ -116,91 +127,64 @@ UsefulOccupations.DoTraitsOnCreatePlayer.Burglar = function(_)
 		-- Create menu with default options
 		local context = oldCreateMenu(player, worldobjects, x, y, test)
 
+		if not context then return end
+
 		-- Add new context options
 		local playerObj = getSpecificPlayer(player)
 		local fetch = ISWorldObjectContextMenu.fetchVars
 
-		if not playerObj:HasTrait(traitName) then
+		if not playerObj:hasTrait(UsefulOccupations.Functions.getTraitByStr(traitName)) then
 			return context
 		end
 
 		---@type IsoDoor
 		local door = fetch.door
-
 		---@type IsoWindow
 		local window = fetch.window
 
 		local lockpick = tryGetLockpick(playerObj)
 
+		local doorOpt = context:getOptionFromName(getText("ContextMenu_Door_option"))
+		local windowOpt = context:getOptionFromName(getText("ContextMenu_Window"))
+
 		if door and not hasDoorKey(playerObj, door) then
-			local lockpickingOpt = context:addOption(getText("ContextMenu_Lockpicking"))
-			local lockpickingMenu = context:getNew(context)
+			local target = doorOpt and doorOpt.subOption and context:getSubMenu(doorOpt.subOption)
 
-			context:addSubMenu(lockpickingOpt, lockpickingMenu)
+			local isLocked = door:isLockedByKey()
 
-			local pickLock = lockpickingMenu:addOption(
-				getText("ContextMenu_PickLock"),
+			local lockOption = target:addOption(
+				isLocked and getText("ContextMenu_PickLock") or getText("ContextMenu_Relock"),
 				worldobjects,
 				lockpickDoor,
 				playerObj,
 				door,
-				false,
-				lockpick
-			)
-
-			local relock = lockpickingMenu:addOption(
-				getText("ContextMenu_Relock"),
-				worldobjects,
-				lockpickDoor,
-				playerObj,
-				door,
-				true,
+				not isLocked,
 				lockpick
 			)
 
 			if not lockpick then
-				createErrorTooltip(pickLock, "ContextMenu_Need_Lockpick")
-				createErrorTooltip(relock, "ContextMenu_Need_Lockpick")
+				createErrorTooltip(lockOption, "ContextMenu_Need_Lockpick")
 			end
 		end
 
-		if window and not window:isSmashed() and not window:isPermaLocked() then
-			local lockpickingOpt = context:addOption("Lockpicking")
-			local lockpickingMenu = context:getNew(context)
+		--TODO: закончить с окном
+		if window and not window:isSmashed() then
+			local target = windowOpt and windowOpt.subOption and context:getSubMenu(windowOpt.subOption)
 
-			context:addSubMenu(lockpickingOpt, lockpickingMenu)
+			local isLocked = window:isPermaLocked() or window:isLocked()
 
-			local pickLock = lockpickingMenu:addOption(
-				getText("PickLock window"),
+			local lockOption = target:addOption(
+				isLocked and getText("ContextMenu_PickLock") or getText("ContextMenu_Relock"),
 				worldobjects,
 				lockpickWindow,
 				playerObj,
 				window,
-				false,
+				not isLocked,
 				lockpick
 			)
 
-			local relock = lockpickingMenu:addOption(
-				getText("Relock window"),
-				worldobjects,
-				lockpickWindow,
-				playerObj,
-				window,
-				true,
-				lockpick
-			)
-
-			local errorMessage = nil
-
-			if window:IsOpen() then
-				errorMessage = "ContextMenu_Need_Close_Window"
-			elseif not lockpick then
-				errorMessage = "ContextMenu_Need_Lockpick"
-			end
-
-			if errorMessage then
-				createErrorTooltip(pickLock, errorMessage)
-				createErrorTooltip(relock, errorMessage)
+			if not lockpick then
+				createErrorTooltip(lockOption, "ContextMenu_Need_Lockpick")
 			end
 		end
 
@@ -234,6 +218,10 @@ UsefulOccupations.DoTraitsOnCreatePlayer.Burglar = function(_)
 		local playerIndex = playerObj:getPlayerNum()
 
 		local menu = getPlayerRadialMenu(playerIndex)
+
+		if menu == nil then
+			return
+		end
 
 		if menu:isReallyVisible() then
 			if menu.joyfocus then

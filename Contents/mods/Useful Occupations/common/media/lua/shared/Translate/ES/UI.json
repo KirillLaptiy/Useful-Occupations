@@ -1,0 +1,64 @@
+{
+    "UI_prof_unemployed": "I. Profesión personalizada",
+    "UI_prof_unemployed_desc": "Una hoja en blanco. Comienza tu viaje con una velocidad de aprendizaje increíble para recuperar el tiempo perdido.",
+    "UI_prof_spm": "IV. Maestro de Propósito Especial",
+    "UI_prof_spm_desc": "Fuerzas especiales de ingeniería universal. Capaz de crear cualquier cosa a partir de cualquier cosa, convirtiendo la basura en obras maestras de supervivencia.",
+    "UI_prof_veteran": "III. Veterano",
+    "UI_prof_veteran_desc": "Un asesino endurecido en batallas. Tu cuerpo es un arma, y tu mente es una fortaleza de acero inmune a los horrores del apocalipsis.",
+    "UI_prof_scout": "II. Explorador",
+    "UI_prof_scout_desc": "Maestro de la supervivencia en la naturaleza. Se adapta a las duras condiciones más rápido que nadie, encontrando comida donde otros se rinden.",
+
+    "UI_trait_Wunderkind": "Niño prodigio",
+    "UI_trait_WunderkindDesc": "Genio. Absorbe conocimiento más rápido mientras los demás apenas empiezan a entender las cosas. Otorga +125 de XP hasta el nivel 3 de las habilidades y duplica las bonificaciones de los libros.",
+
+    "UI_trait_ScoutSkills": "Habilidades de explorador",
+    "UI_trait_ScoutSkillsDesc": "Ojo de halcón. Ves más, consumes menos y pescas donde lógicamente no debería haber nada. Reduce el hambre y la sed al caminar, permite identificar setas y bayas venenosas y otorga bonificaciones a la pesca.",
+
+    "UI_trait_Outdoorsman": "Excursionista",
+    "UI_trait_OutdoorsmanDesc": "Uno con la naturaleza. El mal tiempo, la suciedad y los elementos ya no son tus enemigos. 90 de probabilidad de no enfermar por el clima y 99 de probabilidad de no arañarte con los árboles. Acelera el corte de árboles, el lavado y el encendido de fogatas.",
+
+    "UI_trait_Axeman": "Leñador",
+    "UI_trait_AxemanDesc": "Leñador berserker. Los árboles caen con solo mirarlos, y tus músculos ni siquiera tienen tiempo de cansarse. +5 velocidad de balanceo, +25 velocidad de golpe y 1.5x más daño a los árboles. Reduce la fatiga y la tensión muscular al cortar.",
+
+    "UI_trait_Burglar": "Ladrón",
+    "UI_trait_BurglarDesc": "Ladrón silencioso. Cerraduras, ventanas e incluso encendidos de coches se abren ante ti. Permite forzar puertas, ventanas y coches usando una ganzúa, y romper ventanas sin hacer ruido.",
+
+    "UI_trait_Graceful": "Agraciado",
+    "UI_trait_GracefulDesc": "Sombra del viento. Silencioso, rápido y esquivo como un fantasma. Aumenta la velocidad al girar, caminar, correr y escalar obstáculos, y reduce el peso de la ropa puesta.",
+
+    "UI_trait_Organized": "Organizado",
+    "UI_trait_OrganizedDesc": "Orden en todo. Tus mochilas y bolsillos contienen una cantidad increíble de carga. +30 de capacidad en todos los contenedores, y la fuerza afecta al peso que puedes cargar más de lo normal.",
+
+    "UI_trait_Dextrous": "Diestro",
+    "UI_trait_DextrousDesc": "Reflejos relámpago. Mueves objetos mientras los demás solo están pensando en ello. La velocidad de transferencia de inventario aumenta en un 75.",
+
+    "UI_trait_Inconspicuous": "Discreto",
+    "UI_trait_InconspicuousDesc": "Te mezclas con los muertos. Los zombis no te notarán incluso si te quedas justo al lado. Se activa con la tecla G. Los zombis te pierden de vista extremadamente rápido, y el rango de detección se reduce a la mitad. No funciona si ya te han visto o si haces acciones sospechosas.",
+
+    "UI_trait_Marksman": "Tirador",
+    "UI_trait_MarksmanDesc": "Dios del disparo. Cada bala encuentra su objetivo, y los críticos perforan cualquier cráneo. Acelera el apuntado y la recarga, aumenta el daño, el alcance y la probabilidad de crítico. Otorga una probabilidad de súper-crítico que mata zombis al instante. Las armas no se encasquillan.",
+
+    "UI_trait_Desensitized": "Insensibilizado",
+    "UI_trait_DesensitizedDesc": "La locura pasa de largo. Ni el dolor, ni las montañas de cadáveres, ni los horrores romperán tu mente. Reduce el dolor máximo y la somnolencia, y otorga resistencia al dolor. No entras en pánico ni sufres estrés al ver cadáveres.",
+
+    "UI_trait_TrainedFighter": "Luchador entrenado",
+    "UI_trait_TrainedFighterDesc": "Máquina de matar. Tus golpes son demoledores y tu postura es inquebrantable. Aumenta el daño, el alcance y los críticos. Siempre derribas a los enemigos, golpeas, empujas y pisotas más rápido, no te ralentizas después de los ataques y no sufres dolor muscular.",
+
+    "UI_trait_EnduranceSecret": "Secreto de resistencia",
+    "UI_trait_EnduranceSecretDesc": "Máquina de movimiento perpetuo. Gastas resistencia con una eficiencia increíble, y la fatiga te es ajena. Reduce enormemente el consumo de resistencia de todas las fuentes y acelera su recuperación.",
+
+    "UI_trait_Invincible": "Invencible",
+    "UI_trait_InvincibleDesc": "Ni siquiera una horda de zombis puede resistir tu poder... Pasivamente: Permite esquivar mordiscos a costa de resistencia y no tropezar al chocar con zombis. Inmunidad a arrastrados: los arrastrados no pueden atacarte. Al chocar con un zombi mientras corres o esprintas, en lugar de caer, lisiarás al zombi. Se activa cuando la salud cae por debajo de 30. Restauras completamente la salud y durante 3 minutos evitas que disminuya sin curar heridas. Recarga de 72 horas.",
+
+    "UI_trait_Engineer": "Ingeniero",
+    "UI_trait_EngineerDesc": "Señor de los mecanismos. Un manitas capaz de ensamblar cualquier cosa con una velocidad increíble. Conoce recetas exclusivas de ingeniero y dedica menos tiempo a fabricar.",
+
+    "UI_trait_Builder": "Constructor",
+    "UI_trait_BuilderDesc": "Arquitecto del apocalipsis. Construye fortalezas inexpugnables en un abrir y cerrar de ojos. Construye el doble de rápido, las estructuras son más fuertes y guardan más, y obtienes más recursos al desmontar.",
+
+    "UI_trait_Mechanic": "Mecánico",
+    "UI_trait_MechanicDesc": "Alma del coche. Da vida a cualquier chatarra sobre ruedas y desmóntala con precisión quirúrgica. Conoce todas las recetas de mecánico. Instala, quita piezas y repara coches mucho más rápido y de manera más eficiente.",
+
+    "UI_trait_Doctor": "Médico",
+    "UI_trait_DoctorDesc": "Ángel de la guarda. Cura heridas mortales en segundos y cocina alimentos que otorgan una fuerza increíble. Cura más rápido, las vendas y los cataplasmas duran mucho más, y la comida resulta más saciante."
+}

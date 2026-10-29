@@ -135,8 +135,8 @@ local PersonalTraits = {
 	---@class PersonalTraits.Axeman
 	Axeman = {
 		type = "Axeman",
-		name = getText("UI_trait_axeman"),
-		desc = getText("UI_trait_axemandesc"),
+		name = getText("UI_trait_Axeman"),
+		desc = getText("UI_trait_AxemanDesc"),
 		---@class PersonalTraits.Axeman.xpBoosts
 		xpBoosts = {},
 		---@class PersonalTraits.Axeman.freeRecipes
@@ -155,8 +155,8 @@ local PersonalTraits = {
 	---@class PersonalTraits.Organized
 	Organized = {
 		type = "Organized",
-		name = getText("UI_trait_Packmule"),
-		desc = getText("UI_trait_PackmuleDesc"),
+		name = getText("UI_trait_Organized"),
+		desc = getText("UI_trait_OrganizedDesc"),
 		---@class PersonalTraits.Organized.xpBoosts
 		xpBoosts = {},
 		---@class PersonalTraits.Organized.freeRecipes
@@ -188,8 +188,8 @@ local PersonalTraits = {
 	---@class PersonalTraits.Outdoorsman
 	Outdoorsman = {
 		type = "Outdoorsman",
-		name = getText("UI_trait_outdoorsman"),
-		desc = getText("UI_trait_outdoorsmandesc"),
+		name = getText("UI_trait_Outdoorsman"),
+		desc = getText("UI_trait_OutdoorsmanDesc"),
 		---@class PersonalTraits.Outdoorsman.xpBoosts
 		xpBoosts = {},
 		---@class PersonalTraits.Outdoorsman.freeRecipes
@@ -214,7 +214,7 @@ local PersonalTraits = {
 	---@class PersonalTraits.Burglar
 	Burglar = {
 		type = "Burglar",
-		name = getText("UI_prof_Burglar"),
+		name = getText("UI_trait_Burglar"),
 		desc = getText("UI_trait_BurglarDesc"),
 		---@class PersonalTraits.Burglar.xpBoosts
 		xpBoosts = {
@@ -236,8 +236,8 @@ local PersonalTraits = {
 	---@class PersonalTraits.Graceful
 	Graceful = {
 		type = "Graceful",
-		name = getText("UI_trait_graceful"),
-		desc = getText("UI_trait_gracefuldesc"),
+		name = getText("UI_trait_Graceful"),
+		desc = getText("UI_trait_GracefulDesc"),
 		---@class PersonalTraits.Graceful.xpBoosts
 		xpBoosts = {
 			{ perk = Perks.Sprinting, level = 3 },
@@ -256,67 +256,67 @@ local PersonalTraits = {
 			---@class PersonalTraits.Graceful.values.sneakWalk
 			sneakWalk = {
 				startBonusPercent = getSandboxValue("UO.Graceful.sneakWalk_startBonusPercent"),
-				percentPerLvl = getSandboxValue("UO.Graceful.sneakWalk_startBonusPercent"),
+				percentPerLvl = getSandboxValue("UO.Graceful.sneakWalk_percentPerLvl"),
 			},
 
 			---@class PersonalTraits.Graceful.values.sneakRun
 			sneakRun = {
 				startBonusPercent = getSandboxValue("UO.Graceful.sneakRun_startBonusPercent"),
-				percentPerLvl = getSandboxValue("UO.Graceful.sneakRun_startBonusPercent"),
+				percentPerLvl = getSandboxValue("UO.Graceful.sneakRun_percentPerLvl"),
 			},
 
 			---@class PersonalTraits.Graceful.values.defaultRun
 			defaultRun = {
 				startBonusPercent = getSandboxValue("UO.Graceful.defaultRun_startBonusPercent"),
-				percentPerLvl = getSandboxValue("UO.Graceful.defaultRun_startBonusPercent"),
+				percentPerLvl = getSandboxValue("UO.Graceful.defaultRun_percentPerLvl"),
 			},
 
 			---@class PersonalTraits.Graceful.values.defaultSprint
 			defaultSprint = {
 				startBonusPercent = getSandboxValue("UO.Graceful.defaultSprint_startBonusPercent"),
-				percentPerLvl = getSandboxValue("UO.Graceful.defaultSprint_startBonusPercent"),
+				percentPerLvl = getSandboxValue("UO.Graceful.defaultSprint_percentPerLvl"),
 			},
 
 			---@class PersonalTraits.Graceful.values.climbWall
 			climbWall = {
 				startBonusPercent = getSandboxValue("UO.Graceful.climbWall_startBonusPercent"),
-				percentPerLvl = getSandboxValue("UO.Graceful.climbWall_startBonusPercent"),
+				percentPerLvl = getSandboxValue("UO.Graceful.climbWall_percentPerLvl"),
 			},
 
 			---@class PersonalTraits.Graceful.values.climbWindow
 			climbWindow = {
 				startBonusPercent = getSandboxValue("UO.Graceful.climbWindow_startBonusPercent"),
-				percentPerLvl = getSandboxValue("UO.Graceful.climbWindow_startBonusPercent"),
+				percentPerLvl = getSandboxValue("UO.Graceful.climbWindow_percentPerLvl"),
 			},
 
 			---@class PersonalTraits.Graceful.values.climbFence_Walk
 			climbFence_Walk = {
 				startBonusPercent = getSandboxValue("UO.Graceful.climbFence_Walk_startBonusPercent"),
-				percentPerLvl = getSandboxValue("UO.Graceful.climbFence_Walk_startBonusPercent"),
+				percentPerLvl = getSandboxValue("UO.Graceful.climbFence_Walk_percentPerLvl"),
 			},
 
 			---@class PersonalTraits.Graceful.values.climbFence_Run
 			climbFence_Run = {
 				startBonusPercent = getSandboxValue("UO.Graceful.climbFence_Run_startBonusPercent"),
-				percentPerLvl = getSandboxValue("UO.Graceful.climbFence_Run_startBonusPercent"),
+				percentPerLvl = getSandboxValue("UO.Graceful.climbFence_Run_percentPerLvl"),
 			},
 
 			---@class PersonalTraits.Graceful.values.climbFence_Sprint
 			climbFence_Sprint = {
 				startBonusPercent = getSandboxValue("UO.Graceful.climbFence_Sprint_startBonusPercent"),
-				percentPerLvl = getSandboxValue("UO.Graceful.climbFence_Sprint_startBonusPercent"),
+				percentPerLvl = getSandboxValue("UO.Graceful.climbFence_Sprint_percentPerLvl"),
 			},
 
 			---@class PersonalTraits.Graceful.values.turn
 			turn = {
 				startBonusPercent = getSandboxValue("UO.Graceful.turn_startBonusPercent"),
-				percentPerLvl = getSandboxValue("UO.Graceful.turn_startBonusPercent"),
+				percentPerLvl = getSandboxValue("UO.Graceful.turn_percentPerLvl"),
 			},
 
 			---@class PersonalTraits.Graceful.values.turn180
 			turn180 = {
 				startBonusPercent = getSandboxValue("UO.Graceful.turn180_startBonusPercent"),
-				percentPerLvl = getSandboxValue("UO.Graceful.turn180_startBonusPercent"),
+				percentPerLvl = getSandboxValue("UO.Graceful.turn180_percentPerLvl"),
 			},
 
 			-- Weight Multiplier for worn clothing (0.25 - 75% reduce)
@@ -391,8 +391,8 @@ local PersonalTraits = {
 	---@class PersonalTraits.Marksman
 	Marksman = {
 		type = "Marksman",
-		name = getText("UI_trait_marksman"),
-		desc = getText("UI_trait_marksmandesc"),
+		name = getText("UI_trait_Marksman"),
+		desc = getText("UI_trait_MarksmanDesc"),
 		---@class PersonalTraits.Marksman.xpBoosts
 		xpBoosts = {
 			{ perk = Perks.Aiming, level = 3 },
@@ -623,6 +623,10 @@ local PersonalTraits = {
 			-- This is how much of the perk's cooldown must pass in percentage for the main debuffs to start working
 			-- (5%, 6 game hours by default)
 			perkCooldownEffectsStartPercent = getSandboxValue("UO.Invincible.perkCooldownEffectsStartPercent"),
+			-- Zombie disable cost as a percentage of total endurance
+			zombieDisableCost = getSandboxValue("UO.Invincible.zombieDisableCost"),
+			-- Minimum endurance required for a zombie to turn into a crawler (as a percentage of the total)
+			zombieDisableEdge = getSandboxValue("UO.Invincible.zombieDisableEdge"),
 		},
 		---@class PersonalTraits.Invincible.MutualExclusives
 		mutualExclusives = {},

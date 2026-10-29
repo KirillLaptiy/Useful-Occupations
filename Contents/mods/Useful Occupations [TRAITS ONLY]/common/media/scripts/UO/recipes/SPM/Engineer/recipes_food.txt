@@ -1,0 +1,95 @@
+module UO {
+    craftRecipe UO_MakeEnergyDrink
+    {
+        timedAction = MixingMortarPestle,
+        time = 300,
+        Tags = InHandCraft,
+        category = Cooking,
+        xpAward = Cooking:30,
+
+        inputs
+        {
+            item 1 [Base.ChocolateCoveredCoffeeBeans;Base.Coffee2],
+            item 2 [UO.MetalPiece],
+            item 1 tags[Charcoal],
+            item 1 [*],
+            -fluid 1 [Water],
+            item 1 tags[uo:mixingkit] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 UO.EnergyDrink,
+        }
+    }
+
+    craftRecipe UO_MakeStimulantGel
+    {
+        timedAction = MixingMortarPestle,
+        time = 300,
+        Tags = InHandCraft,
+        category = Cooking,
+        xpAward = Cooking:50,
+
+        inputs
+        {
+            item 2 tags[NoCookingXP],
+            item 1 [Base.RippedSheets],
+            item 1 [*],
+            -fluid 1 [Water],
+            item 1 [Base.Salt],
+            item 1 [Base.Vinegar2;Base.RiceVinegar;Base.BalsamicVinegar],
+            item 1 tags[uo:mixingkit] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 UO.StimulantGel,
+        }
+    }
+
+    craftRecipe UO_MakeHerbalTea
+    {
+        timedAction = MixingMortarPestle,
+        time = 150,
+        Tags = InHandCraft,
+        category = Cooking,
+        xpAward = Cooking:30,
+
+        inputs
+        {
+            item 2 [Base.Chamomile;Base.ChamomileDried;Base.MintHerb;Base.MintHerbDried;Base.Lavender;Base.LavenderPetalsDried;Base.Marigold;Base.MarigoldDried;Base.Sage;Base.BlackSage;Base.SageDried;Base.Seasoning_Sage;Base.Thyme;Base.ThymeDried;Base.Seasoning_Thyme;Base.Rosemary;Base.RosemaryDried;Base.Seasoning_Rosemary;Base.Dandelions;Base.BerryBlack;Base.BerryBlue;Base.BerryGeneric5;Base.BerryGeneric4;Base.BerryGeneric3;Base.BerryGeneric2;Base.BerryGeneric1;Base.BerryPoisonIvy;Base.LemonGrass;Base.Oregano;Base.OreganoDried;Base.Seasoning_Oregano;Base.Parsley;Base.ParsleyDried;Base.Seasoning_Parsley;Base.BeautyBerry],
+            item 1 [*],
+            -fluid 1 [Water],
+            item 1 tags[uo:mixingkit] mode:keep,
+        }
+
+        outputs
+        {
+            item 1 UO.HerbalTea,
+        }
+    }
+
+    craftRecipe UO_MakeCigaretteSingle8
+    {
+        timedAction = CutClothing,
+        time = 150,
+        Tags = InHandCraft,
+        category = Cooking,
+        xpAward = Cooking:30,
+
+        inputs
+        {
+            item 1 [Base.Tobacco;Base.TobaccoChewing;Base.TobaccoDried],
+            item 8 [Base.SheetPaper2],
+            item 1 tags[Charcoal],
+            item 1 tags[uo:mixingkit] mode:keep,
+            item 1 tags[SharpKnife] mode:keep,
+        }
+
+        outputs
+        {
+            item 8 Base.CigaretteSingle,
+        }
+    }
+}

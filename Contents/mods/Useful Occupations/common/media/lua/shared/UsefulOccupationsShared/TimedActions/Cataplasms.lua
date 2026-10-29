@@ -20,15 +20,15 @@ end
 
 ---@diagnostic disable-next-line: duplicate-set-field
 function ISPlantainCataplasm:complete()
-	if self.character:HasTrait("Hemophobic") and self.bodyPart:getBleedingTime() > 0 then
-		self.character:getStats():setPanic(self.character:getStats():getPanic() + 50)
+	if self.character:hasTrait(UsefulOccupations.Functions.getTraitByStr("Hemophobic")) and self.bodyPart:getBleedingTime() > 0 then
+		self.character:getStats():set(CharacterStat.PANIC, self.character:getStats():get(CharacterStat.PANIC) + 50)
 		--Stat_Panic
 		syncPlayerStats(self.character, 0x00000100)
 	end
 
 	local cataplasmPower = ZombRandFloat((self.doctorLevel + 1) * 0.5, (self.doctorLevel + 1) * 1.0) + 10
 
-	if self.character:HasTrait(doctorType) then
+	if self.character:hasTrait(UsefulOccupations.Functions.getTraitByStr(doctorType)) then
 		cataplasmPower = cataplasmPower * getCataplasmMult(self.character)
 	end
 
@@ -48,15 +48,15 @@ end
 
 ---@diagnostic disable-next-line: duplicate-set-field
 function ISGarlicCataplasm:complete()
-	if self.character:HasTrait("Hemophobic") and self.bodyPart:getBleedingTime() > 0 then
-		self.character:getStats():setPanic(self.character:getStats():getPanic() + 50)
+	if self.character:hasTrait(UsefulOccupations.Functions.getTraitByStr("Hemophobic")) and self.bodyPart:getBleedingTime() > 0 then
+		self.character:getStats():set(CharacterStat.PANIC, self.character:getStats():get(CharacterStat.PANIC) + 50)
 		--Stat_Panic
 		syncPlayerStats(self.character, 0x00000100)
 	end
 
 	local cataplasmPower = ZombRandFloat((self.doctorLevel + 1) * 0.5, (self.doctorLevel + 1) * 1.0) + 10
 
-	if self.character:HasTrait(doctorType) then
+	if self.character:hasTrait(UsefulOccupations.Functions.getTraitByStr(doctorType)) then
 		cataplasmPower = cataplasmPower * getCataplasmMult(self.character)
 	end
 
@@ -74,15 +74,15 @@ end
 
 ---@diagnostic disable-next-line: duplicate-set-field
 function ISComfreyCataplasm:complete()
-	if self.character:HasTrait("Hemophobic") and self.bodyPart:getBleedingTime() > 0 then
-		self.character:getStats():setPanic(self.character:getStats():getPanic() + 50)
+	if self.character:hasTrait(UsefulOccupations.Functions.getTraitByStr("Hemophobic")) and self.bodyPart:getBleedingTime() > 0 then
+		self.character:getStats():set(CharacterStat.PANIC, self.character:getStats():get(CharacterStat.PANIC) + 50)
 		--Stat_Panic
 		syncPlayerStats(self.character, 0x00000100)
 	end
 
 	local cataplasmPower = ZombRandFloat((self.doctorLevel + 1) * 0.5, (self.doctorLevel + 1) * 1.0) + 10
 
-	if self.character:HasTrait(doctorType) then
+	if self.character:hasTrait(UsefulOccupations.Functions.getTraitByStr(doctorType)) then
 		cataplasmPower = cataplasmPower * getCataplasmMult(self.character)
 	end
 

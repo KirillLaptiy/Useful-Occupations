@@ -1,0 +1,370 @@
+module UO {
+    item MetalPiece
+    {
+        DisplayCategory = Material,
+        ItemType = base:normal,
+        Weight = 0.20,
+        Icon = MetalPiece,
+        Count = 1,
+        WorldStaticModel = MetalPiece,
+    }
+
+    item AmmoMaterial
+    {
+        DisplayCategory = Material,
+        ItemType = base:normal,
+        Weight = 0.10,
+        Icon = AmmoMaterial,
+        Count = 1,
+        WorldStaticModel = AmmoMaterial,
+    }
+
+    item Plastic
+    {
+        DisplayCategory = Material,
+        ItemType = base:normal,
+        Weight = 0.15,
+        Icon = Plastic,
+        Count = 1,
+        WorldStaticModel = Plastic,
+    }
+
+    item GunPartsCarbon
+    {
+        DisplayCategory = Material,
+        ItemType = base:normal,
+        Weight = 1.20,
+        Icon = GunPartsCarbon,
+        Count = 1,
+        WorldStaticModel = GunPartsCarbon,
+    }
+
+    item GunParts
+    {
+        DisplayCategory = Material,
+        ItemType = base:normal,
+        Weight = 0.70,
+        Icon = GunParts,
+        Count = 1,
+        WorldStaticModel = GunParts,
+    }
+
+    item Charcoal
+    {
+        DisplayCategory = Material,
+        ItemType = base:normal,
+        Weight = 0.30,
+        Icon = UO_Charcoal,
+        Count = 1,
+        WorldStaticModel = UO_Charcoal,
+        Tags = base:charcoal;base:isfirefuel,
+    }
+
+    item OxidizerRawPot
+    {
+        DisplayCategory = Material,
+        ItemType = base:normal,
+        Weight = 1.50,
+        Icon = OxidizerRawPot,
+        Count = 1,
+        WorldStaticModel = OxidizerRawPot,
+        Tooltip = Tooltip_item_dry_in_24,
+    }
+
+    item OxidizerPot
+    {
+        DisplayCategory = Material,
+        ItemType = base:normal,
+        Weight = 1.20,
+        Icon = OxidizerPot,
+        Count = 1,
+        WorldStaticModel = OxidizerPot,
+    }
+
+    item Oxidizer
+    {
+        DisplayCategory = Material,
+        ItemType = base:normal,
+        Weight = 0.50,
+        Icon = Oxidizer,
+        Count = 1,
+        WorldStaticModel = Oxidizer,
+    }
+
+    item PrimerCap
+    {
+        DisplayCategory = Material,
+        ItemType = base:normal,
+        Weight = 0.005,
+        Icon = PrimerCap,
+        Count = 1,
+        WorldStaticModel = PrimerCap,
+    }
+
+    item HomemadePowder
+    {
+        DisplayCategory = Material,
+        ItemType = base:normal,
+        Weight = 0.05,
+        Icon = HomemadePowder,
+        Count = 1,
+        WorldStaticModel = HomemadePowder,
+    }
+
+    item Bark
+    {
+        DisplayCategory = Material,
+        ItemType = base:normal,
+        Weight = 0.10,
+        Icon = Bark,
+        Count = 1,
+        WorldStaticModel = Bark,
+    }
+
+    item Resin
+    {
+        DisplayCategory = Material,
+        ItemType = base:normal,
+        Weight = 0.20,
+        Icon = Resin,
+        Count = 1,
+        WorldStaticModel = Resin,
+    }
+
+    item Moonshine
+    {
+        DisplayCategory = Material,
+        ItemType = base:normal,
+        Weight = 1.00,
+        Icon = Moonshine,
+        Count = 1,
+        WorldStaticModel = Moonshine,
+    }
+
+    item Alcohol
+    {
+        DisplayCategory = Material,
+        ItemType = base:normal,
+        Weight = 0.70,
+        Icon = UO_Alcohol,
+        Count = 1,
+        WorldStaticModel = UO_Alcohol,
+    }
+
+    item PureAlcohol
+    {
+        DisplayCategory = Material,
+        ItemType = base:normal,
+        Weight = 0.50,
+        Icon = UO_PureAlcohol,
+        Count = 1,
+        WorldStaticModel = UO_PureAlcohol,
+    }
+
+    item SawBlade
+    {
+        DisplayCategory = Material,
+        ItemType = base:normal,
+        Weight = 0.30,
+        Icon = SawBlade,
+        Count = 1,
+        WorldStaticModel = SawBlade,
+    }
+
+    item MetalPin
+    {
+        DisplayCategory = Material,
+        ItemType = base:normal,
+        Weight = 0.02,
+        Icon = MetalPin,
+        Count = 1,
+        WorldStaticModel = MetalPin,
+    }
+
+    item ScrewdriverTip
+    {
+        DisplayCategory = Material,
+        ItemType = base:normal,
+        Weight = 0.05,
+        Icon = ScrewdriverTip,
+        Count = 1,
+        WorldStaticModel = ScrewdriverTip,
+    }
+
+    item CarbonFiber
+    {
+        DisplayCategory = Material,
+        ItemType = base:normal,
+        Weight = 0.10,
+        Icon = CarbonFiber,
+        Count = 1,
+        WorldStaticModel = CarbonFiber,
+    }
+
+    item CarbonMesh
+    {
+        DisplayCategory = Material,
+        ItemType = base:normal,
+        Weight = 0.25,
+        Icon = CarbonMesh,
+        Count = 1,
+        WorldStaticModel = CarbonMesh,
+    }
+
+    item CarbonMetal
+    {
+        DisplayCategory = Material,
+        ItemType = base:normal,
+        Weight = 1.20,
+        Icon = CarbonMetal,
+        Count = 1,
+        WorldStaticModel = CarbonMetal,
+    }
+
+    item CarbonDoorPlate
+    {
+        DisplayCategory = Material,
+        ItemType = base:normal,
+        Weight = 4.00,
+        Icon = CarbonDoorPlate,
+        Count = 1,
+        WorldStaticModel = CarbonDoorPlate,
+    }
+
+    item CarbonGrate
+    {
+        DisplayCategory = Material,
+        ItemType = base:normal,
+        Weight = 3.00,
+        Icon = CarbonGrate,
+        Count = 1,
+        WorldStaticModel = CarbonGrate,
+    }
+
+    item StoneDust
+    {
+        DisplayCategory = Material,
+        ItemType = base:normal,
+        Weight = 0.50,
+        Icon = StoneDust,
+        Count = 1,
+        WorldStaticModel = StoneDust,
+    }
+
+    item FiberMaterialPot
+    {
+        DisplayCategory = Material,
+        ItemType = base:food,
+        Weight = 2.2,
+        Icon = FiberMaterialPot,
+        Count = 1,
+        MinutesToCook = 25,
+        ReplaceOnCooked = UO.CarbonFiberPot,
+        IsCookable = true,
+        CantEat = true,
+        CantBeFrozen = true,
+        WorldStaticModel = FiberMaterialPot,
+        Tooltip = Tooltip_item_requires_roasting,
+    }
+
+    item FiberMaterialPotCantCook
+    {
+        DisplayCategory = Material,
+        ItemType = base:food,
+        Weight = 2.2,
+        Icon = FiberMaterialPot,
+        Count = 1,
+        IsCookable = false,
+        CantEat = true,
+        CantBeFrozen = true,
+        WorldStaticModel = FiberMaterialPot,
+    }
+
+    item CarbonFiberPot
+    {
+        DisplayCategory = Material,
+        ItemType = base:normal,
+        Weight = 2.1,
+        Icon = CarbonFiberPot,
+        Count = 1,
+        WorldStaticModel = CarbonFiberPot,
+    }
+
+    item BarkPot
+    {
+        DisplayCategory = Material,
+        ItemType = base:food,
+        Weight = 2.2,
+        Icon = BarkPot,
+        Count = 1,
+        MinutesToCook = 15,
+        ReplaceOnCooked = UO.ResinPot,
+        IsCookable = true,
+        CantEat = true,
+        CantBeFrozen = true,
+        WorldStaticModel = BarkPot,
+        Tooltip = Tooltip_item_requires_roasting,
+    }
+
+    item BarkPotCantCook
+    {
+        DisplayCategory = Material,
+        ItemType = base:food,
+        Weight = 2.2,
+        Icon = BarkPot,
+        Count = 1,
+        IsCookable = false,
+        CantEat = true,
+        CantBeFrozen = true,
+        WorldStaticModel = BarkPot,
+    }
+
+    item ResinPot
+    {
+        DisplayCategory = Material,
+        ItemType = base:normal,
+        Weight = 2.3,
+        Icon = ResinPot,
+        Count = 1,
+        WorldStaticModel = ResinPot,
+    }
+
+    item LogPot
+    {
+        DisplayCategory = Material,
+        ItemType = base:food,
+        Weight = 2.3,
+        Icon = LogPot,
+        Count = 1,
+        MinutesToCook = 45,
+        ReplaceOnCooked = UO.CharcoalPot,
+        IsCookable = true,
+        CantEat = true,
+        CantBeFrozen = true,
+        WorldStaticModel = LogPot,
+        Tooltip = Tooltip_item_requires_roasting,
+    }
+
+    item LogPotCantCook
+    {
+        DisplayCategory = Material,
+        ItemType = base:food,
+        Weight = 2.3,
+        Icon = LogPot,
+        Count = 1,
+        IsCookable = false,
+        CantEat = true,
+        CantBeFrozen = true,
+        WorldStaticModel = LogPot,
+    }
+
+    item CharcoalPot
+    {
+        DisplayCategory = Material,
+        ItemType = base:normal,
+        Weight = 2.0,
+        Icon = CharcoalPot,
+        Count = 1,
+        WorldStaticModel = CharcoalPot,
+    }
+}

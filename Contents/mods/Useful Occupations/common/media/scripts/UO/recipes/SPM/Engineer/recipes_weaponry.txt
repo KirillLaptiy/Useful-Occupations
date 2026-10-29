@@ -129,27 +129,6 @@ module UO {
         }
     }
 
-    craftRecipe UO_Make223Bullets
-    {
-        timedAction = CraftWeapon1H,
-        time = 150,
-        Tags = InHandCraft,
-        category = Weaponry,
-
-        inputs
-        {
-            item 6 [UO.AmmoMaterial],
-            item 1 [Base.GunPowder;3:UO.HomemadePowder],
-            item 6 [UO.PrimerCap],
-            item 1 tags[Hammer] mode:keep,
-        }
-
-        outputs
-        {
-            item 6 Base.223Bullets,
-        }
-    }
-
     craftRecipe UO_Make308Bullets
     {
         timedAction = CraftWeapon1H,
@@ -338,7 +317,7 @@ module UO {
             item 1 [Base.RippedSheets],
             item 1 tags[Hammer] mode:keep,
             item 1 tags[SharpKnife] mode:keep,
-            item 1 tags[HandMetalMechanism] mode:keep,
+            item 1 tags[uo:handmetalmechanism] mode:keep,
         }
 
         outputs
@@ -364,7 +343,7 @@ module UO {
             item 4 [UO.Plastic],
             item 1 [Base.RippedSheets],
             item 1 tags[Hammer] mode:keep,
-            item 1 tags[HandMetalMechanism] mode:keep,
+            item 1 tags[uo:handmetalmechanism] mode:keep,
         }
 
         outputs
@@ -390,7 +369,7 @@ module UO {
             item 1 tags[Charcoal],
             item 1 [Base.RippedSheets],
             item 1 tags[Hammer] mode:keep,
-            item 1 tags[HandMetalMechanism] mode:keep,
+            item 1 tags[uo:handmetalmechanism] mode:keep,
         }
 
         outputs
@@ -414,7 +393,7 @@ module UO {
             item 1 [Base.GunPowder;3:UO.HomemadePowder],
             item 1 [Base.RippedSheets],
             item 1 tags[Hammer] mode:keep,
-            item 1 tags[HandMetalMechanism] mode:keep,
+            item 1 tags[uo:handmetalmechanism] mode:keep,
         }
 
         outputs
@@ -437,9 +416,9 @@ module UO {
             item 6 [UO.GunPartsCarbon],
             item 1 tags[Hammer] mode:keep,
             item 1 tags[Screwdriver] mode:keep,
-            item 1 tags[BoreGauge] mode:keep,
-            item 1 tags[Caliper] mode:keep,
-            item 1 tags[HandMetalMechanism] mode:keep,
+            item 1 tags[uo:boregauge] mode:keep,
+            item 1 tags[uo:caliper] mode:keep,
+            item 1 tags[uo:handmetalmechanism] mode:keep,
         }
 
         outputs
@@ -462,9 +441,9 @@ module UO {
             item 3 [UO.GunPartsCarbon],
             item 1 tags[Hammer] mode:keep,
             item 1 tags[Screwdriver] mode:keep,
-            item 1 tags[BoreGauge] mode:keep,
-            item 1 tags[Caliper] mode:keep,
-            item 1 tags[HandMetalMechanism] mode:keep,
+            item 1 tags[uo:boregauge] mode:keep,
+            item 1 tags[uo:caliper] mode:keep,
+            item 1 tags[uo:handmetalmechanism] mode:keep,
         }
 
         outputs
@@ -487,9 +466,9 @@ module UO {
             item 6 [UO.GunPartsCarbon],
             item 1 tags[Hammer] mode:keep,
             item 1 tags[Screwdriver] mode:keep,
-            item 1 tags[BoreGauge] mode:keep,
-            item 1 tags[Caliper] mode:keep,
-            item 1 tags[HandMetalMechanism] mode:keep,
+            item 1 tags[uo:boregauge] mode:keep,
+            item 1 tags[uo:caliper] mode:keep,
+            item 1 tags[uo:handmetalmechanism] mode:keep,
         }
 
         outputs
@@ -512,9 +491,9 @@ module UO {
             item 3 [UO.GunPartsCarbon],
             item 1 tags[Hammer] mode:keep,
             item 1 tags[Screwdriver] mode:keep,
-            item 1 tags[BoreGauge] mode:keep,
-            item 1 tags[Caliper] mode:keep,
-            item 1 tags[HandMetalMechanism] mode:keep,
+            item 1 tags[uo:boregauge] mode:keep,
+            item 1 tags[uo:caliper] mode:keep,
+            item 1 tags[uo:handmetalmechanism] mode:keep,
         }
 
         outputs
@@ -537,9 +516,9 @@ module UO {
             item 6 [UO.GunPartsCarbon],
             item 1 tags[Hammer] mode:keep,
             item 1 tags[Screwdriver] mode:keep,
-            item 1 tags[BoreGauge] mode:keep,
-            item 1 tags[Caliper] mode:keep,
-            item 1 tags[HandMetalMechanism] mode:keep,
+            item 1 tags[uo:boregauge] mode:keep,
+            item 1 tags[uo:caliper] mode:keep,
+            item 1 tags[uo:handmetalmechanism] mode:keep,
         }
 
         outputs
@@ -561,9 +540,9 @@ module UO {
             item 6 [UO.GunParts],
             item 1 tags[Hammer] mode:keep,
             item 1 tags[Screwdriver] mode:keep,
-            item 1 tags[BoreGauge] mode:keep,
-            item 1 tags[Caliper] mode:keep,
-            item 1 tags[HandMetalMechanism] mode:keep,
+            item 1 tags[uo:boregauge] mode:keep,
+            item 1 tags[uo:caliper] mode:keep,
+            item 1 tags[uo:handmetalmechanism] mode:keep,
         }
 
         outputs
@@ -585,9 +564,9 @@ module UO {
             item 6 [UO.GunParts],
             item 1 tags[Hammer] mode:keep,
             item 1 tags[Screwdriver] mode:keep,
-            item 1 tags[BoreGauge] mode:keep,
-            item 1 tags[Caliper] mode:keep,
-            item 1 tags[HandMetalMechanism] mode:keep,
+            item 1 tags[uo:boregauge] mode:keep,
+            item 1 tags[uo:caliper] mode:keep,
+            item 1 tags[uo:handmetalmechanism] mode:keep,
         }
 
         outputs
@@ -609,9 +588,9 @@ module UO {
             item 6 [UO.GunParts],
             item 1 tags[Hammer] mode:keep,
             item 1 tags[Screwdriver] mode:keep,
-            item 1 tags[BoreGauge] mode:keep,
-            item 1 tags[Caliper] mode:keep,
-            item 1 tags[HandMetalMechanism] mode:keep,
+            item 1 tags[uo:boregauge] mode:keep,
+            item 1 tags[uo:caliper] mode:keep,
+            item 1 tags[uo:handmetalmechanism] mode:keep,
         }
 
         outputs
@@ -633,9 +612,9 @@ module UO {
             item 6 [UO.GunParts],
             item 1 tags[Hammer] mode:keep,
             item 1 tags[Screwdriver] mode:keep,
-            item 1 tags[BoreGauge] mode:keep,
-            item 1 tags[Caliper] mode:keep,
-            item 1 tags[HandMetalMechanism] mode:keep,
+            item 1 tags[uo:boregauge] mode:keep,
+            item 1 tags[uo:caliper] mode:keep,
+            item 1 tags[uo:handmetalmechanism] mode:keep,
         }
 
         outputs
@@ -657,9 +636,9 @@ module UO {
             item 9 [UO.GunParts],
             item 1 tags[Hammer] mode:keep,
             item 1 tags[Screwdriver] mode:keep,
-            item 1 tags[BoreGauge] mode:keep,
-            item 1 tags[Caliper] mode:keep,
-            item 1 tags[HandMetalMechanism] mode:keep,
+            item 1 tags[uo:boregauge] mode:keep,
+            item 1 tags[uo:caliper] mode:keep,
+            item 1 tags[uo:handmetalmechanism] mode:keep,
         }
 
         outputs
@@ -682,9 +661,9 @@ module UO {
             item 12 [UO.GunParts],
             item 1 tags[Hammer] mode:keep,
             item 1 tags[Screwdriver] mode:keep,
-            item 1 tags[BoreGauge] mode:keep,
-            item 1 tags[Caliper] mode:keep,
-            item 1 tags[HandMetalMechanism] mode:keep,
+            item 1 tags[uo:boregauge] mode:keep,
+            item 1 tags[uo:caliper] mode:keep,
+            item 1 tags[uo:handmetalmechanism] mode:keep,
         }
 
         outputs
@@ -707,9 +686,9 @@ module UO {
             item 12 [UO.GunPartsCarbon],
             item 1 tags[Hammer] mode:keep,
             item 1 tags[Screwdriver] mode:keep,
-            item 1 tags[BoreGauge] mode:keep,
-            item 1 tags[Caliper] mode:keep,
-            item 1 tags[HandMetalMechanism] mode:keep,
+            item 1 tags[uo:boregauge] mode:keep,
+            item 1 tags[uo:caliper] mode:keep,
+            item 1 tags[uo:handmetalmechanism] mode:keep,
         }
 
         outputs
@@ -731,7 +710,7 @@ module UO {
             item 6 [UO.Plastic],
             item 1 [Base.MetalBar],
             item 1 tags[Hammer] mode:keep,
-            item 1 tags[HandMetalMechanism] mode:keep,
+            item 1 tags[uo:handmetalmechanism] mode:keep,
         }
 
         outputs
@@ -884,7 +863,7 @@ module UO {
         {
             item 1 [Base.MetalBar],
             item 1 tags[Hammer] mode:keep,
-            item 1 tags[HandMetalMechanism] mode:keep,
+            item 1 tags[uo:handmetalmechanism] mode:keep,
         }
 
         outputs

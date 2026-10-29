@@ -1,0 +1,23 @@
+{
+    "Tooltip_item_requires_roasting": "Requiere asarse en una fogata",
+    "Tooltip_item_flint_lighter": "Solo apto para encender fogatas",
+    "Tooltip_item_weak_lockpick": "Solo para Explorador\nPermite forzar cualquier puerta, ventana. 1 uso",
+    "Tooltip_item_lockpick": "Solo para Explorador\nPermite forzar cualquier puerta, ventana. 10 usos",
+    "Tooltip_item_strong_lockpick": "Solo para Explorador\nPermite forzar cualquier puerta, ventana. Irrompible",
+    "Tooltip_item_alarm_controller": "Permite comprobar, desactivar y activar alarmas en puertas y ventanas\nNo gasta batería al comprobar la alarma",
+    "Tooltip_item_mre": "Paque de comida para emergencia\nPuede ser abierto con un cuchillo o tijeras",
+    "Tooltip_item_mrekit": "Puede ser abierto con un cuchillo o tijeras",
+    "Tooltip_item_resin_mold": "1 uso",
+    "Tooltip_item_clay_mold": "1 uso",
+    "Tooltip_item_cement_mold": "Irrompible",
+    "Tooltip_item_dry_in_24": "Se secará en 24 horas",
+    "Tooltip_item_dry_in_72": "Se secará en 72 horas",
+    "Tooltip_item_dry_in_120": "Se secará en 120 horas",
+    "Tooltip_item_cloth_armor_plate": "Se puede acoplar a cualquier ropa, en partes del cuerpo\n1 uso",
+    "Tooltip_item_metal_armor_plate": "Se puede acoplar a cualquier ropa, en partes del cuerpo\n3 usos",
+    "Tooltip_item_carbon_armor_plate": "Se puede acoplar a cualquier ropa, en partes del cuerpo\n10 usos",
+    "Tooltip_item_only_for_engineer": "Solo para Ingeniero",
+    "Tooltip_item_stimulant_drops": "Elimina todos los rasgos negativos de visión y oído (excepto sordo)\nDura 12 horas.\n5 usos",
+    "Tooltip_item_stimulant_drops_plus": "Elimina todos los rasgos negativos de visión y oído (excepto sordo)\nAñade los rasgos 'Oído agudo', 'Ojos de gato', 'Vista de águila'\nDura 24 horas\n5 usos",
+    "Tooltip_item_stimulant_gel": "x1.5 Más XP para todas las habilidades 'Físicas'\nDura 6 horas"
+}

@@ -16,7 +16,7 @@ local traitType = UsefulOccupations.PersonalTraits.Mechanic.type
 ---@param chrPerks table
 ---@diagnostic disable-next-line: duplicate-set-field
 function VehicleUtils.calculateInstallationSuccess(perks, chr, chrPerks)
-	if chr:HasTrait(traitType) then
+	if chr:hasTrait(UsefulOccupations.Functions.getTraitByStr(traitType)) then
 		return 100, 0
 	end
 

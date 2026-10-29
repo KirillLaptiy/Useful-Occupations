@@ -8,10 +8,6 @@
 *
 ]]
 
-UOEnduranceSecret = {}
-
-local invincibleMultiplier = 1
-
 ---@class DoTraitsOnCreatePlayer.EnduranceSecret
 ---@param player IsoPlayer
 UsefulOccupations.DoTraitsOnCreatePlayer.EnduranceSecret = function(player)
@@ -25,15 +21,14 @@ UsefulOccupations.DoTraitsOnCreatePlayer.EnduranceSecret = function(player)
 		spend = "spend",
 	}
 
-	local modData = UsefulOccupations.Functions.getModData()
 	local stats = player:getStats()
-	local lastEndurance = stats:getEndurance()
+	local lastEndurance = stats:get(CharacterStat.ENDURANCE)
 	local enduranceSpendReduce = spendMainReduce + (spendPerkReduce * player:getPerkLevel(targetPerk))
 	local enduranceState = nil
 
 	-- Every 0.5 second check player endurance
 	UsefulOccupations.Functions.processEveryMs(500, function()
-		local currentEndurance = stats:getEndurance()
+		local currentEndurance = stats:get(CharacterStat.ENDURANCE)
 
 		local spentEndurance = lastEndurance - currentEndurance
 
@@ -60,14 +55,9 @@ UsefulOccupations.DoTraitsOnCreatePlayer.EnduranceSecret = function(player)
 			enduranceToRefill = -spentEndurance * (1 + enduranceRestBonus)
 		end
 
-		-- Endurance secret weakened during the cooldown of the "Invincible" trait
-		if modData.invincibleState == "onCooldown" then
-			enduranceToRefill = enduranceToRefill * invincibleMultiplier
-		end
+		stats:set(CharacterStat.ENDURANCE, currentEndurance + enduranceToRefill)
 
-		stats:setEndurance(currentEndurance + enduranceToRefill)
-
-		lastEndurance = stats:getEndurance()
+		lastEndurance = stats:get(CharacterStat.ENDURANCE)
 	end)
 
 	-- Update target perk effect
@@ -76,9 +66,4 @@ UsefulOccupations.DoTraitsOnCreatePlayer.EnduranceSecret = function(player)
 			enduranceSpendReduce = spendMainReduce + (spendPerkReduce * perkLvl)
 		end
 	end)
-end
-
----@param newMult number
-function UOEnduranceSecret:setInvincibleMult(newMult)
-	invincibleMultiplier = newMult
 end

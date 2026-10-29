@@ -1,10 +1,11 @@
+---------------
 module UO {
     item ClothArmorPlate
     {
         DisplayCategory = ArmorPlate,
-        Type = Normal,
+        ItemType = base:normal,
         Weight = 0.50,
-        Icon = UO/ClothArmorPlate,
+        Icon = ClothArmorPlate,
         Count = 1,
         ConditionMax = 1,
         WorldStaticModel = ClothArmorPlate,
@@ -14,9 +15,9 @@ module UO {
     item MetalArmorPlate
     {
         DisplayCategory = ArmorPlate,
-        Type = Normal,
+        ItemType = base:normal,
         Weight = 2.50,
-        Icon = UO/MetalArmorPlate,
+        Icon = MetalArmorPlate,
         Count = 1,
         ConditionMax = 3,
         WorldStaticModel = MetalArmorPlate,
@@ -26,9 +27,9 @@ module UO {
     item CarbonArmorPlate
     {
         DisplayCategory = ArmorPlate,
-        Type = Normal,
+        ItemType = base:normal,
         Weight = 2.00,
-        Icon = UO/CarbonArmorPlate,
+        Icon = CarbonArmorPlate,
         Count = 1,
         ConditionMax = 10,
         WorldStaticModel = CarbonArmorPlate,

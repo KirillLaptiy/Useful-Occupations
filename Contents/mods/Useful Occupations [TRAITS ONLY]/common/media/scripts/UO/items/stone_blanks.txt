@@ -1,0 +1,162 @@
+module UO {
+    item StoneBlankSaw
+    {
+        DisplayCategory = StoneBlank,
+        ItemType = base:normal,
+        Weight = 0.80,
+        Icon = StoneBlankSaw,
+        Count = 1,
+        WorldStaticModel = StoneBlankSaw,
+    }
+
+    item StoneBlankScrewdriver
+    {
+        DisplayCategory = StoneBlank,
+        ItemType = base:normal,
+        Weight = 0.50,
+        Icon = StoneBlankScrewdriver,
+        Count = 1,
+        WorldStaticModel = StoneBlankScrewdriver,
+    }
+
+    item StoneBlankPin
+    {
+        DisplayCategory = StoneBlank,
+        ItemType = base:normal,
+        Weight = 0.30,
+        Icon = StoneBlankPin,
+        Count = 1,
+        WorldStaticModel = StoneBlankPin,
+    }
+
+    item Flint
+    {
+        DisplayCategory = StoneBlank,
+        ItemType = base:normal,
+        Weight = 0.05,
+        Icon = UO_Flint,
+        Count = 1,
+        WorldStaticModel = UO_Flint,
+        Tags = base:flintpiece,
+    }
+
+    item ScrewdriverTipInStoneRaw
+    {
+        DisplayCategory = StoneBlank,
+        ItemType = base:food,
+        Weight = 0.9,
+        Icon = ScrewdriverTipInStoneRaw,
+        Count = 1,
+        MinutesToCook = 12,
+        ReplaceOnCooked = UO.ScrewdriverTipInStone,
+        IsCookable = true,
+        CantEat = true,
+        CantBeFrozen = true,
+        WorldStaticModel = ScrewdriverTipInStoneRaw,
+        Tooltip = Tooltip_item_requires_roasting,
+    }
+
+    item ScrewdriverTipInStoneRawCantCook
+    {
+        DisplayCategory = StoneBlank,
+        ItemType = base:food,
+        Weight = 0.9,
+        Icon = ScrewdriverTipInStoneRaw,
+        Count = 1,
+        IsCookable = false,
+        CantEat = true,
+        CantBeFrozen = true,
+        WorldStaticModel = ScrewdriverTipInStoneRaw,
+        Tooltip = Tooltip_item_requires_roasting,
+    }
+
+    item ScrewdriverTipInStone
+    {
+        DisplayCategory = StoneBlank,
+        ItemType = base:normal,
+        Weight = 0.9,
+        Icon = ScrewdriverTipInStone,
+        Count = 1,
+        WorldStaticModel = ScrewdriverTipInStone,
+    }
+
+    item MetalPinInStoneRaw
+    {
+        DisplayCategory = StoneBlank,
+        ItemType = base:food,
+        Weight = 0.9,
+        Icon = MetalPinInStoneRaw,
+        Count = 1,
+        MinutesToCook = 10,
+        ReplaceOnCooked = UO.MetalPinInStone,
+        IsCookable = true,
+        CantEat = true,
+        CantBeFrozen = true,
+        WorldStaticModel = MetalPinInStoneRaw,
+        Tooltip = Tooltip_item_requires_roasting,
+    }
+
+    item MetalPinInStoneRawCantCook
+    {
+        DisplayCategory = StoneBlank,
+        ItemType = base:food,
+        Weight = 0.9,
+        Icon = MetalPinInStoneRaw,
+        Count = 1,
+        IsCookable = false,
+        CantEat = true,
+        CantBeFrozen = true,
+        WorldStaticModel = MetalPinInStoneRaw,
+        Tooltip = Tooltip_item_requires_roasting,
+    }
+
+    item MetalPinInStone
+    {
+        DisplayCategory = StoneBlank,
+        ItemType = base:normal,
+        Weight = 0.9,
+        Icon = MetalPinInStone,
+        Count = 1,
+        WorldStaticModel = MetalPinInStone,
+    }
+
+    item SawBladeInStoneRaw
+    {
+        DisplayCategory = StoneBlank,
+        ItemType = base:food,
+        Weight = 1.0,
+        Icon = SawBladeInStoneRaw,
+        Count = 1,
+        MinutesToCook = 18,
+        ReplaceOnCooked = UO.SawBladeInStone,
+        IsCookable = true,
+        CantEat = true,
+        CantBeFrozen = true,
+        WorldStaticModel = SawBladeInStoneRaw,
+        Tooltip = Tooltip_item_requires_roasting,
+    }
+
+    item SawBladeInStoneRawCantCook
+    {
+        DisplayCategory = StoneBlank,
+        ItemType = base:food,
+        Weight = 1.0,
+        Icon = SawBladeInStoneRaw,
+        Count = 1,
+        IsCookable = false,
+        CantEat = true,
+        CantBeFrozen = true,
+        WorldStaticModel = SawBladeInStoneRaw,
+        Tooltip = Tooltip_item_requires_roasting,
+    }
+
+    item SawBladeInStone
+    {
+        DisplayCategory = StoneBlank,
+        ItemType = base:normal,
+        Weight = 1.0,
+        Icon = SawBladeInStone,
+        Count = 1,
+        WorldStaticModel = SawBladeInStone,
+    }
+}
